@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# Author: palb91
+# Date:   2022
+#
+# Bash style quick substitution in URL
+#
+# Usage:
+#   substiqute [-t] <replace_string> <new_string>
+#
+# Option:
+#   -t  Open in a new tab
+#
+# In config.py:
+#   bind('gs', 'set-cmd-text -s -- :spawn -u -- substiqute')
+#   bind('gS', 'set-cmd-text -s -- :spawn -u -- substiqute -t')
+#
+# Note:
+#   Don't forget to quote replace_string and new_string if there are spaces
+
+set -e
+
+OPEN_IN_TAB=false
+
+# logging
+info() { printf 'message-info    "%s"\n' "${*}" >>"${QUTE_FIFO}";           }
+warn() { printf 'message-warning "%s"\n' "${*}" >>"${QUTE_FIFO}";           }
+err()  { printf 'message-error   "%s"\n' "${*}" >>"${QUTE_FIFO}"; return 1; }
+
+
+replace() {
+    "${OPEN_IN_TAB}"                                                          \
+        && printf 'open -t %s\n' "${QUTE_URL/"${1}"/"${2}"}" >>"${QUTE_FIFO}" \
+        || printf 'open %s\n'    "${QUTE_URL/"${1}"/"${2}"}" >>"${QUTE_FIFO}"
+}
+
+
+# with a binding like '^', it is possible to do like in bash ^string1^string2
+split() {
+    case "${1}" in
+        *^*) set -- "${1%%\^*}" "${1#*\^}"     ;;
+        *)   err 'Unknown substitution format' ;;
+    esac
+    replace "${@}"
+}
+
+
+# -t open in a new tab... but to replace the string -t with another, use
+# `substiqute -- -t anything_else`
+case "${1}" in
+    -t) OPEN_IN_TAB=true; shift ;;
+    --) shift                   ;;
+esac
+
+
+case "${#}" in
+    0) err "No substitution in command" ;;
+    1) split "${1}"                     ;;
+    2) replace "${@}"                   ;;
+    *) err "To many arguments"          ;;
+esac

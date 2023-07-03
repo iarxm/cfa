@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+"""
+Qutebrowser userscript for finding a free version of first doi on webpage by using REST API of unpaywall.org.
+"""
+
+import requests
+import json
+import os
+import sys
+import re
+from collections import Counter
+from qutescript import userscript
+
+user_email = "sc@iarom.org"
+
+
+# find DOIs on current page page
+source = os.getenv("QUTE_TEXT")
+with open(source) as f:
+    text = f.read()
+
+@userscript
+def show_error(request):
+    request.send_command('message-error {}'.format(error_msg))
+
+
+doi_regex = re.compile(r'(10\.(\d)+/([^(\s\>\"\<)])+)')
+
+dois = doi_regex.findall(text)
+dois = Counter(e[0] for e in dois)
+try:
+	doi = dois.most_common(1)[0][0]
+except IndexError:
+    error_msg="no doi's found"
+    show_error()
+
+url = "https://api.unpaywall.org/v2/" + doi + "?email=" + user_email
+
+api_response = requests.get(url, verify=True)
+dl_url = ""
+
+if(api_response.ok):
+    json_load = json.loads(api_response.content)
+    if "best_oa_location" in json_load:
+        best_location_dict = eval(str(json_load["best_oa_location"]))
+        if best_location_dict != None:
+            # if there is a PMC article in html go to that
+            if "url_for_landing_page" in json_load:
+                dl_url = best_location_dict["url_for_landing_page"]
+            # otherwise load pdf
+            else:
+                dl_url = best_location_dict["url_for_pdf"]
+
+
+# if legal way didnt work then be more flexible:
+if dl_url == "":
+    dl_url = "https://sci-hub.se/" + str(doi)
+
+
+@userscript
+def unpaywall_doi(request):
+    request.send_command('open {}'.format(dl_url))
+
+
+# run the function
+unpaywall_doi()

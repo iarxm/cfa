@@ -1,0 +1,77 @@
+# General Colors   -------------------------------------------------
+color normal default default                            # general text
+color error color231 color212                           # error messages
+color message default default                           # messages at the bottom
+color prompt default default                            # prompt text
+color search black color10                              # search highlight
+# Statusbar Colors   ----------------------------------------------
+color status color141 default
+color status color7 color8 '([a-zA-Z0-9\.,]|\[|\])(\s)'  # bubble content 1
+color status color7 color8 '(\s)([a-zA-Z0-9\.,]|\[|\])'  # bubble content 2
+color status color7 color8 '(\% )'                       # % symbol
+color status color7 color8 '(\S)'                        # empty spaces
+color status color8 default '(|)'                      # statusline "bubbles"
+color status color69 black '(\` )'                      # bubble account variation
+color status white color69 '([a-zA-Z0-9\.]+)( )'         # account text
+color status green color8 ''                            # Unread messages count
+color status blue color8 ''                             # Read messages count icon
+color status yellow color8 ''                           # Flagged icon
+color status red color8 ''                              # Pending delete icon
+#color status black black                              # HIDE IT
+color status black black                              # HIDE IT
+# Index Colors   --------------------------------------------------------------------
+color index color15 default '~N'                # new messages
+color index color8 default '~R'                 # read messages
+color index color8 default '~Q'                 # messages which have been replied to
+color index_collapsed color4 default            # collapsed thread (message count text)
+color index color5 default '!~Q^~p'             # sent only to me and haven't been replied to
+color index color22 default '~h X-Label..'     # messages with a complete label
+color index color6 default '~F'                 # flagged messages
+color index color6 default '~F~N'               # flagged messages (new)
+color index color14 default '~F~R'              # flagged messages (read)
+color index color1 default '~D'                 # deleted messages
+color index color1 default '~D~N'               # deleted messages (new)
+color index color9 default '~D~R'               # deleted messages (read)
+color index color3 default '~T'                 # tagged messages
+color index color3 default '~T~N'               # tagged messages (new)
+color index color11 default '~T~R'              # tagged messages (read)
+color tree  color8 color8                       # thread tree lines/arrow
+color indicator default color8                  # selection indicator
+color index_date color8 default                 # date is always the same colour
+color index_label color6 default                # label is always the same colour
+
+# Sidebar Colors   ------------------------------------------------------------------
+color sidebar_indicator color14 black   # currently selected mailbox
+color sidebar_highlight white color8    # highlighted, but not open, mailbox.
+color sidebar_ordinary color8 default   # Color to give mailboxes by default
+color sidebar_divider color8 black      # divider between sidebar & content
+color sidebar_flagged red black         # mailboxes containing flagged mail
+color sidebar_new green black           # mailboxes containing new mail
+color sidebar_unread color7 default     # mailboxes containing unread mail
+color sidebar_unread color7 default     # mailboxes containing unread mail
+# Message Headers   -----------------------------------------------------------------
+color hdrdefault color8 default
+# Message Body   --------------------------------------------------------------------
+# Attachments
+color attachment color8 default
+# Signature
+color signature color8 default
+# emails
+	# color body  color14 default  '[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+'
+# hide "mailto" 
+color body  color0 color0  '<mailto:[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+>'
+# URLs
+color body  color3 default  '(https?|ftp)://[-\.,/%~_:?&=\#a-zA-Z0-9\+]+'
+# Dividers
+color body color8 default '(^[-_]*$)'
+# Important info in calendar invites
+color body color6 default '^(Date\/Time|Location|Organiser|Invitees|Teams Meeting)(:| \~\~)'
+# Quotes
+color quoted		color61		default
+color quoted1		color117	default
+color quoted2		color84		default
+color quoted3		color215	default
+color quoted4		color212	default
+# Forward/reply headers
+color body color8 default '(^(To|From|Sent|Subject):.*)'
+

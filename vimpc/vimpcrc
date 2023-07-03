@@ -1,0 +1,11 @@
+" vimpcrc
+map J nop
+map K nop
+map J :tabnext<CR>
+map K :tabprevious<CR>
+map Q :qa<CR>
+map gj 10j
+map gk 10k
+
+directory
+playlist

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+xmlns:rawvoice="http://www.rawvoice.com/rawvoiceRssModule/"
+xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0"
+>
+
+<channel>
+	<title>Mathematics &#8211; Quanta Magazine</title>
+	<atom:link href="https://api.quantamagazine.org/mathematics/feed/" rel="self" type="application/rss+xml"></atom:link>
+	<link>https://www.quantamagazine.org</link>
+	<description>Illuminating science</description>
+	<lastBuildDate>Fri, 15 Jan 2021 17:09:54 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.7.3</generator>
+<!-- podcast_generator="Blubrry PowerPress/8.4.4" mode="advanced" feedslug="feed" Blubrry PowerPress Podcasting plugin for WordPress (https://www.blubrry.com/powerpress/) -->
+	<atom:link rel="hub" href="https://pubsubhubbub.appspot.com/" />
+	<itunes:summary>Listen to Quanta Magazine&#039;s in-depth news stories about developments in mathematics, theoretical physics, theoretical computer science and the basic life sciences. Quanta, an editorially independent magazine published by the Simons Foundation, seeks to enhance public understanding of basic research. Read more at QuantaMagazine.org.</itunes:summary>
+	<itunes:author>Quanta Magazine</itunes:author>
+	<itunes:explicit>clean</itunes:explicit>
+	<itunes:image href="https://d2r55xnwy6nx47.cloudfront.net/uploads/2017/12/quanta_podcast_logo-1400.png" />
+	<itunes:owner>
+		<itunes:name>Quanta Magazine</itunes:name>
+		<itunes:email>quanta@simonsfoundation.org</itunes:email>
+	</itunes:owner>
+	<managingEditor>quanta@simonsfoundation.org (Quanta Magazine)</managingEditor>
+	<copyright>Quanta Magazine</copyright>
+	<itunes:subtitle>In-depth news about mathematics, physics, biology and computer science.</itunes:subtitle>
+	<image>
+		<title>Mathematics &#8211; Quanta Magazine</title>
+		<url>https://d2r55xnwy6nx47.cloudfront.net/uploads/2017/12/quanta_podcast_logo-1400.png</url>
+		<link>https://www.quantamagazine.org/mathematics/</link>
+	</image>
+	<itunes:category text="Science">
+		<itunes:category text="Natural Sciences" />
+	</itunes:category>
+	<googleplay:category text="Science &amp; Medicine"/>
+	<rawvoice:rating>TV-G</rawvoice:rating>
+	<rawvoice:location>New York, N.Y.</rawvoice:location>
+	<rawvoice:frequency>Bi-weekly</rawvoice:frequency>
+	<rawvoice:subscribe feed="https://www.quantamagazine.org/mathematics/feed/" itunes="https://itunes.apple.com/us/podcast/quanta-science-podcast/id1021340531" blubrry="https://blubrry.com/quanta/" stitcher="https://www.stitcher.com/podcast/quanta-magazine-2/quanta-magazine-podcast" tunein="https://tunein.com/podcasts/Science-Podcasts/Quanta-Science-Podcast-p1132792/" spotify="https://open.spotify.com/show/7oKXOpbHzbICFUcJNbZ5wF?si=jdnj9sTHSD2bj4hDMFLKEA"></rawvoice:subscribe>
+	<item>
+		<title>Mathematicians Resurrect Hilbert’s 13th Problem</title>
+		<link>https://www.quantamagazine.org/mathematicians-probe-unsolved-hilbert-polynomial-problem-20210114/</link>
+		<comments>https://www.quantamagazine.org/mathematicians-probe-unsolved-hilbert-polynomial-problem-20210114/#respond</comments>
+		<pubDate>Thu, 14 Jan 2021 17:40:52 +0000</pubDate>
+    <dc:creator><![CDATA[Stephen Ornes]]></dc:creator>
+				<category><![CDATA[Mathematics]]></category>
+
+		<guid isPermaLink="false">https://www.quantamagazine.org/?p=98826</guid>
+		<description><![CDATA[Long considered solved, David Hilbert’s question about seventh-degree polynomials is leading researchers to a new web of mathematical connections.]]></description>
+				<content:encoded><![CDATA[<p class="no-dropcap">Success is rare in math. Just ask <a href="https://math.uchicago.edu/~farb/">Benson Farb</a>.</p>
+<p>“The hard part about math is that you’re failing 90% of the time, and you have to be the kind of person who can fail 90% of the time,” Farb once said at a dinner party. When another guest, also a mathematician, expressed amazement that he succeeded 10% of the time, he quickly admitted, “No, no, no, I was exaggerating my success rate. Greatly.”</p>
+<p>Farb, a topologist at the University of Chicago, couldn’t be happier about his latest failure — though, to be fair, it isn’t his alone. It revolves around a problem that, curiously, is both solved and unsolved, closed and open.</p>
+<p>The problem was the 13th of 23 then-unsolved math problems that the German mathematician David Hilbert, at the turn of the 20th century, predicted would shape the future of the field. The problem asks a question about solving seventh-degree polynomial equations. The term “polynomial” means a string of mathematical terms — each composed of numerical coefficients and variables raised to powers — connected by means of addition and subtraction. “Seventh-degree” means that the largest exponent in the string is 7.</p>
+<p>Mathematicians already have slick and efficient recipes for solving equations of second, third, and to an extent fourth degree. These formulas — like the familiar quadratic formula for degree 2 — involve algebraic operations, meaning only arithmetic and radicals (square roots, for example). But the higher the exponent, the thornier the equation becomes, and solving it approaches impossibility. Hilbert’s 13th problem asks whether seventh-degree equations can be solved using a composition of addition, subtraction, multiplication and division plus algebraic functions of two variables, tops.</p>
+<p></p>
+<p>The answer is probably no. But to Farb, the question is not just about solving a complicated type of algebraic equation. Hilbert’s 13th is one of the most fundamental open problems in math, he said, because it provokes deep questions: How complicated are polynomials, and how do we measure that? “A huge swath of modern mathematics was invented in order to understand the roots of polynomials,” Farb said.</p>
+<p>The problem has led him and the mathematician <a href="https://www.math.uci.edu/people/jesse-wolfson">Jesse Wolfson</a> at the University of California, Irvine into a mathematical rabbit hole, whose tunnels they’re still exploring. They’ve also drafted <a href="http://people.math.harvard.edu/~kisin/">Mark Kisin</a>, a number theorist at Harvard University and an old friend of Farb’s, to help them excavate.</p>
+<p>They still haven’t solved Hilbert’s 13th problem and probably aren’t even close, Farb admitted. But they have unearthed mathematical strategies that had practically disappeared, and they have explored connections between the problem and a variety of fields including complex analysis, <a href="https://www.quantamagazine.org/tag/topology">topology</a>, <a href="https://www.quantamagazine.org/tag/number-theory">number theory</a>, <a href="https://www.quantamagazine.org/the-useless-perspective-that-transformed-mathematics-20200609/">representation theory</a> and <a href="https://www.quantamagazine.org/tag/algebraic-geometry">algebraic geometry</a>. In doing so, they’ve made inroads of their own, especially in connecting polynomials to geometry and narrowing the field of possible answers to Hilbert’s question. Their work also suggests a way to classify polynomials using metrics of complexity — analogous to the complexity classes associated with the <a href="https://www.quantamagazine.org/a-short-guide-to-hard-problems-20180716/">unsolved P vs. NP problem</a>.</p>
+<p>“They’ve really managed to extract from the question a more interesting version” than ones previously studied, said <a href="https://www.daniellitt.com/">Daniel Litt</a>, a mathematician at the University of Georgia. “They’re making the mathematics community aware of many natural and interesting questions.”</p>
+<h2><b>Open and Shut, and Open Again</b></h2>
+<p>Many mathematicians already thought the problem was solved. That’s because a Soviet prodigy named Vladimir Arnold and his mentor, Andrey Nikolyevich Kolmogorov, published proofs of it in the late 1950s. For most mathematicians, the Arnold-Kolmogorov work closed the book. Even Wikipedia — not a definitive source, but a reasonable proxy for public knowledge — until recently declared the case closed.</p>
+<p></p>
+<p>But five years ago, Farb came across a few tantalizing lines in an essay by Arnold, in which the famous mathematician reflected on his work and career. Farb was surprised to see that Arnold described Hilbert’s 13th problem as open and had actually spent four decades trying to solve the problem that he’d supposedly already conquered.</p>
+<p>“There are all these papers that would just literally repeat that it was solved. They clearly had no understanding of the actual problem,” Farb said. He was already working with Wolfson, then a postdoctoral researcher, on a topology project, and when he shared what he’d found in Arnold’s paper, Wolfson jumped in. In 2017, during a seminar celebrating Farb’s 50th birthday, Kisin listened to Wolfson’s talk and realized with surprise that their ideas about polynomials were related to questions in his own work in number theory. He joined the collaboration.</p>
+<p>The reason for the confusion about the problem soon became clear: Kolmogorov and Arnold had solved only a variant of the problem. Their solution involved what mathematicians call continuous functions, which are functions without abrupt discontinuities, or cusps. They include familiar operations like sine, cosine and exponential functions, as well as more exotic ones.</p>
+<p>But researchers disagree on whether Hilbert was interested in this approach. “Many mathematicians believe that Hilbert really meant algebraic functions, not continuous functions,” said <a href="https://www.math.ubc.ca/~reichst/">Zinovy Reichstein</a>, a mathematician at the University of British Columbia. Farb and Wolfson have been working on the problem they believe Hilbert intended ever since their discovery.</p>
+<p>Hilbert’s 13th, Farb said, is a kaleidoscope. “You open this thing up, and the more you put into it, the more new directions and ideas you get,” he said. “It cracks open the door to a whole array, this whole beautiful web of math.”</p>
+<h2><b>The Roots of the Matter</b></h2>
+<p>Mathematicians have been probing polynomials for as long as math has been around. Stone tablets carved more than 3,000 years ago show that ancient Babylonian mathematicians used a formula to solve polynomials of second degree — a cuneiform forebear of the same quadratic formula that algebra students learn today. That formula, $latex{x=\frac{{ &#8211; b \pm \sqrt {b^2 &#8211; 4ac} }}{{2a}}}$, tells you how to find the roots, or the values of <i>x</i> that make an expression equal to zero, of the second-degree polynomial $latex{ax^2 + bx +c}$.</p>
+<p>Over time, mathematicians naturally wondered if such clean formulas existed for higher-degree polynomials. “The multi-millennial history of this problem is to get back to something that powerful and simple and effective,” said Wolfson.</p>
+<p>The higher polynomials grow in degree, the more unwieldy they become. In his 1545 book <i>Ars Magna</i>, the Italian polymath Gerolamo Cardano published formulas for finding the roots of cubic (third-degree) and quartic (fourth-degree) polynomials.</p>
+<p>The roots of a cubic polynomial written $latex{ax^3 + bx^2 + cx + d = 0}$ can be found using this formula:</p>
+<p></p>
+<p>The quartic formula is even worse.</p>
+<p>“As they go up in degree, they go up in complexity; they form a tower of complexities,” said <a href="http://people.math.harvard.edu/~ctm/">Curt McMullen</a> of Harvard. “How can we capture that tower of complexities?”</p>
+<p>The Italian mathematician Paolo Ruffini argued in 1799 that polynomials of degree 5 or higher couldn’t be solved using arithmetic and radicals; the Norwegian Niels Henrik Abel proved it in 1824. In other words, there can be no similar “quintic formula.” Fortunately, other ideas emerged that suggested ways forward for higher-degree polynomials, which could be simplified through substitution. For example, in 1786, a Swedish lawyer named Erland Bring showed that any quintic polynomial equation of the form $latex{ax^5 + bx^4 + cx^3 + dx^2 + ex + f = 0}$ could be retooled as $latex{px^5 + qx + 1 = 0}$ (where <i>p</i> and <i>q</i> are complex numbers determined by <i>a</i>, <i>b</i>, <i>c</i>, <i>d</i>, <i>e</i> and <i>f</i>)<i>. </i>This pointed to new ways of approaching the inherent but hidden rules of polynomials.</p>
+<p>In the 19th century, William Rowan Hamilton picked up where Bring and others had left off. He showed, among other things, that to find the roots of any sixth-degree polynomial equation, you only need the usual arithmetic operations, some square and cube roots, and an algebraic formula that depends on only two parameters.</p>
+<p>In 1975, the American algebraist Richard Brauer at Harvard introduced the idea of “resolvent degree,” which describes the lowest number of terms needed to represent the polynomial of some degree. (Less than a year later, Arnold and Japanese number theorist Goro Shimura introduced nearly the same definition in another paper.)</p>
+<p>In Brauer’s framework, which represented the first attempt to codify the rules of such substitutions, Hilbert’s 13th problem asks us if it&#8217;s possible for seventh-degree polynomials to have a resolvent degree of less than 3; later, he made similar conjectures about sixth- and eighth-degree polynomials.</p>
+<p>But these questions also invoke a broader one: What’s the smallest number of parameters you need to find the roots of any polynomial? How low can you go?</p>
+<h2><b>Thinking Visually</b></h2>
+<p>A natural way to approach this question is to think about what polynomials look like. A polynomial can be written as a function — $latex{f(x)=x^2 -3x + 1}$, for example — and that function can be graphed. Then finding the roots becomes a matter of recognizing that where the function has value 0, the curve crosses the <i>x</i>-axis.</p>
+<p>Higher-degree polynomials give rise to more complicated figures. Third-degree polynomial functions with three variables, for example, produce smooth but twisty surfaces embedded in three dimensions. And again, by knowing where to look on these figures, mathematicians can learn more about their underlying polynomial structure.</p>
+<p></p>
+<p>As a result, many efforts to understand polynomials borrow from algebraic geometry and topology, mathematical fields that focus on what happens when shapes and figures are projected, deformed, squashed, stretched or otherwise transformed without breaking. “Henri Poincaré basically invented the field of topology, and he explicitly said he was doing it in order to understand algebraic functions,” said Farb. “At the time, people were really wrestling with these fundamental connections.”</p>
+<p>Hilbert himself unearthed a particularly remarkable connection by applying geometry to the problem. By the time he enumerated his problems in 1900, mathematicians had a vast array of tricks to reduce polynomials, but they still couldn’t make progress. In 1927, however, Hilbert described a new trick. He began by identifying all the possible ways to simplify ninth-degree polynomials, and he found within them a family of special cubic surfaces.</p>
+<p>Hilbert already knew that every smooth cubic surface — a twisty shape defined by third-degree polynomials — contains exactly 27 straight lines, no matter how tangled it appears. (Those lines shift as the coefficients of the polynomials change.) He realized that if he knew one of those lines, he could simplify the ninth-degree polynomial to find its roots. The formula required only four parameters; in modern terms, that means the resolvent degree is at most 4.</p>
+<p>“Hilbert’s amazing insight was that this miracle of geometry — from a completely different world — could be leveraged to reduce the  to 4,” Farb said.</p>
+<h2><b>Toward a Web of Connections</b></h2>
+<p>As Kisin helped Farb and Wolfson connect the dots, they realized that the widespread assumption that Hilbert’s 13th was solved had essentially closed off interest in a geometric approach to resolvent degree. In January 2020, Wolfson published a paper <a href="https://arxiv.org/abs/2001.06515">reviving the idea</a> by extending Hilbert’s geometric work on ninth-degree polynomials to a more general theory.</p>
+<p>Hilbert had focused on cubic surfaces to solve ninth-degree polynomials in one variable. But what about higher-degree polynomials? To solve those in a similar way, Wolfson thought, you could replace that cubic surface with some higher-dimensional “hypersurface” formed by those higher-degree polynomials in many variables. The geometry of these is less understood, but in the last few decades mathematicians have been able to prove that hypersurfaces always have lines in some cases.</p>
+<p></p>
+<p>Hilbert’s idea of using a line on a cubic surface to solve a ninth-degree polynomial can be extended to lines on these higher-dimensional hypersurfaces. Wolfson used this method to find new, simpler formulas for polynomials for certain degrees. That means that even if you can’t visualize it, you can solve a 100-degree polynomial “simply” by finding a plane on a multidimensional cubic hypersurface (47 dimensions, in this case).</p>
+<p>With this new method, Wolfson confirmed Hilbert’s value of the resolvent degree for ninth-degree polynomials. And for other degrees of polynomials — especially those above degree 9 — his method narrows down the possible values for the resolvent degree.</p>
+<p>Thus, this isn’t a direct attack on Hilbert’s 13th, but rather on polynomials in general. “They kind of found some adjacent questions and made progress on those, some of them long-standing, in the hopes that that will shed light on the original question,” McMullen said. And their work points to new ways of thinking about these mathematical constructions.</p>
+<p>This general theory of resolvent degree also shows that Hilbert’s conjectures about sixth-degree, seventh-degree and eighth-degree equations are equivalent to problems in other, seemingly unrelated fields of math. Resolvent degree, Farb said, offers a way to categorize these problems by a kind of algebraic complexity, rather like grouping optimization problems in complexity classes.</p>
+<p>Even though the theory began with Hilbert’s 13th, however, mathematicians are skeptical that it can actually settle the open question about seventh-degree polynomials. It speaks to big, unexplored mathematical landscapes in unimaginable dimensions — but it hits a brick wall at the lower numbers, and it can’t determine their resolvent degrees.</p>
+<p></p>
+<p>For McMullen, the lack of headway — despite these signs of progress — is itself interesting, as it suggests that the problem holds secrets that modern math simply can’t comprehend. “We haven’t been able to address this fundamental problem; that means there’s some dark area we haven’t pushed into,” he said.</p>
+<p>“Solving it would require entirely new ideas,” said Reichstein, who has developed his own new ideas about simplifying polynomials using a concept he calls essential dimension. “There is no way of knowing where they will come from.”</p>
+<p>But the trio is undeterred. “I’m not going to give up on this,” Farb said. “It’s definitely become kind of the white whale. What keeps me going is this web of connections, the mathematics surrounding it.”</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.quantamagazine.org/mathematicians-probe-unsolved-hilbert-polynomial-problem-20210114/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+<media:content url="https://d2r55xnwy6nx47.cloudfront.net/uploads/2021/01/Hilberts_13th_520x292.jpg" type="image/jpg"></media:content>
+	</item>
+		<item>
+		<title>The Crooked Geometry of Round Trips</title>
+		<link>https://www.quantamagazine.org/the-crooked-geometry-of-round-trips-20210113/</link>
+		<comments>https://www.quantamagazine.org/the-crooked-geometry-of-round-trips-20210113/#respond</comments>
+		<pubDate>Wed, 13 Jan 2021 16:03:53 +0000</pubDate>
+    <dc:creator><![CDATA[Patrick Honner]]></dc:creator>
+				<category><![CDATA[Mathematics]]></category>
+
+		<guid isPermaLink="false">https://www.quantamagazine.org/?p=98668</guid>
+		<description><![CDATA[Imagine if we lived on a cube-shaped Earth. How would you find the shortest path around the world?]]></description>
+				<content:encoded><![CDATA[<p>Have you ever wondered what life would be like if Earth weren’t shaped like a sphere? We take for granted the smooth ride through the solar system and the seamless sunsets afforded by the planet’s rotational symmetry. A round Earth also makes it easy to figure out the fastest way to get from point <em>A</em> to point <em>B</em>: Just travel along the circle that goes through those two points and cuts the sphere in half. We use these shortest paths, called geodesics, to plan airplane routes and satellite orbits.</p>
+<p>But what if we lived on a cube instead? Our world would wobble more, our horizons would be crooked, and our shortest paths would be harder to find. You might not spend much time imagining life on a cube, but mathematicians do: They study what travel looks like on all kinds of different shapes. And a <a href="https://www.quantamagazine.org/mathematicians-report-new-discovery-about-the-dodecahedron-20200831/">recent discovery</a> about round trips on a dodecahedron has changed the way we view an object we’ve been looking at for thousands of years.</p>
+<p></p>
+<p>Finding the shortest round trip on a given shape might seem as simple as picking a direction and walking in a straight line. Eventually you’ll end up back where you started, right? Well, it depends on the shape you’re walking on. If it’s a sphere, yes. (And, yes, we’re ignoring the fact that the Earth isn’t a perfect sphere and its surface isn’t exactly smooth.) On a sphere, straight paths follow “great circles,” which are geodesics like the equator. If you walk around the equator, after about 25,000 miles you’ll come full circle and end up right back where you started.</p>
+<p>On a cubic world, geodesics are less obvious. Finding a straight path on a single face is easy, since each face is flat. But if you were walking around a cubic world, how would you continue to go “straight” when you reached an edge?</p>
+<p>There’s a fun old math problem that illustrates the answer to our question. Imagine an ant on one corner of a cube who wants to get to the opposite corner. What’s the shortest path on the surface of the cube to get from <em>A</em> to <em>B</em>?</p>
+<p>You could imagine lots of different paths for the ant to take.</p>
+<p></p>
+<p>But which is the shortest? There’s an ingenious technique for solving the problem. We flatten out the cube!</p>
+<p>If the cube were made of paper, you could cut along the edges and flatten it out to get a “net” like this.</p>
+<p></p>
+<p>In this flat world, the shortest path from <em>A</em> to <em>B</em> is easy to find: Just draw a straight line between them.</p>
+<p></p>
+<p>To see what our cube-world geodesic looks like, just put the cube back together. Here’s our shortest path.</p>
+<p></p>
+<p>Flattening out the cube works because each face of the cube is itself flat, so nothing gets distorted as we unfold along the edges. (A similar attempt to “unfold” a sphere like this wouldn’t work, as we can’t flatten out a sphere without distorting it.)</p>
+<p>Now that we have a sense of what straight paths look like on a cube, let’s revisit the question of whether we can walk along any straight path and eventually end up back where we started. Unlike on the sphere, not every straight path makes a round trip on a cube.</p>
+<p>But round trips do exist — with a catch. Notice that the ant could continue along the path we mapped out above and end up back where it started. On a cube, coming full circle produces a path that looks more like a rhombus.</p>
+<p></p>
+<p>In following this round-trip path, the ant has to pass through another vertex (point <em>B</em>) before returning to its starting point. That’s the catch: Every straight path that starts and ends on the same vertex must pass through another vertex of the cube.</p>
+<p>This turns out to be true for four of the five Platonic solids. On the cube, tetrahedron, octahedron and icosahedron, any straight path that starts and ends on the same vertex must pass through some other vertex along the way. Mathematicians proved this five years ago, but the dodecahedron wasn’t on their list. We’ll return to that later.</p>
+<p></p>
+<p>To get a sense of why this fact about geodesics is true on four of the five Platonic solids, we’ll take a “tumbling” approach to these paths, and we’ll switch over to a tetrahedral world where tumbling paths are a little easier to study.</p>
+<p>Imagine starting from a vertex of a tetrahedron and heading out on a straight path along a face. Let’s orient our tetrahedron so that our path starts on the bottom face.</p>
+<p>When we meet an edge, we will roll the tetrahedron over, so that our path continues on the face that ends up on the bottom:</p>
+<p></p>
+<p>This tumbling diagram gives us a way to track our path just as we did on the net of the cube:</p>
+<p></p>
+<p>The tumbling path above represents this path on the surface of the tetrahedron:</p>
+<p></p>
+<p>Here the five tumbles of the tetrahedron correspond to the additional five faces traversed by the path.</p>
+<p>Now we can imagine any path on the surface of the tetrahedron as a path in this tumbling space. Let’s call our starting point <em>A</em> and see where this point ends up after some tumbling.</p>
+<p>As our path leaves from <em>A</em>, the tetrahedron tumbles over the opposite side. This lifts <em>A</em> off the ground.</p>
+<p></p>
+<p>Vertex <em>A</em> is temporarily suspended above our tumbling space. We wouldn’t normally indicate <em>A</em>’s location when creating our tumbling space, but here’s where it would appear if we were looking down.</p>
+<p></p>
+<p>As the path continues, the tetrahedron tumbles again. There are two directions it could go, but either way <em>A</em> ends up back on the ground.</p>
+<p></p>
+<p>As we let the tetrahedron tumble away in every possible direction, we end up with a tumbling space that looks like this:</p>
+<p></p>
+<p>This creates a grid system because of the way the equilateral triangular faces of the tetrahedron fit together.</p>
+<p></p>
+<p>This grid system tells us two interesting things about our tumbling space. First, the points where vertices of the tetrahedron can land are all “lattice points,” or points with integer coordinates. That’s because one unit in our coordinate system is one edge length of our tetrahedron.</p>
+<p>Second, take a look at where <em>A</em> can end up.</p>
+<p></p>
+<p>The coordinates of <em>A</em> are always even. Whenever <em>A</em> is on the ground, it will be back on the ground two tumbles later, so the possible landing spots for <em>A</em> are all spaced out by two edge lengths in each tumbling direction.</p>
+<p>Now let’s see what this says about geodesics. Recall that a path on the tetrahedron that starts and ends at <em>A</em> will be a straight line segment in the tumbling space starting at the <em>A</em> at (0,0) and ending at another <em>A</em>. And when the starting and ending points of the path are both <em>A</em>’s, there’s something quite interesting about the midpoint of the path.</p>
+<p>Even in our crooked coordinate system the standard midpoint formula still works, so we can find the coordinates of our midpoint by averaging the coordinates of the endpoints. Since the coordinates of the starting point are both 0 and the coordinates of the ending point are both even, the coordinates of our midpoint are both integers. This makes the midpoint a lattice point, and as we observed above, it therefore corresponds to a vertex of the triangle in the tumbling space.</p>
+<p>For example, the path from (0,0) to (4,2) has midpoint (2,1), a lattice point in our grid.</p>
+<p></p>
+<p>That means that on the surface of the tetrahedron, this path from <em>A</em> to itself must pass through another vertex along the way.</p>
+<p>Since every possible landing spot for <em>A</em> has even coordinates in this system, the midpoint of every geodesic path starting and ending at <em>A</em> will correspond to a lattice point. This shows that every geodesic from <em>A</em> to <em>A</em> on the surface of the tetrahedron must pass through another vertex.</p>
+<p>This is a simple version of an <a href="https://arxiv.org/abs/1508.03546">argument</a> that was made rigorous in 2015 by the mathematicians Diana Davis, Victor Dods, Cynthia Traub and Jed Yang. They used a similar but much more complicated argument to prove the same for the cube. Dmitry Fuchs <a href="https://link.springer.com/article/10.1007/s40598-016-0040-z">proved</a> the results for the octahedron and icosahedron the next year. Because of this, we know that for the tetrahedron, cube, octahedron and icosahedron, there are no straight paths going from a vertex back to itself that don’t pass through another vertex.</p>
+<p></p>
+<p>But the existence of such paths on the surface of the dodecahedron remained an open question until 2019, when the mathematicians Jayadev Athreya, David Aulicino and Patrick Hooper <a href="https://arxiv.org/abs/1811.04131">proved</a> it was actually possible. In fact, they found infinitely many straight paths on the surface of the dodecahedron that start and end on the same vertex without passing through any others.</p>
+<p>Here’s one shown on the net of the dodecahedron, hiding in plain sight.</p>
+<p></p>
+<p>For thousands of years the Platonic solids have been studied together because they have so much in common. But now we know something new about the dodecahedron that is decidedly different. This mysterious discovery shows that no matter how well we understand mathematical objects, there’s always more to learn. It also shows that the path from problem to solution won’t always look like a straight line.</p>
+<h2>Exercises</h2>
+<p>1. If the cube has edge length 1, how long is the ant’s shortest path from vertex to opposing vertex?</p>
+<p>2. Explain why the diagram below could not be the tumbling path for a path on the cube.</p>
+<p></p>
+<p>3. One complication with tumbling paths of the cube is that point <em>A</em> doesn’t have a unique end position associated with a given ending location of the cube. For example, even though the cube ends up in the same location tumbling along either the red path or the blue one, point <em>A</em> ends up in different positions. Determine where <em>A</em> ends up after tumbling along the red path and the blue path.</p>
+<p></p>
+<p>4. Here’s a valid tumbling path for a path on the cube.</p>
+<p></p>
+<p>Sketch the path on the surface of a cube starting at <em>A</em>.</p>
+<p></p>
+<h2>Answers</h2>
+<p class="reveal-next" style="cursor: pointer; box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 0 #1a1a1a; display: inline-block;">Click for Answer 1:</p>
+<div class="revealable" style="color: #ffffff; visibility: hidden;">The path is the hypotenuse of a right triangle with legs of length 1 and 2.  According to the Pythagorean theorem, the length of <em>AB</em> is $latex  \sqrt{5}$.</div>
+<p class="reveal-next" style="cursor: pointer; box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 0 #1a1a1a; display: inline-block;">Click for Answer 2:</p>
+<div class="revealable" style="color: #ffffff; visibility: hidden;">If a path forces the cube to initially tumble twice to the right, then its “slope” is at most 1 cube up per two cubes right. After the first tumble up, the highest the path could reach is halfway up the side, which would force the next tumble to be rightward.  This gives some insight into why tumbling paths of the cube are more complicated than those of the tetrahedron.</div>
+<p class="reveal-next" style="cursor: pointer; box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 0 #1a1a1a; display: inline-block;">Click for Answer 3:</p>
+<div class="revealable" style="color: #ffffff; visibility: hidden;">Acting this out with a Rubik’s cube or a die is helpful.   Notice also that the blue route could not be the tumbling path for a path on the cube.</div>
+<p class="reveal-next" style="cursor: pointer; box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 0 #1a1a1a; display: inline-block;">Click for Answer 4:</p>
+<div class="revealable" style="color: #ffffff; visibility: hidden;"></div>
+<p><script> (function(){ var triggers = [].slice.call(document.querySelectorAll('.reveal-next'));  function clickHandler(e) { e.preventDefault(); e.target.nextElementSibling.style.cssText = ''; e.target.nextElementSibling.style.visibility = ''; }  for (var i = 0; i < triggers.length; i++){ triggers.addEventListener('click', clickHandler); } })(window) </script></p>
+<p><em><strong>Correction:</strong> January 13, 2021</p>
+<p>This column was revised to make clear that the five tumbles of the tetrahedron shown correspond to the five "additional" faces traversed by the path, as the path traverses six faces in total.</em></p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.quantamagazine.org/the-crooked-geometry-of-round-trips-20210113/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+<media:content url="https://d2r55xnwy6nx47.cloudfront.net/uploads/2021/01/CubePath_520x292.jpg" type="image/jpg"></media:content>
+	</item>
+		<item>
+		<title>New Quantum Algorithms Finally Crack Nonlinear Equations</title>
+		<link>https://www.quantamagazine.org/new-quantum-algorithms-finally-crack-nonlinear-equations-20210105/</link>
+		<comments>https://www.quantamagazine.org/new-quantum-algorithms-finally-crack-nonlinear-equations-20210105/#respond</comments>
+		<pubDate>Tue, 05 Jan 2021 16:45:27 +0000</pubDate>
+    <dc:creator><![CDATA[Max G. Levy]]></dc:creator>
+				<category><![CDATA[Abstractions blog]]></category>
+		<category><![CDATA[Computer Science]]></category>
+		<category><![CDATA[Mathematics]]></category>
+
+		<guid isPermaLink="false">https://www.quantamagazine.org/?p=98266</guid>
+		<description><![CDATA[Two teams found different ways for quantum computers to process nonlinear systems by first disguising them as linear ones.]]></description>
+				<content:encoded><![CDATA[<p>Sometimes, it’s easy for a computer to predict the future. Simple phenomena, such as how sap flows down a tree trunk, are straightforward and can be captured in a few lines of code using what mathematicians call linear differential equations. But in nonlinear systems, interactions can affect themselves: When air streams past a jet’s wings, the air flow alters molecular interactions, which alter the air flow, and so on. This feedback loop breeds chaos, where small changes in initial conditions lead to wildly different behavior later, making predictions nearly impossible — no matter how powerful the computer.</p>
+<p>“This is part of why it’s difficult to predict the weather or understand complicated fluid flow,” said <a href="http://www.cs.umd.edu/~amchilds/">Andrew Childs</a>, a quantum information researcher at the University of Maryland. “There are hard computational problems that you could solve, if you could  these nonlinear dynamics.”</p>
+<p>That may soon be possible. In separate studies posted in November, two teams — <a href="https://arxiv.org/abs/2011.03185">one led by</a> Childs, <a href="https://arxiv.org/abs/2011.06571">the other</a> based at the Massachusetts Institute of Technology — described powerful tools that would allow quantum computers to better model nonlinear dynamics.</p>
+<p></p>
+<p><a href="https://www.quantamagazine.org/tag/quantum-computing/">Quantum computers</a> take advantage of quantum phenomena to perform certain calculations more efficiently than their classical counterparts. Thanks to these abilities, they can already topple complex linear differential equations exponentially faster than classical machines. Researchers have long hoped they could similarly tame nonlinear problems with clever quantum algorithms.</p>
+<p>The new approaches disguise that nonlinearity as a more digestible set of linear approximations, though their exact methods vary considerably. As a result, researchers now have two separate ways of approaching nonlinear problems with quantum computers.</p>
+<p>“What is interesting about these two papers is that they found a regime where, given some assumptions, they have an algorithm that is efficient,” said <a href="https://www.mariakieferova.com/">Mária Kieferová</a>, a quantum computing researcher at the University of Technology Sydney who is not affiliated with either study. “This is really exciting, and  use really nice techniques.”</p>
+<h2>The Cost of Chaos</h2>
+<p>Quantum information researchers have tried to use linear equations as a key to unlock nonlinear differential ones for over a decade. One breakthrough came in 2010, when <a href="http://www.dominicberry.org/">Dominic Berry</a>, now at Macquarie University in Sydney, built the first algorithm for <a href="https://arxiv.org/abs/1010.2745">solving linear differential equations</a> exponentially faster on quantum, rather than on classical, computers. Soon, Berry’s own focus shifted to nonlinear differential equations as well.</p>
+<p>“We had done some work on that before,” Berry said. “But it was very, very inefficient.”</p>
+<p></p>
+<p>The problem is, the physics underlying quantum computers is itself fundamentally linear. “It’s like teaching a car to fly,” said Bobak Kiani, a co-author of the MIT study.</p>
+<p>So the trick is finding a way to mathematically convert a nonlinear system into a linear one. “We want to have some linear system because that’s what our toolbox has in it,” Childs said. The groups did this in two different ways.</p>
+<p>Childs’ team used Carleman linearization, an out-of-fashion mathematical technique from the 1930s, to transform nonlinear problems into an array of linear equations.</p>
+<p>Unfortunately, that list of equations is infinite. Researchers have to figure where they can cut off the list to get a good-enough approximation. “Do I stop at equation number 10? Number 20?” said <a href="https://web.mit.edu/nse/people/faculty/loureiro.html">Nuno Loureiro</a>, a plasma physicist at MIT and a co-author of the Maryland study. The team proved that for a particular range of nonlinearity, their method could truncate that infinite list and solve the equations.</p>
+<p>The MIT-led paper took a different approach. It modeled any nonlinear problem as a Bose-Einstein condensate. This is a state of matter where interactions within an ultracold group of particles cause each individual particle to behave identically. Since the particles are all interconnected, each particle’s behavior influences the rest, feeding back to that particle in a loop characteristic of nonlinearity.</p>
+<p>The MIT algorithm mimics this nonlinear phenomenon on a quantum computer, using Bose-Einstein math to connect nonlinearity and linearity. So by imagining a pseudo Bose-Einstein condensate tailor made for each nonlinear problem, this algorithm deduces a useful linear approximation. “Give me your favorite nonlinear differential equation, then I’ll build you a Bose-Einstein condensate that will simulate it,” said <a href="https://www.maphy.uni-hannover.de/en/faculty/management-and-organization/team-detail/epv/institute-of-theoretical-physics/professors/tobias-j-osborne/">Tobias Osborne</a>, a quantum information scientist at Leibniz University Hannover who was not involved in either study. “This is an idea I really loved.”</p>
+<p></p>
+<p>Berry thinks both papers are important in different ways (he wasn’t involved with either). “But ultimately the importance of them is showing that it’s possible to take advantage of  to get the nonlinear behavior,” he said.</p>
+<h2>Knowing One’s Limits</h2>
+<p>While these are significant steps, they are still among the first in cracking nonlinear systems. More researchers will likely analyze and refine each method — even before the hardware needed to implement them becomes a reality. “With both of these algorithms, we are really looking in the future,” Kieferová said. Using them to solve practical nonlinear problems requires quantum computers with thousands of qubits to minimize error and noise — far beyond what’s possible today.</p>
+<p>And both algorithms can realistically handle only mildly nonlinear problems. The Maryland study quantifies exactly how much nonlinearity it can handle with a new parameter, R, which represents the ratio of a problem’s nonlinearity to its linearity — its tendency toward chaos versus the friction keeping the system on the rails.</p>
+<p>“ mathematically rigorous. He gives very clear statements of when it will work and when it won’t work,” Osborne said. “I think that’s really, really interesting. That’s the core contribution.”</p>
+<p>The MIT-led study doesn’t rigorously prove any theorems to bound its algorithm, according to Kiani. But the team plans to learn more about the algorithm’s limitations by running small-scale tests on a quantum computer before moving to more challenging problems.</p>
+<p></p>
+<p>The most significant caveat for both techniques is that quantum solutions <a href="https://scottaaronson.com/papers/qml.pdf">fundamentally differ from</a> classical ones. Quantum states correspond to probabilities rather than to  absolute values, so instead of visualizing air flow around every segment of a jet’s fuselage, for example, you extract average velocities or detect pockets of stagnant air. “This fact that the output is quantum mechanical means that you still have to do a lot of stuff afterwards to analyze that state,” Kiani said.</p>
+<p>It’s vital to not overpromise what quantum computers can do, Osborne said. But researchers are bound to test many successful quantum algorithms like these on practical problems in the next five to 10 years. “We’re going to try all kinds of things,” he said. “And if we think about the limitations, that might limit our creativity.”</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.quantamagazine.org/new-quantum-algorithms-finally-crack-nonlinear-equations-20210105/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+<media:content url="https://d2r55xnwy6nx47.cloudfront.net/uploads/2021/01/Quantum_NonLinear_520x292.jpg" type="image/jpg"></media:content>
+	</item>
+		<item>
+		<title>How I Learned to Love and Fear the Riemann Hypothesis</title>
+		<link>https://www.quantamagazine.org/how-i-learned-to-love-and-fear-the-riemann-hypothesis-20210104/</link>
+		<comments>https://www.quantamagazine.org/how-i-learned-to-love-and-fear-the-riemann-hypothesis-20210104/#respond</comments>
+		<pubDate>Mon, 04 Jan 2021 18:20:20 +0000</pubDate>
+    <dc:creator><![CDATA[Alex Kontorovich]]></dc:creator>
+				<category><![CDATA[Mathematics]]></category>
+		<category><![CDATA[Multimedia]]></category>
+
+		<guid isPermaLink="false">https://www.quantamagazine.org/?p=97433</guid>
+		<description><![CDATA[A number theorist recalls his first encounter with the Riemann hypothesis and breaks down the math in a new Quanta video. ]]></description>
+				<content:encoded><![CDATA[<p>I first heard of the <a href="https://www.quantamagazine.org/tag/riemann-hypothesis">Riemann hypothesis</a> — arguably the most important and notorious unsolved problem in all of mathematics — from the <a href="https://www.nytimes.com/2019/01/14/obituaries/elias-m-stein-dead.html">late, great Eli Stein</a>, a world-renowned mathematician at Princeton University. I was very fortunate that Professor Stein decided to reimagine the undergraduate analysis sequence during my sophomore year of college, in the spring of 2000. He did this by writing a rich, broad set of now-famous books on the subject (co-authored with then-graduate student Rami Shakarchi).</p>
+<p>In mathematics, analysis deals with the ideas of calculus in a rigorous, axiomatic way. Stein wrote four books in the series. The first was on Fourier analysis (the art and science of decomposing arbitrary signals into combinations of simple harmonic waves). The next was on complex analysis (which treats functions that have complex numbers as both inputs and outputs), followed by real analysis (which develops, among other things, a rigorous way to measure sizes of sets) and finally functional analysis (which deals broadly with functions of functions). These are core subjects containing foundational knowledge for any working mathematician.</p>
+<p>In Stein’s class, my fellow students and I were the guinea pigs on whom the material for his books was to be rehearsed. We had front-row seats as Eli (as I later came to call him) showcased his beloved subject’s far-reaching consequences: Look at how amazing analysis is, he would say. You can even use it to resolve problems in the distant world of number theory! Indeed, his book on Fourier analysis builds up to a proof of Dirichlet’s theorem on primes in arithmetic progressions, which says, for example, that infinitely many primes leave a remainder of 6 when divided by 35 (since 6 and 35 have no prime factors in common). And his course on complex analysis included a proof of the prime number theorem, which gives an asymptotic estimate for the number of primes below a growing bound. Moreover, I learned that if the Riemann hypothesis is true, we’ll get a much stronger prime number theorem than the one known today. To see why that is and for a closer look under the hood of this famous math problem, please watch the <a href="https://youtu.be/zlm1aajH6gY">accompanying video</a> at the top of this page.</p>
+<p>Despite Eli’s proselytizing to us on the wide-ranging power of analysis, I learned the opposite lesson: Look at how amazing number theory is — you can even use fields as far away as analysis to prove the things you want! Stein’s class helped set me on the path to becoming a number theorist. But as I came to understand more about the Riemann hypothesis over the years, I learned not to make it a focus of my research. It’s just too hard to make progress.</p>
+<p>After Princeton, I went off to graduate school at Columbia University. It was an exciting time to be working in number theory. In 2003, Dan Goldston and Cem Yıldırım announced a spectacular new result about gaps in the primes, only to withdraw the claim soon after. (As Goldston <a href="https://www.ams.org/notices/201404/rnoti-p399.pdf">wrote years later</a> on accepting the prestigious Cole Prize for these ideas: “While mathematicians often do not have much humility, we all have lots of experience with humiliation.”) Nevertheless, the ideas became an important ingredient in the Green-Tao theorem, which shows that the set of prime numbers contains arithmetic progressions of any given length. Then, working with János Pintz, Goldston and Yıldırım salvaged enough of their method to prove, in their breakthrough <a href="https://arxiv.org/abs/math/0508185">GPY theorem</a> in 2005, that primes will infinitely often have gaps which are arbitrarily small when compared to the average gap. Moreover, if you could improve their result by any amount at all, you would prove that primes infinitely often differ by some bounded constant. And this would be a huge leap toward solving the notoriously difficult <a href="https://www.quantamagazine.org/tag/twin-primes-conjecture">twin primes conjecture</a>, which predicts that there are infinitely many pairs of primes that differ by 2.</p>
+<p></p>
+<p>A meeting on how to extend the GPY method was immediately organized at the American Institute of Mathematics in San Jose, California. As a bright-eyed and bushy-tailed grad student, I felt extraordinarily lucky to be there among the world’s top experts. By the end of the week, the experts agreed that it was basically impossible to improve the GPY method to get bounded prime gaps. Fortunately, <a href="https://www.quantamagazine.org/yitang-zhang-and-the-mystery-of-numbers-20150402/">Yitang Zhang</a> did not attend this meeting. Almost a decade later, after years of incredibly hard work in relative isolation, he found a way around the impasse and <a href="https://www.quantamagazine.org/yitang-zhang-proves-landmark-theorem-in-distribution-of-prime-numbers-20130519/">proved the experts wrong</a>. I guess the moral of my story is that when people organize meetings on how not to solve the Riemann hypothesis (as they do from time to time), don’t go!</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.quantamagazine.org/how-i-learned-to-love-and-fear-the-riemann-hypothesis-20210104/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+<media:content url="https://d2r55xnwy6nx47.cloudfront.net/uploads/2021/01/Riemann-Hypothesis-520x292.jpg" type="image/jpg"></media:content>
+	</item>
+		<item>
+		<title>Our Favorite Comments of the Year</title>
+		<link>https://www.quantamagazine.org/our-favorite-comments-of-the-year-20201223/</link>
+		<comments>https://www.quantamagazine.org/our-favorite-comments-of-the-year-20201223/#respond</comments>
+		<pubDate>Wed, 23 Dec 2020 17:12:33 +0000</pubDate>
+    <dc:creator><![CDATA[Thomas Lin]]></dc:creator>
+				<category><![CDATA[Biology]]></category>
+		<category><![CDATA[Mathematics]]></category>
+		<category><![CDATA[Physics]]></category>
+
+		<guid isPermaLink="false">https://www.quantamagazine.org/?p=97878</guid>
+		<description><![CDATA[Online comment platforms can bring out the best — and the worst — in people. At the end of a tumultuous year, <em>Quanta</em>’s editors highlight some of our favorite things you had to say.  ]]></description>
+				<content:encoded><![CDATA[<p>Writing about medical science, such as it was 2,400 years ago, Hippocrates identified “knowledge” as belonging to those truly in the know and “opinion” as the province of the ignorant. Today, with so much of the world’s scientific knowledge just a few thumb taps away but competing for sunlight with prickly online opinions that multiply like thistles, it’s fair to ask why a magazine dedicated to illuminating science has a reader forum at all.</p>
+<p>It wasn’t a total surprise when several prominent science publications moved years ago to curtail or eliminate comments on their websites, encouraging readers to release their precious thought spores into the social media wilderness instead. No doubt caution is warranted — a <a href="https://science.sciencemag.org/content/359/6380/1146">2018 study</a> by researchers at the Massachusetts Institute of Technology found that “lies spread faster than the truth.” The perils of social media echo chambers and conspiracy theory chat rooms are all too real.</p>
+<p>But here’s why <em>Quanta</em> accepts (some) online comments. Simply put, we genuinely want to hear from you, our valued, well-informed, curious readers. At many news outlets, the comment magnets are articles that wade into the thorniest controversies, sparking flame wars from the tinder of entrenched political views. Here at <em>Quanta</em>, what counts as controversial might seem amusing in contrast. Our <a href="https://www.quantamagazine.org/does-time-really-flow-new-clues-come-from-a-century-old-approach-to-math-20200407/">most-commented story</a> of the year was about — you guessed it — the nature of <a href="https://www.quantamagazine.org/tag/time">time</a>. And our <a href="https://www.quantamagazine.org/why-gravity-is-not-like-the-other-forces-20200615/">second-most-commented story</a> of 2020 was about <a href="https://www.quantamagazine.org/tag/gravity">gravity</a>. (Both were written by ace physics reporter Natalie Wolchover.)</p>
+<p>It’s not all controversy and debate, however. Some commenters write in because they’re captivated by the ideas in a piece and want to learn more; some write to thank the author for explaining tricky concepts like <a href="https://www.quantamagazine.org/how-godels-incompleteness-theorems-work-20200714/">how Gödel’s proof works</a>. Some offer <a href="https://www.quantamagazine.org/three-math-puzzles-inspired-by-john-horton-conway-20201015/#comments">creative solutions</a> to Pradeep Mutalik’s brain-bending <a href="https://www.quantamagazine.org/tag/insights-puzzle/"><em>Insights</em> puzzles</a>. Some readers, like Sanman Yadav, <a href="https://www.quantamagazine.org/what-is-the-geometry-of-the-universe-20200316/#comment-4843854666">ask earnest questions</a> about hard-to-visualize ideas like the <a href="https://www.quantamagazine.org/what-is-the-geometry-of-the-universe-20200316/">geometry of the universe</a>, which <a href="https://www.quantamagazine.org/what-is-the-geometry-of-the-universe-20200316/#comment-4844676680">we try to answer</a> whenever we can. (We appreciate it when <a href="https://www.quantamagazine.org/mathematicians-prove-ringels-graph-theory-conjecture-20200219/#comment-4811140049">experts pop in to answer reader questions</a> too.) And in May, after we published our very popular <a href="https://www.quantamagazine.org/graduate-student-solves-decades-old-conway-knot-problem-20200519/">article</a> about Lisa Piccirillo’s solution to the Conway knot problem, Diana Conway (the wife of John Conway, the famous mathematician for whom the problem was named and who sadly died of COVID-19 in April) <a href="https://www.quantamagazine.org/graduate-student-solves-decades-old-conway-knot-problem-20200519/#comment-4922190041">wrote</a> a congratulatory note to Piccirillo:</p>
+<blockquote><p>Bravo! I hope John didn’t offer you any money&#8230;. I used to joke with him about being on the hook for these prizes after he was gone. <img src="https://s.w.org/images/core/emoji/2.2.1/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p></blockquote>
+<p>We also welcome thoughtful critiques of our coverage, which can only serve to make us more aware of potential blind spots. And readers are quick to point it out when <a href="https://www.quantamagazine.org/claudia-de-rham-slayed-gravitys-ghosts-20200818/#comment-5038315016">we slip up</a>, helping us correct any factual errors that sneak past our editing and fact-checking defenses. Thank you!</p>
+<p>Not all comments contribute to the conversation, unfortunately. That’s why we moderate them, and that’s why it can take a while for your posts to appear (we’re only able to moderate a couple of times each weekday during New York business hours). Some comments are rejected and do not appear at all. How do we make that call? Our commenting policy states that “<em>Quanta Magazine</em> moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected.” If your comment gets rejected, it’s for one of these reasons. Decrying the ills of censorship won’t get your comment approved. Sorry.</p>
+<p>Thinking about our civil, constructive community of commenters, I’m reminded of prime1987, who left this generous <a href="https://www.quantamagazine.org/why-an-old-theory-of-everything-is-gaining-new-life-20180108/#comment-3708575993">note</a> after visiting <em>Quanta</em> a few years ago:</p>
+<blockquote><p>… I was thinking how blissfully relaxing it is to visit a site whose raison d’être is pure knowledge and which forsakes all of today’s marketing cancer.</p>
+<p>Then I read the comments, and realised there’s something still better to be found here. Because even the weakest comments — let’s charitably call ’em “least informed”; or even “most encumbered by erroneous conceptions” — attract either no reply at all, or at best, a patient, good-faith attempt to address the misunderstanding. …</p>
+<p>Call me a jaded curmudgeon, but for me this makes <em>Quanta</em> an oasis of the internet — and a reason for some small remaining hope that our species isn’t irrevocably doomed to choke out of existence under a pile of waste while taking a selfie …</p></blockquote>
+<p>Hyperbole aside, I hope that our moderated comments section offers a safe haven for the free exchange of (on-topic) ideas about fundamental science and math. If you took the time to write one of the thousands of comments that we’ve approved over the past 12 months, thank you. This part of our “2020 in Review” series is dedicated to you.</p>
+<p>Before launching into our editors’ picks for 2020, a caveat: There were far too many incisive questions, brilliant insights and entertaining remarks to include in this short roundup. Rather than wring our hands over which comments to crown the best of the year, I asked our editors to each pick one they personally found the most delightful — one they thought other readers might enjoy too. On today’s polarized internet, maybe that’s enough.</p>
+<p>Here are their picks.</p>
+<h2>Michael Moyer, Deputy Editor</h2>
+<p>Rogue waves are sea ghosts, terrifying apparitions that arise without warning. And as with ghosts, many have doubted their existence. Data came only from sailors’ tales, for what those are worth. What physical mechanism could possibly raise a solitary wall of water out of calm seas? But then on New Year’s Day 1995, an oil platform in the North Sea made the first verified measurements of a rogue wave, and the theoretical race to explain the phenomenon was on. In time, two separate physical theories emerged to explain these giants, and researchers were split on what to believe. Then this year, mathematicians developed an overarching method of predicting when and where rogue waves might appear, as writer Charlie Wood described in “<a href="https://www.quantamagazine.org/the-grand-unified-theory-of-rogue-waves-20200205">The Grand Unified Theory of Rogue Waves</a>.” Such advance knowledge would be immensely useful for captains, as illustrated by the unnerving anecdote <a href="https://www.quantamagazine.org/the-grand-unified-theory-of-rogue-waves-20200205/#comment-4791977945">shared by reader Ron M</a>:</p>
+<blockquote><p>A few years ago, taking an excursion on a catamaran from St. Martin to Tintamarre Island, we had a terrifying experience. The ocean was a little rough but no-one was concerned, we were all drinking away, having a blast. Suddenly the boat felt like it dropped, a lot. I had the feeling of my stomach lifting, same as when you descend in a plane or on a roller coaster. Then before us was a huge wall of water, then the captain yelled, “hold on.” The wave completely covered the entire boat, it felt like we were under water, then it was over, just as quick as it happened. The captain did a quick head count, and checked that everyone was OK. The only injury was the second mate who had slammed on the deck and shattered the plexiglass hatch with his back, he had some severe bruising and small cuts.</p>
+<p>It is fun to talk about it and laugh now, but when facing that wall of water, I had an ugly, grim feeling.</p></blockquote>
+<h2>John Rennie, Deputy Editor</h2>
+<p>What makes a forest more than a bunch of trees, or an ant colony more than a lot of ants? For that matter, what makes each of us a human individual and not just 35 trillion agglomerated cells? The problem of defining what an individual is crops up repeatedly in biological theory; as one scientist told Jordana Cepelewicz in her <a href="https://www.quantamagazine.org/what-is-an-individual-biology-seeks-clues-in-information-theory-20200716">thought-provoking article</a> on this subject from July, biology is “a science of individuality.” That article elicited passionate responses from readers, but the first one was from <a href="https://www.quantamagazine.org/what-is-an-individual-biology-seeks-clues-in-information-theory-20200716/#comment-4995018647">Jon Richfield</a>, a frequent and enthusiastic contributor to our comment section:</p>
+<blockquote><p>I love, love, love this. I have been thinking along similar lines for some decades, in fact from the late seventies when Dawkins’ description of species and their relation to information, and Patterson’s common gene pool definition of species started me … on the concept of “entity,” something it took me years to come to terms with. Salter’s “individuals” did not to my mind make much sense, least of all in biology.</p>
+<p>… A species in an ecological structure is rather like an eddy in a rocky stream bed, or a cloud-cap over a mountain, created by the wind passing over; it adapts to the circumstances, it has to pass through its energy and substance, and when the rock, water, wind, or mountain changes or goes away, it must adapt or go extinct. …</p></blockquote>
+<h2>Bill Andrews, Senior Editor</h2>
+<p>My favorite comment is a bit of a cheat, because it’s actually a pair of comments, a perennial question and a thoughtful answer. They appeared in response to <a href="https://www.quantamagazine.org/new-geometric-perspective-cracks-old-problem-about-rectangles-20200625/">Kevin Hartnett’s article</a> about a breakthrough in determining the existence of theoretical rectangles, though they could just as easily have been a response to any sufficiently specific development in pure mathematics:</p>
+<blockquote><p><a href="https://www.quantamagazine.org/new-geometric-perspective-cracks-old-problem-about-rectangles-20200625/#comment-4971773360">River Creature<br />
+</a>As a non-mathematician person, what are the practical applications of this proof? The math is interesting to see but for me the application/uses are what I can understand.</p>
+<p style="padding-left: 30px;"><a href="https://www.quantamagazine.org/new-geometric-perspective-cracks-old-problem-about-rectangles-20200625/#comment-4984157368">Zemyla Cenh<br />
+</a>In math, more than any other discipline, no one knows the practical applications of a problem until they’re found. 100 years ago, mathematicians studied prime numbers and elliptic curves for their beauty. Now, they’re used to cryptographically secure our bank transactions. Group theory is used to explain results in everything from quantum physics to Rubik’s cubes.</p>
+<p style="padding-left: 30px;">Someone reading this article may just go, “Aha! This will help me solve a problem in underwater basket weaving!” and change millions of lives. We won’t know until it happens.</p>
+</blockquote>
+<h2>Natalie Wolchover, Senior Writer/Editor</h2>
+<p>The subtitle of <a href="https://www.quantamagazine.org/how-godels-incompleteness-theorems-work-20200714/">my article</a> on Kurt Gödel’s infamous 1931 incompleteness theorems states that the theorems “destroyed the search for a mathematical theory of everything.” But Rachael Alvir, a doctoral student in mathematics specializing in Gödel’s work, <a href="https://www.quantamagazine.org/how-godels-incompleteness-theorems-work-20200714/#comment-4993596313">questioned that widespread conception of the theorems</a>, for the interesting reason that Gödel himself continued to believe in the knowability of all mathematical truth:</p>
+<blockquote><p>… Too many of Godel’s papers to cite here for this, but my favorite quote is below. It talks about what one cannot conclude from the results of his 1931 paper &lt;3</p>
+<p style="padding-left: 30px;">You all know Hilbert’s famous words that every mathematician is convinced that for any precisely formulated mathematical question a unique answer can be found &#8230; The answer  may have two different meanings: (1) it may mean that the problem in its original formulation has a negative answer, or (2) it may mean that through the transition from evidence to formalism something was lost. It is easily seen that the second is the case, since the number-theoretic questions which are undecidable in a given formalism are always decidable by evident inferences not expressible in the given formalism. … So the belief in the decidability of every mathematical question is not shaken by this result.<br />
+</p>
+<p>In fact, nothing Godel ever proved can be used to say he “destroyed the search for a mathematical theory of everything,” and he was actually after such a “mathematical theory of everything” all his life! … So, if Godel’s theorems from 1931 didn’t show what the title of this article claims, then what did? Clearly the title of the article is a widespread belief; I simply think myself that it is a widespread <em>misconception</em> (which I don’t blame the author for, given that it is widespread even among trusted sources).</p></blockquote>
+<p></p>
+<blockquote><p>Of course it is actually Cohen’s and Godel’s proofs showing the independence of CH  which makes us think that maybe there is no single mathematical system or set of self-evident axioms which is complete and consistent, since CH is a known undecidable question for which a method of obtaining its solution is unknown. Godel’s famous paper on CH says something in agreement with this.</p>
+<p>That does not mean, of course, that it has no solution. It simply means that it is not known yet if there is a way of obtaining that solution mathematically. … It could go either way whether or not CH has a mathematical solution, or whether or not all mathematical problems have mathematical solutions. Perhaps the most important part of that picture, though, is the fact that the question is <em>open</em>. …</p></blockquote>
+]]></content:encoded>
+			<wfw:commentRss>https://www.quantamagazine.org/our-favorite-comments-of-the-year-20201223/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+<media:content url="https://d2r55xnwy6nx47.cloudfront.net/uploads/2020/12/Comment_520x292.jpg" type="image/jpg"></media:content>
+	</item>
+	</channel>
+</rss>

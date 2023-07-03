@@ -1,0 +1,78 @@
+
+/*===================================
+=====================================
+=====================================/*
+/* Hiding buttons */
+
+
+#back-button, #forward-button {
+  display: none;
+}
+
+
+
+/* Make toolbar icons smaller */
+.toolbarbutton-icon {
+	  width: 7px !important;
+	  height: 7px !important;
+  }
+
+
+/* Responsive tab tweaks */
+.scrollbutton-down .toolbarbutton-icon,
+.scrollbutton-up .toolbarbutton-icon {
+  height: 4px !important;
+  width: 4px !important;
+}
+
+.scrollbutton-down .toolbarbutton-icon,
+.scrollbutton-up .toolbarbutton-icon {
+}
+
+
+/* Remove top border */
+#browser-panel {
+  margin-top: -2px !important;
+}
+
+
+/* Remove space before first tab */
+.tabbrowser-arrowscrollbox > .arrowscrollbox-scrollbox {
+  -moz-padding-end: 0 !important;
+  -moz-padding-start: 0 !important;
+}
+
+
+#TabsToolbar {
+  height: 13px !important;
+}
+
+
+.tabbrowser-tab {
+  margin-top: -3px !important;
+  /* color: #888 !important;*/
+
+  /* Remove borders from tabs */
+  -moz-box-align: start !important; 
+}
+
+.tabbrowser-tab .tab-line {
+  margin-top: -3px !important;
+  background-color: transparent !important;
+}
+
+#tabbrowser-tabs {
+  margin-top: -3px !important;
+  height: 9px !important;
+}
+
+
+/* Selected tab tweaks */
+tab[selected] {
+  color: #990 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+
+
+

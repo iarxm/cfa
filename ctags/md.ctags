@@ -1,0 +1,23 @@
+# Define ========================================
+--langdef=markdowntags
+--languages=+markdown,+markdowntags
+
+--langmap=markdown:+(o*)
+--langmap=markdown:+(oo*)
+--langmap=markdown:+(ao*)
+--langmap=markdown:+(oa*)
+
+--langmap=markdown:+(*)
+--langmap=markdown:+
+
+--langmap=markdowntags:(o*)
+--langmap=markdowntags:+(oo*)
+--langmap=markdowntags:+(ao*)
+
+# tag patters ================================
+--kinddef-markdowntags=t,tag,tags
+--kinddef-markdowntags=o,todo,todos
+--kinddef-markdown=o,todo,todos,heading
+--regex-markdown=/(^,,(.*)$)/\1/o/
+--regex-markdowntags=/(^,,(\w\S*)$)/\1/o/
+

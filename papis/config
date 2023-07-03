@@ -1,0 +1,12 @@
+[dncuu]
+dir = ~/llt/dncuu
+
+[ii.artc]
+dir = ~/lllt/aii.artc
+
+[papers]
+dir = ~/lllt/aii.artc
+
+[settings]
+default-library = ii.artc
+

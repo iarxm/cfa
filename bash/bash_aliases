@@ -1,0 +1,25 @@
+# bash runtime commands
+# Alias'
+function ls_col () { 
+	ls -1p --color --group-directories-first $@
+	ls -1pd --color --group-directories-first .* $@
+}
+alias la='ls_col $@'
+alias lp='ls -1p --color --group-directories-first'
+
+# taskwarrior
+alias t='task'
+alias ta='task add $@e'
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    #alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+# vim:set syntax=bash

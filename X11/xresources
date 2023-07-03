@@ -1,0 +1,43 @@
+! vim:ft=xdefaults
+#include "urxvt/config"
+#include "X11/col.set"
+! ==== dynamically set font size - scriptable: ==========
+#include "X11/xresources.font"
+! ==== basic ============
+*.dpi: 			96
+*.antialias: 		true
+*.hinting: 		true
+*.rgba: 			rgb
+*.autohint: 		true
+*.hintstyle: 		hintslight
+*.lcdfilter: 		lcddefault
+
+! ==== alphas ============
+*.alpha: 			0.9
+*.nnnf1.alpha: 	0.5
+*.nnnf4.alpha: 	0.6
+*.nnnf3.alpha: 	0.05
+*.nnn.alpha: 		1
+*.neomuttf.alpha: 	1
+*.mpv.alpha: 		1
+*.tabbed.alpha: 	1
+*.preview.alpha: 	1
+*.ooaa.alpha: 		1
+urxvt*urgentOnBell: true
+st*urgentOnBell:    true
+! SXIV ---------------------
+Sxiv.font: 		Hack-9
+Sxiv.background: 	#000000
+Sxiv.foreground:	#5A5A5A
+
+! tabbed --------------------
+tabbed.normbgcolor:	#000000
+
+! ==== man pages ================
+! add colors 
+*VT100.colorBDMode:     true
+*VT100.colorBD:         red
+*VT100.colorULMode:     true
+*VT100.colorUL:         cyan
+*VT100.veryBoldColors: 	6
+

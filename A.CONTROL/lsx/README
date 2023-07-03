@@ -1,0 +1,17 @@
+# Automated package management
+
+## NO/NOT PACMAN:
+- Luke smith st 
+	- I installed this without the use of pacman
+	- Was accidental, i just followed the command sudo make install
+	- Realise i should have done the manual install pkgbuild thing that arch wiki describes
+	- Look this up next time?? To let pacman keep track..
+
+## AUR NOT FOUND:
+surf-luke-git
+st-luke-git
+some python discogs library
+
+## ISSUES:
+freenet
+

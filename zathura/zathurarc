@@ -1,0 +1,9 @@
+# set default-bg \#111111
+set statusbar-home-tilde true
+set selection-clipboard clipboard
+
+# COLOR #################################
+include /home/iao/.config/zathura/color-set
+
+map <A-k> feedkeys kkkk
+map <A-j> feedkeys jjjj

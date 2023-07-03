@@ -1,0 +1,84 @@
+Adobe Acrobat Reader DC	AcroRead.msi	20200417	
+Adobe Refresh Manager	Arm_001824369436_55690450616297452788382660101025580258.msi	20200417	
+Apple Application Support (32-bit)	AppleApplicationSupport.msi	20190411	
+Apple Mobile Device Support	AppleMobileDeviceSupport.msi	20190411	
+Apple Software Update	AppleSoftwareUpdate.msi	20190411	
+AquaSnap 1.23.6	AquaSnap.msi	20181030	
+Backup and Sync from Google	gsync.msi	20200415	
+Bonjour	Bonjour.msi	20190411	
+Cisco EAP-FAST Module	EAP-FAST.msi	20151030	
+Cisco LEAP Module	EAP-LEAP.msi	20151030	
+Cisco PEAP Module	EAP-PEAP.msi	20151030	
+ConEmu 180626.x86	ConEmu.180626.x86.msi	20181103	
+Dropbox Update Helper	DropboxUpdateHelper.msi	20200316	
+GitHub Desktop Machine-Wide Installer	GitHubDesktopSetup.msi	20190204	
+Google Update Helper	GoogleUpdateHelper.msi	20200320	
+HFS+ for Windows by Paragon Software	hfs_win_trial.msi	20200413	
+HP DeskJet 3700 series Basic Device Software	DJ370x86.msi	20170322	
+HP DeskJet 3700 series Help	lp-dj3700MSI.msi	20170322	
+HP Dropbox Plugin	HPDropBoxPlugin.msi	20170322	
+HP Google Drive Plugin	HPGoogleDrivePlugin.msi	20170322	
+Inkscape 0.92.5	inkscape-0.92.5-x86.msi	20200417	
+Intel® Trusted Connect Service Client	iclsClientInstaller_x86.msi	20150714	
+iTunes	iTunes.msi	20190411	
+Java 8 Update 241	jre1.8.0_241full.msi	20200401	
+Java Auto Updater	au.msi	20200401	
+LibreOffice 6.2.0.3	LibreOffice_6.2.0_Win_x86.msi	20190223	
+Microsoft .NET Core Host - 3.1.2 (x86)	dotnet-host-3.1.2-win-x86.msi	20200323	
+Microsoft .NET Core Host FX Resolver - 3.1.2 (x86)	dotnet-hostfxr-3.1.2-win-x86.msi	20200323	
+Microsoft .NET Core Runtime - 3.1.2 (x86)	dotnet-runtime-3.1.2-win-x86.msi	20200323	
+Microsoft .NET Framework 4.7	netfx_Full_x86.msi	20171120	
+Microsoft Office Access MUI (English) 2010	AccessMUI.msi	20170307	
+Microsoft Office Access Setup Metadata MUI (English) 2010	AccessMUISet.msi	20170307	
+Microsoft Office Excel MUI (English) 2010	ExcelMUI.msi	20170313	
+Microsoft Office Groove MUI (English) 2010	GrooveMUI.msi	20170307	
+Microsoft Office InfoPath MUI (English) 2010	InfoPathMUI.msi	20170307	
+Microsoft Office OneNote MUI (English) 2010	OneNoteMUI.msi	20170313	
+Microsoft Office Outlook Connector	olc.msi	20170322	
+Microsoft Office Outlook MUI (English) 2010	OutlookMUI.msi	20170802	
+Microsoft Office PowerPoint MUI (English) 2010	PowerPointMUI.msi	20170313	
+Microsoft Office Professional Plus 2010	ProPlusWW.msi	20200418	
+Microsoft Office Proof (English) 2010	Proof.msi	20170313	
+Microsoft Office Proof (French) 2010	Proof.msi	20170313	
+Microsoft Office Proof (Spanish) 2010	Proof.msi	20170313	
+Microsoft Office Proofing (English) 2010	Proofing.msi	20170307	
+Microsoft Office Publisher MUI (English) 2010	PublisherMUI.msi	20170307	
+Microsoft Office Shared MUI (English) 2010	OfficeMUI.msi	20171120	
+Microsoft Office Shared Setup Metadata MUI (English) 2010	OfficeMUISet.msi	20170307	
+Microsoft Office Word MUI (English) 2010	WordMUI.msi	20170313	
+Microsoft Visual C++ 2005 Redistributable	vcredist.msi	20170307	
+Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.17	vc_red.msi	20151030	
+Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161	vc_red.msi	20170307	
+Microsoft Visual C++ 2010  x86 Redistributable - 10.0.40219	vc_red.msi	20170307	
+Microsoft Visual C++ 2013 x86 Additional Runtime - 12.0.21005	vc_runtimeAdditional_x86.msi	20170813	
+Microsoft Visual C++ 2013 x86 Minimum Runtime - 12.0.21005	vc_runtimeMinimum_x86.msi	20170813	
+Microsoft Visual C++ 2019 X86 Additional Runtime - 14.24.28127	vc_runtimeAdditional_x86.msi	20200325	
+Microsoft Visual C++ 2019 X86 Minimum Runtime - 14.24.28127	vc_runtimeMinimum_x86.msi	20200325	
+Microsoft Visual Studio 2010 Tools for Office Runtime (x86)	vstor40_x86.msi	20170307	
+Microsoft Windows Desktop Runtime - 3.1.2 (x86)	windowsdesktop-runtime-3.1.2-win-x86.msi	20200323	
+MTP Porting Kit	MTPPK.msi	20170702	
+O2Micro Flash Memory Card Windows Driver	O2Micro Flash Memory Card Windows Driver.msi	20150714	
+Office 16 Click-to-Run Extensibility Component	C2RInt.16.msi	20200316	
+Office 16 Click-to-Run Licensing Component	SPPRedist.msi	20200418	
+Office 16 Click-to-Run Localization Component	C2RIntLoc.en-us.16.msi	20200316	
+OpenOffice 4.1.4	openoffice414.msi	20171208	
+Pandoc 2.7.1	pandoc-2.7.1-windows-i386.msi	20190402	
+Pdfedit	pdfedit-20140526_1531.msi	20200417	
+PowerShell 7-x86	PowerShell-7.0.0-win-x86.msi	20200325	
+Product Improvement Study for HP DeskJet 3700 series	DJ37Ux86.msi	20170322	
+Python 2.7.16	python-2.7.16.msi	20190420	
+Python 3.7.3 Core Interpreter (32-bit)	core.msi	20190406	
+Python 3.7.3 Development Libraries (32-bit)	dev.msi	20190406	
+Python 3.7.3 Documentation (32-bit)	doc.msi	20190406	
+Python 3.7.3 Executables (32-bit)	exe.msi	20190406	
+Python 3.7.3 pip Bootstrap (32-bit)	pip.msi	20190406	
+Python 3.7.3 Standard Library (32-bit)	lib.msi	20190406	
+Python 3.7.3 Tcl/Tk Support (32-bit)	tcltk.msi	20190406	
+Python 3.7.3 Test Suite (32-bit)	test.msi	20190406	
+Python 3.7.3 Utility Scripts (32-bit)	tools.msi	20190406	
+Python Launcher	launcher.msi	20190406	
+Symantec Endpoint Protection	Sep.msi	20150714	
+TextRoom	textroom-0.4.4.msi	20181117	
+WIDCOMM Bluetooth Software	BTW.msi	20150714	
+Writage	Writage-1.12.msi	20190330	
+

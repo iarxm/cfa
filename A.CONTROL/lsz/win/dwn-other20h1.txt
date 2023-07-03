@@ -1,0 +1,23 @@
+atomicwallet.exe
+BitTorrent.exe
+config.xml
+CuteWriter.exe
+Discord Colors by Dime.tt_theme
+Explorer++.exe
+FocusWriter_1.6.16.exe
+Git-2.21.0-32-bit.exe
+JabRef_windows_4_3_1 (1).exe
+JabRef_windows_4_3_1.exe
+novapdf-full.exe
+PicoTorrent-0.15.0-x64.exe
+prov.exe
+q10-1.2.exe
+q10-1.2-spell.exe
+saladin-1.0-win_x86.exe
+sonmos-win-alfa.exe
+tomahawk-0.8.4.exe
+vcredist_x86.exe
+VirtuaWin_setup_4.4 (1).exe
+Winfile.exe
+Wox-1.3.524.exe
+youtube-dl.exe

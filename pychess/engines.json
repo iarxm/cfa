@@ -1,0 +1,75 @@
+[
+ {
+  "analyze": true,
+  "command": "/usr/lib/python3.10/site-packages/pychess/Players/PyChess.py",
+  "comment": "",
+  "country": "dk",
+  "level": 5,
+  "md5": "7d73896ca75dff4ce1dae78e41f98fea",
+  "name": "PyChess.py",
+  "options": [
+   {
+    "default": false,
+    "name": "Ponder",
+    "type": "check"
+   },
+   {
+    "default": 0,
+    "max": 100,
+    "min": 0,
+    "name": "skipPruneChance",
+    "type": "spin"
+   }
+  ],
+  "protocol": "xboard",
+  "recheck": false,
+  "variants": [
+   "normal",
+   "wildcastle",
+   "nocastle",
+   "fischerandom",
+   "crazyhouse",
+   "light-brigade",
+   "losers",
+   "suicide",
+   "giveaway",
+   "horde",
+   "atomic",
+   "racingkings",
+   "seirawan",
+   "kingofthehill",
+   "3check",
+   "placement",
+   "asean",
+   "cambodian",
+   "makruk",
+   "sittuyin"
+  ],
+  "vm_args": [
+   "-u"
+  ],
+  "vm_command": "/usr/bin/python",
+  "vm_name": "python"
+ },
+ {
+  "analyze": true,
+  "command": "/usr/bin/gnuchess",
+  "comment": "",
+  "country": "us",
+  "level": 20,
+  "md5": "38aae62ed916611be004b3ce3b8fd810",
+  "name": "gnuchess",
+  "options": [
+   {
+    "default": false,
+    "name": "Ponder",
+    "type": "check"
+   }
+  ],
+  "protocol": "xboard",
+  "recheck": false,
+  "variants": [
+   "normal"
+  ]
+ }
+]

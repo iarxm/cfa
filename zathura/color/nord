@@ -1,0 +1,36 @@
+#append to your zathurarc for Nord color scheme
+# zathurarc-nord
+
+set font "inconsolata 15"
+set default-bg "#2e3440" #FF
+set default-fg "#88c0d0" #01
+
+set statusbar-fg "#d8dee9" #04
+set statusbar-bg "#434c5e" #01
+
+set inputbar-bg "#434c5e" #00 currently not used
+set inputbar-fg "#eceff4" #02
+
+set notification-error-bg "#bf616a" #08
+set notification-error-fg "#d8dee9" #00
+
+set notification-warning-bg "#ebcb8b" #08
+set notification-warning-fg "#d8dee9" #00
+
+set highlight-color "#b48ead" #0A
+set highlight-active-color "#eceff4" #0D
+
+set completion-highlight-fg "#eceff4" #02
+set completion-highlight-bg "#b48ead" #0C
+
+set completion-bg "#4c566a" #02
+set completion-fg "#5e81ac" #0C
+
+set notification-bg "#434c5e" #0B
+set notification-fg "#d8dee9" #00
+
+set recolor "true"
+set recolor-lightcolor "#2e3440" #00                                                                                       
+set recolor-darkcolor "#88c0d0" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"

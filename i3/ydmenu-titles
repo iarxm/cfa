@@ -1,0 +1,57 @@
+#!/bin/env bash
+dmenu_options="-l 10"
+# List all windows on a workspace
+ws_list() {
+	workspace="$1"
+	wmctrl -l | awk -v ws="$workspace" '$2 == ws { for(i=4;i<=NF;++i) printf "%s ", $i; printf "\n" }'
+}
+###################################
+# LIST CURRENT WS ###################
+# Get the focused workspace
+ws_current() {
+	focused_workspace=$(wmctrl -d | awk '$2 == "*" {print $1}')
+	ws_list "$focused_workspace"
+	# Prepare the dmenu input string
+	}
+##################################################
+# FUTURE ##########################################
+# LIst all windows on all workspaces::
+# Loop through the workspaces and create the dmenu input string
+# Get a list of workspaces and their windows
+env_all () {
+	workspace_list=$(wmctrl -l | awk '{print $2}' | sort -u | grep -v -e "^\(-1\|N/A\)$")
+	for workspace in "$workspace_list"; do
+		
+		echo "$workspace" >> $HOME/zlog.tmp
+		echo "$windows" >> $HOME/zlog.tmp
+
+    if [ "$workspace" == "$focused_workspace" ]; then
+        dmenu_input+="$windows\n"
+    else
+        dmenu_input+="$workspace : $windows\n"
+    fi
+	done
+}
+
+# GRAB SELECTED ##############################
+# Show the dmenu and get the selected window
+grab_selected() {
+	selected_window=$(echo -e "$dmenu_input" | dmenu $dmenu_options)
+
+	# Focus the selected window
+	wmctrl -i -a "$selected_window"
+}
+
+########################################
+# MAIN ###################################
+
+dmenu_input="$(ws_current)"
+
+# DEBUG 
+	# rm "$HOME/zlog.tmp"
+	# echo "$ws_list_cur" >> $HOME/zlog.tmp
+
+# DMENU
+echo -e "$dmenu_input" | dmenu $dmenu_options
+
+# vim:ft=bash

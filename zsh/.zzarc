@@ -1,0 +1,120 @@
+
+#source $XDG_CONFIG_HOME/zsh/.zshrcmore
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
+
+
+# Prompt Notes
+# 	- Taking directory name out prompt because it can be easily displayed in the window title
+# 	- Putting branch name in prompt to decrease odds of incorrect banch usage
+# 	- Reverting that decision because I may likely think I'm in the home directory due to lack of dir in prompt
+
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M:%{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+#PS1="%B%{$fg[red]%}[%{$fg[magenta]%}%~%{$fg[red]%}]%{$fg[green]%}$%b "
+#PS1="%{$fg[magenta]%}%~ %{$reset_color%}$%b "
+#PS1="%{$fg[magenta]%}%~ %{$fg[green]%}$%b "
+#PS1='[$(__git_ps1 " (%s)")]\$ $fg[magenta]%}%~ %{$reset_color%}$%b'
+#PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
+#PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
+#setopt PROMPT_SUBST ; PS1='%c$(__git_ps1 " (%s)")\$'
+#setopt PROMPT_SUBST ; PS1='%{$fg[cyan]%}%~$(__git_ps1 " (%s)")%{$fg[green]%}$%b'
+#setopt PROMPT_SUBST ; PS1='%{$fg[red]%}%c$(__git_ps1 "(%s)")%{$fg[yellow]%} $%b '
+#setopt PROMPT_SUBST ; PS1='%{$fg[red]%} %(4~|../%1~|%~) $(__git_ps1 "(%s)")%{$fg[yellow]%} $%b '
+
+PS1="\[\033]0;\u@\h:\w\007\][\u@\h \W]\$ "
+function precmd () { 
+	xtitle "$(print -P \[%2~\])"
+#	__git_ps1 "%n" ":%~$ " "|%s"
+}
+# SECURITY NOTE ON SSH INFO:
+# the above removes user@host for security reasons in public access areas.. - Someone reading the info off the screan to then eg login through an ssh backhole
+
+
+
+PROMPT_COMMAND='printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/"~"}"'
+#bash??
+
+
+
+# original
+printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"
+
+case "$TERM" in (rxvt|rxvt-*|st|st-*|*xterm*|(dt|k|E)term)
+    local term_title () { print -n "\e]0;${(j: :q)@}\a" }
+    precmd () {
+      local DIR="$(print -P '%~')"
+	 local CMD="${(j:\n:)${(f)1}}"
+      term_title "$DIR" "$CMD"
+    }
+    preexec () {
+      local DIR="$(print -P '%~')"
+      local CMD="${(j:\n:)${(f)1}}"
+      term_title "$DIR" "$CMD"
+    }
+  ;;
+esac
+
+# The following lines were added by compinstall
+zstyle ':completion:*' completer _complete _ignored
+zstyle :compinstall filename '/home/u0/.config/zsh/.zshrc'
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# == OMYZSH ?? ========================
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# CASE_SENSITIVE="true"
+# HYPHEN_INSENSITIVE="true"
+# DISABLE_AUTO_UPDATE="true"
+# DISABLE_UPDATE_PROMPT="true"
+# export UPDATE_ZSH_DAYS=13
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_LS_COLORS="true"
+# DISABLE_AUTO_TITLE="true"
+# ENABLE_CORRECTION="true"
+# COMPLETION_WAITING_DOTS="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+#plugins=(git)
+
+#source $ZSH/oh-my-zsh.sh
+
+# User configuration
+# export MANPATH="/usr/local/man:$MANPATH"
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.

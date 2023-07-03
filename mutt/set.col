@@ -1,0 +1,16 @@
+# SET THE COLOR SCHEME BY UNCOMMENTING
+# vim:ft=neomuttrc
+# ######################################
+#source	$XDG_CONFIG_HOME/mutt/c/gruvbox
+#source	$XDG_CONFIG_HOME/mutt/c/zenburn
+#source	$XDG_CONFIG_HOME/mutt/c/solarized.dark
+#source	$XDG_CONFIG_HOME/mutt/c/solarized.light-256.muttrc
+## ######################################
+#source 	$XDG_CONFIG_HOME/mutt/c/vombat
+#source	$XDG_CONFIG_HOME/mutt/c/drac-mod
+#source	$XDG_CONFIG_HOME/mutt/c/gid
+#source	$XDG_CONFIG_HOME/mutt/c/colb
+source 	$XDG_CONFIG_HOME/mutt/c/aformat
+source	$XDG_CONFIG_HOME/mutt/c/cola
+source 	$XDG_CONFIG_HOME/mutt/c/adisplay-filter
+

@@ -1,0 +1,173 @@
+#!/bin/sh
+# vim: set ft=sh syntax=sh
+## EXPORT.FUNDAMENTAL ======================
+export PIXELFONTSIZE=18
+# VARIABLES ########################
+# Keep these as they are for sanity reasons / reduce complexity
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share" 
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_BIN_HOME="$HOME/.local/bin"
+# SHORTCUTS
+export XCFG="${XDG_CONFIG_HOME}"
+export XBIN="${XDG_BIN_HOME}"
+export XDAT="${XDG_SHARE_HOME}"
+# HOME CLEANING ####################
+export LCX="${HOME}/.xx"
+export BINX="${LCX}/bin"
+export DATX="${LCX}/share"
+export CFGC="${LCX}/cfg"
+export CFGX="${LCX}/cfgx"
+export SHELLX="${LCX}/cfgx/shell_p"
+export ALIASX="${LCX}/cfgx/shell_p/alias"
+export PROFILEX="${LCX}/cfgx/shell_p/profile"
+#export CFG_PERSON="${CFGP}"
+# PATHS ############################
+export PATH="$PATH:$HOME/.local/usr/bin"
+export PATH="$PATH:$XDG_BIN_HOME/:$BINX"
+	for d in $XDG_BIN_HOME/*; do; 
+		if [[ -d "$d" && ! "$d" == */.local/bin/z* ]]; then
+		export PATH="$PATH:$d"; fi; done
+#### PERSON POINTERS #########################
+## ENVIRONMENT ##############################
+export VISUAL="nvim"
+export EDITOR="nvim"
+export PAGER="less -R --use-color"
+export LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
+export LESSCOLORIZER='bat'
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MAILCAPS=$XDG_CONFIG_HOME/shell/mailcap
+export TERMINAL="st"
+export PONYSAY_FULL_WIDTH="y"
+export MPD_HOST="127.0.0.1"
+export MPD_PORT="6600"
+export MPV_SOCKET_DIR="/tmp/mpvsocket."
+export NNN_CONFIG="$XDG_CONFIG_HOME/shell/nnx"
+export ALIASESRC="$XDG_CONFIG_HOME/shell/aliases"
+export GOPATH="$XDG_DATA_HOME/go"
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
+export R_ENVIRON=$XDG_CONFIG_HOME/r/renviron
+export R_PROFILE_USER=$XDG_CONFIG_HOME/r/rprofile
+# DATA
+export MATES_DIR="$XDG_DATA_HOME/vdirsyncer/contacts"
+export MATES_INDEX="$XDG_DATA_HOME/mates/mates_index"
+export AUDIO_PRG="$XDG_DATA_HOME/adir/au.playf"
+## security =================================
+export GPG_TTY=$(tty)
+export SSH_AGENT_PID=""
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
+export LC_COLLATE="C" # dotfiles first in ls and nnn?
+#== home cleanup ==========================
+# CACHE
+export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
+export DUC_DATABASE="$XDG_CACHE_HOME/duc/duc.db"
+export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var 
+export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
+# DATA
+export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export NOTMUCH_DATABASE="$HOME/.local/mail/"
+export TASKDATA="$XDG_DATA_HOME/task"
+export LESSHISTFILE="$XDG_DATA_HOME/adir/lesshst"
+export HISTFILE="$XDG_DATA_HOME/adir/history"
+export TMUX_TMPDIR="$XDG_DATA_HOME/tmux"
+export SSB_HOME="$XDG_DATA_HOME"/zoom
+export TEXMFHOME=$XDG_DATA_HOME/texmf 
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store/"
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+#gpg2 --homedir "$XDG_DATA_HOME"/gnupg
+# CONFIG
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export INPUTRC="$XDG_CONFIG_HOME/inputrc"
+export VIMDIR="$XDG_CONFIG_HOME/nvim"
+export MYVIMRC="$VIMDIR/init.lua"
+export VIMINIT='let $MYVIMRC="$VIMDIR/init.lua" | source $MYVIMRC'
+export TASKRC="$XDG_CONFIG_HOME/task/taskrc"
+export VIT_DIR="$XDG_CONFIG_HOME/vit"
+export TIMEWARRIOR="$XDG_CONFIG_HOME/timewarrior"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd.sock"
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+export ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
+export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/notmuchrc"
+export MAILDIR="$HOME/.localx/mail/"
+export NMBGIT="$XDG_CONFIG_HOME/notmuch/nmbug"
+export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+export XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
+export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export TMSU_DB="$XDG_CONFIG_HOME/tmsu/defaultdb"
+export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
+# SYSTEM
+export TEXMFDIST=/usr/share/texmf-dist
+export TEXMFLOCAL=/usr/local/share/texmf:/usr/share/texmf
+export TEXMFSYSVAR=/var/lib/texmf
+export TEXMFSYSCONFIG=/etc/texmf
+[[ ! -n $(which systemctl | grep "not found") ]] && systemctl --user import-environment GNUPGHOME XAUTHORITY
+## GIT  ===============================================
+# - TOD:: ADD THESE TO ZSH?
+export GIT_PS1_SHOWDIRTYSTATE="1"	# + for staged, * if unstaged.
+export GIT_PS1_SHOWSTASHSTATE="1"	# $ if something is stashed.
+export GIT_PS1_SHOWUNTRACKEDFILES="1"	# % if there are untracked files.
+export GIT_PS1_SHOWUPSTREAM="1"	# <, >, <> behind, ahead, or diverged from upstream.
+export GIT_PS1_STATESEPARATOR="1"	# separator between branch name and state symbols
+export GIT_PS1_DESCRIBE_STYLE="1"	#show commit relative to tag or branch, when detached HEAD
+export GIT_PS1_SHOWCOLORHINTS="1"	# display in color
+# COLORS ============================
+if [[ ! -n $(which tput | grep "not found") ]]; then
+	export BLACK=$(tput setaf 0)
+	export RED=$(tput setaf 1)
+	export GREEN=$(tput setaf 2)
+	export YELLOW=$(tput setaf 3)
+	export LIME_YELLOW=$(tput setaf 190)
+	export POWDER_BLUE=$(tput setaf 153)
+	export BLUE=$(tput setaf 4)
+	export MAGENTA=$(tput setaf 5)
+	export CYAN=$(tput setaf 6)
+	export WHITE=$(tput setaf 7)
+	export BRIGHT=$(tput bold)
+	export NORMAL=$(tput sgr0)
+	export BLINK=$(tput blink)
+	export REVERSE=$(tput smso)
+	export UNDERLINE=$(tput smul)
+fi
+#### PERSONAL ######################################
+export XDGX="$XDG_DATA_HOME/adir"
+[[ -z ${XDG_DOWNLOAD_DIR:-} ]] \
+	&& export XDG_DOWNLOAD_DIR="$HOME/ii"
+[[ -z ${XDG_DESKTOP_DIR:-} ]] \
+	&& export XDG_DESKTOP_DIR="$XDGX/xdsk"
+[[ -z ${XDG_DOCUMENTS_DIR:-} ]] \
+	&& export XDG_DOCUMENTS_DIR="$XDGX/doc"
+[[ -z ${XDG_MUSIC_DIR:-} ]] \
+	&& export XDG_MUSIC_DIR="$XDGX/mu"
+[[ -z ${XDG_PICTURES_DIR:-} ]] \
+	&& export XDG_PICTURES_DIR="$XDGX/img"
+[[ -z ${XDG_PUBLICSHARE_DIR:-} ]] \
+	&& export XDG_PUBLICSHARE_DIR="$XDGX/xpublic"
+[[ -z ${XDG_TEMPLATES_DIR:-} ]] \
+	&& export XDG_TEMPLATES_DIR="$XDGX/xtmpl"
+[[ -z ${XDG_VIDEOS_DIR:-} ]] \
+	&& export XDG_VIDEOS_DIR="$XDGX/xvid"
+#== Newly Appended ===============================
+export OPENAI_KEY="$OPENAI_API_KEY"
+export W3M_DIR="$XDG_CONFIG_HOME/w3m"
+export WWW_HOME="$XDG_CONFIG_HOME/w3m"
+export WWW_HOME="$XDG_CONFIG_HOME/w3m"
+export BLENDER_USER_CONFIG="$XDG_CONFIG_HOME/blender"
+export BLENDER_USER_DATAFILES="$XDG_DATA_HOME/blender"
+export BLENDER_USER_SCRIPTS="$XDG_BIN_HOME/blender"
+# SOURCING ===========================================
+[[ -f $NNN_CONFIG ]] 	&& source $NNN_CONFIG
+[[ -f $ALIASESRC ]] 	&& source $ALIASESRC
+[[ -f $PROFILEX ]] 		&& source $PROFILEX
+for a in $ALIASX/*; do;
+		[[ -f "$a" ]] && source "$a";
+done
+# START X #########################################
+[[ "$(tty)" == '/dev/tty1' ]] && startx -- -keeptty >~/.local/share/xorg/zxorg.log 2>&1 
+

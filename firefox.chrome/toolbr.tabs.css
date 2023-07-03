@@ -1,0 +1,26 @@
+#TabsToolbar {
+  margin-top: 2px !important;
+  margin-bottom: 1px !important;
+/*  margin-left: 10vw !important;*/
+  max-height: 15px !important;
+}
+.tabbrowser-arrowscrollbox {
+  height: 32px !important;
+  min-height: 32px !important;
+}
+
+#tabbrowser-tabs .tab-text{
+ font-size:7pt !important;
+ font-weight: bold !important;
+}
+/*
+.titlebar-placeholder[type="pre-tabs"] {
+  display: none !important;
+}
+.titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
+	width: 30px;
+}
+.tabbrowser-tab::before, .tabbrowser-tab::after {
+  border-left : none !important;
+} /**/
+

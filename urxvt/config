@@ -1,0 +1,15 @@
+URxvt.scrollBar: false
+URxvt.transparent: false
+urxvt*depth: 50 
+URxvt.perl-ext-common: keyboard-select,resize-font
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keyboard-select.clipboard: true
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+#include "urxvt/theme"
+#include "urxvt/themex"
+

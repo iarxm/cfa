@@ -1,0 +1,20 @@
+do
+	echo -n ",["
+  mycrypto
+  myip_public
+  myvpn_on
+  myip_local
+  disk_usage
+  memory
+  cpu_usage
+  meteo
+  mydate
+  battery0
+  volume
+  systemupdate
+  logout
+  echo "]"
+	sleep 10
+done) &
+
+

@@ -1,0 +1,48 @@
+[global_config]
+  borderless = True
+  geometry_hinting = True
+  hide_from_taskbar = True
+  hide_on_lose_focus = True
+  title_hide_sizetext = True
+[keybindings]
+  switch_to_tab_1 = onesuperior
+  switch_to_tab_2 = dead_diaeresis
+  switch_to_tab_3 = threesuperior
+  switch_to_tab_4 = EuroSign
+  switch_to_tab_5 = onehalf
+  switch_to_tab_6 = <Shift>fiveeighths
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[l1]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 022da491-9e67-46d7-b853-ff4e1e34b623
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:0
+      size = 650, 382
+      title = entro
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = 022da491-9e67-46d7-b853-ff4e1e34b623
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.79
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    show_titlebar = False

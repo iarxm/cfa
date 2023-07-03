@@ -1,0 +1,52 @@
+# Formatting   ----------------------------------------------------------------------
+#set display_filter="pandoc --from=html --to=markdown"
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set status_on_top = no
+set date_format = 	"%a %d %h %H:%M"
+set index_format=	"%zc %zs %zt  | %-35.35L  %?M10?~(%1M) ?%-30.100s %> %?Y?%Y ? %(!%d/%m %H:%M)"
+set pager_format=" %*  %{!%d %b · %H:%M} %?X? %X?%P"
+#set pager_format="%n %T %s%*  %{!%d %b · %H:%M} %?X? %X?%P"
+#set pager_format="-%Z- %C/%m: %-20.20n   %s%*  -- (%P)"
+#set pager_format=" "
+#set status_format='Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?---(%s/%S)-%>-(%P)---'
+#set status_format='-%r-NeoMutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? \
+	#Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---'
+#%R - read
+set status_format =" %* %D   %?u? U:%u ?%?R?R:%R ?%?d?D:%d ?%?t?T:%t ?%?F?S:%F ?%?p? P:%p? Msgs:%?M?%M/?%m%?n?"
+#set status_format ="%D %?u? %u ?%?R? %R ?%?d? D%d T?%?t? T%t ?%?F? %F ?%?p? %p? \n  \n"
+#color status black black
+#set status_format="%?n?%n new messages.?"
+set compose_format="-- NeoMutt: Compose  [Approx. msg size: %l   Atts: %a]%>-"
+set vfolder_format = "%N %?n?%3n&   ?  %8m  · %f"
+set attach_format = "%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"
+#set sidebar_format = '%D%?Z? [%Z]?%* %?S?%S?'
+index-format-hook attachment_info '=B text/calendar ~X 1' ' '
+index-format-hook attachment_info '=B text/calendar' "  "
+index-format-hook attachment_info '~X 1' "  "
+index-format-hook attachment_info '~A' "   "
+# Misc  -----------------------------------------------------------------------------
+tag-transforms "replied" "↻ "  \
+               "encrytpted" "" \
+               "signed" "" \
+               "attachment" "" \
+# The formats must start with 'G' and the entire sequence is case sensitive.
+tag-formats "replied" "GR" \
+            "encrypted" "GE" \
+            "signed" "GS" \
+            "attachment" "GA" \
+# don't put '+' at the beginning of wrapped lines
+	#set markers=no
+#color status blue white
+# no addressed to me, to me, group, cc, sent by me, mailing list
+	#set to_chars=" "
+# unchanged mailbox, changed, read only, attach mode
+	#set status_chars = " "
+#ifdef crypt_chars set crypt_chars = " "
+	#set flag_chars = "      "
+# hide some tags
+#set hidden_tags = "unread,draft,flagged,passed,replied,attachment,signed,encrypted"
+#set index_format="  %zc %zs %zt  | %-35.35L   %@attachment_info@  %?M10?~(%1M) ?%-30.100s %> %?Y?%Y ? %(!%a %d %h %H:%M)  "
+#set status_format = " %D %?u? %u ?%?R? %R ?%?d? %d ?%?t? %t ?%?F? %F ?%?p? %p? \n  \n"
+# vim:ft=neomuttrc
+

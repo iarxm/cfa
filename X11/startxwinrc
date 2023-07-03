@@ -1,0 +1,20 @@
+# CYGWIN X START
+# point to this file by ~/.startxwinrc with source .config/X11/startxwinrc
+
+# for cygwin
+# xbiff -geometry -430+5 &
+# oclock -geometry 75x75-0-0 &
+# xload -geometry -80-0 &
+# xconsole -geometry -0+0 -fn 5x7 &
+# exec twm &
+#xsetroot -solid 'black' &
+#xrdb &
+# xterm &
+# xterm -ls &
+# xterm -geometry +0+60 -ls &
+# xterm -geometry +0-100 &
+xrdb -load -I$HOME $HOME/.config/X11/xresources &
+xrdb &
+urxvt &
+# To prevent it from shutting down due to some cygwin bugs
+exec sleep infinity

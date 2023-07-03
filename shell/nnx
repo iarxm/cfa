@@ -1,0 +1,37 @@
+#!/bin/bash
+#== PLUGS =============================
+NCMD=''
+# GEN #####################
+NCMD+='R:renamer;'
+NCMD+='e:togglex;'
+NCMD+='V:-!nvim "$nnn";'
+NCMD+='N:-|!nvim "$nnn";'
+NCMD+='r:-|!vidir;'
+NCMD+='a:-|!rename-prefix;'
+# OPN ###################
+NCMD+='f:finder;'
+NCMD+='o:fzopen;'
+NCMD+='n:nuke;'
+NCMD+='O:-|openall;'
+# PREVIEW ################
+NCMD+='t:preview-tui;'
+NCMD+='x:-|!preview-tabbed-ext;' #TODO: call this from dsnn or dsev??? Have a centralised callback location?
+#NCMD+='d:-|!addtoplaylist;'
+# DS_OPN ##########################
+NCMD+='g:!dsnn gimp "$nnn";'
+NCMD+='m:!dsnn mpv.ws "$nnn";'
+# DS_TAG ########################
+NCMD+=';:!dsev tag.mk "$nnn"*;'
+NCMD+='u:!dsev tag.rm "$nnn"*;'
+NCMD+='c:!dsev clone "$nnn"*'
+#== EXPORT ==============================
+export NNN_PLUG="$NCMD"
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_TRASH=1
+export sel=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection
+#== COLORS - FILE SPECIFIC ==============================
+DIR="04" EXE="06" REG="00" SYMLINK="06"	BLK="0B" CHR="0B" HARDLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06" # CUSTOM MOD
+DIR="1f" DIR="26" # MODS
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
+export NNN_COLORS='#1f1f1f1f'
+

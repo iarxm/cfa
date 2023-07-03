@@ -1,0 +1,73 @@
+#include $HOME/.config/task/taskrc.pomo
+data.location=$XDG_DATA_HOME/task
+hooks.location=$HOME/.config/task/hooks
+taskd.certificate=$CFGX/.config/task.sec/freecinc_136c7bf8.cert.pem
+taskd.key=$CFGX/task.sec/freecinc_136c7bf8.key.pem
+taskd.ca=$CFGX/task.sec/freecinc_136c7bf8.ca.pem
+taskd.server=freecinc.com:53589
+taskd.credentials=FreeCinc/freecinc_136c7bf8/6d3a0f8d-48da-49fe-95b0-d892d7aa7b96
+taskd.trust=ignore hostname
+news.version=2.6.0
+verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
+include /usr/share/doc/task/rc/holidays.en-GB.rc # cal
+include $HOME/.config/task/taskwarriortui
+include $HOME/.local/pkg/pomodoro-warriors/taskwarrior/taskrc #TODO
+dateformat=j
+dateformat.report=j
+dateformat.annotations=j
+dateformat.holiday=j
+# colors =========================
+include solarized-dark-256.theme # col
+color.overdue=white on red
+color.uda.priority.u=black on red
+color.uda.priority.n=black on blue
+#================================
+color.tag.nx=black on yellow
+# Reports ========================
+report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
+report._reviewed.columns=uuid
+report._reviewed.sort=reviewed+,modified+
+report._reviewed.filter=( reviewed.none: or reviewed.before:now-1week ) and ( +PENDING or +WAITING )
+report.next.columns=id,project,tags,sq,description.count,ti,due,scheduled,priority,urgency
+report.next.labels=i,prj,tg,sq,de,ti,du,sch,p,u
+report.next.dateformat=j
+#no need to have 'recur' in there??
+#=============================
+project.label=pr
+# uda.exp====================
+uda.reviewed.type=date
+uda.reviewed.label=Revi
+uda.ti.type=duration
+uda.ti.label=t
+uda.sq.type=string
+uda.sq.label=sq
+uda.sq.values=aa,ab,ac,ba,bb,bc,ca,cb,cc,da,db,dc,ea,eb,ec
+uda.priority.label=pr
+uda.priority.label=p
+uda.priority.values=H,M,L,n,u
+urgency.uda.priority.u.coefficient=14.0
+urgency.uda.priority.n.coefficient=12.0
+urgency.uda.priority.H.coefficient=8.0
+urgency.uda.priority.M.coefficient=5.0
+urgency.uda.priority.L.coefficient=1.0
+urgency.iao.u.coefficent=3.5
+urgency.iao.nx.coefficent=3.5
+urgency.iao.nxu.coefficent=3.5
+urgency.iao.bb.coefficent=2.0
+urgency.iao.fn.coefficent=2.0
+urgency.iao.fn.coefficent=2.0
+context.tkh.read=+tk and priority:H
+context.tkh.write=+tk and priority:H
+context.tk.read=+tk
+context.tk.write=+tk
+context.sf.read=+sf
+context.sf.write=+sf
+context.bs.read=+bs
+context.bs.write=+bs
+context.th.read=priority:H
+#===================================
+# might be simpler to just use tags for urgency values
+# eg +nx +u
+#context.bs.write=
+#the 'write' function only serves to add that tag when adding any tag in that context..?
+#===================================

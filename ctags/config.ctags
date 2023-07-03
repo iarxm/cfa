@@ -1,0 +1,4 @@
+--links=no
+--exclude-exception=o.o
+--exclude=*.pdf
+--exclude=*.git*

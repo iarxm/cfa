@@ -1,0 +1,285 @@
+#!/bin/sh
+## vim:ft=sh
+alias feh.setbg='feh --bg-max "${HOME}/.local/share/abg/1.jpg"'
+## git ##################################
+alias g="git"
+alias gst="git status"
+alias gco="git commit"
+alias gch="git checkout"
+alias gps="git push"
+alias gpl="git pull"
+alias gbr="git branch"
+# Longer gits
+alias gpush="git push"
+alias gpull="git pull"
+
+#==== file nav/management ====================
+## files
+alias rcl="rclone"
+alias rs.a="rsync -avP"
+alias cc="cd"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -vI"
+alias mkd="mkdir -pv"
+alias rm='echo "NOTE: Use trash-put instead. If youre sure you want rm, \
+	use /rm to overide this shell alias"; false'
+alias rmm='echo "Using trash-put"; trash-put -v'
+alias rmmm='sudo rm'
+alias tpt="trash-put"
+alias tp="trash-put"
+alias chx="chmod +x"
+alias lns='ln -s'
+ln_del() { find -L $DIR -maxdepth 1 -type l -delete; }
+## ls list
+alias ls="ls --color=auto"
+alias ll=ls
+alias lll='ls -l --group-directories-first'
+alias lla='ls -lA --group-directories-first'
+alias la='ls -A'
+
+alias dir="dir --color=auto"
+alias vdir="vdir --color=auto"
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+# nnn
+alias nnn="nnn -a"
+alias nna="nnn -ea"
+alias nn="nnn -ea"
+alias n="nnn -ea"
+alias sdn='sudo nnn'
+# nvim
+alias e="$EDITOR"
+# alias v="$EDITOR"
+alias v="nvim"
+alias nv='nvim.aa'
+alias sdv='sudo nvim'
+alias vc="cud && nvim -c Ntr"
+[ -x "$(command -v nvim)" ] && \
+	alias vim="nvim" vimdiff="nvim -d"
+# media
+alias YT="youtube-viewer"
+alias yt="youtube-dl --add-metadata -i"
+alias yta="yt -x -f bestaudio/best"
+alias ytl="youtube-dl"
+alias ytlx="youtube-dl -x"
+alias ffmpeg="ffmpeg -hide_banner"
+# other
+alias xi="sudo xbps-install"
+alias xr="sudo xbps-remove -R"
+alias xq="xbps-query"
+alias z="zathura"
+alias zs="i3-swallow zathura"
+alias mm="man"
+alias c="clear"
+alias cl="clear"
+alias open='openu'
+alias o='openu'
+#alias op='
+alias ma='make'
+alias ec='echo'
+alias q='exit'
+## stuff ---------------------
+alias magit="nvim -c MagitOnly"
+alias ref="shortcuts >/dev/null; \
+		source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; \
+		source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc"
+alias weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
+## system ==========================
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+## sudo
+for x in mount umount sv pacman updatedb su ; do
+	alias $x="sudo $x"
+done
+alias sd="sudo"
+alias sdk='sudo pkill'
+alias sdkc='sudo pkill clamd'
+alias pk='pkill'
+## systemd
+alias srcp="source ~/.config/shell/profile"
+alias syt='systemctl'
+alias sytl='systemctl list-units'
+alias syts='systemctl status'
+alias syte='systemctl enable --now'
+alias sytst='systemctl stop'
+alias syte='systemctl disable --now'
+alias sytu='systemctl --user'
+alias sytue='systemctl --user enable --now'
+alias sytus='systemctl --user status'
+alias jxe='journalctl -xe'
+## more
+alias pd="sudo pacman -S"
+alias sdn="sudo shutdown -h now"
+alias ka="killall"
+alias p="sudo pacman"
+alias xrc="xrdb -I$HOME -merge $XDG_CONFIG_HOME/X11/xresources"
+alias ss="systemctl suspend"
+alias pacs='pacman -S'
+alias apip='pip install --user'
+#==== dotfiles cleanup ======================
+alias abook="abook \
+		--config $XDG_CONFIG_HOME/abook/abookrc \
+		--datafile $XDG_DATA_HOME/abook/addressbook"
+alias weechat="weechat -d $XDG_CONFIG_HOME/weechat/"
+alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
+alias nrss="nrss -D $XDG_CONFIG_HOME/nrss/ \
+	-F $XDG_CACHE_HOME/nrss/feeds \
+	-L $XDG_CACHE_HOME/nrss/log"
+alias esniper="esniper -c $XDG_CONFIG_HOME/esniper/conf"
+alias acyg="apt-cyg install"
+#==== transmission remotes =====================
+alias tsnr="transmission-remote"
+alias tsnr="transmission-remote"
+alias tsnc="transmission-cli"
+alias tsnd="transmission-daemon"
+#==== most-used-most-important ====================
+#==== mail ======================================
+alias m="neomutt"
+alias nmh="notmuch"
+alias nmhs="notmuch search"
+alias nmhn="notmuch new"
+#==== browsers.quteb =================================
+alias qbw='qb win'
+alias qw='qb win'
+alias qf='qb win.float'
+alias qx='qb x win'
+alias qxt='qb x tab'
+#==== quteb.webapps ===================================
+alias whatsapp='qb x.wa'
+	alias wa='whatsapp'
+alias calendar='qb win calendar.google.com'
+	alias cala='calendar'
+alias habit='qb w.oo.win'
+alias gpt.qb='qb win chat.openai.com'
+#==== Browsers =================================
+alias s='surfraw'
+alias sf='surfraw -browser="qtc win.float"'
+alias iis="i3-swallow"
+alias b="buku --suggest"
+## Calendars ==================================
+#==== gcalcli =================================
+alias gca="gcalcli"
+alias gcaw="gcalcli calw"
+alias gcam="gcalcli calm"
+#==== khal ==================================
+#	alias khal='khalmod'
+alias khalm='khalmod'
+alias k='khalmod'
+alias ki='ikhal'
+alias ke='k edit'
+alias kn='k new'
+alias ks='k search'
+alias kl='k list'
+alias kc='k calendar'
+#==== khard ==================================
+alias kd='khard'
+alias kdl='khard list'
+alias kdlg='khard list | grep'
+#==== hleder ==================================
+alias hl='hledger'
+alias hla='hledger add'
+alias hlai='hledger +iadd'
+alias hli='hledger import'
+# ==================================================
+# TASKWARRIOR ALIASES
+alias tt='taskwarrior-tui'
+#==== Listing through filters ===
+alias \
+	tl='task list' \
+	tls='task ls' \
+	th='task priority:H' \
+	tlh='task priority:H' \
+	tlph='task priority:H' \
+	tsd='task due:TODAY' \
+	tlsdt='task due:TODAY' \
+	tsa='task status:ACTIVW' \
+	tlsa='task status:ACTIVW' \
+	tn='task next' \
+	tln='task next' \
+	tnx='task state:nx' \
+	tlnx='task state:nx'
+alias tlb='task blocked'
+alias tlbl='task blocking'
+#==== Builtin Reports =========
+alias \
+	trr='task report' \
+	trc='task calendar' \
+	tro='task overdue'
+#==== Listting meta data==========
+alias \
+	trp="task projects rc.list.all.projects=yes 2>/dev/null | grep -E '^\w'" \
+	tppp="task projects rc.list.all.projects=yes" \
+	trs='task summary'
+#==== Adding ===========
+alias \
+	t='task' \
+	ta='task add' \
+	taph='task add priority:H'
+#==== Modifying and reviewing =========
+alias tm='task modify'
+alias tmod='task modify'
+alias te='task edit'
+alias td='task done'
+alias ts='task start'
+alias tst='task stop'
+alias tdel='task delete'
+alias tsy='task sync'
+#==== Context =====================
+alias tcrm="task context none"
+alias tcr="task context none"
+alias tc='task context'
+#==== functions ===================
+function tcvadd () { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
+function twwww () { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
+#==== newly appended ======================
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+alias bc="bc -ql"
+alias sc="sc-im"
+alias scim="sc-im"
+##### TERMUX/ADB ##############################
+alias adbf="adb forward tcp:8022 tcp:8022 && ssh localhost -p 8022"
+# TODO:move:
+alias dr.mosh.pull="drr ip.pull && drr mosh.imp"
+alias dr.mosh="drr mosh.imp"
+alias dr.sshfs.pull="drr ip.pull && drr sshfs.imp"
+alias dr.sshfs="drr sshfs.imp"
+
+#### AUDIO #################################
+# MIC TEST
+mic_tst.a() { arecord -vvv -f dat /dev/null ; }
+mic_tst.b() { arecord -d 5 test-mic.wav ; }
+
+#### SYSTEM ################################
+alias blue.adiscon="bluetoothctl disconnect"
+alias openu="xdg-open "$@" &"
+alias reboot="systemctl reboot"
+alias sys.sleep="systemctl suspend"
+
+#### MAINTENANCE ##########################
+sys.cache.clear() {
+	# su 
+	printf "CCACHE: Tidying up journal entries..\n"
+	sudo journalctl --vacuum-size=100M
+	sudo journalctl --vacuum-time=3months
+	printf "CCACHE: Clearing pacman cache\n"
+	sudo paccache -rk1 # keep latest 1 of pacman cache
+	paccache -ruk0 # rm cache of uninstalled
+
+}
+
+sys.cursorfix() {
+	#sudo rmmod psmouse
+	sudo modprobe -r psmouse
+	sudo modprobe psmouse
+	# another potential solution: Change the Touchpad setting in your BIOS from ADVANCED to BASIC (makes no difference with regards to functionality)
+	
+	## pacman -Qtdq | pacman -Rns -
+		## uninstall and remove configs for orphan packages:
+			## check for useful packages first
+
+}
+
+
+

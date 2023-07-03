@@ -1,0 +1,12 @@
+
+/qutebrowser/qsettings/
+/qutebrowser/bookmarks/
+/qutebrowser/quickmarks
+
+/ranger/bookmarks
+/ranger/history
+/ranger/tagged
+
+/w3m/cookie
+
+/nrss/.cache

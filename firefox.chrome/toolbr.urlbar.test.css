@@ -1,0 +1,130 @@
+
+/* ---------------------------------------*/
+
+/*
+ * Auto-hide the URL-bar and bookmarks bar, show on hover or focus
+ *
+ * Contributor(s): Alex Vallat
+ */
+
+
+
+:root[uidensity=compact] #navigator-toolbox {
+  --nav-bar-height: 5px;
+  --tab-min-height: 5px;
+}
+
+
+:root[uidensity=compact][extradragspace]:not([sizemode="normal"]) #navigator-toolbox {
+  --nav-bar-height: 5px;
+  --tab-min-height: 5px;
+}
+
+:root:not([uidensity]) #navigator-toolbox {
+  --nav-bar-height: 5px;
+  --tab-min-height: 5px;
+}
+
+:root:not([uidensity])[extradragspace]:not([sizemode="normal"]) #navigator-toolbox {
+  --nav-bar-height: 5px;
+  --tab-min-height: 5px;
+}
+
+:root[uidensity=touch] #navigator-toolbox {
+  --nav-bar-height: 5px;
+  --tab-min-height: 5px;
+}
+
+:root[uidensity=touch][extradragspace]:not([sizemode="normal"]) #navigator-toolbox {
+  --nav-bar-height: 5x;
+  --tab-min-height: 5px;
+}
+
+#navigator-toolbox {
+  --tabbar-height: calc(var(--tab-min-height) + var(--space-above-tabbar));
+  --trigger-area-height: 5px;
+}
+
+:root[chromehidden~="toolbar"] #navigator-toolbox {
+  --tabbar-height: 0.1px;
+}
+
+#toolbar-menubar {
+  margin-top: 1px !important; /* This is usually 0, but under Win7 can be given an extra 1px when not maximized */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* If the bookmarks bar is turned on, auto-hide that too */
+/*
+:root:not([customizing]) #PersonalToolbar {
+  max-height: 0 !important;
+  min-height: 0.1px !important;
+  opacity: 0;
+}
+
+:root:not([customizing]) :hover > #PersonalToolbar,
+:root:not([customizing]) #navigator-toolbox:focus-within #PersonalToolbar {
+  max-height: 4em !important;
+  opacity: 1;
+  transition: opacity 0.15s ease-in !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* Lightweight Theme Support */
+/*:root:-moz-lwtheme #nav-bar, 
+:root:-moz-lwtheme #PersonalToolbar {
+  background-color: var(--lwt-accent-color) !important;
+  background-image: var(--lwt-header-image), var(--lwt-additional-images) !important;
+  background-position: var(--lwt-background-alignment) !important;
+  background-repeat: var(--lwt-background-tiling) !important;
+}
+
+#main-window[sizemode="normal"]:-moz-lwtheme #nav-bar {
+    background-position-y: calc(-2px - var(--tabbar-height)) !important;
+}
+#main-window[sizemode="normal"]:-moz-lwtheme #PersonalToolbar {
+    background-position-y: calc(-2px - var(--tabbar-height) - var(--nav-bar-height)) !important;
+}
+
+#main-window[sizemode="maximized"]:-moz-lwtheme #nav-bar {
+    background-position-y: calc(-8px - var(--tabbar-height)) !important;
+}
+#main-window[sizemode="maximized"]:-moz-lwtheme #PersonalToolbar {
+    background-position-y: calc(-8px - var(--tabbar-height) - var(--nav-bar-height)) !important;
+}
+  
+
+
+
+
+
+/*-------------------------------*/

@@ -1,0 +1,93 @@
+# vim:ft=muttrc syntax=neomuttrc
+#### REQ SETS ###########################
+set confirmappend=no
+##== noops ==============================
+bind index,pager,compose,attach	o	noop
+bind index,pager,compose,attach	ob 	noop
+bind index,pager	c	noop
+bind index,pager 	v 	noop
+bind index 		, 	noop
+bind index,pager 	. 	noop
+bind index,pager 	b	noop
+bind index,pager 	g 	noop
+bind index,pager	m	noop
+bind index,pager 	'V' 	noop
+bind index,pager 	's' 	noop
+#== NAV ======================
+macro index,pager   '.r'  \
+	'<enter-command>source $my_cfg/muttrc<enter>'
+macro index,pager   '.ll'  	"<limit>all<enter>"
+macro index,pager   '.lf'  	"<limit>~F<enter>" 	# Limit to important flag
+bind index,pager 	'mm' 	"mail"
+bind index,pager    'mv'  	"view-attachments"
+bind index,pager    'mb'  	"buffy-list"
+bind index,pager    'mr'  	"view-raw-message"
+macro index,pager   'mww'  	"<sync-mailbox>y<enter>"
+bind index,pager 	'oo' 	sort-mailbox
+bind index,pager 	'ob' 	sort-mailbox
+bind index,pager	'R'  	group-reply
+macro index,pager	gg		"<first-entry>"
+macro index,pager	G		"<last-entry>"
+macro index,pager	\ej \
+	"<next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted>"
+macro index,pager	\ek \
+	"<previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted>"
+#== sidebar =========================
+#bind index,pager    B   sidebar-toggle-visible
+bind index,pager 	bs 	sidebar-toggle-visible
+bind index,pager 	"\Ck" 	sidebar-prev
+bind index,pager 	"\Cj" 	sidebar-next
+bind index,pager 	"\Co" 	sidebar-open
+bind pager 		"\Cv" 	sidebar-toggle-virtual
+bind pager 		"\CV" 	sidebar-toggle-virtual
+#== Contacts ===============
+bind editor 		<Tab> 	complete-query
+bind editor 		^T 		complete
+macro index,pager	A 		<create-alias>
+macro index,pager 	a 	\
+	"<pipe-message>goobook add<return>" # ADD CONTACT
+#######################################################
+# BROWSERS/VIEWERS #####################################
+## VARS ##########
+set my_tmp_ml		= "~/.cache/mutt/mail.html"
+set my_c_html_get	= "<view-attachments><search>html<enter>"
+# PIPES
+set my_c_pipe		= "<pipe-entry>cat > $my_tmp_ml<enter>"
+set my_c_pipe_ic	= "<pipe-entry>iconv -c --to-code=UTF8 > $my_tmp_ml<enter>"
+# BROWSERS
+set my_c_b		= "<shell-escape>ml browser<enter>"
+set my_c_bfl		= "<shell-escape>ml qb.float<enter>"
+set my_c_bterm		= "<shell-escape>ml term<enter>"
+# MACRO STRING
+set my_c_b_x		= "$my_c_html_get $my_c_pipe $my_c_b<exit>"
+set my_c_b_y		= "$my_c_pipe_ic $my_c_brow<exit>"
+set my_c_bfl_x		= "$my_c_html_get $my_c_pipe_ic $my_c_bfl<exit>"
+set my_c_bfl_y		= "$my_c_pipe_ic $my_c_bfl<exit>"
+set my_c_bterm_x	= "$my_c_html_get $my_c_pipe $my_c_bterm<exit>"
+set my_c_style		= "$my_c_pipe <shell-escape>ml md2html<enter>"
+# BROWSER/EXTERNALS ##########################################
+# INLINE NONFLOATING
+macro index,pager		'B' 	"$my_c_b_x"
+macro attach,compose 	'B' 	"$my_c_b_y
+# FLOATING
+macro index,pager		'of' "$my_c_bfl_x"
+macro attach,compose 	'of' "$my_c_bfl_y"
+# browser.text
+macro index,pager 		'I' "$my_c_bterm_x"
+# EMAIL POST PROCESS STYLING 
+macro compose 			.mm "$my_c_style"
+#macro attach,compose 	'ob'
+#macro index,pager		'ob' 
+#== mb nav ==========================
+#cc alts: gl gc gld glm gl
+macro index,pager co 	"<change-folder>" #quicker keystrokes
+macro index,pager cc 	"<change-folder>"
+macro index,pager cm 	"<change-folder>?"
+macro index,pager cl 	"<change-folder>?<tab>"
+macro index,pager ss 	"<save-message>="
+macro index,pager .ww 	"<save-message>="
+## notmuch ===================================
+macro index,pager vl 	"<modify-labels>"
+macro index,pager vc 	"<change-vfolder>?" "Change to vfolder root"
+##############################################
+# TODO: integrate urlview or someway to extract a url and open it in qb.. an unsub url

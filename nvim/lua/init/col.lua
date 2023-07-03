@@ -1,0 +1,12 @@
+-- FOR SELECTING THE COLOR SCHEME
+vim.cmd.colorscheme('eldar')
+--vim.cmd.colorscheme('simpleblack')
+--vim.cmd.colorscheme('kanagawa-dragon')
+--vim.cmd.colorscheme('vividchalk')
+--vim.cmd.colorscheme('catppuccini')
+--vim.cmd.colorscheme('rose-pine')
+--vim.cmd.colorscheme('murphy')
+--vim.cmd.colorscheme('tokyonight')
+--vim.highlight.VertSplit cterm=NONE
+-- TODO nyoom-engineering/nyoom.nvim
+-- 	- learn from this plugin!

@@ -1,0 +1,25 @@
+verbose=label,new-id
+bulk=0
+search.case.sensitive=no
+
+weekstart=Monday
+calendar.details=full
+calendar.holidays=sparse
+
+uda.estimate.type=duration
+uda.estimate.label=Estimate
+
+report.tiny.description="a next-like tiny report to display in tiny panels"
+report.tiny.columns=id,project,estimate,description.truncated_count
+report.tiny.labels=ID,Project,E,Description
+report.tiny.filter=status:pending limit:page
+report.tiny.sort=urgency-
+default.command=tiny
+
+# placeholders for DIY commands
+report.split.columns=
+report.timew.columns=
+
+context.inbox=-PROJECT
+context.backlog=+PROJECT -SCHEDULED -ACTIVE
+context.kanban=( ( +PROJECT ( +SCHEDULED or +ACTIVE ) ) or due.before:tomorrow )

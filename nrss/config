@@ -1,0 +1,18 @@
+# Feeds
+# News.sci
+## Feeds - math
+add "https://api.quantamagazine.org/mathematics/feed/" "quanta"
+# Journals
+## feeds - math.jou
+add "https://www.ams.org/rss/jams.rss" "ams"
+# Feeds - pol
+# load ~/.nrss/feed-pol
+
+#############################################################
+# Keys ######################################################
+key "j" "DOWN"
+key DOWN j
+key k UP
+# Other
+browser "/usr/bin/cygstart firefox %u"
+browser_wait "1"

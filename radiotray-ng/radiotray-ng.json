@@ -1,0 +1,10 @@
+{
+	"bookmarks" : "/home/$HOME/.config/radiotray-ng/bookmarks.json",
+	"last-station" : "New Dance Radio",
+	"last-station-group" : "Techno / Electronic",
+	"last-station-notifications" : true,
+	"notification-verbose" : true,
+	"notifications" : true,
+	"split-title" : true,
+	"volume-level" : 100
+}
