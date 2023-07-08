@@ -1,15 +1,18 @@
 # ZSHRC
-# # ==================================================
+# ###########################################
 # AUTHOR: IAROM MADDEN
-#
 # NOTES
 # - USE lf for nav (C-o, nav and exit)
 # - USE autocompletion features
 # - USE 
-# ===================================================
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
+# ############################################
+#
+# # POWERLEVEL10K
+# 	Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc. Important so that other initialisation processes can continue after the prompt has loaded. Providing a sense of responsiveness
+#
+# 	Note, Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+#
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
   PROMPT_C_OFF="1"
@@ -18,19 +21,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 themex="/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
 if [[ -f $themex ]]; then
-	source $themex
+		source $themex
 	else
 		themey="$HOME/.local/pkg/powerlevel10k/powerlevel10k.zsh-theme"
 		[[ -f $themey ]] && source $themey
 fi
-
-# COMPLETION ===========================================
-# Basic auto/tab complete:
-autoload -U compinit && compinit -d $HOME/.local/share/zsh/zcompdump-$HOST #make sure dir exists
-zstyle ':completion:*' menu select
-#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zmodload zsh/complist
-_comp_options+=(globdots)		# Include hidden files.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 # THEMEING ==========================================
 autoload -U colors && colors	# Load colors
 # WINTITLE AND PROMPT =============================================
@@ -57,10 +53,17 @@ autoload -U colors && colors	# Load colors
 	setopt autocd				# Automatically cd into typed directory.
 	setopt interactive_comments
 	#stty stop undef			# Disable ctrl-s to freeze terminal.
+# COMPLETION ===========================================
+# Basic auto/tab complete:
+autoload -U compinit && compinit -d $HOME/.local/share/zsh/zcompdump-$HOST #make sure dir exists
+zstyle ':completion:*' menu select
+#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zmodload zsh/complist
+_comp_options+=(globdots)		# Include hidden files.
 # HIST/AUTOCOMPLETION ==================================
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE=$XDG_DATA_HOME/adir/history
+HISTFILE=${HISTFILE}
 setopt appendhistory
 setopt sharehistory
 setopt incappendhistory
@@ -123,4 +126,6 @@ syntaxx="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.
 #export ZSH="$HOME/.local/pkg/oh-my-zsh"
 #export ZSH_COMPDUMP=$HOME/.local/share/zsh/zcompdump-$HOST #make sure dir exists
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+# multi interactive shell type env sharing
+[[ -f $PROFILE_I ]] && source $PROFILE_I
