@@ -258,6 +258,7 @@ alias reboot="systemctl reboot"
 alias sys.sleep="systemctl suspend"
 
 #### MAINTENANCE ##########################
+# TODO: add to arch linux host env file
 sys.cache.clear() {
 	# su 
 	printf "CCACHE: Tidying up journal entries..\n"
@@ -280,6 +281,4 @@ sys.cursorfix() {
 			## check for useful packages first
 
 }
-
-
 
