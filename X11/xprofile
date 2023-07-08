@@ -1,18 +1,8 @@
 #!/bin/sh 
 # X settings
-feh.setbg # import literal code here instead
+feh --bg-max "${HOME}/.local/share/abg/1.jpg"
 xrdb -I${XDG_CONFIG_HOME:-$HOME} .config/X11/xresources &
-# EXPORT xrandr below to xrr script..
-tst() { 
-	echo "$(xrandr --query | grep "^$1 connected")"
-}
-
-if     [ -n "$(tst "DP-2-2")" ]; then
-  if   [ -n "$(tst "DP-2-3")" ]; then xrr.dp-2-3.rdp-2-2; else xrrdp-2-2; fi
-  elif [ -n "$(tst "DP-2-3")" ]; then xrr.dp-2-3
-  elif [ -n "$(tst "DP2-2")" ];  then xrr.dp2-2
-  elif [ -n "$(tst "DP2-3")" ];  then xrr.dp2-3
-fi
+xrrprofile
 dunst &
 xset r rate 300 50 &
 unclutter &
