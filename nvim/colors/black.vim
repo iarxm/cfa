@@ -2,6 +2,7 @@
 " GOAL: full fledged color scheme that's extremely minimal.
 	"meBlueDark ="#5f87af"
 	"lightlight blue = "#c0caf5"
+" ######################################
 
 " BACKGROUND #############################
 hi Normal 								ctermbg=black 	ctermfg=lightblue guibg=black   guifg=#c0caf5
@@ -83,20 +84,18 @@ hi PmenuSel guibg=black guifg=#5f87af gui=standout
 hi PmenuSbar guibg=black guifg=#5f87af gui=standout
 
 hi LspInfoBorder guifg=#5f87af 
-
-"######################################
-" QUICK ACCESS
-"meBlueDark ="#5f87af"
-"lightlight blue = "#c0caf5"
+hi link Art NormalOpposite
+hi link VertSplit AllBlack
 
 " TODO: #################################
 " TODO: Can i just 'link' groups that have the same settings?
 " TODO: add cterm variants to each hi group..
 
-" TODO: UTILISE LINKING:
-" guifg=#5f87af 
-"hi link AllBlack VertSplit
-"hi link NormalOpposite Art
+" TODO: UTILISE LINKING across repeating code
+
+" QUICK ACCESS
+"meBlueDark ="#5f87af"
+"lightlight blue = "#c0caf5"
 
 " DEFINING COLORS ####################################
 "dark5 = "#737aa2",

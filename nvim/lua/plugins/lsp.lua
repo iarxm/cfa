@@ -28,6 +28,12 @@ return {
 			border = "single",
 		}
 	},
+	{ "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		-- event = 'VeryLazy', use trouble instead?
+  		config = function()
+    		require("lsp_lines").setup()
+  		end,
+	},
 	-- LINTING ######################################
 	{ 'jose-elias-alvarez/null-ls.nvim',
 		event = 'VeryLazy',

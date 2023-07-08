@@ -12,7 +12,6 @@ lspc.lua_ls.setup(lsp.nvim_lua_ls())
 lspc.clangd.setup{}
 
 lsp.setup()
-
 -- #######################################################
 -- HOW TO ADD BORDERS TO MENUS? ##############################
 -- DISABLE BELOW?
@@ -24,7 +23,6 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
            title = "hover"
        	}
 )
-
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
          vim.lsp.handlers.signature_help, {
            -- Use a sharp border with `FloatBorder` highlights
@@ -32,7 +30,12 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
          }
        )
 vim.diagnostic.config{
-  float={border= "single" }
+  float={border= "single" },
+  virtual_text = true,
+  signs = true,
+  underline = false,
+  update_in_insert = false,
+  severity_sort = false,
 }
 --local lsp = require('lsp-zero').preset({
  --   name = 'minimal',
