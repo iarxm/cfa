@@ -1,1 +1,1 @@
-source /home/$USER/.config/X11/xinitrc
+. "/home/$USER/.config/X11/xinitrc"

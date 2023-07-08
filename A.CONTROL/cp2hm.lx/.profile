@@ -1,1 +1,1 @@
-source /home/$USER/.config/shell/profile
+. "/home/$USER/.config/shell/profile"
