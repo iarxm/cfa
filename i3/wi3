@@ -1,0 +1,11 @@
+#!/bin/env bash
+_sleep="$1"
+_class="$2"
+shift 2
+_cmd="$@"
+
+st -c "oo" zsh -c "source $PROFILE_I; $_cmd" &
+sleep "${_sleep}"
+i3-msg '[class="'"$_class"'"] move scratchpad'
+i3-msg '[class="'"$_class"'"] scratchpad show'
+

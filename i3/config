@@ -1,71 +1,36 @@
-# initial startup scripts - no reloads ===============
-#exec qutebrowser
-#exec --no-startup-id nm-applet
-#exec --no-startup-id blueberry-tray
-exec --no-startup-id redshift -l 53.34:6.26
-exec --no-startup-id redshift
-exec --no-startup-id source ~/.profile
-# exec --no-startup-id i3s str
-	# instead - just manually run i3sx or i3start (sometimes id rather not have it run, and there's no overhead to doing it manually)
+# INIT / not reloadable ===============
 # defs =======================================
-set $mod mod4
+set $mod 	mod4
 set $mod1 mod1
+set $ma 	mod4
+set $mb 	mod1
+set $scr 		/home/$USER/iis/scr
+set $ex_noid 	exec --no-startup-id
+set $wi3 		exec $HOME/.config/i3/wi3
+set $wi3mr 	exec $HOME/.config/i3/wi3mr
 set $refresh_i3status killall -SIGUSR1 i3status
 floating_modifier $mod
 floating_maximum_size 0 x 0
 # includes ==============================
-#include ~/.config/i3/floatwrap.config
+$ex_noid redshift -l 53.34:6.26
+$ex_noid source ~/.profile
 include ~/.config/i3/xprev.config
 include ~/.config/i3/xcolor.config
 include ~/.config/i3/xwindow.config
 # == basic ===============
-bindsym $mod+mod1+k exec --no-startup-id pamixer --allow-boost -i 10 && $refresh_i3status
-bindsym $mod+mod1+j exec --no-startup-id pamixer --allow-boost -d 10 && $refresh_i3status
-bindsym $mod+mod1+Control+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
-bindsym $mod+$mod1+p exec --no-startup-id mpc toggle
-# == most-used =========
-bindsym $mod1+r exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id dmenu_runx
-bindsym $mod+p exec /usr/bin/passmenu
-#bindsym $mod+Control+s exec "systemctl suspend"
+bindsym $mod+mod1+k 	$ex_noid pamixer --allow-boost -i 10 && $refresh_i3status
+bindsym $mod+mod1+j 	$ex_noid pamixer --allow-boost -d 10 && $refresh_i3status
+bindsym $mod+$mod1+p 	$ex_noid mpc toggle
+bindsym $mod1+r 		$ex_noid i3-dmenu-desktop
+bindsym $mod+d 		$ex_noid /home/iao/.local/bin/dmu/dmenu_runx
+bindsym $mod+p 		$ex_noid passmenu
+# TODO: move to local bin folder?
+bindsym $mod1+d $ex_noid $HOME/.config/i3/ydmenu-titles
 bindsym $mod+q kill
-#==== screenshots ============================
-set $scr /home/$USER/iis/scr
-## screen
-	bindsym Print exec --no-startup-id \
-		maim "$scr$(date +%y.%m.%d.t%H.%M.%S).png"
-## window
-	bindsym $mod+Print exec --no-startup-id \
-		maim --window $(xdotool getactivewindow) "$scr$(date +%y.%m.%d.t%H.%M.%S).png"
-## select
-	bindsym Shift+Print exec --no-startup-id \
-		maim --select "$scr$(date +%y.%m.%d.t%H.%M.%S).png"
-## Clipboard
-	bindsym Ctrl+Print exec --no-startup-id \
-		maim | xclip -selection clipboard -t image/png
-## Clipboard. window
-	bindsym Ctrl+$mod+Print exec --no-startup-id \
-		maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-## Clipboard. select
-	bindsym Ctrl+Shift+Print exec --no-startup-id \
-		maim --select | xclip -selection clipboard -t image/png
-#==== Annoatations ===============================
-## Annotations flameshot
-	bindsym $mod1+s exec --no-startup-id flameshot gui
-	bindsym $mod+Shift+s exec --no-startup-id flameshot gui
-## Anootations gromit-mpx
-	#bindsym $mod+s 	exec --no-startup-id gromit-mpx -t
-	#bindsym $mod+Ctrl+s exec --no-startup-id gromit-mpx --clear
-	#bindsym $mod1+Ctrl+s exec --no-startup-id gromit-mpx --undo
-	#gromit-mpx --visibility
-	#gromit-mpx --undo
-	#gromit-mpx --redo
-	#gromit-mpx --toggle
-
-
-##=== applications ===========================
-bindsym $mod+Return exec /usr/bin/st
-bindsym $mod1+b exec qb # current instance for snappier startup
+bindsym $mod+mod1+Control+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+bindsym $mod+Return 	exec /usr/bin/st
+bindsym $mod1+b 		exec qb
+#bindsym $mod+Control+s exec "systemctl suspend"
 # x==== focus nav ============================
 bindsym $mod+Space 		focus mode_toggle
 bindsym $mod+Ctrl+k 	focus parent
@@ -136,7 +101,6 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
-bindsym $mod+r 		mode "resize"
 bindsym $mod+Shift+r 	restart
 bindsym $mod1+Shift+r 	reload 
 bindsym $mod+Shift+e 	exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'" 
@@ -153,294 +117,125 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-# ===============================================
-# FLOATING WRAPPER:
-# TODO: 
-# 	- Make everything into simple functions to call
-#		- Menu: #fm #brw #cli #tx #tw #cm #ot other
-# basic cmds ==========================
-# testing
-bindsym $mod+$mod1+g exec "zshprint"
-#==== gen ============================
+bindsym $mod+r 		mode "resize"
 
-#bindsym $mod+c [con_mark="^z$"] scratchpad show
-# Overview - vim spaces ==============================
-#mod1+a - journal
-
-#==== transition ======================================
-# ponysay / cowsay
-#bindsym $mod+c exec "zshprintc "
+############################################################
+# FLOATING WRAPPERS #fm #brw #cli #tx #tw #cm #ot other ####
+# TODO: apply floating wrapper $wi3 to all code below
+#==== tw / write / common ==================================
+#oo
+bindsym $mod1+p [class="^oo$"] scratchpad show
+bindsym $mod1+Shift+p $wi3 0.5 oo 'vo'
+#wsflx
+bindsym $mod1+o [con_mark="ai"] scratchpad show
+bindsym $mod1+Shift+o exec i3s ws.flx
+#wsfly
+bindsym $mod+o [con_mark="cal"] scratchpad show
+bindsym $mod+Shift+o exec i3s ws.fly
+#opx
+bindsym $mod1+u [class="^twf9$"] scratchpad show
+bindsym $mod1+Shift+u $wi3 0.4 twf9 'vx.opa'
+##opb
+bindsym $mod+u [class="^ooa$"] scratchpad show
+bindsym $mod+Shift+u $wi3 0.5 ooa 'vx.opb'
+##pomo - tdo
+bindsym $mod1+Shift+e [class="^pomo$"] scratchpad show
 # ponysay /cowsay journal
 bindsym $mod1+a [class="^pony$"] scratchpad show
-	bindsym $mod1+Shift+a exec "zshprintc "; \
-		exec sh -c ' \
-		sleep 0.5s && \
-		i3-msg "[class="^pony$"] move scratchpad" && \
-		i3-msg "[class="^pony$"] scratchpad show" \
-		'
-	
-#==== tw. common ==================================
-# TODO:
-# 	- Prepend 'zsh' to all commands that invoke a shell alias to make it work again
-# mm
-
-bindsym $mod1+y [class="^twf7$"] scratchpad show
-	  bindsym $mod1+Shift+y exec "/usr/bin/st -c twf6 \
-	  	vmma"; \
-	  	exec sh -c 'sleep 0.4s && \
-	  	i3-msg "[class="^twf7$"] move scratchpad" && \
-	  	i3-msg "[class="^twf7$"] scratchpad show"'
-## mma
-bindsym $mod+y [class="^twf6$"] scratchpad show
-	  bindsym $mod+Shift+y exec "/usr/bin/st -c twf6 \
-	  	vmm"; \
-	  	exec sh -c '\
-	     	sleep 0.4s \
-	  		&& i3-msg "[class="^twf6$"] move scratchpad" \
-	  		&& i3-msg "[class="^twf6$"] scratchpad show"'
-	  
-## ou 
-## set to either of o,oa,ob etc.. via osetux..
-#	  	previous: vx.opx"; \
-#			new: calendar
-#bindsym $mod1+o [class="^cal$"] scratchpad show
-bindsym $mod1+o [con_mark="cal"] scratchpad show
-	  bindsym $mod1+Shift+o exec i3s ws.fl
-		#	  	exec sh -c ' \
-#			i3-msg "workspace 7" && \
-#			sleep 3.0s && \
-#			i3-msg "focus parent" && \
-#			i3-msg "mark 'cal'" && \
-#			i3-msg "[class="^qutebrowser$" con_mark="cal"] move scratchpad" && \
-#			i3-msg "[class="^qutebrowser$" con_mark="cal"] scratchpad show" \
-
-## opx
-bindsym $mod1+u [class="^twf9$"] scratchpad show
-	  bindsym $mod1+Shift+u exec "/usr/bin/st -c twf9 \
-	  	vx.opa"; \
-	  	exec sh -c ' \
-	  	sleep 0.4s \
-	  	&& i3-msg "[class="^twf9$"] move scratchpad" \
-	  	&& i3-msg "[class="^twf9$"] scratchpad show"'
-	  
-## opb
-bindsym $mod+u [class="^ooa$"] scratchpad show
-	  bindsym $mod+Shift+u exec st -c ooa \
-		vx.opb ;\
-		exec sh -c ' \
-	  	sleep 0.5 \
-	  	&& i3-msg "[class="^ooa$"] move scratchpad" \
-	  	&& i3-msg "[class="^ooa$"] scratchpad show"'
-  	  	  ##vx.oa.tmux ;\
-## oo
-bindsym $mod1+p [class="^oo$"] scratchpad show
-	  bindsym $mod1+Shift+p exec "/usr/bin/st -c oo \
-	  	zsh -c vo"; \
-	  	exec sh -c ' \
-	  	sleep 0.5s \
-	  	&& i3-msg "[class="^oo$"] move scratchpad" \
-	  	&& i3-msg "[class="^oo$"] scratchpad show"'
-	  
-## pomo - tdo
-bindsym $mod1+Shift+e [class="^pomo$"] scratchpad show
-	
-##=== tw ================================
+bindsym $mod1+Shift+a $wi3 0.5 pony "zshprintc "
+#tw
 bindsym $mod1+e exec tw.dmenu
 # bindsym $mod1+f exec /usr/bin/st taskwarrior-tui
-## twtui
+#twtui
 bindsym $mod1+g [class="^stf-tw4$"] scratchpad show
-	bindsym $mod1+Shift+g exec /usr/bin/st -c stf-tw4 taskwarrior-tui; \
-		exec sh -c '\
-		sleep 0.5s && \
-		&& i3-msg "[class="^stf-tw4$"] move scratchpad" && \
-		&& i3-msg "[class="^stf-tw4$"] scratchpad show"'
-	## tw nvim
+bindsym $mod1+Shift+g $wi3 0.5 stf-tw4 taskwarrior-tui
+#tw nvim TODO:
 bindsym $mod+$mod1+y [class="^stf-tw2$"] scratchpad show
-	bindsym $mod+$mod1+Shift+y exec /usr/bin/st -c stf-tw2 \
-	  	nvim -O \
-		".config/task/taskrc" \
-		".config/shell/aliases.tw"; \
-		exec sh -c 'sleep 0.5s && \
-		i3-msg "move scratchpad" && \
-		i3-msg "[class="^stf-tw2$"] scratchpad show" \
-		'
-	## tw3
-bindsym $mod+Ctrl+y [class="^tw3$"] scratchpad show
-	  bindsym $mod+Ctrl+Shift+y exec /usr/bin/st \
-		-c tw3; exec sh -c \
-		'sleep 0.5s && \
-		i3-msg "[class="^tw3$"] move scratchpad" && \
-		i3-msg "[class="^tw3$"] scratchpad show" \
-		'
+bindsym $mod+$mod1+Shift+y $wi3 0.5 stf-tw2 'vo.tw'
+#tw3
+#bindsym $mod+Ctrl+y [class="^tw3$"] scratchpad show
+#bindsym $mod+Ctrl+Shift+y $wi3 0.5 tw3 ' '
 ## menu ================================================
-bindsym $mod+$mod1+v exec /usr/bin/st -c stf-buku1 oil-search; exec sh -c 'sleep 0.3s && i3-msg "move scratchpad" && i3-msg "[class="^stf-buku1$"] scratchpad show"'
-	
-#=== fm file manager =======================================
-# removing -ea from nnn command as ive included it as an alias in shell opts
-# relating to ds:
-#bindsym $mod1+i [title="^preview$"] focus
-#bindsym $mod+i focus parent; [class="^nnnf1$"] focus
-#bindsym $mod+$mod1+i [class="^nnnf1$"] scratchpad show
-bindsym $mod+o [class="^tabbed$"] focus
-	bindsym $mod+i exec xdotool windowactivate --sync $(xdotool search --class "nnnf1")
-	bindsym $mod1+i exec dsnn foc "nnnf1"
-	bindsym $mod+Shift+i exec /usr/bin/st -c nnnf1 zsh -c "nnn -a"; \
-		exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^nnnf1$"] scratchpad show"'
-bindsym $mod+$mod1+u [class="^nnnf4$"] scratchpad show; focus
-	bindsym $mod+$mod1+Shift+u exec /usr/bin/st -c nnnf4 nnn; \
-	exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^nnnf4$"] scratchpad show"'
-#bindsym mod1+$mod+i [class="^nnnf$"] scratchpad show; focus
-#	bindsym mod1+$mod+Shift+i exec /usr/bin/st -c nnnf nnn; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^nnnf$"] scratchpad show"'
-#	for_window [class="^nnnf$"] floating enable 
-#	for_window [class="^nnnf$"] resize set 30ppt 30ppt
-#	for_window [class="^nnnf$"] move position 70ppt 69ppt
-bindsym $mod+Ctrl+i [class="^nnnf2$"] scratchpad show; focus
-	bindsym $mod+Ctrl+Shift+i exec /usr/bin/st -c nnnf2 tmux new nnn -Pa t; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^nnnf2$"] scratchpad show"'
-	
-bindsym mod1+Ctrl+i [class="^nnnf3$"] scratchpad show; focus
-	bindsym mod1+Ctrl+Shift+i exec /usr/bin/st -c nnnf3 nnn; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^nnnf3$"] scratchpad show"'
-	
-##==== browser ===========================================
-# tdo. add floating to criteria case - to exclude non floating windows
-#	for_window [class="^qutebrowser$"] floating enable
-#	for_window [class="^qutebrowser$"] resize set 99ppt 99ppt
-#	for_window [class="^qutebrowser$"] move position 1ppt 1ppt
-## qtc float
-bindsym $mod+b [class="^qutebrowser$" con_mark="a"] scratchpad show
-	bindsym $mod+Shift+b exec \
-		qb; \
-		exec sh -c ' \
-			sleep 1.0s && \
-			i3-msg "mark a" && \
-			i3-msg "[class="^qutebrowser$" con_mark="a"] move scratchpad" && \
-			i3-msg "[class="^qutebrowser$" con_mark="a"] scratchpad show" \
-			'
-	
-## qtc float
-bindsym $mod+mod1+b [class="^qutebrowser$" con_mark="b"] scratchpad show
-	bindsym $mod+mod1+Shift+b exec qb; \
-		exec sh -c ' \
-			sleep 0.2s && \
-			i3-msg "mark b" && \
-			i3-msg "move scratchpad" && \
-			i3-msg "[class="^qutebrowser$" con_mark="b"] scratchpad show"'
-		
-## qtc float
-bindsym $mod+Control+b [class="^qutebrowser$" con_mark="d"] scratchpad show
-	bindsym $mod+Control+Shift+b exec qb; \
-		exec sh -c ' \
-		sleep 0.2s && \
-		i3-msg "mark c" && \
-		i3-msg "move scratchpad" && \
-		i3-msg "[class="^qutebrowser$" con_mark="d"] scratchpad show"'
-	
-## qtc.whatsapp.float
-bindsym $mod+$mod1+m [class="^qutebrowser$" con_mark="cm"] scratchpad show
-	bindsym $mod+$mod1+Shift+m exec qb x.wa; \
-	exec sh -c ' \
-		sleep 2s && \
-		i3-msg "mark cm" && \
-		i3-msg "move scratchpad" && \
-		i3-msg "[class="^qutebrowser$" con_mark="cm"] scratchpad show"'
-	
-## brave
-bindsym mod1+Control+b [con_mark="c"] scratchpad show
-	bindsym mod1+Control+Shift+b exec brave; \
-		exec sh -c \
-			'sleep 2s && \
-			i3-msg "mark c" && \
-			i3-msg "[con_mark="c"] move scratchpad" && \
-			i3-msg "[con_mark="c"] scratchpad show"'
-# gen
+#oil: todo update
+bindsym $mod+$mod1+v $wi3 0.3 stf-buku1 oil-search
+#### asurf ###################################################
+#bindsym $mod+o [class="^tabbed$"] focus
+# i
+bindsym $mod+i exec xdotool windowactivate --sync $(xdotool search --class "nnnf1")
+bindsym $mod1+i exec focusfixer "nnnf1"
+bindsym $mod+Shift+i 		$wi3 0.5 nnnf1 'nnn -a'
+bindsym $mod+$mod1+u 		[class="^nnnf4$"] scratchpad show; focus
+bindsym $mod+$mod1+Shift+u 	$wi3 0.5 nnnf4 'nnn'
+bindsym $mod+Ctrl+i 		[class="^nnnf2$"] scratchpad show; focus
+bindsym $mod+Ctrl+Shift+i 	$wi3 0.5 nnnf2 'tmux new nnn -Pa t'
+bindsym $mod1+Ctrl+i 		[class="^nnnf3$"] scratchpad show; focus
+bindsym $mod1+Ctrl+Shift+i 	$wi3 0.5 nnnf3 'nnn'
 ## trm terminal =============================================
-## d for android space
-
-bindsym $mod+$mod1+d [class="^drdf$"] scratchpad show; focus
-	bindsym $mod+$mod1+Shift+d exec /usr/bin/st -c drdf; \
-		exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^drdf$"] scratchpad show"'
-#bindsym mod1+o [class="^stf-dropdown$"] scratchpad show
-#	bindsym mod1+Shift+o exec /usr/bin/st -c stf-dropdown; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^stf-dropdown$"] scratchpad show"'
-	
-#bindsym $mod+o [class="^stf-dropdown1$"] scratchpad show
-#	bindsym $mod+Shift+o exec /usr/bin/st -c stf-dropdown1; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^stf-dropdown1$"] scratchpad show"'
-#bindsym mod1+$mod+o [class="^stf-dropdown2$"] scratchpad show
-#bindsym mod1+$mod+Shift+o exec /usr/bin/st -c stf-dropdown2; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^stf-dropdown2$"] scratchpad show"'
-bindsym $mod+a [class="^stf$"] scratchpad show
-	bindsym $mod+Shift+a exec /usr/bin/st -c stf; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^stf$"] scratchpad show"'
-# reserved for manpage browsing..
-#bindsym $mod1+Shift+s exec /usr/bin/st -c st-manf; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^st-manf$"] scratchpad show"'
-	#bindsym $mod1+s [class="^st-manf$"] scratchpad show
-bindsym $mod1+Ctrl+a [class="^st-manf2$"] scratchpad show
-	bindsym $mod1+Ctrl+Shift+a exec /usr/bin/st -c st-manf2; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^st-manf2$"] scratchpad show"'
+# a
+bindsym $mod+a 			[class="^stf$"] scratchpad show
+bindsym $mod+Shift+a 		$wi3 0.5 stf 'st'
+bindsym $mod1+Ctrl+a 		[class="^st-manf2$"] scratchpad show
+bindsym $mod1+Ctrl+Shift+a 	$wi3 st-manf2 'st'
+#android
+bindsym $mod+$mod1+d 		[class="^drdf$"] scratchpad show; focus
+bindsym $mod+$mod1+Shift+d 	$wi3 0.5 drdf 'st'
 #==== cm ml nw news mail ====================================
-# neomutt
+#neomutt
 bindsym $mod1+m exec "/usr/bin/st neomutt"
 bindsym $mod+m [con_mark="ml"] scratchpad show
-	bindsym $mod+Shift+m exec ml ws.fl
-	
-#bindsym $mod+Ctrl+Shift+m exec "/usr/bin/st -c neomuttf neomutt"; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^neomuttf$"] scratchpad show"'
-#	bindsym $mod+Ctrl+m [class="^neomuttf$"] scratchpad show
-
-#bindsym $mod+Ctrl+Shift+m exec "/usr/bin/st -c neomuttf neomutt"; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^neomuttf$"] scratchpad show"'
-#	bindsym $mod+Ctrl+m [class="^neomuttf$"] scratchpad show
-	# whatscli
-#bindsym $mod+Control+m [class="^whatsclif$"] scratchpad show
-#	bindsym $mod+Control+Shift+m exec "/usr/bin/st -c whatsclif whatscli"; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^whatsclif$"] scratchpad show"'
-# newsboat
+bindsym $mod+Shift+m exec ml ws.fl
+#newsboat
 bindsym $mod1+Ctrl+m [class="^nboatf$"] scratchpad show
-	bindsym $mod1+Ctrl+Shift+m exec "/usr/bin/st -c nboatf newsboat"; exec sh -c 'sleep 0.5s && i3-msg "move scratchpad" && i3-msg "[class="^nboatf$"] scratchpad show"'
+bindsym $mod1+Ctrl+Shift+m 	$wi3 0.5 nboatf 'newsboat'
 #==== tx.nvim ========================================
 bindsym $mod+n [class="^nvimf3$"] scratchpad show
-	bindsym $mod+Shift+n exec "/usr/bin/st -c nvimf3 \
-		zsh -c vd"; \
-		exec sh -c ' \
-		sleep 0.6s && \
-		i3-msg "move scratchpad" && \
-		i3-msg "[class="^nvimf3$"] scratchpad show"'
-	
+bindsym $mod+Shift+n 		$wi3 0.6 nvimf3 'vd'
 #tdo-make below into ascript where you choose a file and vim changes directory to ~/d/ upon opening it
 bindsym $mod+$mod1+n [class="^nvimf1$"] scratchpad show
-	bindsym $mod+mod1+Shift+n exec "/usr/bin/st -c nvimf1 \
-		exec sh -c ' \
-			nvim ~/d/a/dd -c 'cd ~/d/'"; \
-		exec sh -c 'sleep 0.4s && \
-		i3-msg "move scratchpad" && \
-		i3-msg "[class="^nvimf1$"] scratchpad show"'
-	
+bindsym $mod+mod1+Shift+n 	$wi3 0.4 nvimf1 'nvim ~/d/a/dd -c cd ~/d/'
 bindsym $mod1+n [class="^nvimf4$"] scratchpad show
-	bindsym $mod1+Shift+n exec "/usr/bin/st -c nvimf4 \
-			zsh -c vdb"; \
-			exec sh -c ' \
-			sleep 0.4s \
-			&& i3-msg "[class="^nvimf4$"] move scratchpad" \
-			&& i3-msg "[class="^nvimf4$"] scratchpad show"'
-	
-bindsym $mod1+Control+n [class="^nvimf$"] scratchpad show
-	bindsym $mod1+Control+Shift+n exec "/usr/bin/st -c nvimf nvim ~/d/ \
-		--cmd 'cd ~/d'"; \
-		exec sh -c ' \
-			sleep 0.4s && i3-msg "move scratchpad" \
-			&& i3-msg "[class="^nvimf$"] scratchpad show"'
-	# nvim right column
+bindsym $mod1+Shift+n 		$wi3 0.4 nvimf4 'vdb'
+bindsym $mod1+Control+n 		[class="^nvimf$"] scratchpad show
+bindsym $mod1+Control+Shift+n $wi3 0.4 nvimf 'nvim ~/d/ --cmd "cd ~/d"'
+# nvim right column
 bindsym $mod+Ctrl+n [class="^nvimf2$"] scratchpad show
-	bindsym $mod+Ctrl+Shift+n exec "/usr/bin/st -c nvimf2 nvim ~/d/ --cmd 'cd ~/d'"; exec sh -c 'sleep 0.4s && i3-msg "move scratchpad" && i3-msg "[class="^nvimf2$"] scratchpad show"'
-	
+bindsym $mod+Ctrl+Shift+n 	$wi3 0.4 nvimf2 'nvim ~/d/ --cmd 'cd ~/d'
 #==== au ot mu other music ======================================
 # AUDIO CONTROL
-bindsym $mod+F4 exec "/usr/bin/st -c pulsef pulsemixer"; exec sh -c 'sleep 0.1s && i3-msg "move scratchpad" && i3-msg "[class="^pulsef$"] scratchpad show"'
-	# Modifiable music player
+bindsym $mod+F4 $wi3 0.1 pulsef 'pulsemixer'
 bindsym $mod+$mod1+o [class="^musicf$"] scratchpad show
-	bindsym $mod+$mod1+Shift+o exec " \
-		/usr/bin/st -c musicf $(cat $HOME/.cache/au.playf)"; \
-		exec sh -c ' \
-			sleep 0.5s && \
-			i3-msg "[class="^musicf$"] move scratchpad" && \
-			i3-msg "[class="^musicf$"] scratchpad show"'
-	#How does this work?
-#select music player by appending it to bin/au.playf
-#then re-launch Control+$mod+p
-################################################################
-# TODO: move to local bin folder?
-bindsym $mod1+d exec --no-startup-id $HOME/.config/i3/ydmenu-titles
+bindsym $mod+$mod1+Shift+o 	$wi3 0.5 musicf "$(cat $HOME/.cache/au.playf)"
+# select music player by appending it to bin/au.playf - no changed out of bin
+#==== screenshots ============================
+##flameshot
+bindsym $mod1+s $ex_noid flameshot gui
+bindsym $mod+Shift+s $ex_noid flameshot gui
+##maimx
+bindsym Print 			$ex_noid maimx screen
+bindsym $mod+Print 		$ex_noid maimx win
+bindsym Shift+Print 	$ex_noid maimx sel
+bindsym Ctrl+Print 		$ex_noid maimx clip
+bindsym Ctrl+$mod+Print 	$ex_noid maimx clip.win
+bindsym Ctrl+Shift+Print $ex_noid maimx clip.sel
+##==== browser ===========================================
+bindsym $mod+b [class="^qutebrowser$" con_mark="a"] scratchpad show
+bindsym $mod+Shift+b $wi3mr 1.0 a qutebrowser 'qb'
+bindsym $mod+mod1+b [class="^qutebrowser$" con_mark="b"] scratchpad show
+bindsym $mod+mod1+Shift+b $wi3mr 1.0 b qutebrowser 'qb'
+bindsym $mod+Control+b [class="^qutebrowser$" con_mark="d"] scratchpad show
+bindsym $mod+Control+Shift+b $wi3mr 1.0 d qutebrowser 'qb'
+bindsym $mod+$mod1+m [class="^qutebrowser$" con_mark="cm"] scratchpad show
+bindsym $mod+$mod1+Shift+m $wi3mr 1.0 cm qutebrowser 'qb x.wa'
+# TODO: ######################################
+# TERM ##############################################
+#bindsym $mod1+o [class="^stf-dropdown$"] scratchpad show
+#bindsym $mod1+Shift+o $wi3 0.5 stf-dropdown 'st'
+#bindsym $mod+o [class="^stf-dropdown1$"] scratchpad show
+#bindsym $mod+Shift+o $wi3 0.5 stf-dropdown1 'st'
+#bindsym mod1+$mod+o [class="^stf-dropdown2$"] scratchpad show
+#bindsym mod1+$mod+Shift+o $wi3 0.5 stf-dropdown2 'st'
+# reserved for manpage browsing..
+#bindsym $mod1+Shift+s $wi3 0.5 st-manf 'st'
+#bindsym $mod1+s [class="^st-manf$"] scratchpad show
 ##########################
 ### vim: set ft=i3configAk
