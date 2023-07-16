@@ -2,7 +2,7 @@
 	-- https://github.com/dpayne/CodeGPT.nvim
 	-- https://github.com/Bryley/neoai.nvim
 -- ## SETUP CONFIGS SEPARATELY
-local configs = {
+local gpt_configs = {
 	api_key_cmd = "pass openai.com/future@iarom.org/key",
     	yank_register = "+",
     	edit_with_instructions = {
@@ -143,7 +143,11 @@ return { 'jackMort/ChatGPT.nvim',
 	--lazy = 'false',
 	event = 'VeryLazy',
 	config = function()
-			require("chatgpt").setup({configs})
+			require("chatgpt").setup(gpt_configs)
+			--require("chatgpt").setup({
+				--api_key_cmd = "pass openai.com/future@iarom.org/key",
+				--return gpt_configs
+			--})
 		end,
 	dependencies = {
 		"MunifTanjim/nui.nvim",

@@ -5,10 +5,10 @@
 " ######################################
 
 " BACKGROUND #############################
-hi Normal 								ctermbg=black 	ctermfg=lightblue guibg=black   guifg=#c0caf5
-hi NormalOpposite 				ctermbg=black		ctermfg=lightblue	guibg=black 	guifg=#c0caf5 gui=standout
-hi AllBlack 							ctermbg=black 	ctermfg=black 		guibg=black 	guifg=black
-hi AsciContainer 					ctermbg=black		ctermfg=blue		 	guibg=black 	guifg=#c0caf5 gui=standout,bold
+hi Normal 		ctermbg=black 	ctermfg=lightblue guibg=black   guifg=#c0caf5
+hi NormalOpposite 	ctermbg=black	ctermfg=lightblue	guibg=black guifg=#c0caf5 gui=standout
+hi AllBlack  		ctermbg=black 	ctermfg=black 	guibg=black 	guifg=black
+hi AsciContainer 	ctermbg=black	ctermfg=blue 	guibg=black 	guifg=#c0caf5 	gui=standout,bold
 
 " STATUS LINE #############################
 hi StatusLine ctermfg=lightblue guifg=#5f87af ctermbg=black guibg=black
@@ -84,8 +84,8 @@ hi PmenuSel guibg=black guifg=#5f87af gui=standout
 hi PmenuSbar guibg=black guifg=#5f87af gui=standout
 
 hi LspInfoBorder guifg=#5f87af 
-hi link Art NormalOpposite
 hi link VertSplit AllBlack
+" hi link Art NormalOpposite
 
 " TODO: #################################
 " TODO: Can i just 'link' groups that have the same settings?
