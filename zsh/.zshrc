@@ -27,8 +27,10 @@ if [[ -f $themex ]]; then
 		[[ -f $themey ]] && source $themey
 fi
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
 # THEMEING ==========================================
 autoload -U colors && colors	# Load colors
+
 # WINTITLE AND PROMPT =============================================
  if [[ $PROMPT_C_OFF == "1" ]]; then
   # if moding in future, look at 'powerlevel10k' as a tool to do this
@@ -53,14 +55,18 @@ autoload -U colors && colors	# Load colors
 	setopt autocd				# Automatically cd into typed directory.
 	setopt interactive_comments
 	#stty stop undef			# Disable ctrl-s to freeze terminal.
-# COMPLETION ===========================================
+	#
+#preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# COMPLETION
 # Basic auto/tab complete:
 autoload -U compinit && compinit -d $HOME/.local/share/zsh/zcompdump-$HOST #make sure dir exists
 zstyle ':completion:*' menu select
 #zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zmodload zsh/complist
 _comp_options+=(globdots)		# Include hidden files.
-# HIST/AUTOCOMPLETION ==================================
+
+# HIST/AUTOCOMPLETION
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=${HISTFILE}
@@ -71,7 +77,8 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-# VIM NAV ==============================================
+
+# VIM NAV
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -91,41 +98,36 @@ function zle-keymap-select () {
 zle -N zle-keymap-select
 zle-line-init() {
     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
+    echo -ne "\e[5 q" ;}
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
-#preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-# LF ==========================================
-## 	- Use lf to switch directories and bind it to ctrl-o
-lfcd () {
+
+# LF
+lfcd () { # switch dir and launch lf
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp" >/dev/null
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
+    fi ;}
+
 bindkey -s '^o' 'lfcd\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey '^[[P' delete-char
-# EDIT ========================================
-## - Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-# SYNTAX HIGHLIGHTING ========================
-# - Load syntax highlighting; should be last.
-#source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-# - faster one above??
-syntaxx="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-	[[ -f $syntaxx ]] && source $syntaxx
-# SOURCING ==========================================
-# 2zz?
-#export ZSH="$HOME/.local/pkg/oh-my-zsh"
-#export ZSH_COMPDUMP=$HOME/.local/share/zsh/zcompdump-$HOST #make sure dir exists
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 
-# multi interactive shell type env sharing
+# EDIT
+autoload edit-command-line; zle -N edit-command-line 
+bindkey '^e' edit-command-line # edit line in vim w c-e
+
+# BIND
+bindkey -s '^n' 'nnn\n'
+#bindkey -s '^v' 'nvim\n'
+
+# SYN HIGHLIGHT (keep last)
+syntaxx="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[[ -f $syntaxx ]] && source $syntaxx
+
+# SOURCING
 [[ -f $PROFILE_I ]] && source $PROFILE_I

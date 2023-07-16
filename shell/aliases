@@ -1,10 +1,14 @@
 #!/bin/sh
 ## vim:ft=sh
+alias blue='bluetuith'
 alias feh.setbg='feh --bg-max "${HOME}/.local/share/abg/1.jpg"'
+alias l='lf'
+alias r='ranger'
 ## git ##################################
 alias g="git"
 alias gst="git status"
 alias gco="git commit"
+alias gcc="git commit"
 alias gch="git checkout"
 alias gps="git push"
 alias gpl="git pull"
