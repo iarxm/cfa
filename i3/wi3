@@ -1,11 +1,41 @@
-#!/bin/env bash
-_sleep="$1"
-_class="$2"
-shift 2
-_cmd="$@"
+#!/bin/sh
+_cmd="$1"
+_sleep="$2"
+_class="$3"
+shift 3
 
-st -c "oo" zsh -c "source $PROFILE_I; $_cmd" &
-sleep "${_sleep}"
-i3-msg '[class="'"$_class"'"] move scratchpad'
-i3-msg '[class="'"$_class"'"] scratchpad show'
+basic() {
+	_exc=$@
+	
+	if [ -n "$_exc" ]; then
+		st -c "$_class" zsh -i -c "$_exc" &
+	else
+		st -c "$_class" &
+	fi
+	
+	echo "${_sleep}"
+	sleep "${_sleep}"
+
+	i3-msg '[class="'"$_class"'"] move scratchpad'
+	i3-msg '[class="'"$_class"'"] scratchpad show'; }
+
+qb() {
+	_mark="$1"
+	_exc=$@
+	_class="qutebrowser"
+
+	$_exc &
+
+	sleep "${_sleep}"
+	i3-msg "mark $_mark"
+	i3-msg '[class="'"$_class"'" con_mark="'"$_mark"'"] move scratchpad'
+	i3-msg '[class="'"$_class"'" con_mark="'"$_mark"'"] scratchpad show' ; }
+
+case $_cmd in
+	aa) basic $@ ;;
+	mr) wmark $@ ;; #TODO
+esac
+
+# ARX #############################################
+#st -c "$_class" zsh -c "source $PROFILE_I; $_cmd" &
 

@@ -1,37 +1,33 @@
-# INIT / not reloadable ===============
-# defs =======================================
+exec --no-startup-id noid redshift -l 53.34:6.26
+exec --no-startup-id source ~/.profile
 set $mod 	mod4
 set $mod1 mod1
 set $ma 	mod4
 set $mb 	mod1
 set $scr 		/home/$USER/iis/scr
 set $ex_noid 	exec --no-startup-id
-set $wi3 		exec $HOME/.config/i3/wi3
-set $wi3mr 	exec $HOME/.config/i3/wi3mr
+set $wi3 		exec $HOME/.config/i3/wi3 aa
+set $wi3mr 	exec $HOME/.config/i3/wi3 mr
 set $refresh_i3status killall -SIGUSR1 i3status
+set $refresh $refresh_i3status
 floating_modifier $mod
 floating_maximum_size 0 x 0
-# includes ==============================
-$ex_noid redshift -l 53.34:6.26
-$ex_noid source ~/.profile
 include ~/.config/i3/xprev.config
 include ~/.config/i3/xcolor.config
 include ~/.config/i3/xwindow.config
-# == basic ===============
-bindsym $mod+mod1+k 	$ex_noid pamixer --allow-boost -i 10 && $refresh_i3status
-bindsym $mod+mod1+j 	$ex_noid pamixer --allow-boost -d 10 && $refresh_i3status
+bindsym $mod+mod1+k 	$ex_noid pamixer --allow-boost -i 10 && $refresh
+bindsym $mod+mod1+j 	$ex_noid pamixer --allow-boost -d 10 && $refresh
 bindsym $mod+$mod1+p 	$ex_noid mpc toggle
 bindsym $mod1+r 		$ex_noid i3-dmenu-desktop
+bindsym Ctrl+$mod+p 	$ex_noid networkmanager_dmenu
 bindsym $mod+d 		$ex_noid /home/iao/.local/bin/dmu/dmenu_runx
 bindsym $mod+p 		$ex_noid passmenu
-# TODO: move to local bin folder?
-bindsym $mod1+d $ex_noid $HOME/.config/i3/ydmenu-titles
-bindsym $mod+q kill
+bindsym $mod1+d 		$ex_noid $HOME/.config/i3/ydmenu-titles # ~/BIN?
+bindsym $mod+q 		kill
 bindsym $mod+mod1+Control+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+Return 	exec /usr/bin/st
 bindsym $mod1+b 		exec qb
 #bindsym $mod+Control+s exec "systemctl suspend"
-# x==== focus nav ============================
 bindsym $mod+Space 		focus mode_toggle
 bindsym $mod+Ctrl+k 	focus parent
 bindsym $mod+Ctrl+j 	focus child
@@ -45,7 +41,6 @@ bindsym $mod+z 		move scratchpad
 bindsym $mod1+z 		scratchpad show
 bindsym $mod+Shift+z 	floating toggle
 bindsym $mod1+Shift+f 	[class=.*] scratchpad show 
-# ==== focus nav simple ====================
 bindsym $mod+j 		focus down
 bindsym $mod+k 		focus up 
 bindsym $mod+l 		focus right 
@@ -118,94 +113,72 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 bindsym $mod+r 		mode "resize"
-
 ############################################################
 # FLOATING WRAPPERS #fm #brw #cli #tx #tw #cm #ot other ####
-# TODO: apply floating wrapper $wi3 to all code below
 #==== tw / write / common ==================================
 #oo
-bindsym $mod1+p [class="^oo$"] scratchpad show
-bindsym $mod1+Shift+p $wi3 0.5 oo 'vo'
+bindsym $mod1+p 			[class="^oo$"] scratchpad show
+bindsym $mod1+Shift+p 		$wi3 0.5 oo 'vo'
 #wsflx
-bindsym $mod1+o [con_mark="ai"] scratchpad show
-bindsym $mod1+Shift+o exec i3s ws.flx
+bindsym $mod1+o 			[con_mark="ai"] scratchpad show
+bindsym $mod1+Shift+o 		exec i3s ws.flx
 #wsfly
-bindsym $mod+o [con_mark="cal"] scratchpad show
-bindsym $mod+Shift+o exec i3s ws.fly
+bindsym $mod+o 			[con_mark="cal"] scratchpad show
+bindsym $mod+Shift+o 		exec i3s ws.fly
 #opx
-bindsym $mod1+u [class="^twf9$"] scratchpad show
-bindsym $mod1+Shift+u $wi3 0.4 twf9 'vx.opa'
+bindsym $mod1+u 			[class="^twf9$"] scratchpad show
+bindsym $mod1+Shift+u 		$wi3 0.4 twf9 'vx.opa'
 ##opb
-bindsym $mod+u [class="^ooa$"] scratchpad show
-bindsym $mod+Shift+u $wi3 0.5 ooa 'vx.opb'
-##pomo - tdo
-bindsym $mod1+Shift+e [class="^pomo$"] scratchpad show
-# ponysay /cowsay journal
-bindsym $mod1+a [class="^pony$"] scratchpad show
-bindsym $mod1+Shift+a $wi3 0.5 pony "zshprintc "
-#tw
-bindsym $mod1+e exec tw.dmenu
-# bindsym $mod1+f exec /usr/bin/st taskwarrior-tui
-#twtui
-bindsym $mod1+g [class="^stf-tw4$"] scratchpad show
-bindsym $mod1+Shift+g $wi3 0.5 stf-tw4 taskwarrior-tui
+bindsym $mod+u				[class="^ooa$"] scratchpad show
+bindsym $mod+Shift+u 		$wi3 0.5 ooa 'vx.opb'
 #tw nvim TODO:
-bindsym $mod+$mod1+y [class="^stf-tw2$"] scratchpad show
-bindsym $mod+$mod1+Shift+y $wi3 0.5 stf-tw2 'vo.tw'
-#tw3
-#bindsym $mod+Ctrl+y [class="^tw3$"] scratchpad show
-#bindsym $mod+Ctrl+Shift+y $wi3 0.5 tw3 ' '
-## menu ================================================
-#oil: todo update
-bindsym $mod+$mod1+v $wi3 0.3 stf-buku1 oil-search
-#### asurf ###################################################
-#bindsym $mod+o [class="^tabbed$"] focus
-# i
-bindsym $mod+i exec xdotool windowactivate --sync $(xdotool search --class "nnnf1")
-bindsym $mod1+i exec focusfixer "nnnf1"
-bindsym $mod+Shift+i 		$wi3 0.5 nnnf1 'nnn -a'
-bindsym $mod+$mod1+u 		[class="^nnnf4$"] scratchpad show; focus
-bindsym $mod+$mod1+Shift+u 	$wi3 0.5 nnnf4 'nnn'
-bindsym $mod+Ctrl+i 		[class="^nnnf2$"] scratchpad show; focus
-bindsym $mod+Ctrl+Shift+i 	$wi3 0.5 nnnf2 'tmux new nnn -Pa t'
-bindsym $mod1+Ctrl+i 		[class="^nnnf3$"] scratchpad show; focus
-bindsym $mod1+Ctrl+Shift+i 	$wi3 0.5 nnnf3 'nnn'
+bindsym $mod+$mod1+y 		[class="^stf-tw2$"] scratchpad show
+bindsym $mod+$mod1+Shift+y 	$wi3 0.5 stf-tw2 'vo.tw'
+#menu: oil: todo update
+bindsym $mod+$mod1+v 		$wi3 0.3 stf-buku1 oil-search
 ## trm terminal =============================================
-# a
-bindsym $mod+a 			[class="^stf$"] scratchpad show
-bindsym $mod+Shift+a 		$wi3 0.5 stf 'st'
-bindsym $mod1+Ctrl+a 		[class="^st-manf2$"] scratchpad show
-bindsym $mod1+Ctrl+Shift+a 	$wi3 st-manf2 'st'
+bindsym $mod+a 					[class="^stf$"] scratchpad show
+bindsym $mod+Shift+a 		$wi3 0.5 stf
+bindsym $mod1+a 			[class="^stf2$"] scratchpad show
+bindsym $mod1++Shift+a 		$wi3 0.5 stf2
 #android
 bindsym $mod+$mod1+d 		[class="^drdf$"] scratchpad show; focus
 bindsym $mod+$mod1+Shift+d 	$wi3 0.5 drdf 'st'
 #==== cm ml nw news mail ====================================
 #neomutt
-bindsym $mod1+m exec "/usr/bin/st neomutt"
-bindsym $mod+m [con_mark="ml"] scratchpad show
-bindsym $mod+Shift+m exec ml ws.fl
+bindsym $mod1+m 			exec "/usr/bin/st neomutt"
+bindsym $mod+m 			[con_mark="ml"] scratchpad show
+bindsym $mod+Shift+m 		exec ml ws.fl
 #newsboat
-bindsym $mod1+Ctrl+m [class="^nboatf$"] scratchpad show
+bindsym $mod1+Ctrl+m [		class="^nboatf$"] scratchpad show
 bindsym $mod1+Ctrl+Shift+m 	$wi3 0.5 nboatf 'newsboat'
 #==== tx.nvim ========================================
 bindsym $mod+n [class="^nvimf3$"] scratchpad show
 bindsym $mod+Shift+n 		$wi3 0.6 nvimf3 'vd'
 #tdo-make below into ascript where you choose a file and vim changes directory to ~/d/ upon opening it
-bindsym $mod+$mod1+n [class="^nvimf1$"] scratchpad show
+bindsym $mod+$mod1+n 		[class="^nvimf1$"] scratchpad show
 bindsym $mod+mod1+Shift+n 	$wi3 0.4 nvimf1 'nvim ~/d/a/dd -c cd ~/d/'
-bindsym $mod1+n [class="^nvimf4$"] scratchpad show
+bindsym $mod1+n 			[class="^nvimf4$"] scratchpad show
 bindsym $mod1+Shift+n 		$wi3 0.4 nvimf4 'vdb'
 bindsym $mod1+Control+n 		[class="^nvimf$"] scratchpad show
 bindsym $mod1+Control+Shift+n $wi3 0.4 nvimf 'nvim ~/d/ --cmd "cd ~/d"'
 # nvim right column
-bindsym $mod+Ctrl+n [class="^nvimf2$"] scratchpad show
+bindsym $mod+Ctrl+n 		[class="^nvimf2$"] scratchpad show
 bindsym $mod+Ctrl+Shift+n 	$wi3 0.4 nvimf2 'nvim ~/d/ --cmd 'cd ~/d'
 #==== au ot mu other music ======================================
 # AUDIO CONTROL
-bindsym $mod+F4 $wi3 0.1 pulsef 'pulsemixer'
-bindsym $mod+$mod1+o [class="^musicf$"] scratchpad show
+bindsym $mod+F4 			$wi3 0.1 pulsef 'pulsemixer'
+bindsym $mod+$mod1+o 		[class="^musicf$"] scratchpad show
 bindsym $mod+$mod1+Shift+o 	$wi3 0.5 musicf "$(cat $HOME/.cache/au.playf)"
-# select music player by appending it to bin/au.playf - no changed out of bin
+##==== browser ===========================================
+bindsym $mod+b 		[class="^qutebrowser$" con_mark="a"] scratchpad show
+bindsym $mod+Shift+b 		$wi3mr 1.0 qutebrowser a 'qb'
+bindsym $mod+mod1+b 	[class="^qutebrowser$" con_mark="b"] scratchpad show
+bindsym $mod+mod1+Shift+b 	$wi3mr 1.0 qutebrowser b 'qb'
+bindsym $mod+Control+b 	[class="^qutebrowser$" con_mark="d"] scratchpad show
+bindsym $mod+Control+Shift+b 	$wi3mr 1.0 qutebrowser b 'qb'
+bindsym $mod+$mod1+m 	[class="^qutebrowser$" con_mark="cm"] scratchpad show
+bindsym $mod+$mod1+Shift+m 	$wi3mr 1.0 qutebrowser cm 'qb x.wa'
 #==== screenshots ============================
 ##flameshot
 bindsym $mod1+s $ex_noid flameshot gui
@@ -217,25 +190,19 @@ bindsym Shift+Print 	$ex_noid maimx sel
 bindsym Ctrl+Print 		$ex_noid maimx clip
 bindsym Ctrl+$mod+Print 	$ex_noid maimx clip.win
 bindsym Ctrl+Shift+Print $ex_noid maimx clip.sel
-##==== browser ===========================================
-bindsym $mod+b [class="^qutebrowser$" con_mark="a"] scratchpad show
-bindsym $mod+Shift+b $wi3mr 1.0 a qutebrowser 'qb'
-bindsym $mod+mod1+b [class="^qutebrowser$" con_mark="b"] scratchpad show
-bindsym $mod+mod1+Shift+b $wi3mr 1.0 b qutebrowser 'qb'
-bindsym $mod+Control+b [class="^qutebrowser$" con_mark="d"] scratchpad show
-bindsym $mod+Control+Shift+b $wi3mr 1.0 d qutebrowser 'qb'
-bindsym $mod+$mod1+m [class="^qutebrowser$" con_mark="cm"] scratchpad show
-bindsym $mod+$mod1+Shift+m $wi3mr 1.0 cm qutebrowser 'qb x.wa'
-# TODO: ######################################
-# TERM ##############################################
-#bindsym $mod1+o [class="^stf-dropdown$"] scratchpad show
-#bindsym $mod1+Shift+o $wi3 0.5 stf-dropdown 'st'
-#bindsym $mod+o [class="^stf-dropdown1$"] scratchpad show
-#bindsym $mod+Shift+o $wi3 0.5 stf-dropdown1 'st'
-#bindsym mod1+$mod+o [class="^stf-dropdown2$"] scratchpad show
-#bindsym mod1+$mod+Shift+o $wi3 0.5 stf-dropdown2 'st'
-# reserved for manpage browsing..
-#bindsym $mod1+Shift+s $wi3 0.5 st-manf 'st'
-#bindsym $mod1+s [class="^st-manf$"] scratchpad show
-##########################
-### vim: set ft=i3configAk
+#### asurf ###################################################
+bindsym $mod1+i 		exec /home/iao/.local/usr/binx/focusfixer 'nnnf1'
+bindsym $mod+i 		[class="^nnnf1$"] scratchpad show; focus
+bindsym $mod+Shift+i 	$wi3 0.5 nnnf1 'nnn -a'
+bindsym $mod1+Ctrl+i 	[class="^nnnf3$"] scratchpad show; focus
+bindsym $mod1+Ctrl+Shift+i $wi3 0.5 nnnf3 'nnn'
+#bindsym $mod+o [class="^tabbed$"] focus
+#bindsym $mod+i exec xdotool windowactivate --sync $(xdotool search --class "nnnf1")
+#bindsym $mod1+i 		focusfixer 'nnnf1'
+### vim: set ft=i3config
+#### nnn #############################################
+#bindsym $mod+Ctrl+i 		[class="^nnnf2$"] scratchpad show; focus
+#bindsym $mod+Ctrl+Shift+i 	$wi3 0.5 nnnf2 'tmux new nnn -Pa t'
+#bindsym $mod+$mod1+u 		[class="^nnnf4$"] scratchpad show; focus
+#bindsym $mod+$mod1+Shift+u 	$wi3 0.5 nnnf4 'nnn'
+
