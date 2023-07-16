@@ -32,13 +32,13 @@ config.set('content.headers.user_agent', \
         '*://www.bing.com/*') # setting user agent per domain pattern - bing: for accessing new chatgpt feature via edge browser usage
 c.content.cache.size = 52428800
 # PERFORMANCE ###############################################################
-c.content.webgl = False # can provide performance improvements for a low resource laptop?
 #c.content.webgl = True
+c.content.webgl = False # can provide performance improvements for a low resource laptop?
 c.content.autoplay = False
 c.content.geolocation = True
 # BLOCKING ###################################################################
-#c.content.cookies.accept = 'all'
-config.set('content.cookies.accept', 'all', '*://*/*')
+#config.set('content.cookies.accept', 'all', '*://*/*')
+c.content.cookies.accept = 'all'
 c.content.blocking.method = 'both'
 c.content.blocking.enabled = True
 c.content.blocking.adblock.lists = [ \
