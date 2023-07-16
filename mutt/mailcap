@@ -1,13 +1,6 @@
 # vim:ft=mailcap
-#text/html; elinks -dump; copiousoutput;
-#text/plain; copiousoutput;
-#text/html; elinks -dump -dump-color-mode 1; copiousoutput;
-#text/html; w3m -I %{charset} -T text/html -o display_charset=%{charset} -o auto_image=TRUE; copiousoutput
 text/*;                           LESSQUIET=1 lesspipe.sh '%s'; copiousoutput
-#text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -collapse_br_tags -dump %s; nametemplate=%s.html; copiousoutput
-#text/html; ml.mailcap.multi %s ; copiousoutput
 
-# OTHER ###############################
 text/html; qutebrowser %s; needsterminal; nametemplate=%s.html
 application/pdf; zathura %s
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; pandoc --from docx --to markdown %s; copiousoutput

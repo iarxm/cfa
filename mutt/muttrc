@@ -62,31 +62,40 @@ set mail_check_stats
 set my_cfg			= "$XDG_CONFIG_HOME/mutt"
 set my_cfg_file		= "$XDG_CONFIG_HOME/mutt/muttrc"
 set mailcap_path		= "$my_cfg/mailcap"
+set my_mb_sh			= "$XDG_CONFIG_HOME/mutt/mb.sh"
 # VARS: SOURCE
+## binds
 set my_bind 			= "$my_cfg/bind"
 source $my_bind 	
+## colors
 set my_set_col			= "$my_cfg/set.col"
 source $my_set_col	
+## gpg
 set my_gpg			= "$my_cfg/gpg" # 'p' in compose fields..
 source $my_gpg
 # PERSONAL DATA LOADING: #################
-source $my_cfgx_file
 # VARS
 set my_cfgx  			= "$HOME/.config/muttm"
 set certificate_file	= "$my_cfgx/dt.certificates"
 set signature			= "$my_cfgx/dt.sig"
-# SOURCE
+## xconfig
 set my_cfgx_file		= "$my_cfgx/amuttrc"
-source my_cfgx_file
-set my_set_mdir		= "$my_cfgx/aset.mdir"
-source $my_set_mdir
-set my_set_send 		= "$my_cfgx/aset.send"
-source $my_set_send
+source $my_cfgx_file
+## contact aliases
 set alias_file 		= "$my_cfgx/dt.aliases"
 source $alias_file
-set $my_bind_m			= "$my_cfgx/bind.m"
+## bindings
+set my_bind_m			= "$my_cfgx/bind.m"
 source $my_bind_m
-set $my_bind_mx		= "$my_cfgx/bind.mx"
+## bindings
+set my_bind_mx			= "$my_cfgx/bind.mx"
 source $my_bind_mx
+# mdirs/smstp goes last ####################
+## mdir default
+set my_set_mdir		= "$my_cfgx/aset.mdir"
+source $my_set_mdir
+## smstp default
+set my_set_send 		= "$my_cfgx/aset.send"
+source $my_set_send
 #set my_mb_virtual 		= "$my_cfgx/mb.virtual"
 
