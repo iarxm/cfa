@@ -250,6 +250,11 @@ alias dr.mosh="drr mosh.imp"
 alias dr.sshfs.pull="drr ip.pull && drr sshfs.imp"
 alias dr.sshfs="drr sshfs.imp"
 
+##### BACKUP #################################
+ncdudt() { ncdu --exclude=".*" /data/ ; }
+ncdusy() { ncdu --exclude="/data/" / ;}
+
+
 #### AUDIO #################################
 # MIC TEST
 mic_tst.a() { arecord -vvv -f dat /dev/null ; }

@@ -20,10 +20,12 @@ for d in "${XBIN}"/*; do [ -d "$d" ] && export PATH="$PATH:$d"; done
 ## ENVIRONMENT ##############################
 export VISUAL="nvim"
 export EDITOR="nvim"
+export COLORTERM="truecolor"
 export PAGER="less -R --use-color"
 export LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
 export LESSCOLORIZER='bat'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANROFFOPT="-P -c"
 export MAILCAPS=$XDG_CONFIG_HOME/shell/mailcap
 export TERMINAL="st"
 export PONYSAY_FULL_WIDTH="y"
