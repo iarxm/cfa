@@ -9,13 +9,18 @@ alias g="git"
 alias gst="git status"
 alias gco="git commit"
 alias gcc="git commit"
+alias gad="git add"
+
 alias gch="git checkout"
-alias gps="git push"
-alias gpl="git pull"
 alias gbr="git branch"
-# Longer gits
+
+alias gps="git push"
 alias gpush="git push"
+alias gpl="git pull"
 alias gpull="git pull"
+
+# Longer gits
+
 
 #==== file nav/management ====================
 ## files
