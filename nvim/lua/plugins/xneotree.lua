@@ -1,5 +1,5 @@
 return { "nvim-neo-tree/neo-tree.nvim",
-	event = 'VeryLazy',
+    -- event = 'VeryLazy',
     branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -201,7 +201,8 @@ return { "nvim-neo-tree/neo-tree.nvim",
           follow_current_file = false, -- This will find and focus the file in the active buffer every
                                        -- time the current file is changed while the tree is open.
           group_empty_dirs = false, -- when true, empty folders will be grouped together
-          hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+          hijack_netrw_behavior = "open_current",
+          --hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
                                                   -- in whatever position is specified in window.position
                                 -- "open_current",  -- netrw disabled, opening a directory opens within the
                                                   -- window like netrw would, regardless of window.position
