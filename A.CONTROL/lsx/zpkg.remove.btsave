@@ -1,0 +1,35 @@
+# move some to yay so it essentially implies partial upgrade
+
+inkscape
+digikam
+
+flowblade
+calibre
+
+# was for doc conversions: (ideally would be better avoiding such things in first place)
+libreoffice-still 
+unoconv
+
+synthing
+vim related
+
+# install manually via tlmgr
+texlive related packages
+
+librewolf
+
+dbeaver
+mariadb
+
+noto-fonts
+noto-fonts-extra
+
+julia?
+
+rust?
+
+foomatic?
+
+mopidy
+
+vdirsyncer
