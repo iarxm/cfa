@@ -6,7 +6,7 @@ aug('COLORS', { clear = true })
 auc({"ColorScheme"}, {
 	pattern = "eldar",
 	group = "COLORS",
-	command = "source /home/iao/.config/nvim/colors/black.vim"})
+	command = "source $HOME/.config/nvim/colors/black.vim"})
 -- WRITING/UI ##############################
 aug('WORKING', 	{ clear = true })
 auc({'VimEnter'}, 	{
