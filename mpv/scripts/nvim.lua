@@ -5,8 +5,8 @@ local socket = require("socket")
 local mp = require "mp"
 local utils = require 'mp.utils'
 package.path = mp.command_native({"expand-path", "~~/script-modules/?.lua;"})..package.path
--- load surf analysis functions
-local ds = require 'ds-analysis'
+-- load surf analysis functions 'asurf'
+local ds = require 'asurf'
 local msg = require 'mp.msg'  -- Import the msg module
 
 -- VARS ##################################
@@ -71,7 +71,7 @@ local function main()
 end
 
 -- BIND CALL ###########################################
-mp.add_key_binding(nil, "trigger_nvim", function()
+mp.add_key_binding("E", "trigger_nvim", function()
 	-- Define the keybinding and executions
 	main()
 end)

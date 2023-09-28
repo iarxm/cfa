@@ -3,7 +3,7 @@ time_queue={}
 --its shell's path
 --output_dir='~/Documents/my_cut'--*
 --output_file='~/Documents/my_cut/time_pairs.txt'
-output_file='~/.config/mpv/scripts/c_time_pairs.txt'
+output_file='~/.cache/mpv.c_time_pairs.txt'
 --c_concat_sh='~/Documents/my_cut/c_concat.sh'
 c_concat_sh='~/.config/mpv/scripts/c_concat.sh'
 c_concat_sh2='~/.config/mpv/scripts/c_concat2.sh'
@@ -62,7 +62,6 @@ end
 mp.add_key_binding("l", "log_time_queue", log_time_queue)
 
 function output_queue()
-	
 	local filename = mp.get_property('filename')
 	local file_path = mp.get_property('path')
 	local output_dir=string.sub(file_path,0,#file_path - #filename - 1)

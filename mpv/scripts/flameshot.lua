@@ -1,7 +1,7 @@
 local mp = require "mp"
 local utils = require 'mp.utils'
 package.path = mp.command_native({"expand-path", "~~/script-modules/?.lua;"})..package.path
-local ds = require 'ds-analysis'
+local ds = require 'asurf'
 	-- load surf analysis functions
 
 local function getScreenshotFilename()
@@ -48,6 +48,7 @@ mp.add_key_binding("f", "trigger_flameshot", function()
 	main()
 end)
 
+-- ################################################
 -- NOTES: #########################################
 
 -- DESCRIPTION::
@@ -56,6 +57,7 @@ end)
 -- Define window area
 	-- - If need to take screen of double pane, 
 	-- - just manually resize the frame for that use case
+
 
 --###############################################
 -- ARCHIVE ###################################
@@ -71,3 +73,4 @@ end)
 	-- mp.msg.error("directory: " .. directory)
 
 	--mp.msg.error("absolutePath: " .. tostring(absolutePath))
+

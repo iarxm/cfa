@@ -6,18 +6,24 @@ local cut_pos = nil
 local copy_audio = true
 local o = {
     target_dir = "~",
-    vcodec = "rawvideo",
+    vcodec = "libx264",
     acodec = "pcm_s16le",
     prevf = "",
     vf = "format=yuv444p16$hqvf,scale=in_color_matrix=$matrix,format=bgr24",
     hqvf = "",
     postvf = "",
     opts = "",
-    ext = "avi",
+    ext = "mp4",
     command_template = [[
-        ffmpeg -v warning -y -stats
-        -ss $shift -i "$in" -t $duration
-        -c:v $vcodec -c:a $acodec $audio
+        ffmpeg 
+	   -v warning
+	   -y
+	   -stats
+        -ss $shift
+	   -i "$in"
+	   -t $duration
+        -c:v $vcodec
+	   -c:a $acodec $audio
         -vf $prevf$vf$postvf $opts "$out.$ext"
     ]],
 }
@@ -42,7 +48,7 @@ end
 
 function log(str)
     local logpath = utils.join_path(
-        o.target_dir:gsub("~", get_homedir()),
+        o.target_dir:gsub("~/.cache/", get_homedir()),
         "mpv_slicing.log")
     f = io.open(logpath, "a")
     f:write(string.format("# %s\n%s\n",
@@ -89,8 +95,12 @@ function cut(shift, endpos)
     local inpath = escape(utils.join_path(
         utils.getcwd(),
         mp.get_property("stream-path")))
+
+    local outdir = utils.split_path(inpath)
+    
     local outpath = escape(utils.join_path(
-        o.target_dir:gsub("~", get_homedir()),
+        -- o.target_dir:gsub("~", get_homedir()),
+	   outdir,
         get_outname(shift, endpos)))
 
     cmd = cmd:gsub("$shift", shift)
