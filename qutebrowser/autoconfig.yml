@@ -8,14 +8,20 @@ config_version: 2
 settings:
   content.desktop_capture:
     https://meet.google.com: true
+    https://teams.microsoft.com: true
   content.media.audio_capture:
     https://meet.google.com: true
+    https://teams.microsoft.com: true
     https://webcammictest.com: true
+    https://www.onlinemictest.com: true
   content.media.audio_video_capture:
     https://meet.google.com: true
   content.media.video_capture:
     https://meet.google.com: true
+    https://teams.microsoft.com: true
   content.register_protocol_handler:
     https://calendar.google.com?cid=%25s: true
+    https://outlook.office.com?mailtouri=%25s: false
+    https://outlook.office365.com?mailtouri=%25s: false
   tabs.position:
     global: bottom
