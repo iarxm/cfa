@@ -1,6 +1,4 @@
-#!/bin/sh
+#!/bin/env bash
 #xrrx.reload
-feh.setbg
-notify-send -i display "Display profile" "$AUTORANDR_CURRENT_PROFILE"
-i3s win.resize.all
+source $HOME/.local/bin/xrr reload &
 
