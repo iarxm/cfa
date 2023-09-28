@@ -1,10 +1,211 @@
 " ======================================================
 " AUTHOR: IAROM MADDEN
-" DESCRIPTION:
-" 	- Sequencing all the functions into a linear naming logic
-" TODO:
-" 	- Add short descriptions to the top of each function
+" DESCRIPTION: Sequencing all the functions into a linear naming logic
 " =====================================================
+
+"#######################################
+" VISONARY DOWNFLOWS
+"########################################
+
+function! o#a()
+" Opt
+	cd $HOME/d
+	set number
+	set numberwidth=8
+	" sp-----------------
+	tabnew a/aax
+	tabnew
+" -----------------------
+	tabnew a/aay
+		vsplit a/aax
+	tabnew a/aay
+		vsplit
+" Opt
+	tabfirst
+		quit
+		Goyo
+"  	exec "norm G"
+"	exec "wincmd l"
+"	split a/majouz
+"	exec "wincmd h"
+	"exec "wincmd J"
+endfunction
+
+" mm ################################
+function! o#ma()
+" Opt
+	cd $HOME/d
+	set number
+	set numberwidth=8
+" sp-----------------
+" p
+	tabnew a/mj
+" end
+"	tabnew
+" -----------------------
+" p	
+	tabnew a/mjz
+	vsplit a/mjz
+" p
+	tabnew a/mm.aro
+	vsplit a/mm.upr
+" Opt
+	tabfirst
+	quit
+	Goyo
+endfunction
+
+function! o#mb()
+	cd ~/d
+	set nospell
+" sp -------------------------------
+" audio prg
+	tabnew a/mmx.auy
+	vsplit a/mmx.aux
+	vsplit a/mmx.au
+" principles / values
+	tabnew a/mm.xval
+	vsplit a/mm.xpri
+	vsplit a/mm.aa
+"end
+	tabnew
+" sp1  --------------------------------
+" quarter
+	tabnew a/mmq
+	vsplit a/mmq
+		exec "norm G"
+" year
+	tabnew a/mmv.yr
+	vsplit a/mmv.yr
+		exec "norm G"
+	tabnew
+" sp4 ------------------------------------
+" decade
+	tabnew a/mmv.dc
+	vsplit a/mmv.dc
+" vision
+	tabnew a/mmv.aa
+	vsplit a/mmv.aa
+" end
+	tabnew
+" =================================
+	quit
+	tabfirst
+	quit
+endfunction
+
+" FUTURE ####################
+function! o#m_future()
+	cd $HOME/d/
+" sp1 =====================
+" p1
+	edit a/moqr
+	vsplit a/moqr
+" p2	
+	tabnew a/mmv.yr
+	vsplit a/mmv.yr
+	tabnew
+"sp ==================
+	tabnew a/mmv.dc
+	vsplit a/mmv.dc
+	tabnew a/mmv.aa
+	vsplit a/mmv.aa
+	tabnew
+	"exec "<M-L>G"
+	"norm G<CR> 
+endfunction
+
+" FUTURE QR #################
+function! o#m_future_qr()
+	cd $HOME/d/
+" sp1 =====================
+" p1
+	edit a/moq
+	vsplit a/moq
+" p2	
+	tabnew a/mmv.yr
+	vsplit a/mmv.yr
+	tabnew
+"sp ==================
+	tabnew a/mmx.au
+	vsplit a/mmx.au
+	tabnew
+endfunction
+
+
+"mm"""""""""""""""""""""""""""""""""
+" Measurement of habits / Moral inventory
+function! o#mj()
+	cd /home/iao/d/
+		let l:tbn = tabpagenr()
+	tabnew a/mjm
+		"Tagbar
+		"Tlist
+		call md#WriteMode()
+		"wincmd =
+	tabnew a/msux
+		call md#WriteMode()
+	exe "tabnext " . l:tbn
+		quit
+	"ZenMode
+endfunction
+
+
+" ROUTINE #####################
+
+function! o#m_routine()
+	cd $HOME/d
+"sp ====================
+" p
+	tabnew aic/ai
+" p
+	tabnew aic/ara.aoy
+	vsplit aic/ara.aox
+	vsplit aic/ara.ao
+" e
+	tabnew
+" sp ===============
+	tabnew aic/ara.dyu.x
+	vsplit aic/ara.dyu.a
+	vsplit aic/ara.dyu
+
+	tabnew aic/ara.wake.x
+	vsplit aic/ara.wake.a
+	vsplit aic/ara.wake
+
+	tabnew aic/arb.sleep.x
+	vsplit aic/arb.sleep.a
+	vsplit aic/arb.sleep
+"e	
+	tabnew
+" sp ==============
+	tabnew aic/ar.b
+	vsplit aic/ar.a
+		#call WideMargin()
+" e
+	tabnew
+" end= ===========
+	quit | tabnext 1 | quit
+endfunction
+
+
+"########################################
+" NOTE TAKING
+"########################################
+
+" NA #############################
+
+function! o#na()
+	cd /home/iao/d/
+  edit a/ua
+  silent tabdo Tlist 
+endfunction
+
+
+"########################################
+" ACTIONABLE PANELS
+"#########################################
+
 function! o#oa()
 	cd /home/iao/d/
 		let l:tbn = tabpagenr()
@@ -26,6 +227,9 @@ function! o#oa()
 	exe "tabnext " . l:tbn
 
 endfunction
+
+
+" OA_X ##########################
 
 function! o#oa_x()
 	" TODO: - segaragate the todo panes from the 'dd' 'msu' panse, into
@@ -96,6 +300,9 @@ function! o#oa_x()
 "		call WideMarginToggle()
 endfunction
 
+
+" OX_BUFFERS ########################
+
 function! o#ox_buffers()
 	"tabnew
 	"let l:bfn = bufname('%')
@@ -116,16 +323,15 @@ function! o#ox_buffers()
 	silent badd a/oxbb
 	silent badd a/oxbfn
 	silent badd a/oxcm
-	
 	"exe "b " . l:bfn
-	
 	"quit
 "	e a/oxuua
 	"e a/oxdstk
 endfunction
 
-" ########################################
+
 " ob #####################################
+
 function! o#ob()
 " previous name - voa
 "opt ==========================
@@ -139,6 +345,9 @@ function! o#ob()
 	tabnext 1 | quit
 endfunction
 
+
+" OC ########################
+
 function! o#oc()
 " previous name - voab
 "opt===================
@@ -147,6 +356,9 @@ function! o#oc()
 	call o#oc_x()
 	tabnext 1 | quit"
 endfunction
+
+
+" OC_X ######################
 
 function! o#oc_x()
 "sp===================
@@ -174,6 +386,8 @@ function! o#oc_x()
 	tabnew
 endfunction
 
+" OD ######################
+
 function! o#od()
 "used to be more minimal tdo panes then vo
 	cd /home/iao/d/
@@ -190,6 +404,9 @@ function! o#od_x()
 	tabnew a/dd
 endfunction
 
+
+" OE ######################
+
 function! o#oe()
 " previous vob
 	cd $HOME/d/
@@ -199,6 +416,9 @@ function! o#oe()
 	call o#ox_buffers()
 	tabnext 1 | quit
 endfunction
+
+
+" OE_X ######################
 
 function! o#oe_x()
 " p 		bs / cm
@@ -302,9 +522,7 @@ function! o#ot_a()
 	tabnext 1 | quit
 endfunction
 
-" =====================================================
-" ======================================================
-" DYNAMIC PROJECT TODOs
+" DYNAMIC PROJECT PANELS ###############################
 
 function! o#ox_ds()
 	cd ~/d
@@ -326,18 +544,10 @@ function! o#ox_ds()
 endfunction
 
 function! o#ox_p(prx)
-	" to open relevant 'oo' files for a local project
-	" in split panes etc
-	
-	" accept partial filename prefix as input
-	" - my config is set to trim the path to filename in the tab bar so if the
-	"   folder isnt showing it's no that it hasnt been passed as an argument
-
 	let l:f_a = a:prx . "aoa"
 	let l:f_b = a:prx . "aob"
 	let l:f_c = a:prx . "aoc"
 	cd ~/d
-
 	exe "tabnew " . fnameescape( l:f_a )
 		Tagbar
 	exe "tabnew " . fnameescape( l:f_c )
@@ -351,16 +561,18 @@ function! o#ox_p(prx)
 		"Tagbar
 endfunction
 
-" =====================================================
-" ======================================================
-" MAIL WORKSPACES
+"################################################
+" MAIL / COMS ##################################
+"################################################
+
+" MAIL WORKSPACES ################################
 function! o#v_ml()
 	cd ~/d/cmo.ml
 	" p =============================
 	
-	tabnew ii.aa
 	tabnew ii
-	tabnew ~/.config/mutt/bind.m
+	tabnew ii.aa
+	tabnew ~/.config/muttm/bind.m
 
 	silent badd ii.aab
 	silent badd ii.sc
@@ -369,9 +581,9 @@ function! o#v_ml()
 	silent badd readme
 	silent badd ~/.config/sieve/Open-Xchange
 	silent badd ~/.config/mutt/bind
+	silent badd ~/.config/mutt/bind.mx
 	silent badd ~/.config/mutt/muttrc
 	silent badd ~/.local/bin/ml/ml
-
 	tabnext 1 | quit
 	"tabnew ii.sc
 		"split ii.sc
@@ -382,196 +594,8 @@ function! o#v_ml()
 	"tabnew readme
 		"call md#ToggleWrite()
 	"--------------------------
-
 endfunction
 
-" =========================================
-" mm's, dd's, aa's...
-" tdo panels related functions etc
-"	- calling oo scripts as functions internally
-"	============================================
-function! o#va()
-" Opt
-	cd $HOME/d
-	set number
-	set numberwidth=8
-	"set colorcolumn=80
+"set colorcolumn=80
 	"set columns=81
-" sp-----------------
-	tabnew a/aax
-	tabnew
-" -----------------------
-	tabnew a/aay
-		vsplit a/aax
-	tabnew a/aay
-		vsplit
-" Opt
-	tabfirst
-		quit
-		Goyo
-"  	exec "norm G"
-"	exec "wincmd l"
-"	split a/majouz
-"	exec "wincmd h"
-	"exec "wincmd J"
-endfunction
-
-"mm"""""""""""""""""""""""""""""""""
-" Measurement of habits
-function! o#mj()
-	cd /home/iao/d/
-		let l:tbn = tabpagenr()
-	tabnew a/mjm
-		"Tagbar
-		"Tlist
-		call md#WriteMode()
-		"wincmd =
-	tabnew a/msux
-		call md#WriteMode()
-	exe "tabnext " . l:tbn
-		quit
-	ZenMode
-endfunction
-
-" mm""""""""""""""""""""""""""""""""
-function! o#vmm()
-" Opt
-	cd $HOME/d
-	set number
-	set numberwidth=8
-" sp-----------------
-" p
-	tabnew a/mj
-" end
-"	tabnew
-" -----------------------
-" p	
-	tabnew a/mjz
-	vsplit a/mjz
-" p
-	tabnew a/mm.aro
-	vsplit a/mm.upr
-" Opt
-	tabfirst
-	quit
-	Goyo
-"  	exec "norm G"
-"	exec "wincmd l"
-"	split a/majouz
-"	exec "wincmd h"
-	"exec "wincmd J"
-endfunction
-
-function! o#vmma()
-	cd ~/d
-	set nospell
-" sp -------------------------------
-" audio prg
-	tabnew a/mmx.auy
-	vsplit a/mmx.aux
-	vsplit a/mmx.au
-" principles / values
-	tabnew a/mm.xval
-	vsplit a/mm.xpri
-	vsplit a/mm.aa
-"end
-	tabnew
-" sp1  --------------------------------
-" quarter
-	tabnew a/mmq
-	vsplit a/mmq
-		exec "norm G"
-" year
-	tabnew a/mmv.yr
-	vsplit a/mmv.yr
-		exec "norm G"
-	tabnew
-" sp4 ------------------------------------
-" decade
-	tabnew a/mmv.dc
-	vsplit a/mmv.dc
-" vision
-	tabnew a/mmv.aa
-	vsplit a/mmv.aa
-" end
-	tabnew
-" =================================
-	quit
-	tabfirst
-	quit
-endfunction
-
-function! o#vmm_future()
-	cd $HOME/d/
-" sp1 =====================
-" p1
-	edit a/moqr
-	vsplit a/moqr
-" p2	
-	tabnew a/mmv.yr
-	vsplit a/mmv.yr
-	tabnew
-"sp ==================
-	tabnew a/mmv.dc
-	vsplit a/mmv.dc
-	tabnew a/mmv.aa
-	vsplit a/mmv.aa
-	tabnew
-	"exec "<M-L>G"
-	"norm G<CR> 
-endfunction
-
-function! o#vmm_future_qr()
-	cd $HOME/d/
-" sp1 =====================
-" p1
-	edit a/moq
-	vsplit a/moq
-" p2	
-	tabnew a/mmv.yr
-	vsplit a/mmv.yr
-	tabnew
-"sp ==================
-	tabnew a/mmx.au
-	vsplit a/mmx.au
-	tabnew
-endfunction
-
-
-function! o#vmm_routine()
-" opt =============
-	cd $HOME/d
-"sp ====================
-" p
-	tabnew aic/ai
-" p
-	tabnew aic/ara.aoy
-	vsplit aic/ara.aox
-	vsplit aic/ara.ao
-" e
-	tabnew
-" sp ===============
-" p
-	tabnew aic/ara.dyu.x
-	vsplit aic/ara.dyu.a
-	vsplit aic/ara.dyu
-
-	tabnew aic/ara.wake.x
-	vsplit aic/ara.wake.a
-	vsplit aic/ara.wake
-
-	tabnew aic/arb.sleep.x
-	vsplit aic/arb.sleep.a
-	vsplit aic/arb.sleep
-"e	
-	tabnew
-" sp ==============
-	tabnew aic/ar.b
-	vsplit aic/ar.a
-		#call WideMargin()
-" e
-	tabnew
-" end= ===========
-	quit | tabnext 1 | quit
-endfunction
 

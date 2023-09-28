@@ -4,7 +4,8 @@ local art = require("modules.art_art")
 -- TODO: be able to call the asci artwork from a different file
 local default_header = {
     type = "text",
-    val = art.zentropy,
+    -- val = art.zero,
+    val = "_____________________________________________________",
     opts = {
         position = "center",
         hl = "Art",
@@ -14,7 +15,7 @@ local default_header = {
 
 local footer = {
     type = "text",
-    val = "",
+    val = "_____________________________________________________",
     opts = {
         position = "center",
         hl = "Normal",
@@ -31,7 +32,6 @@ local default_terminal = {
         window_config = {},
     },
 }
-
 
 local leader = "SPC"
 
@@ -68,9 +68,20 @@ local function button(sc, txt, keybind, keybind_opts)
     }
 end
 
+local main = {
+    type = "text",
+    -- val = art.zero,
+    opts = {
+        position = "center",
+        hl = "Art",
+        -- wrap = "overflow";
+    },
+}
+
 local buttons = {
-    type = "group",
-    val = {
+    type = "text",
+    val = "asdf",
+    -- val = {
         -- button("e", "  New file", "<cmd>ene <CR>"),
         -- button("SPC f f", "󰈞  Find file"),
         -- button("SPC f h", "󰊄  Recently opened files"),
@@ -78,15 +89,18 @@ local buttons = {
         -- button("SPC f g", "󰈬  Find word"),
         -- button("SPC f m", "  Jump to bookmarks"),
         -- button("SPC s l", "  Open last session"),
-    },
+    -- },
     opts = {
         spacing = 1,
+        position = "center",
+        hl = "Art",
     },
 }
 
 local section = {
     terminal = default_terminal,
     header = default_header,
+    main = main,
     buttons = buttons,
     footer = footer,
 }
@@ -113,3 +127,4 @@ return {
     -- deprecated
     opts = config,
 }
+

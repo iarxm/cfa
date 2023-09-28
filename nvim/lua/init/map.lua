@@ -95,16 +95,18 @@ map('n', '.sll',
 	':put =\'<!---------------------------->\'<CR>' ..
 	':put =\'<!---------------------------->\'<CR>',
 	{ noremap = true })
-map('n', '.sm',
+map('n', '.ssa',
 	'i<!----------------------------><ESC>',
 	{ noremap = true })
-map('n', '.ss',
+map('n', '.ssb',
 	'i<!-----------><ESC>',
 	{ noremap = true })
 
--- md .. time
+-- md .. time / date
 map('n', '.sdd', ':put =strftime(\'# %d/%m/%y/+\')<ESC>', { noremap = true })
 map('n', '.sda', ':put =strftime(\'**%y/%m/%d %a+**\')<ESC>', { noremap = true })
+-- md filetype vim
+map('n', '.sm', 'i<!--- vim:ft=markdown<CR>---><ESC>', { noremap = true })
 -- oo .. move to end
 map('n', 'me', ':m $<CR>', { noremap = true })
 map('v', 'me', ':\'<,>\'m $<CR>', { noremap = true })
