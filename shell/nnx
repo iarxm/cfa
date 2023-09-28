@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #== PLUGS =============================
 prg_anot="anotr"
 prg_prev="uview"
@@ -9,16 +10,18 @@ NCMD+='e:togglex;'
 NCMD+='V:-!nvim "$nnn";'
 NCMD+='N:-|!nvim "$nnn";'
 NCMD+='r:-|!vidir;'
-NCMD+='a:-|!rename-prefix;'
 # opn
 NCMD+='f:finder;'
 NCMD+='o:fzopen;'
 NCMD+='n:nuke;'
 NCMD+='O:-|openall;'
+NCMD+='O:-|openall;'
 # preview
 NCMD+="t:preview-tui;"
 
 # asurf ###########################
+NCMD+='w:cleanfilename;'
+NCMD+='a:!rename-prefix "$nnn";'
 NCMD+='x:!uview $NNN_FIFO*;' #TODO: call this from dsnn or dsev??? Have a centralised callback location?
 NCMD+=';:!anotr tag.mk "$nnn"*;'
 NCMD+='u:!anotr tag.rm "$nnn"*;'
@@ -43,3 +46,4 @@ export NNN_COLORS='#1f1f1f1f'
 
 ############################
 #export NNN_FIFO=/tmp/nnn.fifo
+

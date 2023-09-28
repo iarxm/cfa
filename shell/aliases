@@ -68,12 +68,16 @@ alias vc="cud && nvim -c Ntr"
 [ -x "$(command -v nvim)" ] && \
 	alias vim="nvim" vimdiff="nvim -d"
 # media
-alias YT="youtube-viewer"
-alias yt="youtube-dl --add-metadata -i"
+alias yt="yt-dlp --add-metadata"
+alias youtube-dl="yt"
+alias ytdlp="yt"
 alias yta="yt -x -f bestaudio/best"
-alias ytl="youtube-dl"
-alias ytlx="youtube-dl -x"
+alias ytl="yt"
+alias ytlx="yt -x"
+#alias yt="yt-dlp --add-metadata -i"
+# ffmpeg
 alias ffmpeg="ffmpeg -hide_banner"
+alias YT="youtube-viewer"
 # other
 alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove -R"
