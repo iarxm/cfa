@@ -6,32 +6,48 @@ local opt      = vim.opt
 local cmd      = vim.api.nvim_command
 
 local hr       = "$HOME/d"
-local ha       = hr .. '/a/a'
+local ha       = hr .. '/a'
 local hb       = hr .. '/a/aa'
+
+local hm_ml    = '$HOME/d/cm/yml'
+-- ha's
+
 local maa      = ha .. '/aa'
 local mab      = ha .. '/ab'
 local mba      = ha .. '/ba'
 local mbb      = ha .. '/bb'
 local mjm      = ha .. '/jm'
-local mjmz     = ha .. '/jmz'
+local mjmb     = ha .. '/jmb'
+local mjmb     = ha .. '/jmc'
 local m_aua    = ha .. '/vaua'
 local m_aub    = ha .. '/vaux'
 local m_auc    = ha .. '/vauy'
 local m_qr     = ha .. '/nzqr'
 local m_yr     = ha .. '/nyr'
-local msu      = hb .. '/x.msux'
 
 local oa       = ha .. '/oa'
 local ob       = ha .. '/ob'
 local oc       = ha .. '/oc'
 
+
 -- local od       = ha .. '/od'
+
 local oi       = ha .. '/oi'
 local oj       = ha .. '/oj'
 
 local ua       = ha .. '/ua'
 local ub       = ha .. '/ub'
 local uc       = ha .. '/uc'
+local ux       = ha .. '/ux'
+local uy       = ha .. '/uy'
+
+
+-- hb's
+
+local msu      = hb .. '/x.msux'
+
+
+-- buf's
 
 local bufs = {
     'oxpb',
@@ -39,6 +55,7 @@ local bufs = {
     'oxeng',
     'oxds.a',
     'oxds.dev',
+    'oxds.asurf',
     'oxdm',
     'oxdw',
     'oxdn',
@@ -61,6 +78,14 @@ local function tlist_all()
   cmd('silent tabdo Tlist')
 end
 
+local function tagbarx()
+  cmd('silent tabdo Tagbar')
+end
+
+local function tagl_all() -- use this function to define which taglist plugin to use
+  tagbarx()
+end
+
 local function enva()
   cmd('cd' .. hr)
   -- X.tbn = cmd('echom tabpagenr()')
@@ -68,19 +93,20 @@ end
 
 local function envx()
   cmd('cd' .. hr)
-  opt.number          = true
-  opt.numberwidth     = 9
+  -- opt.number          = true
+  -- opt.numberwidth     = 9
 end
 
 local function envy()
   cmd('tabfirst')
   cmd('quit')
-  zen()
 end
 
 local function envz()
+  tagl_all()
   cmd('tabfirst')
   cmd('quit')
+  --zen()
 end
 
 local function envzx()
@@ -101,7 +127,7 @@ local function tnew(filename)
   cmd('tabnew ' .. filename)
 end
 
-local function tnewx()
+local function newx()
   cmd('tabnew')
 end
 
@@ -115,7 +141,7 @@ end
 M.a = function()
   envx()
   tnew(maa)
-  tnewx()
+  
 
   tnew(mab)
   svert(maa)
@@ -123,23 +149,35 @@ M.a = function()
   tnew(mab)
   svert(mab)
 
-  envy()
+  envz()
+  --wmode()
 end
 
 -- # ma
 
 M.ma = function()
   envx()
-
   tnew(mjm)
-
-  tnew(mjmz)
-  svert(mjmz)
-
+  tnew(mjmb)
+  svert(mjmb)
   tnew(mbb)
   svert(mbb)
+  envz()
+  wmode()
+end
 
-  envy()
+-- # o#mj
+
+M.mj = function()
+  enva()
+
+  tnew(mjm)
+  --wmode()
+
+  tnew(msu)
+  --wmode()
+
+  envzx()
 end
 
 -- # mb
@@ -197,6 +235,7 @@ M.m_future = function()
   tnewx()
 end
 
+
 -- # o#m_future_qr
 
 M.m_future_qr = function()
@@ -215,19 +254,6 @@ M.m_future_qr = function()
 end
 
 
--- # o#mj
-
-M.mj = function()
-  enva()
-
-  tnew(mjm)
-  wmode()
-
-  tnew(msu)
-  wmode()
-
-  envzx()
-end
 
 
 -- Note Taking (o#na)
@@ -235,7 +261,31 @@ end
 M.ua = function()
   enva()
   edit(ua)
-  tlist_all()
+  tagl_all()
+end
+
+M.ub = function()
+  enva()
+  edit(ub)
+  tagl_all()
+end
+
+M.uc = function()
+  enva()
+  edit(uc)
+  tagl_all()
+end
+
+M.ux = function()
+  enva()
+  edit(ux)
+  tagl_all()
+end
+
+M.ux = function()
+  enva()
+  edit(uy)
+  tagl_all()
 end
 
 
@@ -254,7 +304,9 @@ M.oa_x = function()
   wmode()
 end
 
+
 -- Actionable Panels Master Function (o#oa)
+
 M.oa = function()
   enva()
 
@@ -264,7 +316,7 @@ M.oa = function()
   cmd('silent tabnext 1')
   cmd('silent quit')
 
-  tlist_all()
+  tagl_all()
   cmd('silent tabdo wincmd =')
   -- cmd('tabnext ' .. X.tbn)
   cmd('silent tabnext 1')
@@ -273,11 +325,13 @@ end
 
 M.ox_bufs = function()
   for _, file in ipairs(bufs) do
-   buf(file)
+   buf('ha' .. file)
   end
 end
 
+
 -- ob
+
 M.ob = function()
   enva()
 
@@ -287,6 +341,7 @@ M.ob = function()
 
   envzx()
 end
+
 
 -- oc 
 
@@ -323,13 +378,15 @@ M.od = function()
   envzx()
 end
 
+
 -- #######################################
 -- MAIL #################################
 -- ######################################
 
 M.ml = function()
-  cmd('cd ~/d/cm/yml')
+  cmd('cd' .. hm_ml)
 
+  tnew('aa')
   tnew('ii')
   tnew('ii.aa')
   tnew('~/.config/muttm/bind.m')
@@ -344,8 +401,9 @@ M.ml = function()
   buf('~/.config/mutt/bind')
   buf('~/.config/mutt/bind.mx')
   buf('~/.config/mutt/muttrc')
-  buf('~/.local/bin/ml/ml')
+  buf('~/.local/bin/mlx/ml')
   envz()
+  wmode()
 end
 
 -- return

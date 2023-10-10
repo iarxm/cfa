@@ -1,19 +1,41 @@
 -- TODO: Move to specific files for each plugin, to load on launch
 local g	= vim.g
+g.netrw_banner    = 0
+g.netrw_liststyle = 0
 g.table_mode_corner = "|"
 g.limelight_conceal_ctermfg 	= "gray"
 g.gutentags_project_root 	= { "iao/d/.tags", ".tags" }
 g.gutentags_ctags_tagfile 	= "/home/iao/d/.tags"
 -- g.gutentags_add_default_project_roots = { "$HOME/d/", ".tags" }
+g.tagbar_compact 			= 1
+g.tagbar_indent 			= 1
+g.tagbar_show_data_type       = 1
 g.tagbar_position 			= "topleft vertical"
 g.tagbar_width 			= "25"
 g.tagbar_type_markdown 		= {
-  				ctagstype = "markdown",
-  				kinds = {
-					"o:todo",
-					"h:heading",
-					"c:h:heading:chapter",
-					"s:section" },
+  ctagstype = "markdown",
+  kinds = {
+    "h:heading",
+    "c:chapter",
+    "s:section",
+    "S:subsection",
+    "t:subsubsection",
+    "T:l4subsection",
+    "u:l5subsection",
+    "x:xheads:4",
+    "y:todo:5"
+    },
+  }
+g.tagbar_type_markdownt 		= {
+ ctagstype = "markdownt",
+  kinds = {
+   --"h:heading",
+   "c:h:heading:chapter",
+   "s:section",
+   "S:subsection",
+   "x:xheads:4",
+   "o:todo"
+   },
 }
 g.tlist_markdown_settings = "markdown;h:heading;s:section;S:subsection;o:todo"
 g.Tlist_Auto_Highlight_Tag 		= 1
@@ -21,6 +43,7 @@ g.Tlist_Highlight_Tag_On_BufEnter 	= 1
 g.Tlist_Auto_Update 			= 1
 g.Tlist_Compact_Format 			= 1
 g.Tlist_Enable_Fold_Column		= 0
+g.Tlist_Display_Prototype          = 1
 -- g.Tlist_Show_One_File			= 1
 -- folding ####################################
 g.anyfold_fold_comments = 1
