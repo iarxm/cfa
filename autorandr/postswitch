@@ -1,4 +1,4 @@
-#!/bin/env bash
-#xrrx.reload
-source $HOME/.local/bin/xrr reload &
+#!/bin/bash
+I3SOCK="$(i3 --get-socketpath)" #i3sock can become incorrectly registerred by systemd if the sock changes address at some time
+$HOME/.local/bin/xrr reload
 
