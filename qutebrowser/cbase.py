@@ -69,8 +69,10 @@ c.hints.chars = "asdfghklqweruiopzxcvbn"
 c.hints.min_chars = 1
 c.keyhint.blacklist = ["*"]
 c.completion.open_categories = ["quickmarks", "bookmarks", "history"]
-c.statusbar.widgets = ["url", "progress", "scroll"]
 c.statusbar.show = "in-mode"
+c.statusbar.widgets = []
+c.window.hide_decoration = True
+#c.statusbar.widgets = ["url", "progress", "scroll"]
 # alias.searches ================================
 # academic
 #   qute-zotero; getbib; gitclone; readability; readability-js
@@ -210,8 +212,18 @@ config.bind('<Ctrl-Shift-Right>',   'tab-move +', mode='normal')
 config.bind('<Ctrl-Shift-Left>',    'tab-move -', mode='normal')
 config.bind('P',                    'back', mode='normal')
 config.bind('<Escape>',             'leave-mode', mode='passthrough')
+# bind - tab / search ################################################
+# https://github.com/qutebrowser/qutebrowser/issues/2236
+# bind - bug workaround for page jump to top on cmd bar exit w no statusbar set #########
+config.bind('o',        'set statusbar.show always;; cmd-set-text -s :open')
+config.bind('O',        'set statusbar.show always;; cmd-set-text -s :open -t')
+config.bind('t',        'set statusbar.show always;; cmd-set-text -s :open -t')
+config.bind(':',        'set statusbar.show always;; cmd-set-text :')
+config.bind('<Escape>', 'mode-enter normal;; set statusbar.show in-mode', mode='command')
+config.bind('<Return>', 'command-accept;; set statusbar.show in-mode', mode='command')
+config.bind('/',        'set statusbar.show always;; cmd-set-text /')
+#config.bind('t',            'cmd-set-text -s :open -t', mode='normal')
 ## bind.quickmarks/sessions/pdfs =======================
-config.bind('t',            'cmd-set-text -s :open -t', mode='normal')
 config.bind('<Ctrl-m>',     'cmd-set-text -s :quickmark-save', mode='normal')
 config.bind('<Shift-m>',    'cmd-set-text -s :quickmark-save', mode='normal')
 config.bind('B',            'bk', mode='normal')

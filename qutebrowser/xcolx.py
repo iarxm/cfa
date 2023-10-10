@@ -1,3 +1,5 @@
+# temp fix for statusbar bug:
+c.fonts.statusbar = "0pt Sourc Sans Pro"
 # colors - ===============================================
 c.url.default_page = 'file:///home/iao/.config/qutebrowser/ui/a.hm/index.html'
 c.url.start_pages = 'file:///home/iao/.config/qutebrowser/ui/a.hm/index.html'
