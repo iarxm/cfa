@@ -1,6 +1,7 @@
 # Define ========================================
---langdef=markdowntags
---languages=+markdown,+markdowntags
+#--langdef=markdowntags
+#--languages=+markdown,+markdowntags
+--languages=+markdown
 
 --langmap=markdown:+(o*)
 --langmap=markdown:+(oo*)
@@ -10,14 +11,20 @@
 --langmap=markdown:+(*)
 --langmap=markdown:+
 
---langmap=markdowntags:(o*)
---langmap=markdowntags:+(oo*)
---langmap=markdowntags:+(ao*)
+#--langmap=markdowntags:(o*)
+#--langmap=markdowntags:+(oo*)
+#--langmap=markdowntags:+(ao*)
 
 # tag patters ================================
---kinddef-markdowntags=t,tag,tags
---kinddef-markdowntags=o,todo,todos
---kinddef-markdown=o,todo,todos,heading
---regex-markdown=/(^,,(.*)$)/\1/o/
---regex-markdowntags=/(^,,(\w\S*)$)/\1/o/
+#--kinddef-markdowntags=t,tag,tags
+#--kinddef-markdowntags=o,todo,todos
+#--regex-markdowntags=/(^,,(\w\S*)$)/\1/o/
 
+--kinddef-markdown=y,todo,todo objects
+--regex-markdown=/(^,,(.*)$)/\1/y/
+#--regex-markdown=/(^#{4,}(\w\S*)$)/\1/x,xheads/
+#--regex-markdown=/^##[ \t]+(.*)/\1/S,subsection/
+#--kinddef-markdown=x,xheads,x headings
+#--regex-markdown=/^#{4,}\s+(.+)/\1/x,xheads/
+
+# TODO: change names of headings to h1, h2, h3 etc..
