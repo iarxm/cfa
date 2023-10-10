@@ -74,6 +74,7 @@ alias ytdlp="yt"
 alias yta="yt -x -f bestaudio/best"
 alias ytl="yt"
 alias ytlx="yt -x"
+alias ytcook="yt --cookies-from-browser firefox -o '%(id)s.%(ext)s'"
 #alias yt="yt-dlp --add-metadata -i"
 # ffmpeg
 alias ffmpeg="ffmpeg -hide_banner"

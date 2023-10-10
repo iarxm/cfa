@@ -13,8 +13,8 @@ export XBIN="${XDG_BIN_HOME}"
 export XDAT="${XDG_DATA_HOME}"
 # PATHS ############################
 export PATH="$PATH:$HOME/.local/usr/bin"
-export PATH="$PATH:$HOME/.local/usr/binx" #tmp testing dir until skills improve
-export PATH="$PATH:$XDG_BIN_HOME/:$BINX"
+#export PATH="$PATH:$HOME/.local/usr/binx" #tmp testing dir until skills improve
+#export PATH="$PATH:$XDG_BIN_HOME/:$BINX"
 for d in "${XBIN}"/*; do [ -d "$d" ] && export PATH="$PATH:$d"; done
 #### PERSON POINTERS #########################
 ## ENVIRONMENT ##############################
