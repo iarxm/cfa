@@ -11,7 +11,7 @@ news.version=2.6.0
 verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 include /usr/share/doc/task/rc/holidays.en-GB.rc # cal
 include $HOME/.config/task/taskwarriortui
-include $HOME/.local/pkg/pomodoro-warriors/taskwarrior/taskrc #TODO
+include $HOME/ds/zz/pomodoro-warriors/taskwarrior/taskrc #TODO
 dateformat=j
 dateformat.report=j
 dateformat.annotations=j
