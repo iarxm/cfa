@@ -1,13 +1,16 @@
 exec --no-startup-id redshift -l 53.34:6.26
 exec --no-startup-id source ~/.profile
+exec --no-startup-id i3bcol
 set $mod  mod4
 set $mod1 mod1
 set $ma   mod4
 set $mb   mod1
 set $scr                 /home/$USER/iis/scr
 set $ex_noid             exec --no-startup-id
-set $wi3                 exec $HOME/.config/i3/wi3 aa
-set $wi3mr               exec $HOME/.config/i3/wi3 mr
+set $wi3                 exec i3w aa
+set $wi3mr               exec i3w mr
+#set $wi3                 exec $HOME/.config/i3/wi3 aa
+#set $wi3mr               exec $HOME/.config/i3/wi3 mr
 set $refresh_i3status killall -SIGUSR1 i3status
 set $refresh $refresh_i3status
 floating_modifier $mod
@@ -103,7 +106,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+r  restart
-bindsym $mod1+Shift+r   reload 
+bindsym $mod1+Shift+r reload 
 bindsym $mod+Shift+e  exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'" 
 mode "resize" {
         bindsym j resize shrink height 10 px or 10 ppt
@@ -122,50 +125,51 @@ bindsym $mod+r    mode "resize"
 ############################################################
 # FLOATING WRAPPERS #fm #brw #cli #tx #tw #cm #ot other ####
 #==== tw / write / common ==================================
-#ws.fl-y 
 # todo: 
 #    - integrate opx and opb etc as alternative options in +p floating space
 #    - also for vo.tw (taskwarrior integrations)
-bindsym $mod1+p               [con_mark="fl-y$"] scratchpad show
+#    - change class names (eg nvimfx to vx..)
+############################################
+# ws.fly
+bindsym $mod1+p               [con_mark="fly$"] scratchpad show
+for_window [con_mark="fly$"] border pixel 5
 bindsym $mod1+Shift+p         exec i3s ws.fly
-#ws.fl-x
-bindsym $mod1+o               [con_mark="fl-x"] scratchpad show
+# ws.flx
+bindsym $mod1+o               [con_mark="flx"] scratchpad show
 bindsym $mod1+Shift+o         exec i3s ws.flx
-#vmj
-bindsym $mod+o                [class="vmj"] scratchpad show
-bindsym $mod+Shift+o          $wi3 0.4 vmj 'vmj'
-
-bindsym $mod+n 			[class="^nvimf3$"] scratchpad show
-bindsym $mod+Shift+n    		$wi3 0.6 nvimf3 'vd'
-#tdo-make below into ascript where you choose a file and vim changes directory to ~/d/ upon opening it
-## n
-bindsym $mod+$mod1+n    		[class="^nvimf1$"] scratchpad show
-bindsym $mod+mod1+Shift+n   	$wi3 0.4 nvimf1 'nvim ~/d/a/dd -c cd ~/d/'
+# vmj
+bindsym $mod+o                [con_mark="flj"] scratchpad show
+bindsym $mod+Shift+o          exec i3s ws.flj
+## n1
+bindsym $mod+n 		     [class="^nvimf3$"] scratchpad show
+bindsym $mod+Shift+n    		  $wi3 0.6 nvimf3 'vua'
 ## n2
-#bindsym $mod1+n       		[class="^nvimf4$"] scratchpad show
-bindsym $mod1+n       		exec ffxer 'nvimf4'
-bindsym $mod1+Shift+n     	$wi3 0.4 nvimf4 'vdb'
+bindsym $mod1+n       		    exec ffxer 'nvimf4'
+bindsym $mod1+Shift+n     	  $wi3 0.4 nvimf4 'vub'
 ## n3
+bindsym $mod+$mod1+n    		  [class="^nvimf1$"] scratchpad show
+bindsym $mod+mod1+Shift+n   	$wi3 0.4 nvimf1 'vuy'
+## n4
 bindsym $mod1+Control+n     	[class="^nvimf$"] scratchpad show
-bindsym $mod1+Control+Shift+n $wi3 0.4 nvimf 'nvim ~/d/ --cmd "cd ~/d"'
-# nvim right column
-bindsym $mod+Ctrl+n     		[class="^nvimf2$"] scratchpad show
-bindsym $mod+Ctrl+Shift+n   	$wi3 0.4 nvimf2 'nvim ~/d/ --cmd 'cd ~/d'
+bindsym $mod1+Control+Shift+n $wi3 0.4 nvimf 'vxx'
+# vv right column
+bindsym $mod+Ctrl+n     		  [class="^nvimf2$"] scratchpad show
+bindsym $mod+Ctrl+Shift+n   	$wi3 0.4 nvimf2 'vxx'
 ## trm terminal =============================================
-bindsym $mod+a          		[class="^stf$"] scratchpad show
-bindsym $mod+Shift+a    		$wi3 0.5 stf
-bindsym $mod1+a       		[class="^stf2$"] scratchpad show
-bindsym $mod1++Shift+a    	$wi3 0.5 stf2
+bindsym $mod+a          		  [con_mark="flz$"] scratchpad show
+bindsym $mod+Shift+a    		  exec i3s ws.flz
+bindsym $mod1+a       		    [class="^stf2$"] scratchpad show
+bindsym $mod1++Shift+a    	  $wi3 0.5 stf2
 #android
-bindsym $mod+$mod1+d    		[class="^drdf$"] scratchpad show; focus
+bindsym $mod+$mod1+d    		  [class="^drdf$"] scratchpad show; focus
 bindsym $mod+$mod1+Shift+d  	$wi3 0.5 drdf 'st'
 #==== cm ml nw news mail ====================================
 #neomutt
-bindsym $mod1+m       		exec "/usr/bin/st neomutt"
-bindsym $mod+m      		[con_mark="ml"] scratchpad show
-bindsym $mod+Shift+m   		exec ml ws.fl
+bindsym $mod1+m       		    exec "/usr/bin/st neomutt"
+bindsym $mod+m      		      [con_mark="ml"] scratchpad show
+bindsym $mod+Shift+m   		    exec i3s ws.ml
 #newsboat
-bindsym $mod1+Ctrl+m 		[class="^nboatf$"] scratchpad show
+bindsym $mod1+Ctrl+m 		      [class="^nboatf$"] scratchpad show
 bindsym $mod1+Ctrl+Shift+m  	$wi3 0.5 nboatf 'newsboat'
 #==== au ot mu other music ======================================
 # AUDIO CONTROL
@@ -188,21 +192,20 @@ bindsym Ctrl+Print            $ex_noid maimx clip
 bindsym Ctrl+$mod+Print       $ex_noid maimx clip.win
 bindsym Ctrl+Shift+Print      $ex_noid maimx clip.sel
 #### asurf ###################################################
-bindsym $mod1+i               exec ffxer 'nnnf1'
-bindsym $mod+i                [class="^nnnf1$"] scratchpad show; focus
-bindsym $mod+Shift+i          $wi3 0.5 nnnf1 'nnn -a'
-bindsym $mod1+Ctrl+i          [class="^nnnf3$"] scratchpad show; focus
-bindsym $mod1+Ctrl+Shift+i    $wi3 0.5 nnnf3 'nnn'
+bindsym $mod+i                exec ffxer 'nnn1'
+bindsym $mod+Shift+i          $wi3 0.5 nnn1 'nnn -a'
+bindsym $mod1+i               exec ffxer 'nnn2'
+bindsym $mod1+Shift+i         $wi3 0.5 nnn2 'nnn -a'
+bindsym $mod1+Ctrl+i          [class="^nnn3$"] scratchpad show; focus
+bindsym $mod1+Ctrl+Shift+i    $wi3 0.5 nnn3 'nnn'
 #bindsym $mod+o [class="^tabbed$"] focus
 #bindsym $mod+i exec xdotool windowactivate --sync $(xdotool search --class "nnnf1")
 #bindsym $mod1+i    focusfixer 'nnnf1'
-### vim: set ft=i3config
 #### nnn #############################################
 #bindsym $mod+Ctrl+i    [class="^nnnf2$"] scratchpad show; focus
 #bindsym $mod+Ctrl+Shift+i  $wi3 0.5 nnnf2 'tmux new nnn -Pa t'
 #bindsym $mod+$mod1+u     [class="^nnnf4$"] scratchpad show; focus
 #bindsym $mod+$mod1+Shift+u   $wi3 0.5 nnnf4 'nnn'
-
 ### To Archive / no longer used ###############################################
 bindsym $mod+mod1+b           [class="^qutebrowser$" con_mark="b"] scratchpad show
 bindsym $mod+mod1+Shift+b     $wi3mr 1.0 qutebrowser b 'qb'
@@ -219,4 +222,4 @@ bindsym $mod+Shift+u          $wi3 0.5 ooa 'vx.opb'
 #tw nvim TODO:
 bindsym $mod+$mod1+y          [class="^stf-tw2$"] scratchpad show
 bindsym $mod+$mod1+Shift+y    $wi3 0.5 stf-tw2 'vo.tw'
-
+#xtdo-make below into ascript where you choose a file and vim changes directory to ~/d/ upon opening it
