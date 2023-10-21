@@ -21,17 +21,20 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 themex="/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
 if [[ -f $themex ]]; then
-		source $themex
-	else
-		themey="$HOME/.local/pkg/powerlevel10k/powerlevel10k.zsh-theme"
-		[[ -f $themey ]] && source $themey
+  source $themex
+else
+  themey="$HOME/.local/pkg/powerlevel10k/powerlevel10k.zsh-theme"
+  [[ -f $themey ]] && source $themey
 fi
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # THEMEING ==========================================
+
 autoload -U colors && colors	# Load colors
 
+
 # WINTITLE AND PROMPT =============================================
+
  if [[ $PROMPT_C_OFF == "1" ]]; then
   # if moding in future, look at 'powerlevel10k' as a tool to do this
 	#source $XDG_BIN_HOME/fdt/git-prompt
@@ -55,11 +58,12 @@ autoload -U colors && colors	# Load colors
 	setopt autocd				# Automatically cd into typed directory.
 	setopt interactive_comments
 	#stty stop undef			# Disable ctrl-s to freeze terminal.
-	#
+
 #preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # COMPLETION
 # Basic auto/tab complete:
+mkdir -p $HOME/.local/share/zsh
 autoload -U compinit && compinit -d $HOME/.local/share/zsh/zcompdump-$HOST #make sure dir exists
 zstyle ':completion:*' menu select
 #zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -92,7 +96,8 @@ bindkey -v '^?' backward-delete-char
 function zle-keymap-select () {
     case $KEYMAP in
         vicmd) echo -ne '\e[1 q';;      # block
-        viins|main) echo -ne '\e[5 q';; # beam
+        #viins|main) echo -ne '\e[5 q';; # beam
+        viins|main) echo -ne '\e[3 q';; # underscore
     esac
 }
 zle -N zle-keymap-select
@@ -100,8 +105,8 @@ zle-line-init() {
     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
     echo -ne "\e[5 q" ;}
 zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-
+#echo -ne '\e[5 q' # Use beam shape cursor on startup.
+echo -ne '\e[3 q'
 # LF
 lfcd () { # switch dir and launch lf
     tmp="$(mktemp)"
