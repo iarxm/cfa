@@ -25,7 +25,7 @@ c.tabs.favicons.show = "never"
 c.tabs.title.format = "{current_title}"
 c.tabs.new_position.related = "last"
 c.tabs.show = "multiple"
-c.downloads.location.directory = '/home/iao/ii'
+c.downloads.location.directory = "${HOME}/ii"
 c.session.default_name = "default_restore"
 config.set('content.headers.user_agent', \
         'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) Chrome/110.0.0.0 Safari/{webkit_version} Edg/110.0.1587.57', \
