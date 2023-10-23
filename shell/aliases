@@ -5,6 +5,7 @@ alias feh.setbg='feh --bg-max "${HOME}/.local/share/abg/1.jpg"'
 alias l='lf'
 alias r='ranger'
 ## git ##################################
+alias sudo-git="sudo -E git" # ensure that gpg-agent-ssh with ssh keys added to the gpg-agent is functioning
 alias g="git"
 alias gst="git status"
 alias gco="git commit"
@@ -109,6 +110,8 @@ alias sd="sudo"
 alias sdk='sudo pkill'
 alias sdkc='sudo pkill clamd'
 alias pk='pkill'
+## journals
+alias dmesg='sudo dmesg'
 ## systemd
 alias srcp="source ~/.config/shell/profile"
 alias syt='systemctl'

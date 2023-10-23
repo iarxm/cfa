@@ -46,8 +46,8 @@ export AUDIO_PRG="$XDG_DATA_HOME/adir/au.playf"
 ## security =================================
 export GPG_TTY=$(tty)
 export SSH_AGENT_PID=""
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
-export LC_COLLATE="C" # dotfiles first in ls and nnn?
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+#export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 #== home cleanup ==========================
 # CACHE
 export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
@@ -135,3 +135,5 @@ export PROFILE_I="${XDG_CONFIG_HOME}/shell/profile-i" # interactive shell export
 [ "$(tty)" = '/dev/tty1' ] && startx -- -keeptty >~/.local/share/xorg/zxorg.log 2>&1 
 #########################################################
 #########################################################
+export MR_CONFIG="${XDG_CONFIG_HOME}/mr/mrconfig"
+export LC_COLLATE="C" # dotfiles first in ls and nnn?
