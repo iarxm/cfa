@@ -127,7 +127,7 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line # edit line in vim w c-e
 
 # BIND
-bindkey -s '^n' 'nnn -n\n'
+bindkey -s '^n' 'nnn\n'
 #bindkey -s '^v' 'nvim\n'
 
 # SYN HIGHLIGHT (keep last)
