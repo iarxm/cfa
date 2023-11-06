@@ -1,4 +1,4 @@
-exec --no-startup-id redshift -l 53.34:6.26
+#exec --no-startup-id redshift -l 53.34:6.26
 exec --no-startup-id source ~/.profile
 set $mod  mod4
 set $mod1 mod1
@@ -28,11 +28,11 @@ bindsym $mod1+d          $ex_noid $HOME/.config/i3/ydmenu-titles # ~/BIN?
 bindsym $mod+$mod1+v          $wi3 0.3 stf-buku1 oil-search
 bindsym $mod+mod1+Ctrl+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 # launch
-bindsym $mod+Return      exec /usr/bin/st
+bindsym $mod1+Return      exec /usr/bin/st
 bindsym $mod1+b          exec qb
 #bindsym $mod+Control+s exec "systemctl suspend"
 # func
-bindsym $mod+q           kill
+bindsym $mod1+q          kill
 bindsym $mod+Space       focus mode_toggle
 bindsym $mod+Ctrl+k      focus parent
 bindsym $mod+Ctrl+j      focus child
