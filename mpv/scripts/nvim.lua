@@ -73,11 +73,11 @@ end
 -- BIND CALL ###########################################
 mp.add_key_binding("E", "trigger_nvim", function()
 	-- Define the keybinding and executions
-	main()
+	-- main()
 end)
 
 -- STARTUP CALL ######################################
-mp.register_event("file-loaded", previewSwitch)
+-- mp.register_event("file-loaded", previewSwitch)
 
 
 -- ############################

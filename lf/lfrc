@@ -1,3 +1,4 @@
+
 set ratios 3:4
 set shell bash
 set shellopts '-eu'
@@ -5,17 +6,20 @@ set ifs "\n"
 set scrolloff 10
 set icons
 set period 1
+set promptfmt ""
 #set promptfmt "\033[32;1m%u@%h\033[0m:\033[34;1m%d\033[0m\033[1m%f\033[0m"
 #set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
-set promptfmt ""
 
 #set cleaner ~/.config/lf/clear_img.sh
 #set previewer ~/.config/lf/previewer1.sh
 
 # environmental variables
+
 $lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
 
+
 # cmds ==============================================
+
 cmd open ${{
     case $(file --mime-type $f -b) in
 	image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura $fx >/dev/null 2>&1 ;;
@@ -97,7 +101,9 @@ cmd copyto ${{
 #cmd trash %trash-put $fx
 #cmd open $$OPENER "$fx"
 
+
 # Bindings =================================
+
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map J $lf -remote "send $id cd $(cut -d'	' -f2 ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
 map gh
@@ -127,5 +133,7 @@ map <c-e> down
 map <c-y> up
 map V push :!nvim<space>
 
+
 # Source Bookmarks ============================
+
 #source "~/.config/shell_p/shortcutrc"
