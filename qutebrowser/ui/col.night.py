@@ -8,7 +8,6 @@
 #c.content.user_stylesheets = "/home/iao/.c/q/stylesheet/solarized-dark-all-sites.css"
 #c.content.user_stylesheets = '/home/iao/.config/qutebrowser/css/solarized-light-all-sites.css'
 #c.content.user_stylesheets = ['/home/iao/.config/qutebrowser/css/solarized-light-all-sites.css', '/home/iao/.c/q/css/solarized-dark-all-sites.css', '/home/iao/.c/q/css/draconian-darkmode-stylesheet.css', '/home/iao/.c/q/css/a.null.css' ]
-
 c.colors.webpage.bg = "black"
 c.colors.webpage.darkmode.contrast
 c.colors.webpage.darkmode.enabled = True

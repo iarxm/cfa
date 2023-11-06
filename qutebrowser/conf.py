@@ -15,6 +15,22 @@ c.editor.command = ["st", "-c", "float", "nvim", "-O", "{}"] # i3 config 'float'
 c.new_instance_open_target = "tab-bg"
 c.input.insert_mode.auto_load = True
 c.prompt.filebrowser = True
+filepicker = [ # todo: folder picker; and beautify
+    "st",
+    "-c",
+    "filepicker",
+    "-t",
+    "filepicker",
+    "-e",
+    "lf",
+    "-command",
+    "set nohidden",
+    "-selection-path={}",
+]
+c.fileselect.handler = "external"
+c.fileselect.folder.command = filepicker
+c.fileselect.multiple_files.command = filepicker
+c.fileselect.single_file.command = filepicker
 c.completion.height = "30%"
 c.completion.web_history.max_items = 1000000
 c.completion.cmd_history_max_items = 100000
@@ -25,7 +41,7 @@ c.tabs.favicons.show = "never"
 c.tabs.title.format = "{current_title}"
 c.tabs.new_position.related = "last"
 c.tabs.show = "multiple"
-c.downloads.location.directory = "${HOME}/ai"
+c.downloads.location.directory = '~/ai'
 c.session.default_name = "default_restore"
 config.set('content.headers.user_agent', \
         'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) Chrome/110.0.0.0 Safari/{webkit_version} Edg/110.0.1587.57', \
@@ -160,7 +176,16 @@ c.aliases.update({
 })
 # ======================================
 # keybinds =============================
-config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/ui.css/solarized-dark-all-sites.css ""' )
+c.aliases['dread-enable'] = 'spawn --userscript darkreader.py enable domain'
+c.aliases['dread-disable'] = 'spawn --userscript darkreader.py disable domain'
+c.aliases['darkreader'] = 'spawn --userscript darkreader.py'
+config.bind(',d', "set-cmd-text -s :darkreader enable '{url}*'")
+config.bind(',r', "set-cmd-text -s :darkreader disable '{url}*'")
+config.bind(',s', 'spawn --userscript rebuild-qutebrowser-grease-styles.py', mode='normal')
+#c.content.user_stylesheets = ['~/.config/qutebrowser/styles/solarized-light-all-sites.css'] 
+# config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/darculized/darculized-all-sites.css ""' )
+# config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/draconian-darkmode-stylesheet.css ""' )
+# config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/solarized-dark-all-sites.css ""' )
 config.bind(';r', 'reload')
 config.bind(';c', 'config-source')
 # tors

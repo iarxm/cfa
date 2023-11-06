@@ -1,0 +1,96 @@
+/* ==UserStyle==
+@name         ChatGPT Darker & Compacter
+@version      20230211.09.13
+@namespace    userstyles.world/user/f53
+@description  Enhances the interface for chat.openai.com by making it darker and more compact.
+
+The background color has been made a darker shade to reduce eye strain
+
+Padding has been reduced to save space in the chat interface.
+@author       f53
+@license      The Unlicense
+==/UserStyle== */
+
+/* ---------- Color Stuff ---------- */
+/* reduce background color of most everything */
+#__next * { --tw-bg-opacity: 0.05 !important; }
+.dark body, .dark html {
+  background-color: #060606;
+}
+/* buttons */
+#__next .btn-neutral {
+  background-color: #1c1c1c;
+  border: none;
+}
+#__next .btn-neutral:hover {
+  background-color: #242424;
+}
+/* NO GRADIENTS */
+#__next [class*="gradient"] {
+  background-image: none !important;
+}
+/* Code blocks */
+#__next main.relative .markdown > pre > .bg-black.mb-4.rounded-md {
+  --tw-bg-opacity: 0.5 !important;
+}
+#__next main.relative .markdown code::before,
+#__next main.relative .markdown code::after {
+  content: "";
+}
+/* chatbox should always be opaque */
+#__next main.relative .absolute.bottom-0 * {
+ --tw-bg-opacity: 1 !important;
+}
+/* chat box color */
+#__next main.relative .absolute.bottom-0 .dark\:bg-gray-700 {
+  background-color: #1c1c1c;
+}
+
+/* ---------- Compact stuff ---------- */
+/* Chats */
+main.relative .w-full > .text-base {
+  padding: 1rem;
+}
+main.relative .w-full > .text-base > div:last-child {
+  gap:0;
+}
+main.relative .w-full > .text-base :is(ul, ol, input[type="checkbox"], img) {
+  margin: 5px 0;
+  line-height: 1.25;
+}
+main.relative .w-full > .text-base :is(p, table, blockquote, hr) {
+  margin: 10px 0;
+  line-height: 1.25;
+}
+main.relative .w-full > .text-base pre > .bg-black.mb-4.rounded-md {
+  margin-bottom: 0;
+}
+
+/* Reduce ChatGPT XXX Version Height */
+main.relative .absolute.bottom-0 > div {
+  padding:0.25rem;
+}
+/* move regenerate response/stop gen bottom left */
+main.relative .absolute.bottom-0 > form > div>div:first-child {
+  justify-content: normal;
+}
+main.relative .absolute.bottom-0 > form > div>div:first-child>button{
+  position: absolute;
+  bottom: -20px;
+  z-index: 10;
+  padding: 0px 12px;
+  font-size: .76rem;
+  max-height: 17.5px;
+}
+/* make chats lower since we just got rid of all that unnecessary padding */
+main.relative [class*="react-scroll-to-bottom"] > .items-center > div:last-child {
+/*   height: 7.5rem; for if you don't have the regenerate response shift */
+  height: 5.25rem;
+}
+
+/* Color Stuff Outside of main chat experience */
+/* My account Modal */
+#headlessui-portal-root [role="dialog"] > div:first-child {
+  background: rgba(20, 20, 20, .9);
+  backdrop-filter: blur(.25rem);
+}

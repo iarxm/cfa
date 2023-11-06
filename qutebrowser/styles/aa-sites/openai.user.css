@@ -1,0 +1,85 @@
+/* ==UserStyle==
+@name         chatgpt minimal (very bad)
+@version      20230929.20.24
+@namespace    userstyles.world/user/endercat126
+@description  ruins chatgpt interface
+@author       endercat126
+@license      CC0
+==/UserStyle== */
+
+
+img.rounded-sm {
+    display: none;
+}
+
+:root {
+    --gray-0: #fff;
+    --gray-50: #f7f7f7;
+    --gray-100: #ececec;
+    --gray-200: #d9d9d9;
+    --gray-300: #c5c5c5;
+    --gray-400: #acacac;
+    --gray-500: #8e8e8e;
+    --gray-600: #565656;
+    --gray-700: #404040;
+    --gray-800: #343434;
+    --gray-900: #202020;
+    --gray-950: #050505;
+}
+
+body {
+    background: var(--gray-700) !important;
+}
+
+.bg-gray-700 {
+    background: #262626 !important;
+}
+
+.bg-gray-800,
+dark\:bg-gray-800 {
+    background: #262626 !important;
+}
+
+.dark .dark\:bg-gray-800 {
+    background: #262626 !important;
+}
+
+.dark .dark\:bg-\[\#444654\] {
+    background: #262626 !important;
+}
+
+.bg-gray-900 {
+    background: #202020 !important;
+}
+
+button {
+    background: #202020 !important;
+}
+
+button:hover {
+    background: #2f2f2f !important;
+}
+
+img {
+    display: none !important;
+}
+
+* {
+    border-radius: 2px !important;
+    border: none !important;
+    font-family: monospace, 'Noto Color Emoji', 'JetBrains Mono' !important;
+}
+
+*:not(code):not(code span) {
+    color: #acacac !important;
+}
+
+textarea::placeholder {
+    color: transparent;
+}
+
+p::after, div::after {
+    color: #6a6a6a !important;
+    content: unset !important;
+    display: none !important;
+}
