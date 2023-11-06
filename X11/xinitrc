@@ -4,4 +4,15 @@ if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
 else
 	. "$HOME/.xprofile"
 fi
-exec i3
+
+# TODO: How to feed an argument to 'startx'?
+
+session=${1:-i3}
+
+case $session in
+    i3|i3wm           ) exec i3;;
+    dwm               ) exec xinit_dwm;;
+    awesome           ) exec awesome;;
+    *                 ) exec $1;;
+esac
+
