@@ -1,5 +1,5 @@
 #!/bin/env bash
-dmenu_options="-l 10"
+dmenu_options="-b -nb #000000"
 # List all windows on a workspace
 ws_list() {
 	workspace="$1"

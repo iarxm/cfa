@@ -17,18 +17,18 @@ include ~/.config/i3/xcolor.config
 include ~/.config/i3/xwindow.config
 bindsym $mod+mod1+k      $ex_noid pamixer --allow-boost -i 10 && $refresh
 bindsym $mod+mod1+j      $ex_noid pamixer --allow-boost -d 10 && $refresh
-bindsym $mod+$mod1+p     $ex_noid mpc toggle
+bindsym $mod1+Ctrl+p     $ex_noid mpc toggle
 # menus
-bindsym $mod1+r          $ex_noid i3-dmenu-desktop
-bindsym $mod+d           $ex_noid dmenu_runx
-bindsym Ctrl+$mod+p      $ex_noid networkmanager_dmenu
-bindsym $mod+p           $ex_noid passmenu
-bindsym $mod1+d          $ex_noid $HOME/.config/i3/ydmenu-titles # ~/BIN?
+bindsym $mod+p           $ex_noid passmenu -b -nb black -l 10
+bindsym $mod+$mod1+p     $ex_noid networkmanager_dmenu
+bindsym $mod1+d          $ex_noid dmenu_runx
+bindsym $mod+d           $ex_noid $HOME/.config/i3/ydmenu-titles # ~/BIN?
+bindsym $mod1+r          $ex_noid i3-dmenu-desktop --dmenu='dmenu -b -nb #000000'
 #menu: oil: todo update
-bindsym $mod+$mod1+v          $wi3 0.3 stf-buku1 oil-search
+bindsym $mod+$mod1+v     $wi3 0.3 stf-buku1 oil-search
 bindsym $mod+mod1+Ctrl+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 # launch
-bindsym $mod1+Return      exec /usr/bin/st
+bindsym $mod1+Return     exec /usr/bin/st
 bindsym $mod1+b          exec qb
 #bindsym $mod+Control+s exec "systemctl suspend"
 # func
@@ -69,16 +69,16 @@ bindsym $mod+Left        focus left
 bindsym $mod+Down        focus down
 bindsym $mod+Up          focus up
 bindsym $mod+Right       focus right
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
 workspace $ws1 output primary
 workspace $ws2 output primary
 workspace $ws3 output primary
@@ -88,26 +88,26 @@ workspace $ws7 output primary
 workspace $ws8 output nonprimary
 workspace $ws9 output nonprimary
 workspace $ws10 output nonprimary
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod1+1 workspace number $ws1
+bindsym $mod1+2 workspace number $ws2
+bindsym $mod1+3 workspace number $ws3
+bindsym $mod1+4 workspace number $ws4
+bindsym $mod1+5 workspace number $ws5
+bindsym $mod1+6 workspace number $ws6
+bindsym $mod1+7 workspace number $ws7
+bindsym $mod1+8 workspace number $ws8
+bindsym $mod1+9 workspace number $ws9
+bindsym $mod1+0 workspace number $ws10
+bindsym $mod1+Shift+1 move container to workspace number $ws1
+bindsym $mod1+Shift+2 move container to workspace number $ws2
+bindsym $mod1+Shift+3 move container to workspace number $ws3
+bindsym $mod1+Shift+4 move container to workspace number $ws4
+bindsym $mod1+Shift+5 move container to workspace number $ws5
+bindsym $mod1+Shift+6 move container to workspace number $ws6
+bindsym $mod1+Shift+7 move container to workspace number $ws7
+bindsym $mod1+Shift+8 move container to workspace number $ws8
+bindsym $mod1+Shift+9 move container to workspace number $ws9
+bindsym $mod1+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+r  restart
 bindsym $mod1+Shift+r   reload 
 bindsym $mod+Shift+e  exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'" 
