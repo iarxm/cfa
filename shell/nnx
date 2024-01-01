@@ -20,10 +20,10 @@ NCMD+='O:-|openall;'
 NCMD+="t:preview-tui;"
 
 # asurf ###########################
-NCMD+='w:cleanfilename;'
 #NCMD+='a:!rename-prefix "$nnn";'
+NCMD+='w:cleanfilename;'
 NCMD+='x:!uview $NNN_FIFO*;' #TODO: call this from dsnn or dsev??? Have a centralised callback location?
-NCMD+=';:!anotr tag.mk.quick "$nnn"*;'
+NCMD+=';:!anotr tag.mk "$nnn"*;'
 NCMD+='u:!anotr tag.rm "$nnn"*;'
 NCMD+='c:!anotr clone "$nnn"*;'
 NCMD+='a:!anotr tag.mk.quick "$nnn"*'

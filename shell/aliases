@@ -255,17 +255,16 @@ alias bc="bc -ql"
 alias sc="sc-im"
 alias scim="sc-im"
 ##### TERMUX/ADB ##############################
-alias adbf="adb forward tcp:8022 tcp:8022 && ssh localhost -p 8022"
+#alias trx.adbf="adb forward tcp:8022 tcp:8022 && ssh localhost -p 8022"
 # TODO:move:
-alias dr.mosh.pull="drr ip.pull && drr mosh.imp"
-alias dr.mosh="drr mosh.imp"
-alias dr.sshfs.pull="drr ip.pull && drr sshfs.imp"
-alias dr.sshfs="drr sshfs.imp"
+alias trx.mosh.pull="trx ip.pull && trx mosh.imp"
+alias trx.mosh="trx mosh.imp"
+alias trx.sshfs.pull="trx ip.pull && trx sshfs.imp"
+alias trx.sshfs="trx sshfs.imp"
 
 ##### BACKUP #################################
 ncdudt() { ncdu --exclude=".*" /data/ ; }
 ncdusy() { ncdu --exclude="/data/" / ;}
-
 
 #### AUDIO #################################
 # MIC TEST

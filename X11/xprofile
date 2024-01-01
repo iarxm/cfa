@@ -1,13 +1,15 @@
 #!/bin/sh 
-# X settings
+# visual:
 feh --bg-max "${HOME}/.local/share/abg/1.jpg"
 xrdb -I${XDG_CONFIG_HOME:-$HOME} .config/X11/xresources &
-xrrprofile
-dunst &
 xset r rate 300 50 &
 unclutter &
-udiskie &
 picom &
-mopidy &
+dunst &
+# hardware:
+udiskie &
 atd &
+#mopidy &
+#xrrprofile
+
 
