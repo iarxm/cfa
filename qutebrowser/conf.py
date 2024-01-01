@@ -10,6 +10,12 @@ config.load_autoconfig(True)
 import os
 os.environ['QUTE_POST_CLONE'] = 'notify-send "cloned!" "${QUTE_URL}"'
 os.environ['QUTE_BIB_FILEPATH'] = '~/iibib/qute.bib'
+ui_dir = "file://"+os.getenv("HOME")+"/.config/qutebrowser/ui"
+ui_hm = ui_dir+"/a.hm/index.blank.html"
+c.url.default_page = ui_hm
+c.url.start_pages  = ui_hm
+#c.url.default_page = "file://${home_dir}/.config/qutebrowser/ui/a.hm/index.html"
+#c.url.start_pages = "file://${home_dir}/.config/qutebrowser/ui/a.hm/index.html"
 # general ========================================
 c.editor.command = ["st", "-c", "float", "nvim", "-O", "{}"] # i3 config 'float'
 c.new_instance_open_target = "tab-bg"
@@ -110,7 +116,6 @@ c.url.searchengines['y'] =          c.url.searchengines['youtube']
 c.url.searchengines['ww'] = 'https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Special%%3ASearch&search={}'
 # def 
 c.url.searchengines['DEFAULT'] =    c.url.searchengines['bing']
-
 # cs
 c.url.searchengines['gh'] = 'https://github.com/search?q={}&type=Code'
 c.url.searchengines['aw'] = 'https://wiki.archlinux.org/?search={}'

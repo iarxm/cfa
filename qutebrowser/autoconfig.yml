@@ -16,6 +16,7 @@ settings:
     https://www.onlinemictest.com: true
   content.media.audio_video_capture:
     https://meet.google.com: true
+    https://teams.microsoft.com: true
   content.media.video_capture:
     https://meet.google.com: true
     https://teams.microsoft.com: true

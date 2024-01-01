@@ -1,6 +1,6 @@
 # colors - ===============================================
-c.url.default_page = 'file:///home/iao/.config/qutebrowser/ui/a.hm/index.html'
-c.url.start_pages = 'file:///home/iao/.config/qutebrowser/ui/a.hm/index.html'
+#c.url.default_page = 'file://{home_dir}/.config/qutebrowser/ui/a.hm/index.html'
+#c.url.start_pages = 'file://{home_dir}/.config/qutebrowser/ui/a.hm/index.html'
 # ux ==================================
 c.zoom.default = "100%"
 # colors - ui elements ==================
