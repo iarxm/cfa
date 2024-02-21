@@ -1,4 +1,3 @@
-#include $HOME/.config/task/taskrc.pomo
 data.location=$XDG_DATA_HOME/task
 hooks.location=$HOME/.config/task/hooks
 taskd.certificate=$CFGX/.config/task.sec/freecinc_136c7bf8.cert.pem
@@ -11,7 +10,8 @@ news.version=2.6.0
 verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 include /usr/share/doc/task/rc/holidays.en-GB.rc # cal
 include $HOME/.config/task/taskwarriortui
-include $HOME/.local/pkg/pomodoro-warriors/taskwarrior/taskrc #TODO
+# include $HOME/.local/pkg/pomodoro-warriors/taskwarrior/taskrc #TODO
+# include $HOME/.config/task/taskrc.pomo
 dateformat=j
 dateformat.report=j
 dateformat.annotations=j
