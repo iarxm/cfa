@@ -70,11 +70,12 @@ alias vc="cud && nvim -c Ntr"
 	alias vim="nvim" vimdiff="nvim -d"
 # media
 alias yt="yt-dlp --add-metadata"
+alias ytx="yt -x"
+alias ytxa="yt -x -f bestaudio/best"
+alias yt480="yt -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
 alias youtube-dl="yt"
 alias ytdlp="yt"
-alias yta="yt -x -f bestaudio/best"
-alias ytl="yt"
-alias ytlx="yt -x"
+#alias ytl="yt"
 #alias yt="yt-dlp --add-metadata -i"
 # ffmpeg
 alias ffmpeg="ffmpeg -hide_banner"
@@ -144,6 +145,8 @@ alias nrss="nrss -D $XDG_CONFIG_HOME/nrss/ \
 	-F $XDG_CACHE_HOME/nrss/feeds \
 	-L $XDG_CACHE_HOME/nrss/log"
 alias esniper="esniper -c $XDG_CONFIG_HOME/esniper/conf"
+alias apvlv="apvlv -c $XDG_CONFIG_HOME/apvlv/apvlvrc"
+# #############################################
 alias acyg="apt-cyg install"
 #==== transmission remotes =====================
 alias tsnr="transmission-remote"
