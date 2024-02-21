@@ -43,7 +43,7 @@ return {
   	-- 'blakesweeney/unite-taskwarrior' "very interesting tool?
   {'blindFS/vim-taskwarrior', cmd = 'TW'},
   {'tbabej/taskwiki', cmd = 'Taskwiki'},
-  {'itchyny/calendar.vim', cmd = 'Calendar'},
+  -- {'itchyny/calendar.vim', cmd = 'Calendar'},
   -- Session Management
   {'tpope/vim-obsession', cmd = 'Obsession'},
   -- File Explorers
