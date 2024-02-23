@@ -1,21 +1,4 @@
-function! uix#MyStatusLine()
-	set laststatus=0
 
-	set statusline=
-	set statusline +=%f
-	set statusline +=\ b%n\ %*            	"buffer number
-	set statusline +=\(w%{wordcount().cursor_words}\/\/  "current word number
-	set statusline +=%{wordcount().words}\) 		"wordcount
-	set statusline +=\ l%l%*             		"current line
-	set statusline +=/%L%*               		"total lines
-	set statusline +=%=\ 
-	"'%#Normal# '
-endfunction
-
-"function! uix#MyStatusLineCol()
-"	hi 
-" find a proper color file to put these in???
-"endfunction
 
 function! uix#MyTabLine()
         let s = ''
@@ -59,34 +42,65 @@ function! uix#MyTablabel(n)
 endfunction
 "set guitablabel=%!GuiTabLabel()
 
-"=============================================
-" archive:===================================
-" Tab headings
- function GuiTabLabel()
-     let label = ''
-     let bufnrlist = tabpagebuflist(v:lnum)
-
-   " Add '+' if one of the buffers in the tab page is modified
-     for bufnr in bufnrlist
-     if getbufvar(bufnr, "&modified")
-     let label = '+'
-     break
-     endif
-     endfor
-
-" Append the number of windows in the tab page if more than one
-     let wincount = tabpagewinnr(v:lnum, '$')
-     if wincount > 1
-     let label .= wincount
-     endif
-     if label != ''
-     let label .= ' '
-     endif
-
-    " Append the buffer name (not full path)
-    return label . "%t"
+function! uix#MyStatusLineX()
+	set laststatus=0
+	set statusline=
+	set statusline +=%f
+	set statusline +=\ b%n\ %*            	"buffer number
+	set statusline +=\(w%{wordcount().cursor_words}\/\/  "current word number
+	set statusline +=%{wordcount().words}\) 		"wordcount
+	set statusline +=\ l%l%*             		"current line
+	set statusline +=/%L%*               		"total lines
+	set statusline +=%=\ 
+	"'%#Normal# '
 endfunction
 
-"set guitablabel=%!GuiTabLabel()
-"set tabline=%!GuiTabLabel()
+function! uix#MyStatusLine()
+     let s .= '%#TabLine#'
+     return s
+endfunction
+
+function! uix#ToggleSlineTimerSwitch()
+  if g:last_statusline_timer_switch == 1
+    let g:last_statusline_timer_switch = 0
+  else
+    let g:last_statusline_timer_switch = 1
+  endif
+endfunction
+
+function! uix#ToggleSlineX()
+  if g:last_statusline_timer_switch == 1
+    "silent let &statusline=' '
+    let &laststatus=0
+  endif
+  call uix#ToggleSlineTimerSwitch()
+endfunction
+
+function! uix#ToggleSlineTrig()
+  "if &laststatus == 0
+    silent let &laststatus=3
+    "let &statusline='%!uix#MyTabLine()'
+    call uix#ToggleSlineTimerSwitch()
+    call timer_start(5000, {-> uix#ToggleSlineX()})
+  "endif
+endfunction
+
+function! uix#ToggleStatusline()
+  if &laststatus == 3
+    let &laststatus = 0
+  else
+    let &laststatus = 3
+  endif
+endfunction
+
+let g:last_statusline_timer_switch = 0
+
+command! ToggleStatusline :call uix#ToggleStatusline()
+
+nnoremap <silent> H :ToggleStatusline<CR>
+
+"function! uix#MyStatusLineCol()
+"	hi 
+" find a proper color file to put these in???
+"endfunction
 

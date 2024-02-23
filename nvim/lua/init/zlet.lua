@@ -12,6 +12,7 @@ g.tagbar_indent 			= 1
 g.tagbar_show_data_type       = 1
 g.tagbar_position 			= "topleft vertical"
 g.tagbar_width 			= "25"
+g.tagbar_sort                 = 0
 g.tagbar_type_markdown 		= {
   ctagstype = "markdown",
   kinds = {
@@ -27,6 +28,7 @@ g.tagbar_type_markdown 		= {
     },
   }
 g.tagbar_type_markdownt 		= {
+ tagbar_sort = "0",
  ctagstype = "markdownt",
   kinds = {
    --"h:heading",

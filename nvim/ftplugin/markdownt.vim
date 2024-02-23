@@ -1,7 +1,6 @@
-" Setting for a custom markdown type file: for my todos
 source $VIMDIR/syntax/markdown.vim
 AnyFoldActivate
-"setlocal foldignore+='<!---'
+set conceallevel=2
 function! PadSeps()
 	silent! :%s/\(.*::::.*\)/\=printf('%-40s', submatch(0))/
 endfunction
@@ -16,6 +15,13 @@ function! PadAll()
 endfunction
 au BufWritePre <buffer> call PadAll()
 
+
+
+
+
+
+
+"setlocal foldignore+='<!---'
 " ARCHIVE ? ##############################
 "au BufWritePre <buffer> call PadSeps()
 "au BufWritePre <buffer> call PadTodo()

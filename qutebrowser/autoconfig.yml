@@ -6,6 +6,20 @@
 
 config_version: 2
 settings:
+  colors.completion.category.bg:
+    global: black
+  colors.completion.category.border.bottom:
+    global: black
+  colors.completion.category.border.top:
+    global: black
+  colors.completion.even.bg:
+    global: black
+  colors.completion.odd.bg:
+    global: black
+  colors.tabs.even.bg:
+    global: black
+  colors.tabs.odd.bg:
+    global: black
   content.desktop_capture:
     https://meet.google.com: true
     https://teams.microsoft.com: true
@@ -19,10 +33,14 @@ settings:
   content.media.video_capture:
     https://meet.google.com: true
     https://teams.microsoft.com: true
+  content.proxy:
+    global: socks://localhost:8118/
   content.register_protocol_handler:
     https://calendar.google.com?cid=%25s: true
     https://outlook.office.com?mailtouri=%25s: false
     https://outlook.office365.com?mailtouri=%25s: false
+  fonts.completion.entry:
+    global: 13pt source sans pro
   fonts.statusbar:
     global: default_size default_family
   statusbar.show:

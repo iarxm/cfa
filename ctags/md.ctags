@@ -3,10 +3,10 @@
 #--languages=+markdown,+markdowntags
 --languages=+markdown
 
---langmap=markdown:+(o*)
---langmap=markdown:+(oo*)
---langmap=markdown:+(ao*)
---langmap=markdown:+(oa*)
+#--langmap=markdown:+(o*)
+#--langmap=markdown:+(oo*)
+#--langmap=markdown:+(ao*)
+#--langmap=markdown:+(oa*)
 
 --langmap=markdown:+(*)
 --langmap=markdown:+
@@ -22,6 +22,7 @@
 
 --kinddef-markdown=y,todo,todo objects
 --regex-markdown=/(^,,(.*)$)/\1/y/
+#--regex-markdown=/(^,,(\w\S*)$)/\1/y/
 #--regex-markdown=/(^#{4,}(\w\S*)$)/\1/x,xheads/
 #--regex-markdown=/^##[ \t]+(.*)/\1/S,subsection/
 #--kinddef-markdown=x,xheads,x headings

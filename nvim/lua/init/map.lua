@@ -1,6 +1,9 @@
 -- mappings ###############################################
 local map = vim.api.nvim_set_keymap
 local usr_cmd = vim.api.nvim_create_user_command
+local auc	= vim.api.nvim_create_autocmd
+local aug = vim.api.nvim_create_augroup
+local o_done = "$HOME/dd/a/ozd"
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '.'
 -- fm 
@@ -106,13 +109,13 @@ map('n', '.ssb',
 map('n', '.sdd', ':put =strftime(\'# %d/%m/%y/+\')<ESC>', { noremap = true })
 map('n', '.sda', ':put =strftime(\'**%y/%m/%d %a+**\')<ESC>', { noremap = true })
 -- md filetype vim
-map('n', '.sm', 'i<!--- vim:ft=markdown<CR>---><ESC>', { noremap = true })
+map('n', '.sm', 'i<!--- vim:set ft=markdown: ---><ESC>', { noremap = true })
 -- oo .. move to end
 map('n', 'me', ':m $<CR>', { noremap = true })
 map('v', 'me', ':\'<,>\'m $<CR>', { noremap = true })
 -- oo .. move to done file
-map('n', 'md', '0v$:w! >>/home/iao/d/a/zozd<CR>d', { noremap = true })
-map('v', 'md', ':w! >> /home/iao/d/a/zozd<CR>gvd', { noremap = true })
+map('n', 'md', '0v$:w! >>' .. o_done .. '<CR>d', { noremap = true })
+map('v', 'md', ':w! >> ' .. o_done .. '<CR>gvd', { noremap = true })
 -- oo .. move across panes
 map('v', 'mr', 'x<C-L>Gp<C-H>', { noremap = true })
 -- oo
@@ -139,6 +142,7 @@ map('n', '<leader>om', ':call OpenMarkdownPreview()<cr>', { silent = true })
 -- URLs
 map('n', '<leader>U', ':call url#HandleURL()<cr>', { silent = true })
 map('n', '<leader>u', ':call url#HandleUrlCurWin()<cr>', { silent = true })
+map('n', ';w', ':WhichKey<cr>', { silent = true })
 -- ## AUTO PARENTHESISE
 -- map('i', '(', '()<ESC>i', {})
 -- map('i', '"', '""<ESC>i', {})
@@ -152,4 +156,40 @@ map('n', '<leader>u', ':call url#HandleUrlCurWin()<cr>', { silent = true })
 -- map('n', ';fh', ':Telescope help_tags', {})
 -- ## COMMANDS ###############################################
 usr_cmd('Gpt', 'ChatGPT', {})
+-- AUTOCMDS FILE
+-- COLORS ###############################
+aug('COLORS', { clear = true })
+auc({"ColorScheme"}, {
+	pattern = "eldar",
+	group = "COLORS",
+	command = "source $HOME/.config/nvim/colors/black.vim"})
+-- WRITING/UI ##############################
+aug('WORKING', 	{ clear = true })
+auc({'VimEnter'}, 	{
+	group = "WORKING",
+	command = 'call md#HideAll()'})
+auc("BufWritePost", {
+	group = "WORKING",
+	command = 'redraw', })
+auc("BufWritePost", {
+	group = "WORKING",
+	command = 'echom " "'})
+--	command = 'echom "\"" . expand("%") . "\"" wordcount().words . "w"'})
+auc("User", {
+	pattern = "GoyoEnter",
+	group = "WORKING",
+	nested = true,
+	command = "call md#Goyo_enter()" })
+auc("User", {
+	pattern = "GoyoLeave",
+	group = "WORKING",
+	nested = true,
+	command = "call md#Goyo_leave()"})
+auc("TabEnter", {
+	group = "WORKING",
+	command = "call uix#ToggleSlineTrig()"})
+auc("VimEnter", {
+	group = "WORKING",
+	command = "call uix#ToggleSlineTrig()"})
+
 

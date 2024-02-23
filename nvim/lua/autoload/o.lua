@@ -5,20 +5,21 @@ local X        = {}
 local opt      = vim.opt
 local cmd      = vim.api.nvim_command
 
-local hr       = "$HOME/d"
-local ha       = hr .. '/a'
-local hb       = hr .. '/a/aa'
-
-local hm_ml    = '$HOME/d/cm/yml'
+local hr       = "$HOME/dd"
+-- local ha       = hr .. '/a'
+-- local hb       = hr .. '/a/aa'
+local ha       = 'a'
+local hb       = 'aa/aa'
+-- mail
+local hm_ml    = hr .. '/cm/yml'
 -- ha's
-
 local maa      = ha .. '/aa'
 local mab      = ha .. '/ab'
 local mba      = ha .. '/ba'
 local mbb      = ha .. '/bb'
 local mjm      = ha .. '/jm'
 local mjmb     = ha .. '/jmb'
-local mjmb     = ha .. '/jmc'
+local mjmc     = ha .. '/jmc'
 local m_aua    = ha .. '/vaua'
 local m_aub    = ha .. '/vaux'
 local m_auc    = ha .. '/vauy'
@@ -53,9 +54,10 @@ local bufs = {
     'oxpb',
     'oxtk',
     'oxeng',
+    'oxds',
     'oxds.a',
     'oxds.dev',
-    'oxds.asurf',
+    'oxds.asf',
     'oxdm',
     'oxdw',
     'oxdn',
@@ -64,14 +66,14 @@ local bufs = {
     'oxbb',
     'oxbfn',
     'oxcm'
-  }
+}
 
 local function zen()
-  cmd('ZenMode')
+  cmd('silent ZenMode')
 end
 
 local function wmode()
-  cmd('call md#WriteMode()')
+  cmd('call md#ToggleWrite()')
 end
 
 local function tlist_all()
@@ -128,11 +130,11 @@ local function tnew(filename)
 end
 
 local function newx()
-  cmd('tabnew')
+  cmd('tabnew ')
 end
 
 local function svert(filename)
-  cmd('vsplit' .. filename)
+  cmd('vsplit ' .. filename)
 end
 
 
@@ -141,7 +143,6 @@ end
 M.a = function()
   envx()
   tnew(maa)
-  
 
   tnew(mab)
   svert(maa)
@@ -158,12 +159,17 @@ end
 M.ma = function()
   envx()
   tnew(mjm)
+
   tnew(mjmb)
-  svert(mjmb)
+  svert(mjm)
+
   tnew(mbb)
-  svert(mbb)
+  svert(msu)
+  
   envz()
+  cmd('TagbarClose')
   wmode()
+  --zen()
 end
 
 -- # o#mj
@@ -293,12 +299,13 @@ end
 
 M.oa_x = function()
   tnew (oa)
-
+  svert(oi)
+  
   tnew (ob)
-  svert(oj)
+  svert(oi)
 
   tnew (oc)
-  svert(oi)
+  svert(oj)
 
   tnew (uc)
   wmode()
@@ -325,7 +332,7 @@ end
 
 M.ox_bufs = function()
   for _, file in ipairs(bufs) do
-   buf('ha' .. file)
+   buf(ha .. "/" .. file)
   end
 end
 

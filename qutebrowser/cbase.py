@@ -9,7 +9,8 @@
 config.load_autoconfig(True)
 import os
 os.environ['QUTE_POST_CLONE'] = 'notify-send "cloned!" "${QUTE_URL}"'
-os.environ['QUTE_BIB_FILEPATH'] = '~/iibib/qute.bib'
+os.environ['QUTE_BIB_FILEPATH'] = "${HOME}/jf/iic/bib/qute.bib"
+c.downloads.location.directory = "${HOME}/ai/"
 # general ========================================
 c.editor.command = ["st", "-c", "float", "nvim", "-O", "{}"] # i3 config 'float'
 c.new_instance_open_target = "tab-bg"
@@ -24,8 +25,9 @@ c.tabs.background = True
 c.tabs.favicons.show = "never"
 c.tabs.title.format = "{current_title}"
 c.tabs.new_position.related = "last"
-c.tabs.show = "multiple"
-c.downloads.location.directory = '/home/iao/ii'
+c.tabs.show = "switching"
+c.tabs.show_switching_delay = 3000
+#c.tabs.show = "multiple"
 c.session.default_name = "default_restore"
 config.set('content.headers.user_agent', \
         'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) Chrome/110.0.0.0 Safari/{webkit_version} Edg/110.0.1587.57', \
@@ -38,6 +40,7 @@ c.content.autoplay = False
 c.content.geolocation = True
 # BLOCKING ###################################################################
 #config.set('content.cookies.accept', 'all', '*://*/*')
+c.content.proxy = "http://localhost:8118/"
 c.content.cookies.accept = 'all'
 c.content.blocking.method = 'both'
 c.content.blocking.enabled = True
@@ -56,6 +59,7 @@ c.content.blocking.adblock.lists = [ \
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt" \
         ]
 c.content.blocking.hosts.lists = [ \
+    "file://${HOME}/.config/qutebrowser/blocked-hosts", \
     'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', \
     'https://raw.githubusercontent.com/blocklistproject/Lists/master/youtube.txt' \
         ]
