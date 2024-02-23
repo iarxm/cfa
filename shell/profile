@@ -42,7 +42,6 @@ export BLENDER_USER_SCRIPTS="$XDG_BIN_HOME/blender"
 # DATA
 export MATES_DIR="$XDG_DATA_HOME/vdirsyncer/contacts"
 export MATES_INDEX="$XDG_DATA_HOME/mates/mates_index"
-export AUDIO_PRG="$XDG_DATA_HOME/adir/au.playf"
 ## security =================================
 export GPG_TTY=$(tty)
 export SSH_AGENT_PID=""
@@ -55,12 +54,13 @@ export DUC_DATABASE="$XDG_CACHE_HOME/duc/duc.db"
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var 
 export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
 # DATA
+export AUDIO_PRG="$XDG_DATA_HOME/aax/au.playf"
+export LESSHISTFILE="$XDG_DATA_HOME/aax/lesshst"
+export HISTFILE="$XDG_DATA_HOME/aax/history"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export NOTMUCH_DATABASE="$HOME/.local/mail/"
 export TASKDATA="$XDG_DATA_HOME/task"
-export LESSHISTFILE="$XDG_DATA_HOME/adir/lesshst"
-export HISTFILE="$XDG_DATA_HOME/adir/history"
 export TMUX_TMPDIR="$XDG_DATA_HOME/tmux"
 export SSB_HOME="$XDG_DATA_HOME"/zoom
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store/"
