@@ -36,6 +36,7 @@ video/avi=mpv.desktop;
 video/x-msvideo=mpv.desktop;
 video/x-matroska=mpv.desktop;
 video/webm=mpv.desktop;
+audio/mp3=mpv.desktop;
 # mailto=mail.desktop;
 x-scheme-handler/msteams=teams.desktop
 [Removed Associations]

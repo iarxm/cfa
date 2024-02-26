@@ -49,6 +49,8 @@ c.tabs.new_position.related = "last"
 c.tabs.show = "multiple"
 c.downloads.location.directory = '~/ai'
 c.session.default_name = "default_restore"
+c.auto_save.session = True
+#c.auto_save.interval = 
 config.set('content.headers.user_agent', \
         'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) Chrome/110.0.0.0 Safari/{webkit_version} Edg/110.0.1587.57', \
         '*://www.bing.com/*') # setting user agent per domain pattern - bing: for accessing new chatgpt feature via edge browser usage
