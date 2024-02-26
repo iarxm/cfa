@@ -1,6 +1,9 @@
+# temp fix for statusbar bug:
+c.fonts.statusbar = "0pt Sourc Sans Pro"
 # colors - ===============================================
 #c.url.default_page = 'file://{home_dir}/.config/qutebrowser/ui/a.hm/index.html'
 #c.url.start_pages = 'file://{home_dir}/.config/qutebrowser/ui/a.hm/index.html'
+# c.url.start_pages = 'file://{home_dir}/.config/qutebrowser/ui/a.hm/.jpg'
 # ux ==================================
 c.zoom.default = "100%"
 # colors - ui elements ==================
@@ -11,8 +14,8 @@ c.colors.completion.category.bg = "black"
 c.colors.completion.item.selected.fg = "white"
 c.colors.completion.item.selected.match.fg = "#0080FF"
 c.colors.completion.item.selected.bg = "#333333"
-c.colors.completion.item.selected.border.top = "#333333"
-c.colors.completion.item.selected.border.bottom = "#333333"
+c.colors.completion.item.selected.border.top = "black"
+c.colors.completion.item.selected.border.bottom = "black"
 c.colors.completion.match.fg = "#66FFFF"
 # statusbar
 c.colors.statusbar.normal.fg = "#899CA1"
@@ -32,32 +35,33 @@ c.colors.statusbar.url.error.fg = "#8A2F58"
 c.colors.statusbar.url.warn.fg = "#914E89"
 c.colors.statusbar.url.hover.fg = "#2B7694"
 # tabs
-c.colors.tabs.bar.bg = "#222222"
-c.colors.tabs.even.fg = "#899CA1"
-c.colors.tabs.even.bg = "#222222"
-c.colors.tabs.odd.fg = "#899CA1"
-c.colors.tabs.odd.bg = "#222222"
-c.colors.tabs.selected.even.fg = "white"
-c.colors.tabs.selected.even.bg = "#222222"
-c.colors.tabs.selected.odd.fg = "white"
-c.colors.tabs.selected.odd.bg = "#222222"
-c.colors.tabs.indicator.start = "#222222"
-c.colors.tabs.indicator.stop = "#222222"
-c.colors.tabs.indicator.error = "#8A2F58"
+# #222222
+c.colors.tabs.bar.bg            = "black"
+c.colors.tabs.even.fg           = "#899CA1"
+c.colors.tabs.even.bg           = "black"
+c.colors.tabs.odd.fg            = "#899CA1"
+c.colors.tabs.odd.bg            = "black"
+c.colors.tabs.selected.even.fg  = "#c0caf5"
+c.colors.tabs.selected.even.bg  = "black"
+c.colors.tabs.selected.odd.fg   = "#c0caf5"
+c.colors.tabs.selected.odd.bg   = "black"
+c.colors.tabs.indicator.start   = "black"
+c.colors.tabs.indicator.stop    = "black"
+c.colors.tabs.indicator.error   = "#8A2F58"
 # downloads
-c.colors.downloads.start.fg = "black"
-c.colors.downloads.start.bg = "#BFBFBF"
-c.colors.downloads.stop.fg = "black"
-c.colors.downloads.stop.bg = "#F0F0F0"
+c.colors.downloads.start.fg     = "black"
+c.colors.downloads.start.bg     = "#BFBFBF"
+c.colors.downloads.stop.fg      = "black"
+c.colors.downloads.stop.bg      = "#F0F0F0"
 # hints
-c.colors.hints.bg = "#CCCCCC"
-c.colors.hints.match.fg = "#000"
+c.colors.hints.bg               = "#CCCCCC"
+c.colors.hints.match.fg         = "#000"
 # messages
-c.colors.messages.error.bg = "#8A2F58"
-c.colors.messages.error.border = "#8A2F58"
-c.colors.messages.warning.bg = "#BF85CC"
+c.colors.messages.error.bg      = "#8A2F58"
+c.colors.messages.error.border  = "#8A2F58"
+c.colors.messages.warning.bg    = "#BF85CC"
 c.colors.messages.warning.border = c.colors.messages.warning.bg
-c.colors.messages.info.bg = "#333333"
+c.colors.messages.info.bg       = "#333333"
 # prompts
 c.colors.prompts.fg = "#333333"
 c.colors.prompts.bg = "#000000"
@@ -71,7 +75,7 @@ c.colors.keyhint.bg = "rgba(0, 0, 0, 80%)"
 # fonts ================================
 c.fonts.default_family = ["Source Sans Pro", "Noto Sans Mono", "DejaVu Sans Mono", "Liberation Mono"]
 c.fonts.tabs.selected = "10pt Source Sans Pro"
-c.fonts.statusbar = "15pt Sourc Sans Pro"
+c.fonts.statusbar = "13pt Sourc Sans Pro"
 c.fonts.hints = "18pt DejaVu Sans Mono"
 c.fonts.messages.info = "14pt Noto Sans Mono"
 # fonts =================================

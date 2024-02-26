@@ -9,23 +9,13 @@
 -- https://github.com/nvim-neotest/neotest
 return {
   -- exp
+  --
   { "scateu/tsv_edl.vim",
   	cmd = "Edl",},
   -- focus
   { "folke/lazy.nvim", version = "*" },
   -- { "LazyVim/LazyVim", config = true,},
-  {"folke/which-key.nvim",
-  	--event = "VeryLazy",
-  	init = function()
-    		vim.o.timeout = true
-    		vim.o.timeoutlen = 300
-  		end,
-  	opts = {
-    	-- your configuration comes here
-    	-- or leave it empty to use the default settings
-    	-- refer to the configuration section below
-  }},
-  -- ##################################################
+    -- ##################################################
   -- ## WRITING MODE ##################################
   -- TODO: switch limelight folke/twilight.nvim - based on treesitter
   {'junegunn/limelight.vim', cmd = 'Limelight'},

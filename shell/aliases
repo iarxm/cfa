@@ -59,6 +59,11 @@ alias nna="nnn -ea"
 alias nn="nnn -ea"
 alias n="nnn -ea"
 alias sdn='sudo nnn'
+nnu() { 
+  i3-msg "split horizontal"
+  { sleep 0.3; xdotool key "semicolon+x"; sleep 1;  i3-msg "resize set 80ppt"; } &
+    nnn ;}
+#nnux() { st -e "zsh -c nnu"; } # todo
 # nvim
 alias e="$EDITOR"
 # alias v="$EDITOR"
@@ -75,6 +80,7 @@ alias ytxa="yt -x -f bestaudio/best"
 alias yt480="yt -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
 alias youtube-dl="yt"
 alias ytdlp="yt"
+alias ytcook="yt --cookies-from-browser firefox -o '%(id)s.%(ext)s'"
 #alias ytl="yt"
 #alias yt="yt-dlp --add-metadata -i"
 # ffmpeg
@@ -162,6 +168,7 @@ alias nmhn="notmuch new"
 #==== browsers.quteb =================================
 alias qbw='qb win'
 alias qw='qb win'
+alias qwin='qb win'
 alias qf='qb win.float'
 alias qx='qb x win'
 alias qxt='qb x tab'

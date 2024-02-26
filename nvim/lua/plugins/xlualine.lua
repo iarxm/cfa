@@ -1,51 +1,34 @@
--- statusline
-return  {
-    "nvim-lualine/lualine.nvim",
-    --event = "VeryLazy",
-    opts = function()
-      return {
-        options = {
-          theme = "auto",
-          globalstatus = true,
-          disabled_filetypes = { statusline = { "dashboard", "alpha" } },
-        },
-        sections = {
-          lualine_a = { "mode" },
-          lualine_b = { "branch" },
-                  },
-		lualine_x = {
-            -- stylua: ignore
-            {
-              function() return require("noice").api.status.command.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              -- color = Util.fg("Statement"),
+return {
+  "nvim-lualine/lualine.nvim",
+  -- event = "VeryLazy",  -- Choose an appropriate event
+  opts = function()
+    require("lualine").setup {
+      options = {
+        theme = "auto",
+        disabled_filetypes = { "dashboard", "alpha" },
+      },
+      sections = {
+        lualine_a = {
+          {
+            "tabs",
+            max_length = vim.o.columns / 10,
+            mode = 1,
+            use_mode_colors = false,
+            tabs_color = {
+              active = "lualine_a_normal",
+              inactive = "lualine_a_inactive",
             },
-            -- stylua: ignore
-            {
-              function() return require("noice").api.status.mode.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              -- color = Util.fg("Constant"),
-            },
-            -- stylua: ignore
-            {
-              function() return "  " .. require("dap").status() end,
-              cond = function () return package.loaded["dap"] and require("dap").status() ~= "" end,
-              -- color = Util.fg("Debug"),
-            },
-            --{ require("lazy.status").updates, cond = require("lazy.status").has_updates, color = Util.fg("Special") },
-              },
-          lualine_y = {
-            { "progress", separator = " ", padding = { left = 1, right = 0 } },
-            { "location", padding = { left = 0, right = 1 } },
-          },
-          lualine_z = {
-            function()
-              return " " .. os.date("%R")
+            fmt = function(name, context)
+              local buflist = vim.fn.tabpagebuflist(context.tabnr)
+              local winnr = vim.fn.tabpagewinnr(context.tabnr)
+              local bufnr = buflist[winnr]
+              local mod = vim.fn.getbufvar(bufnr, "&mod")
+              return name .. (mod == 1 and " +" or "")
             end,
-          },
-
-        extensions = { "neo-tree", "lazy" },
-      }
-    end,
- }
-
+          }
+        },
+      },
+      extensions = { "neotree", "lazy" },
+    }
+  end,
+}

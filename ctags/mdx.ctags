@@ -1,0 +1,16 @@
+# Define ========================================
+--langdef=markdownt
+--languages=+markdownt
+#--langmap=markdownt:(o*)
+#--langmap=markdownt:+(oo*)
+#--langmap=markdownt:+(ao*)
+# tag patters ================================
+--kinddef-markdownt=t,tag,tags
+--kinddef-markdownt=o,todo,todos
+#--regex-markdownt=/(^,,)/\1/o/
+#--regex-markdownt=/(^,,(.*)$)/\1/o/
+--regex-markdownt=/(^,,(\w\S*))/\1/o/
+#--regex-markdownt=/(^,,(.*?)(?=\n|$))/\1/o/
+#--regex-markdownt=/(^,,(\w\S*))/\1/o/
+#--regex-markdownt=/(^,,(.*)$)/\1/o/ #? needed?
+#--regex-markdownt=/(^,,(.*))/\1/o/

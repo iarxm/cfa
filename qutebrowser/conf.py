@@ -9,7 +9,8 @@
 config.load_autoconfig(True)
 import os
 os.environ['QUTE_POST_CLONE'] = 'notify-send "cloned!" "${QUTE_URL}"'
-os.environ['QUTE_BIB_FILEPATH'] = '~/iibib/qute.bib'
+os.environ['QUTE_BIB_FILEPATH'] = "${HOME}/jf/iic/bib/qute.bib"
+c.downloads.location.directory = "${HOME}/ai/"
 ui_dir = "file://"+os.getenv("HOME")+"/.config/qutebrowser/ui"
 ui_hm = ui_dir+"/a.hm/index.blank.html"
 c.url.default_page = ui_hm
@@ -46,8 +47,9 @@ c.tabs.background = True
 c.tabs.favicons.show = "never"
 c.tabs.title.format = "{current_title}"
 c.tabs.new_position.related = "last"
-c.tabs.show = "multiple"
-c.downloads.location.directory = '~/ai'
+c.tabs.show = "switching"
+c.tabs.show_switching_delay = 3000
+#c.tabs.show = "multiple"
 c.session.default_name = "default_restore"
 c.auto_save.session = True
 #c.auto_save.interval = 
@@ -62,6 +64,7 @@ c.content.autoplay = False
 c.content.geolocation = True
 # BLOCKING ###################################################################
 #config.set('content.cookies.accept', 'all', '*://*/*')
+c.content.proxy = "http://localhost:8118/"
 c.content.cookies.accept = 'all'
 c.content.blocking.method = 'both'
 c.content.blocking.enabled = True
@@ -80,6 +83,7 @@ c.content.blocking.adblock.lists = [ \
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt" \
         ]
 c.content.blocking.hosts.lists = [ \
+    "file://${HOME}/.config/qutebrowser/blocked-hosts", \
     'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', \
     'https://raw.githubusercontent.com/blocklistproject/Lists/master/youtube.txt' \
         ]
@@ -93,8 +97,10 @@ c.hints.chars = "asdfghklqweruiopzxcvbn"
 c.hints.min_chars = 1
 c.keyhint.blacklist = ["*"]
 c.completion.open_categories = ["quickmarks", "bookmarks", "history"]
-c.statusbar.widgets = ["url", "progress", "scroll"]
 c.statusbar.show = "in-mode"
+c.statusbar.widgets = []
+#c.statusbar.widgets = ["url", "progress", "scroll"]
+c.window.hide_decoration = True
 # alias.searches ================================
 # academic
 #   qute-zotero; getbib; gitclone; readability; readability-js
@@ -242,8 +248,19 @@ config.bind('<Ctrl-Shift-Right>',   'tab-move +', mode='normal')
 config.bind('<Ctrl-Shift-Left>',    'tab-move -', mode='normal')
 config.bind('P',                    'back', mode='normal')
 config.bind('<Escape>',             'leave-mode', mode='passthrough')
+# bind - tab / search ################################################
+# https://github.com/qutebrowser/qutebrowser/issues/2236
+# bind - bug workaround for page jump to top on cmd bar exit w no statusbar set #########
+config.bind('o',        'set statusbar.show always;; cmd-set-text -s :open')
+config.bind('O',        'set statusbar.show always;; cmd-set-text -s :open -t')
+config.bind('t',        'set statusbar.show always;; cmd-set-text -s :open -t')
+config.bind(':',        'set statusbar.show always;; cmd-set-text :')
+config.bind('<Escape>', 'mode-enter normal;; set statusbar.show in-mode', mode='command')
+config.bind('<Return>', 'command-accept;; set statusbar.show in-mode', mode='command')
+config.bind('/',        'set statusbar.show always;; cmd-set-text /')
+#config.bind('t',            'cmd-set-text -s :open -t', mode='normal')
 ## bind.quickmarks/sessions/pdfs =======================
-config.bind('t',            'cmd-set-text -s :open -t', mode='normal')
+#config.bind('t',            'cmd-set-text -s :open -t', mode='normal')
 config.bind('<Ctrl-m>',     'cmd-set-text -s :quickmark-save', mode='normal')
 config.bind('<Shift-m>',    'cmd-set-text -s :quickmark-save', mode='normal')
 config.bind('B',            'bk', mode='normal')

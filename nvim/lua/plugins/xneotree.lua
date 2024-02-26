@@ -46,8 +46,8 @@ return { "nvim-neo-tree/neo-tree.nvim",
       require("neo-tree").setup({
         close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
         popup_border_style = "rounded",
-        enable_git_status = true,
-        enable_diagnostics = true,
+        --enable_git_status = true,
+        --enable_diagnostics = true,
         open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
         sort_case_insensitive = false, -- used when sorting files and directories in the tree
         sort_function = nil , -- use a custom function for sorting files and directories in the tree 
@@ -63,10 +63,11 @@ return { "nvim-neo-tree/neo-tree.nvim",
             enable_character_fade = true
           },
           indent = {
-            indent_size = 2,
+            indent_size = 1,
             padding = 1, -- extra padding on left hand side
             -- indent guides
-            with_markers = true,
+            -- with_markers = true,
+            with_markers = false,
             indent_marker = "│",
             last_indent_marker = "└",
             highlight = "NeoTreeIndentMarker",
@@ -74,7 +75,7 @@ return { "nvim-neo-tree/neo-tree.nvim",
             with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
             expander_collapsed = "",
             expander_expanded = "",
-            expander_highlight = "NeoTreeExpander",
+            --expander_highlight = "NeoTreeExpander",
           },
           icon = {
             folder_closed = "",
@@ -201,7 +202,7 @@ return { "nvim-neo-tree/neo-tree.nvim",
           follow_current_file = false, -- This will find and focus the file in the active buffer every
                                        -- time the current file is changed while the tree is open.
           group_empty_dirs = false, -- when true, empty folders will be grouped together
-          hijack_netrw_behavior = "open_current",
+          hijack_netrw_behavior = "disabled",
           --hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
                                                   -- in whatever position is specified in window.position
                                 -- "open_current",  -- netrw disabled, opening a directory opens within the
