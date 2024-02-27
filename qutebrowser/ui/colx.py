@@ -75,9 +75,9 @@ c.colors.keyhint.bg = "rgba(0, 0, 0, 80%)"
 # fonts ================================
 c.fonts.default_family = ["Source Sans Pro", "Noto Sans Mono", "DejaVu Sans Mono", "Liberation Mono"]
 c.fonts.tabs.selected = "10pt Source Sans Pro"
-c.fonts.statusbar = "13pt Sourc Sans Pro"
-c.fonts.hints = "18pt DejaVu Sans Mono"
-c.fonts.messages.info = "14pt Noto Sans Mono"
+c.fonts.statusbar = "10pt Sourc Sans Pro"
+c.fonts.hints = "16pt DejaVu Sans Mono"
+c.fonts.messages.info = "13pt Noto Sans Mono"
 # fonts =================================
 c.fonts.tabs.unselected = c.fonts.tabs.selected
 c.fonts.downloads = c.fonts.statusbar 

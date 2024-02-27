@@ -40,6 +40,8 @@ settings:
     https://outlook.office365.com?mailtouri=%25s: false
   fonts.completion.entry:
     global: 13pt source sans pro
+  fonts.prompts:
+    global: 10pt
   fonts.statusbar:
     global: default_size default_family
   statusbar.show:
