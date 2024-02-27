@@ -64,7 +64,7 @@ c.content.autoplay = False
 c.content.geolocation = True
 # BLOCKING ###################################################################
 #config.set('content.cookies.accept', 'all', '*://*/*')
-c.content.proxy = "http://localhost:8118/"
+#c.content.proxy = "http://localhost:8118/" # must configure dns first???
 c.content.cookies.accept = 'all'
 c.content.blocking.method = 'both'
 c.content.blocking.enabled = True

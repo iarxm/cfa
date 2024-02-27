@@ -34,8 +34,6 @@ settings:
   content.media.video_capture:
     https://meet.google.com: true
     https://teams.microsoft.com: true
-  content.proxy:
-    global: socks://localhost:8118/
   content.register_protocol_handler:
     https://calendar.google.com?cid=%25s: true
     https://outlook.office.com?mailtouri=%25s: false
