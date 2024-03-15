@@ -1,25 +1,5 @@
 #!/bin/sh
-# inputing switches on qute cmd (eg -c "asfsafd" will indicate comments..)
 buku --debug --add "$QUTE_URL" $@
-echo "message-info 'input: $@'" >> "$QUTE_FIFO"
+echo "message-info 'buku input: $@'" >> "$QUTE_FIFO"
 echo "message-info 'buku added! $QUTE_URL'" >> "$QUTE_FIFO"
-
-
-
-
-
-#1> $fifo1 2> $fifo2
-#echo "" > "/tmp/fifo1"
-#echo "" > "/tmp/fifo2"
-#fifo1="/tmp/fifo1"
-#fifo2="/tmp/fifo2"
-#echo "message-info 'stin $(< $fifo1)'" >> "$QUTE_FIFO"
-#echo "message-info 'sterror $(< $fifo2)'" >> "$QUTE_FIFO"
-#< $fifo1 >> ~/test
-#export QUTE_FIFO=~/.local/share/qutebrowser/qutefifo
-#echo $@ | buku --debug --add 2>&1
-#echo "" > "~/.local/share/fifo1"
-#echo "" > "~/.local/share/fifo2"
-#fifo1="~/.local/share/fifo1"
-#fifo2="~/.local/share/fifo2"
 

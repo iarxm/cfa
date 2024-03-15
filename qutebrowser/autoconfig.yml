@@ -6,6 +6,8 @@
 
 config_version: 2
 settings:
+  backend:
+    global: webengine
   colors.completion.category.bg:
     global: black
   colors.completion.category.border.bottom:
@@ -16,10 +18,16 @@ settings:
     global: black
   colors.completion.odd.bg:
     global: black
+  colors.completion.scrollbar.fg:
+    global: black
   colors.tabs.even.bg:
     global: black
   colors.tabs.odd.bg:
     global: black
+  colors.webpage.bg:
+    global: black
+  content.cache.size:
+    global: 10000000000
   content.desktop_capture:
     https://meet.google.com: true
     https://teams.microsoft.com: true
@@ -57,5 +65,9 @@ settings:
     - progress
   tabs.position:
     global: bottom
+  url.default_page:
+    global: https://start.duckduckgo.com/
+  url.start_pages:
+    global: file:///home/x/.config/qutebrowser/ui/a.hm/index.html
   window.hide_decoration:
     global: true

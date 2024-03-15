@@ -1,23 +1,20 @@
 # AUTHOR: IAROM MADDEN future@iarom.org
-# =========================================
-# MODULAR QUTEBROWSER CONFIG
-# - This is the core default options to load. 
-# - Other set of variable options such as color options, are loaded in separate config files
-# - WORK IN PROGRESS
-# ==================================================
 # ENVIRONMENT =======================================
 config.load_autoconfig(True)
 import os
 os.environ['QUTE_POST_CLONE'] = 'notify-send "cloned!" "${QUTE_URL}"'
 os.environ['QUTE_BIB_FILEPATH'] = "${HOME}/jf/iic/bib/qute.bib"
-c.downloads.location.directory = "${HOME}/ai/"
-ui_dir = "file://"+os.getenv("HOME")+"/.config/qutebrowser/ui"
-ui_hm = ui_dir+"/a.hm/index.blank.html"
+c.downloads.location.directory = "${HOME}/aia/"
+qb_cfg_dir = "file://"+os.getenv("HOME")+"/.config/qutebrowser"
+blocked_hosts = qb_cfg_dir+"/blocked-hosts"
+# home page #####################################
+ui_dir = qb_cfg_dir+"/ui"
+ui_hm_blank = ui_dir+"/a.hm/index.blank.html"
+ui_hm_bg = ui_dir+"/a.hm/index.html"
+# general ========================================
+ui_hm = ui_hm_bg
 c.url.default_page = ui_hm
 c.url.start_pages  = ui_hm
-#c.url.default_page = "file://${home_dir}/.config/qutebrowser/ui/a.hm/index.html"
-#c.url.start_pages = "file://${home_dir}/.config/qutebrowser/ui/a.hm/index.html"
-# general ========================================
 c.editor.command = ["st", "-c", "float", "nvim", "-O", "{}"] # i3 config 'float'
 c.new_instance_open_target = "tab-bg"
 c.input.insert_mode.auto_load = True
@@ -49,25 +46,30 @@ c.tabs.title.format = "{current_title}"
 c.tabs.new_position.related = "last"
 c.tabs.show = "switching"
 c.tabs.show_switching_delay = 3000
-#c.tabs.show = "multiple"
 c.session.default_name = "default_restore"
 c.auto_save.session = True
-#c.auto_save.interval = 
 config.set('content.headers.user_agent', \
         'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) Chrome/110.0.0.0 Safari/{webkit_version} Edg/110.0.1587.57', \
         '*://www.bing.com/*') # setting user agent per domain pattern - bing: for accessing new chatgpt feature via edge browser usage
-c.content.cache.size = 52428800
+#c.auto_save.interval = 
+#c.tabs.show = "multiple"
 # PERFORMANCE ###############################################################
-#c.content.webgl = True
-c.content.webgl = False # can provide performance improvements for a low resource laptop?
+#c.content.webgl = False # can provide performance improvements for a low resource laptop?
+#c.backend = webkit
+c.content.webgl = True
 c.content.autoplay = False
 c.content.geolocation = True
+c.content.prefers_reduced_motion = True
+c.content.plugins = False # ?
+c.content.xss_auditing = True
+c.content.cache.size = 2147483647
+#c.content.cache.maximum_pages = 1000 # qtwebkit dependent
+c.qt.chromium.experimental_web_platform_features = "always"
+c.qt.chromium.low_end_device_mode = "auto"
+c.qt.chromium.process_model = "process-per-site"
 # BLOCKING ###################################################################
 #config.set('content.cookies.accept', 'all', '*://*/*')
 #c.content.proxy = "http://localhost:8118/" # must configure dns first???
-c.content.cookies.accept = 'all'
-c.content.blocking.method = 'both'
-c.content.blocking.enabled = True
 c.content.blocking.adblock.lists = [ \
     "https://easylist.to/easylist/easylist.txt", \
     "https://easylist.to/easylist/easyprivacy.txt", \
@@ -83,13 +85,16 @@ c.content.blocking.adblock.lists = [ \
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt" \
         ]
 c.content.blocking.hosts.lists = [ \
-    "file://${HOME}/.config/qutebrowser/blocked-hosts", \
+    blocked_hosts, \
     'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', \
     'https://raw.githubusercontent.com/blocklistproject/Lists/master/youtube.txt' \
         ]
 c.content.blocking.whitelist = ['*://example.com/*', '*://surfline.com/*', '*://calendar.google.com/*']
 #c.content.blocking.enabled = ['*://surfline.com*']
 #c.content.blocking.enabled = ['*://example.com/*']
+c.content.cookies.accept = 'all'
+c.content.blocking.method = 'both'
+c.content.blocking.enabled = True
 c.content.notifications.enabled = False
 c.hints.border = "3px solid #CCCCCC"
 c.hints.mode = "letter"
@@ -102,8 +107,7 @@ c.statusbar.widgets = []
 #c.statusbar.widgets = ["url", "progress", "scroll"]
 c.window.hide_decoration = True
 # alias.searches ================================
-# academic
-#   qute-zotero; getbib; gitclone; readability; readability-js
+# academic; qute-zotero; getbib; gitclone; readability; readability-js
 c.url.searchengines['gs'] = 'http://scholar.google.ch/scholar?hl=en&q={}'
 c.url.searchengines['scihub'] = "https://sci-hub.se/{}"
 c.url.searchengines['sci'] =    c.url.searchengines['scihub']
@@ -111,11 +115,11 @@ c.url.searchengines['#sci'] =   c.url.searchengines['scihub']
 c.url.searchengines['s'] =      c.url.searchengines['scihub']
 c.url.searchengines['sc'] =     c.url.searchengines['scihub']
 # gen
-c.url.searchengines['bing'] =       'https://www.bing.com/search?q={}'
-c.url.searchengines['bb'] =       c.url.searchengines['bing']
-c.url.searchengines['google'] =     'http://www.google.com/search?hl=en&q={}'
-c.url.searchengines['g'] =          c.url.searchengines['google']
-c.url.searchengines['gg'] =         c.url.searchengines['google']
+c.url.searchengines['bing']       = 'https://www.bing.com/search?q={}'
+c.url.searchengines['bb']         = c.url.searchengines['bing']
+c.url.searchengines['google']     = 'http://www.google.com/search?hl=en&q={}'
+c.url.searchengines['g']          = c.url.searchengines['google']
+c.url.searchengines['gg']         = c.url.searchengines['google']
 c.url.searchengines['dd'] =         'https://duckduckgo.com/?q={}'
 c.url.searchengines['youtube'] =    'https://www.youtube.com/results?search_query={}'
 c.url.searchengines['yt'] =         c.url.searchengines['youtube']
@@ -178,20 +182,20 @@ c.aliases['gp'] = 'open -t http://127.0.0.1:4000'
 c.aliases['gr'] = 'open -t https://feedbin.com/'
 c.aliases['pdf'] = 'print --pdf'
 # aliase.scirpt =========================================
-c.aliases['dict'] = 'spawn --userscript ~/.ccnfig/qutebrowser/userscripts/dict'
-c.aliases['bk'] = 'spawn --userscript ~/.config/qutebrowser/userscripts/bukuadd'
-c.aliases['us_echo'] = 'spawn --userscript ~/.config/qutebrowser/userscripts/echo'
+c.aliases['dict']         = 'spawn --userscript ~/.ccnfig/qutebrowser/userscripts/dict'
+c.aliases['bk']           = 'spawn --userscript ~/.config/qutebrowser/userscripts/bukuadd'
+c.aliases['qbx']          = 'spawn qb xw {url}'
+c.aliases['oil']          = 'spawn st -c stf-buku1 oil-search'
+c.aliases['us_echo']      = 'spawn --userscript ~/.config/qutebrowser/userscripts/echo'
 # for daemon mode script:
 c.aliases.update({
     'recycle':  'quit --save _recycle',
     'restart':  'quit --save _restart',
-    'shutdown': 'quit --save _shutdown',
-})
-# ======================================
-# keybinds =============================
-c.aliases['dread-enable'] = 'spawn --userscript darkreader.py enable domain'
-c.aliases['dread-disable'] = 'spawn --userscript darkreader.py disable domain'
-c.aliases['darkreader'] = 'spawn --userscript darkreader.py'
+    'shutdown': 'quit --save _shutdown',})
+# keybinds #############################################
+c.aliases['dread-enable']   = 'spawn --userscript darkreader.py enable domain'
+c.aliases['dread-disable']  = 'spawn --userscript darkreader.py disable domain'
+c.aliases['darkreader']     = 'spawn --userscript darkreader.py'
 config.bind(',d', "set-cmd-text -s :darkreader enable '{url}*'")
 config.bind(',r', "set-cmd-text -s :darkreader disable '{url}*'")
 config.bind(',s', 'spawn --userscript rebuild-qutebrowser-grease-styles.py', mode='normal')
@@ -201,15 +205,12 @@ config.bind(',s', 'spawn --userscript rebuild-qutebrowser-grease-styles.py', mod
 # config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/solarized-dark-all-sites.css ""' )
 config.bind(';r', 'reload')
 config.bind(';c', 'config-source')
-# tors
-config.bind(';t', 'hint links spawn transmission-remote -a {hint-url}')
+config.bind(';t', 'hint links spawn transmission-remote -a {hint-url}') # tors
 config.bind(';T', 'hint -r links spawn transmission-remote -a {hint-url}')
-# mpv
-config.bind('qq', 'spawn xdotool key space ;; spawn --userscript mpv.qt {url}')
+config.bind('qq', 'spawn xdotool key space ;; spawn --userscript mpv.qt {url}') # mpv
 config.bind(';ml', 'hint links spawn --userscript view_in_mpv {hint-url}')
 config.bind(';mm', 'spawn --userscript view_in_mpv {url}')
-# youtube-dl
-c.aliases['ytdl'] = 'spawn yt-dlp {url}'
+c.aliases['ytdl'] = 'spawn yt-dlp {url}' # youtube-dl
 c.aliases['ytdlx'] = 'spawn yt-dlp -x {url}'
 config.bind(';u', 'hint links spawn yt-dlp {hint-url}')
 config.bind(';U', 'spawn yt-dlp {url}')
@@ -222,17 +223,17 @@ config.bind('gd', 'spawn -u jsdownload')
 c.aliases['doi.sci'] = 'hint links userscript ~/.config/qutebrowser/userscripts/doi'
 c.aliases['doi.unp'] = 'spawn --userscript unpaywall'
 config.unbind('gb', mode='normal')
-config.bind('gl', 'hint links userscript ~/.config/qutebrowser/userscripts/doi')
-config.bind('gu', 'spawn --userscript unpaywall')
-config.bind('gz', 'spawn --userscript qute-zotero')
-config.bind('gc', 'spawn --userscript gitclone')
-config.bind('gb', 'spawn --userscript getbib')
-config.bind('gr', 'spawn --userscript readability')
+config.bind('gl',      'hint links userscript ~/.config/qutebrowser/userscripts/doi')
+config.bind('gu',      'spawn --userscript unpaywall')
+config.bind('gz',      'spawn --userscript qute-zotero')
+config.bind('gb',      'spawn --userscript getbib')
+config.bind('gr',      'spawn --userscript readability')
+config.bind('gc',      'spawn --userscript gitclone')
 # bind.pass =======================================
-config.bind('<z><l>', 'spawn --userscript qute-pass')
-config.bind('<z><u>', 'spawn --userscript qute-pass --username-only')
-config.bind('<z><p>', 'spawn --userscript qute-pass --password-only')
-config.bind('<z><o>', 'spawn --userscript qute-pass --otp-only')
+config.bind('<z><l>',  'spawn --userscript qute-pass')
+config.bind('<z><u>',  'spawn --userscript qute-pass --username-only')
+config.bind('<z><p>',  'spawn --userscript qute-pass --password-only')
+config.bind('<z><o>',  'spawn --userscript qute-pass --otp-only')
 # bind.nav =============================================
 config.unbind('b', mode='normal')
 config.unbind('m', mode='normal')
@@ -263,7 +264,8 @@ config.bind('/',        'set statusbar.show always;; cmd-set-text /')
 #config.bind('t',            'cmd-set-text -s :open -t', mode='normal')
 config.bind('<Ctrl-m>',     'cmd-set-text -s :quickmark-save', mode='normal')
 config.bind('<Shift-m>',    'cmd-set-text -s :quickmark-save', mode='normal')
-config.bind('B',            'bk', mode='normal')
+#config.bind('B',            'bk', mode='normal')
+config.bind('B',            'oil', mode='normal')
 config.bind('b',            'cmd-set-text -s :bk', mode='normal')
 config.bind('p',            'cmd-set-text -s :pdf', mode='normal')
 config.bind('se',           ':cmd-set-text -s :session-load', mode='normal')
