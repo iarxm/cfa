@@ -1,13 +1,17 @@
 // ==UserScript==
-// @name    Userstyle (chat.openai.com2.user.css)
+// @name       openai.chat.openai.com2.user.css
 // @include    *chat.openai.com*
 // ==/UserScript==
-GM_addStyle(`/* ---------- color---------- */
+
+
+GM_addStyle(
+
+`/* ---------- color---------- */
 
 /* reduce background color of most everything */
 #__next * { --tw-bg-opacity: 0.05 !important; }
 .dark body, .dark html {
-  background-color: #060606;
+  background-color: #000000;
 }
 /* buttons */
 #__next .btn-neutral {
@@ -133,3 +137,36 @@ button.flex.ml-auto.gap-2.rounded-md.p-1.hover\:bg-gray-100.hover\:text-gray-700
    flex-direction: column-reverse;
 }
 `)
+
+
+function setRootStyles() {
+    var rootElement = document.documentElement;
+    var styleProperties = [
+          '--main-surface-primary',
+          '--main-surface-secondary',
+          '--main-surface-tertiary',
+          '--sidebar-surface-primary',
+          '--sidebar-surface-secondary',
+          '--sidebar-surface-tertiary'];
+    styleProperties.forEach(function(prop) { rootElement.style.setProperty(prop, '#000000'); });
+    document.body.style.backgroundColor = '#000000';
+}
+
+function applyStyles() { 
+    setRootStyles();
+}
+
+applyStyles();
+   
+// '--text-primary',
+// '--text-secondary,'
+//  --text-tertiary: var(--gray-400);
+//  --text-quaternary: var(--gray-500);
+//  --border-light: hsla(0,0%,100%,.1);
+//  --border-medium: hsla(0,0%,100%,.15);
+//  --border-heavy: hsla(0,0%,100%,.2);
+//  --border-xheavy: hsla(0,0%,100%,.25);
+//  --link: #7ab7ff;
+//  --link-hover: #5e83b3;
+
+

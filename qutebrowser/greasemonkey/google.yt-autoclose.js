@@ -4,7 +4,7 @@
 // @version      1.4.4
 // @description  Close and/or Mute YouTube ads automatically!
 // @author       fuzetsu
-// @run-at       document-body
+// //?? @run-at       document-body
 // @match        *://*.youtube.com/*
 // @exclude      *://*.youtube.com/subscribe_embed?*
 // @grant        GM_getValue

@@ -1,0 +1,81 @@
+
+var rootElement = document.documentElement; // This references the <html> element
+    rootElement.style.setProperty('--neutralPrimarySurface', '#000000');
+    rootElement.style.setProperty('--neutralSecondarySurface', '#000000');
+    rootElement.style.setProperty('--neutralTertiarySurface', '#000000');
+    rootElement.style.setProperty('--neutralQuaternarySurface', '#000000');
+    rootElement.style.setProperty('--neutralLighterAlt', '#000000');
+
+setTimeout(function() {
+    var rootElement = document.documentElement; // This references the <html> element
+        // Modify the CSS variables
+    rootElement.style.setProperty('--neutralPrimarySurface', '#000000');
+    rootElement.style.setProperty('--neutralPrimaryAlt', '#000000');
+    rootElement.style.setProperty('--neutralSecondarySurface', '#000000');
+    rootElement.style.setProperty('--neutralSecondaryAlt', '#000000');
+    rootElement.style.setProperty('--neutralTertiarySurface', '#000000');
+    rootElement.style.setProperty('--neutralQuaternarySurface', '#000000');
+    rootElement.style.setProperty('--storageUsageBarBorder', '#000000');
+    rootElement.style.setProperty('--colorNeutralBackground1', '#000000');
+    rootElement.style.setProperty('--colorNeutralBackground3Hover', '#000000');
+    rootElement.style.setProperty('--colorNeutralStrokeOnBrand', '#000000');
+    rootElement.style.removeProperty('--neutralTertiaryAlt');
+    rootElement.style.removeProperty('--neutralQuaternaryAlt');
+    rootElement.style.removeProperty('--neutralLighterAlt');
+    // ... Continue for all the variables you want to change
+    // If you want to set a global background color
+    document.body.style.backgroundColor = '#000000';
+    var navbarElements = document.querySelectorAll('.o365sx-navbar');
+    var buttonElements = document.querySelectorAll('.o365cs-base .o365sx-button');
+    var emailContainer = document.getElementById('x_EMAIL_CONTAINER');
+    var tables = document.querySelectorAll('.x_nl-container');
+    var divElements = document.querySelectorAll('.rps_7907');
+    divElements.forEach(function(div) {
+        div.style.backgroundColor = '#000000'; // Set the background color to black
+    }); 
+    tables.forEach(function(table) {
+        table.style.backgroundColor = '#000000'; // Set the background color to black
+    });
+    if (emailContainer) {
+        emailContainer.style.backgroundColor = '#000000'; // Set the background color to black
+    }
+    buttonElements.forEach(function(button) {
+        button.style.backgroundColor = '#000000'; // Set the background color
+    });
+    navbarElements.forEach(function(navbar) {
+        navbar.style.backgroundColor = '#000000'; // Set the background color to black
+    });
+
+}, 10000);
+
+// Set a delay of 5000 milliseconds (5 seconds)
+setTimeout(function() {
+    var elementToRemove1 = document.querySelector('#leftCharmsRegion');
+    if (elementToRemove1) { elementToRemove1.remove();}
+    var targetSection = document.querySelector('#Region_0');
+    var toolbar1 = document.querySelector('#TopBar');
+    var toolbar2 = document.querySelector('#BottomBar');
+    var toolbar3 = document.querySelector('.BeA01.bkYAr.rv6Vd');
+    var button1 = document.querySelector('#O365_MainLink_NavMenu');
+    console.log("Target Section: ", targetSection);
+    console.log("Toolbar 1: ", toolbar1);
+    console.log("Toolbar 2: ", toolbar2);
+    console.log("Toolbar 3: ", toolbar3);
+    if (toolbar2 && targetSection) targetSection.prepend(toolbar2);
+    if (toolbar1 && targetSection) targetSection.prepend(toolbar1);
+    if (toolbar3 && targetSection) targetSection.appendChild(toolbar3);
+    if (button1 && targetSection) targetSection.appendChild(button1);
+    //var elementToRemove2 = document.querySelector('#O365_MainLink_NavMenu');
+    //var elementToRemove3 = document.querySelector('.ZYym6.BeA01.u5XFg.QdRvf');
+    //if (elementToRemove3) { elementToRemove3.remove();}
+    //if (elementToRemove2) { elementToRemove2.remove();}
+    // var targetSection2 = document.querySelector('#O365_NavHeader');
+    // var targetSection2 = document.querySelector('#o365header');
+    //var buttonTooltip = document.querySelector('.ms-TooltipHost.root-157');
+    //var buttonNewMail = document.querySelector('#wrapperElement-249');
+    // console.log("Target Section2: ", targetSection2);
+    // targetSection.prepend(toolbar1);
+    //if (toolbar3 && targetSection) targetSection.appendChild(buttonToolTip);
+    // if (toolbar3 && targetSection) targetSection.appendChild(buttonNewMail);
+}, 15000); // miliseconds
+
