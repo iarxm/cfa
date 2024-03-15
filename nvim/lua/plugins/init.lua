@@ -8,12 +8,9 @@
 -- https://github.com/arjunmahishi/flow.nvim (snippets)
 -- https://github.com/nvim-neotest/neotest
 return {
-  -- exp
-  --
-  { "scateu/tsv_edl.vim",
-  	cmd = "Edl",},
-  -- focus
-  { "folke/lazy.nvim", version = "*" },
+  { "powerman/vim-plugin-AnsiEsc" },
+  { "scateu/tsv_edl.vim", cmd = "Edl",}, --exp?
+  { "folke/lazy.nvim", version = "*" }, -- focus?
   -- { "LazyVim/LazyVim", config = true,},
     -- ##################################################
   -- ## WRITING MODE ##################################
@@ -21,18 +18,31 @@ return {
   {'junegunn/limelight.vim', cmd = 'Limelight'},
   {'bilalq/lite-dfm', cmd = 'LiteDFMToggle' },
   {'junegunn/goyo.vim', cmd = 'Goyo' },
-  {'https://github.com/Dotrar/nvim-writeonly'},
-  		-- write only mode (forced insert)
-	--==== distraction free ============
-	--Plug 'honza/writer.vim'
-	--Plug 'mikewest/vimroom', { 'on': 'VimroomToggle' }
-	--Plug 'amix/vim-zenroom'
-	-- Plug 'amix/vim-zenroom2'
+  {'https://github.com/Dotrar/nvim-writeonly'}, -- write only mode (forced insert)
+  -- ## distraction free ###############################
+  --{'honza/writer.vim'},
+  --{'mikewest/vimroom', { 'on': 'VimroomToggle' }
+  --{'amix/vim-zenroom'
+  --{'amix/vim-zenroom2'
   {'gabenespoli/vim-mutton', cmd = 'MuttonToggle' },
-  -- task management
-  	-- 'blakesweeney/unite-taskwarrior' "very interesting tool?
-  {'blindFS/vim-taskwarrior', cmd = 'TW'},
-  {'tbabej/taskwiki', cmd = 'Taskwiki'},
+  -- ## task management ##################################
+  {'blindFS/vim-taskwarrior', 
+    lazy = true,
+    cmd = 'TW',
+  },
+  {'tbabej/taskwiki',
+    lazy = true,
+    cmd = 'Taskwiki',
+    dependencies = {
+      "vim-taskwarrior",
+      "vimwiki",
+      "vim-plugin-AnsiEsc"
+    },
+  },
+  {'vimwiki/vimwiki',
+    lazy = true
+  },
+  -- { 'blakesweeney/unite-taskwarrior'}, "very interesting tool?
   -- {'itchyny/calendar.vim', cmd = 'Calendar'},
   -- Session Management
   {'tpope/vim-obsession', cmd = 'Obsession'},
@@ -106,7 +116,6 @@ return {
     	config = function() vim.g.startuptime_tries = 10 end},
   { "nvim-lua/plenary.nvim", lazy = true }, -- library used by other plugins
   { "tpope/vim-repeat", event = "VeryLazy" }, -- makes some plugins dot-repeatable like leap
------
 -- END
 }
 

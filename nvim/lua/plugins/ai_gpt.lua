@@ -1,7 +1,6 @@
--- ## OTHER OPTIONS: (Only top ranking ones)
-	-- https://github.com/dpayne/CodeGPT.nvim
-	-- https://github.com/Bryley/neoai.nvim
--- ## SETUP CONFIGS SEPARATELY
+-- ## others:
+-- https://github.com/dpayne/CodeGPT.nvim
+-- https://github.com/Bryley/neoai.nvim
 local gpt_configs = {
 	api_key_cmd = "pass openai.com/future@iarom.org/key",
     	yank_register = "+",
@@ -18,8 +17,8 @@ local gpt_configs = {
     	chat = {
 		-- welcome_message = WELCOME_MESSAGE,
     		-- welcome_message = YO,
-    		welcome_message = "GENERATE Z ENTROPY",
-    		loading_text = "POWER ASSISTANT READY..:",
+    		welcome_message = "construct Z entropy systems",
+    		loading_text = "ai copilot ready",
     		question_sign = "?",
     		answer_sign = "Z.",
     		max_line_length = 120,
@@ -117,7 +116,7 @@ local gpt_configs = {
     -- #############################################
     -- PARAMS ######################################
 	openai_params = {
- 		model = "gpt-3.5-turbo",
+ 		model = "gpt-3.5-turbo-instruct", -- "gpt-4"
  		frequency_penalty = 0,
  		presence_penalty = 0,
  		-- max_tokens = 600,
@@ -128,7 +127,7 @@ local gpt_configs = {
  		n = 1,
 	},
 	openai_edit_params = {
- 		model = "code-davinci-edit-001",
+ 		model = "gpt-4-0613",
  		temperature = 0,
  		top_p = 1,
  		n = 1,
@@ -137,17 +136,13 @@ local gpt_configs = {
 	show_quickfixes_cmd = "Trouble quickfix",
 	predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
 }
+
 --- ##################################################
 -- RUN #############
 return { 'jackMort/ChatGPT.nvim',
-	--lazy = 'false',
 	event = 'VeryLazy',
 	config = function()
 			require("chatgpt").setup(gpt_configs)
-			--require("chatgpt").setup({
-				--api_key_cmd = "pass openai.com/future@iarom.org/key",
-				--return gpt_configs
-			--})
 		end,
 	dependencies = {
 		"MunifTanjim/nui.nvim",

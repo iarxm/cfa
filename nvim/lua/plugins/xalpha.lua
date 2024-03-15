@@ -3,9 +3,10 @@ return {'goolord/alpha-nvim',
     	event = "VimEnter",
     	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	config = function ()
-     	require'alpha'.setup(require'modules.art_futuresurf'.opts)
+     	require'alpha'.setup(require'modules.art_z'.opts)
 		-- require'modules.art_futuresurf'.section.footer.val = require'alpha.fortune'()
-		require'modules.art_futuresurf'.section.buttons.val = require'alpha.fortune'()
+		-- require'modules.art_futuresurf'.section.buttons.val = require'alpha.fortune'()
+          require'modules.art_z'.section.footer.val = require'alpha.fortune'()
      	end,
     	-- opts = { require'alpha.themes.dashboard'.config },
 	-- startify.nvim_web_devicons.highlight = false
