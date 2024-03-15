@@ -45,6 +45,10 @@ syn region mdS2 start=/<!---/ end=/--->/ conceal
 "syn match markdownComment /<!--[^>]*-->/ conceal
 "hi link markdownComment Comment
 
+"attempting conceal of different patterns
+"syn match mdS2 "^.    -.*$" conceal
+"syn region mdS2 start=/    / end=/\n/ conceal
+
 " Headings
 syn match mdH1 "^\v# .*$"
 syn match mdH2 "^\v## .*$"
