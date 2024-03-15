@@ -7,11 +7,12 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 local lspc = require('lspconfig')
--- lua
-lspc.lua_ls.setup(lsp.nvim_lua_ls())
+
+lspc.lua_ls.setup(lsp.nvim_lua_ls()) -- lua
 lspc.clangd.setup{}
 
 lsp.setup()
+
 -- #######################################################
 -- HOW TO ADD BORDERS TO MENUS? ##############################
 -- DISABLE BELOW?

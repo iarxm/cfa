@@ -3,6 +3,8 @@
 " DESCRIPTION: Sequencing all the functions into a linear naming logic
 " =====================================================
 
+" now moved to lua
+
 "#######################################
 " VISONARY DOWNFLOWS
 "########################################

@@ -58,4 +58,3 @@ return {
 }
 --xTODO: add color schemes in a way that doesnt add to the startup time
 
-

@@ -1,1 +1,1 @@
-colo blackui
+colo black

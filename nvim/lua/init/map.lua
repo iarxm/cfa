@@ -40,7 +40,7 @@ map('n', '<leader>z', '<C-w>>', { noremap = true })
 map('n', '<leader>x', '<C-w><', { noremap = true })
 map('n', '<leader>v', '<C-w>v<C-l>:e', { noremap = true })
 map('n', '<leader>s', '<C-w>s :e', { noremap = true })
-map('n', ';e', ':call md#EqualWidth()<CR>', { noremap = true })
+map('n', ';e', ':call mdx#EqualWidth()<CR>', { noremap = true })
 -- nav. tab mang
 map('n', ';t', ':tabnew ', { noremap = true })
 map('n', ';n', ':tabnew <bar> tabprevious <bar> wq<CR>', { noremap = true })
@@ -71,9 +71,9 @@ map('n', ';z', ':ZenMode<CR>', { noremap = true })
 map('n', '<leader>nn', ':NnnPicker<CR>', { noremap = true })
 map('n', '<leader>nc', ':NnnPicker %:p:h<CR>', { noremap = true })
 -- cust
-map('n', '<S-h>', ':call md#ToggleHiddenAll()<CR>', { noremap = true })
-map('n', ';h', ':call md#ToggleWrite()<CR>', { noremap = true })
-map('n', '.n', ':call md#WideMargin()<CR>', { noremap = true })
+map('n', '<S-h>', ':call mdx#ToggleHiddenAll()<CR>', { noremap = true })
+map('n', ';h', ':call mdx#ToggleWrite()<CR>', { noremap = true })
+map('n', '.n', ':call mdx#WideMargin()<CR>', { noremap = true })
 -- syntax ##################################################
 -- tags
 map('n', '<leader>st', ':CtrlPTag<CR>', { noremap = true })
@@ -104,31 +104,31 @@ map('n', '.ssa',
 map('n', '.ssb',
 	'i<!-----------><ESC>',
 	{ noremap = true })
-
--- md .. time / date
-map('n', '.sdd', ':put =strftime(\'# %d/%m/%y/+\')<ESC>', { noremap = true })
-map('n', '.sda', ':put =strftime(\'**%y/%m/%d %a+**\')<ESC>', { noremap = true })
--- md filetype vim
-map('n', '.sm', 'i<!--- vim:set ft=markdown: ---><ESC>', { noremap = true })
+-- md .. time / date / ft
+map('n', '.sdd',  ':put =strftime(\'# %d/%m/%y/+\')<ESC>', { noremap = true })
+map('n', '.sda',  ':put =strftime(\'**%y/%m/%d %a+**\')<ESC>', { noremap = true })
+map('n', '.smn',  'i<!--- vim:set ft=markdown: ---><ESC>', { noremap = true })
+map('n', '.smt',  'i<!--- vim:set ft=markdownt: ---><ESC>', { noremap = true })
 -- oo .. move to end
-map('n', 'me', ':m $<CR>', { noremap = true })
-map('v', 'me', ':\'<,>\'m $<CR>', { noremap = true })
+map('n', 'me',    ':m $<CR>', { noremap = true })
+map('v', 'me',    ':\'<,>\'m $<CR>', { noremap = true })
 -- oo .. move to done file
-map('n', 'md', '0v$:w! >>' .. o_done .. '<CR>d', { noremap = true })
-map('v', 'md', ':w! >> ' .. o_done .. '<CR>gvd', { noremap = true })
+map('n', 'md',    '0v$:w! >>' .. o_done .. '<CR>d', { noremap = true })
+map('v', 'md',    ':w! >> ' .. o_done .. '<CR>gvd', { noremap = true })
 -- oo .. move across panes
-map('v', 'mr', 'x<C-L>Gp<C-H>', { noremap = true })
+map('v', 'mr',    'x<C-L>Gp<C-H>', { noremap = true })
 -- oo
 map('n', '.oo', ':call oo#OoPanel(\" ', { noremap = true })
 map('n', '.oww', ':call oo#OoPanel("dsiwg/")<CR>', { noremap = true })
 map('n', '.owf', ':call oo#OoPanel("dsiwg/fund.")<CR>', { noremap = true })
 -- or use 'gx' - g:netrw_browsex_viewer
 -- TableMode and Markdown Abbreviations ######################################
+-- compact the below into 'mdx' itself.
 map('i', '<expr> <bar><bar>',
-	'md#isAtStartOfLine("\\|\\|") ? "<c-o>:TableModeEnable<cr><bar><space><bar><left><left>" : "<bar><bar>"',
+	'mdx#isAtStartOfLine("\\|\\|") ? "<c-o>:TableModeEnable<cr><bar><space><bar><left><left>" : "<bar><bar>"',
 	{ silent = true })
 map('i', '<expr> __',
-	'md#isAtStartOfLine("__") ? "<c-o>:silent! TableModeDisable<cr>" : "__"',
+	'mdx#isAtStartOfLine("__") ? "<c-o>:silent! TableModeDisable<cr>" : "__"',
 	{ silent = true })
 -- Other mappings
 map('n', ';T', ':TableModeRealign<CR>', { silent = true })
@@ -167,7 +167,7 @@ auc({"ColorScheme"}, {
 aug('WORKING', 	{ clear = true })
 auc({'VimEnter'}, 	{
 	group = "WORKING",
-	command = 'call md#HideAll()'})
+	command = 'call mdx#HideAll()'})
 auc("BufWritePost", {
 	group = "WORKING",
 	command = 'redraw', })
@@ -179,12 +179,12 @@ auc("User", {
 	pattern = "GoyoEnter",
 	group = "WORKING",
 	nested = true,
-	command = "call md#Goyo_enter()" })
+	command = "call mdx#Goyo_enter()" })
 auc("User", {
 	pattern = "GoyoLeave",
 	group = "WORKING",
 	nested = true,
-	command = "call md#Goyo_leave()"})
+	command = "call mdx#Goyo_leave()"})
 auc("TabEnter", {
 	group = "WORKING",
 	command = "call uix#ToggleSlineTrig()"})

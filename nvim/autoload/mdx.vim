@@ -17,7 +17,7 @@
 
 " Markdown Preview ==========================================
   function! OpenMarkdownPreview() abort
-	"chatgpt version is in md.lua
+	"chatgpt version is in mdx.lua
     if exists('s:markdown_job_id') && s:markdown_job_id > 0
       call jobstop(s:markdown_job_id)
       unlet s:markdown_job_id
@@ -33,24 +33,24 @@
 
 "##########################################
 "start table mode from insert mode with __ or ||
-function! md#isAtStartOfLine(mapping)
+function! mdx#isAtStartOfLine(mapping)
   let text_before_cursor = getline('.')[0 : col('.')-1]
   let mapping_pattern = '\V' . escape(a:mapping, '\')
   let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
   return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
 endfunction
-function! md#EqualWidth() "EQUALISE
+function! mdx#EqualWidth() "EQUALISE
 	let l:t_cur = tabpagenr()
 	tabdo set noequalalways equalalways
      write all
 	exe "tabnext " . l:t_cur
      "wa - above to trigger sep resize in markdownt
 endfunction
-function! md#WideMargin() " WIDE MARGINS
+function! mdx#WideMargin() " WIDE MARGINS
 	setlocal number
 	setlocal numberwidth=20
 endfunction
-function! md#WideMarginToggle()
+function! mdx#WideMarginToggle()
   if &number  == 0
 	setlocal number
 	setlocal numberwidth=20
@@ -60,7 +60,7 @@ function! md#WideMarginToggle()
   endif
 endfunction
 "HIDE ALL ############################
-function! md#ToggleHiddenAll()
+function! mdx#ToggleHiddenAll()
     if !exists("g:hidden_all")
         let g:hidden_all = 0
     endif
@@ -79,7 +79,7 @@ function! md#ToggleHiddenAll()
     endif
 endfunction
 
-function! md#HideAll()
+function! mdx#HideAll()
     let g:hidden_all = 1
     set noshowmode
     set noruler
@@ -100,9 +100,9 @@ endfunction
 	" :hi VertSplit ctermfg=bg ctermbg=bg guifg=bg guibg=bg
 	" alternative to 'fillchars' to hide window boundaries
 
-" ==============================================
+
 " writemode ===================================
-function! md#WriteMode()
+function! mdx#WriteMode()
 	setlocal fillchars+=vert:\ 
 	vnew "spawns empty pane to far left
 	setlocal fillchars+=vert:\ 
@@ -117,7 +117,7 @@ function! md#WriteMode()
 		"\ ctermbg=black guibg=black
 endfunction
 
-function! md#WriteModeOff()
+function! mdx#WriteModeOff()
 	only
 	setlocal fillchars+=vert:\ 
 	"highlight EndOfBuffer 
@@ -126,23 +126,23 @@ function! md#WriteModeOff()
 	"Limelight!
 endfunction
 
-function! md#ToggleWrite()
+function! mdx#ToggleWrite()
 	if !exists("t:write_mode")
         let t:write_mode = 0
     	endif
 
 	if t:write_mode  == 0
 		let t:write_mode = 1
-		call md#WriteMode()
+		call mdx#WriteMode()
 	elseif t:write_mode == 1
 		let t:write_mode = 0
-		call md#WriteModeOff()
+		call mdx#WriteModeOff()
 	endif
 endfunction
 
 " ###################################################
 " GOYO #################################################
-function! md#Goyo_enter()
+function! mdx#Goyo_enter()
 	autocmd! goyo TabLeave
 	if executable('tmux') && strlen($TMUX)
     		silent !tmux set status off
@@ -150,12 +150,12 @@ function! md#Goyo_enter()
   	endif
 	"silent Limelight
 endfunction
-function! md#Goyo_leave()
+function! mdx#Goyo_leave()
 	if executable('tmux') && strlen($TMUX)
     		silent !tmux set status on
     		silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
   	endif
-	silent call md#ToggleHiddenAll()
+	silent call mdx#ToggleHiddenAll()
 	silent syntax on
 	" silent Limelight!
 endfunction

@@ -1,5 +1,6 @@
+-- todo: place into xalpha file ?
 local if_nil = vim.F.if_nil
-local art = require("modules.art_art")
+local art = require("modu.art_art")
 
 -- TODO: be able to call the asci artwork from a different file
 local default_header = {
