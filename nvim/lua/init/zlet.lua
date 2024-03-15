@@ -1,8 +1,8 @@
 -- TODO: Move to specific files for each plugin, to load on launch
-local g	= vim.g
-g.netrw_banner    = 0
-g.netrw_liststyle = 0
-g.table_mode_corner = "|"
+local g = vim.g
+g.netrw_banner                = 0
+g.netrw_liststyle             = 0
+g.table_mode_corner           = "|"
 g.limelight_conceal_ctermfg 	= "gray"
 g.gutentags_project_root 	= { "iao/d/.tags", ".tags" }
 g.gutentags_ctags_tagfile 	= "/home/iao/d/.tags"
@@ -120,6 +120,30 @@ g.vim_markdown_preview_github = 1
 g.table_mode_syntax = 0
 g.calendar_google_calendar = 1
 -- g.calendar_google_task = 0
+g.task_rc_override = 'defaultwidth=999'
+-- vimwiki ###########################
+--local wiki_1 = {}
+--wiki_1.path = "~/dd/"
+--wiki_1.index = "wi/main"
+--wiki_1.html_template = "~/dp/html/wikitemplate.tpl"
+--wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+--wiki_2 = {}
+--wiki_2.path = '/dat/ud/dp/'
+--let wiki_2.index = 'index'
+--wiki_3 = {}
+-- let wiki_3.path = '~/ds/' 
+--let wiki_3.index = 'index'
+-- template
+--let wiki_1 = {}
+--let wiki_1.path = 
+--let wiki_1.index = 
+
+
+--g.vimwiki_list = { 
+--     wiki_1,
+--     wiki_2,
+--     wiki_3 }
+
 
 -- gcal creds ####################################################
 vim.env.gcalcred = "$XDG_CACHE_HOME/calendar.vim/credentials.vim"

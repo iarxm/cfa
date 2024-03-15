@@ -69,16 +69,16 @@ hi htmlComment ctermfg=yellow guifg=yellow
 
 " HEADINGS Default
 hi htmlH1 ctermfg=lightgreen guifg=lightyellow gui=bold cterm=bold
-hi htmlH2 ctermfg=lightgreen guifg=lightgreen cterm=bold gui=bold
-hi htmlH3 ctermfg=lightcyan guifg=lightcyan cterm=bold,italic gui=bold,italic
-hi htmlH4 ctermfg=lightgrey guifg=lightred cterm=bold gui=bold 
+hi htmlH2 ctermfg=lightgreen guifg=lightgreen  cterm=bold gui=bold
+hi htmlH3 ctermfg=lightcyan  guifg=lightcyan   cterm=bold,italic gui=bold,italic
+hi htmlH4 ctermfg=lightgrey  guifg=lightred    cterm=bold gui=bold 
 hi htmlHx guifg=LightGrey cterm=bold gui=bold 
 
 " HEADINGS Regular
-hi mdH1a ctermbg=red guibg=red ctermfg=black guifg=black
-hi mdH2a ctermbg=yellow guibg=yellow ctermfg=black guifg=black
-hi mdH3a ctermfg=yellow guifg=yellow
-hi mdH4a ctermfg=blue guifg=blue
+hi mdH1a ctermbg=red     guibg=red     ctermfg=black guifg=black
+hi mdH2a ctermbg=yellow  guibg=yellow  ctermfg=black guifg=black
+hi mdH3a ctermfg=yellow  guifg=yellow
+hi mdH4a ctermfg=blue    guifg=blue
 
 " SEPS
 hi mdS1 ctermfg=green guifg=green
@@ -87,13 +87,13 @@ hi mdS3 ctermbg=green guibg=green
 hi mdSh2 ctermbg=yellow guibg=yellow ctermfg=grey guifg=grey
 
 " OO
-hi mdOoPrioHigh cterm=italic gui=italic ctermfg=red guifg=red
+hi mdOoPrioHigh ctermfg=red       guifg=red        cterm=italic gui=italic
 hi mdOo         ctermfg=lightblue guifg=lightcyan
-hi mdOoSep1     ctermbg=yellow guibg=lightgreen ctermfg=black guifg=black
-hi mdOoSep2     ctermbg=blue guibg=#5f87af ctermfg=black guifg=black
+hi mdOoSep1     ctermbg=yellow    guibg=lightgreen ctermfg=black guifg=black
+hi mdOoSep2     ctermbg=blue      guibg=#5f87af    ctermfg=black guifg=black
 
 " Headings SPECIAL
-hi mdH2h ctermbg=yellow  guibg=lightgreen ctermfg=black guifg=black
+hi mdH2h        ctermbg=yellow    guibg=lightgreen ctermfg=black guifg=black
 
 
 " #####################################
@@ -101,13 +101,15 @@ hi mdH2h ctermbg=yellow  guibg=lightgreen ctermfg=black guifg=black
 " #####################################
 
 " FOLDING
-hi Folded ctermfg=white guibg=black ctermbg=black guifg=lightcyan
+hi Folded        ctermfg=white guibg=black ctermbg=black guifg=lightcyan
 	"\ guifg=#c0caf5
-
-hi SignColumn guibg=black
-hi MyTagListFileName guibg=black guifg=#5f87af
-hi MyTagListTitle guibg=black guifg=yellow
-
+hi SignColumn          guibg=black
+hi MyTagListFileName   guibg=black   guifg=#5f87af
+hi MyTagListTitle      guibg=black   guifg=yellow
+hi TagbarKind          guifg=lightyellow ctermfg=yellow
+hi TagbarNestedKind    guifg=lightyellow ctermfg=yellow
+hi TagbarType          guifg=lightyellow ctermfg=yellow
+hi TagbarScope         guifg=lightyellow ctermfg=yellow
 
 " TODO: #################################
 " GOAL: full fledged color scheme that's extremely minimal.

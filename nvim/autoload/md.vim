@@ -39,15 +39,14 @@ function! md#isAtStartOfLine(mapping)
   let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
   return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
 endfunction
-
-" EQUALISE ################################
-function! md#EqualWidth()
-	let l:tbn = tabpagenr()
+function! md#EqualWidth() "EQUALISE
+	let l:t_cur = tabpagenr()
 	tabdo set noequalalways equalalways
-	exe "tabnext " . l:tbn
+     write all
+	exe "tabnext " . l:t_cur
+     "wa - above to trigger sep resize in markdownt
 endfunction
-" WIDE MARGINS ##############################
-function! md#WideMargin()
+function! md#WideMargin() " WIDE MARGINS
 	setlocal number
 	setlocal numberwidth=20
 endfunction
@@ -55,7 +54,8 @@ function! md#WideMarginToggle()
   if &number  == 0
 	setlocal number
 	setlocal numberwidth=20
-  elsmelighte
+  else 
+       "melighte
 	setlocal nonumber
   endif
 endfunction

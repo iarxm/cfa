@@ -5,7 +5,7 @@ local art = require("modules.art_art")
 local default_header = {
     type = "text",
     -- val = art.zero,
-    val = "_____________________________________________________",
+    val = " ",
     opts = {
         position = "center",
         hl = "Art",
@@ -15,7 +15,7 @@ local default_header = {
 
 local footer = {
     type = "text",
-    val = "_____________________________________________________",
+    val = " ",
     opts = {
         position = "center",
         hl = "Normal",
