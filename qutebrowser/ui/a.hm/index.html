@@ -1,23 +1,67 @@
-
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>
-        homepage
-      </title>
-  </head>
-  <body style="background-color:black;text-align:center">
-    </body>
+
+<head>
+     <title>homepage</title>
+     <style type="text/css">
+          html {
+               background-color: #000000;
+               background: black;
+               margin: 0;
+               display: flex;
+               scrollbar-color: black; /* thumb and track color */
+               scrollbar-width: 0; /* 'auto', 'thin', or 'none' */
+               /*filter: invert(1) hue-rotate(180deg);
+               -webkit-filter: invert(1) hue-rotate(180deg); */
+          }
+          body, .container {
+               width: 100vw;
+               height: 100vh;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+          }
+          ::-webkit-resizer,
+          ::-webkit-scrollbar-track-piece,
+          ::-webkit-scrollbar,
+          ::-webkit-scrollbar-track,
+          ::-webkit-scrollbar-thumb:hover {
+               width: 0pt;
+               height: 0pt;
+               background: black;
+               background-color: black;
+          }
+          img {
+               /* 
+               width: auto;
+               height: auto;
+               object-fit: contain;
+               
+               useful for using full picture:
+               max-width: 100%;
+               max-height: 100%;
+               */
+     </style>
+</head>
+
+<body>
+     <div class="container">
+          <img id="delayedImg" src="">
+     </div>
+     <script>
+          document.addEventListener("DOMContentLoaded", function() {
+               setTimeout(function() {
+                    var image = document.getElementById('delayedImg');
+                    image.src = "1.png";
+               }, 400);
+          });
+     </script>
+</body>
+
 </html>
 
-<style type="text/css">
-  img.big-img {
-    display:block;
-    width:100%;
-  }
-</style>
 
-<img src="1.jpg" class="big-img">
+<!---
+<img src="1.png">
 
-<!--- 
-<img src="def.jpg" class="big-img">
-//---
+-->
