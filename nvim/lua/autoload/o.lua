@@ -5,7 +5,7 @@ local X        = {}
 local opt      = vim.opt
 local cmd      = vim.api.nvim_command
 
-local hr       = "$HOME/dd"
+local hr       = "$HOME/daa"
 -- local ha       = hr .. '/a'
 -- local hb       = hr .. '/a/aa'
 local ha       = 'a'
@@ -394,14 +394,15 @@ M.ml = function()
   cmd('cd' .. hm_ml)
 
   tnew('aa')
+  tnew('ab')
   tnew('ii')
   tnew('ii.aa')
-  tnew('~/.config/muttm/bind.m')
+  tnew('~/.config/mutt/bind')
+  svert('~/.config/muttm/bind.m')
 
   buf('ii.aab')
   buf('ii.sc')
   buf('ii.pn')
-
   -- ConfigGS
   buf('readme')
   buf('~/.config/sieve/Open-Xchange')
@@ -410,7 +411,8 @@ M.ml = function()
   buf('~/.config/mutt/muttrc')
   buf('~/.local/bin/mlx/ml')
   envz()
-  wmode()
+  zen()
+  -- wmode()
 end
 
 -- return

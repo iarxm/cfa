@@ -9,24 +9,20 @@ vim.g.mdtest = function()
 		'vim', 
 		'markdownt'
 	}
-	-- inclusion paths
-    	local markdown_paths = {
+    	local markdown_paths = { -- inclusion paths
 		'^/data/u/d.*', 
 	}
-	-- exclusion paths
-	local markdown_paths_not = {
+	local markdown_paths_not = { -- exclusion paths
 		'^/data/u/dp.*', 
 		'^/data/u/dp/\\..*', 
 		'^/data/u/da.*', 
 		'^/data/u/da/\\..*'
 	}
-	-- inclusion cwd's
-	local markdown_cwd = {
+	local markdown_cwd = { -- inclusion cwd's
 		'^/data/u/d/.*$', 
 		--'^/data/.h/iao/.config.*$', 
 		--'^/data/.h/iao/.local/bin.*'
 	}
-	-- ###################################
 	-- Exclusion Filetypes
     	for _, ft in ipairs(markdown_file_types) do
      	if vim.bo.filetype == ft then
