@@ -1,7 +1,9 @@
 :root {
-	--tab-active-bg-color: #057;		/* background color of an active tab */
-	--tab-inactive-bg-color: #333;		/* background color of an inactive tab */
-	--tab-active-fg-fallback-color: #eee;	/* color of text in an active tab without a container */
+     --tridactyl-bg: black !important;
+     --tridactyl-fg: white !important;
+	--tab-active-bg-color: #000;		/* background color of an active tab */
+	--tab-inactive-bg-color: #000;		/* background color of an inactive tab */
+	--tab-active-fg-fallback-color: "#c0caf5";
 	--tab-inactive-fg-fallback-color: #888;	/* color of text in an inactive tab without a container */
 	--arrowpanel-menuitem-padding: 2px !important;
 	--arrowpanel-border-radius: 0px !important;
