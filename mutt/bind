@@ -1,4 +1,16 @@
 # vim:ft=muttrc syntax=neomuttrc
+#### ESSENTIALS #########################
+# bu/bd - switch on/off qb preview window
+# gg    first entry
+# G     last entry
+# .ll   limit all
+# .lf   limit important
+# bs    sidebar
+# ss    save to
+# a     goobook
+# B     browser
+# I     browser text
+# c'x'  change folder
 #### REQ SETS ###########################
 set confirmappend=no
 ##== noops ==============================
@@ -46,38 +58,6 @@ bind editor 		^T 		complete
 macro index,pager	A 		<create-alias>
 macro index,pager 	a 	\
 	"<pipe-message>goobook add<return>" # ADD CONTACT
-#######################################################
-# BROWSERS/VIEWERS #####################################
-## VARS ##########
-set my_tmp_ml		= "~/.cache/mutt/mail.html"
-set my_c_html_get	= "<view-attachments><search>html<enter>"
-# PIPES
-set my_c_pipe		= "<pipe-entry>cat > $my_tmp_ml<enter>"
-set my_c_pipe_ic	= "<pipe-entry>iconv -c --to-code=UTF8 > $my_tmp_ml<enter>"
-# BROWSERS
-set my_c_b		= "<shell-escape>ml browser<enter>"
-set my_c_bfl		= "<shell-escape>ml qb.float<enter>"
-set my_c_bterm		= "<shell-escape>ml term<enter>"
-# MACRO STRING
-set my_c_b_x		= "$my_c_html_get $my_c_pipe $my_c_b<exit>"
-set my_c_b_y		= "$my_c_pipe_ic $my_c_brow<exit>"
-set my_c_bfl_x		= "$my_c_html_get $my_c_pipe_ic $my_c_bfl<exit>"
-set my_c_bfl_y		= "$my_c_pipe_ic $my_c_bfl<exit>"
-set my_c_bterm_x	= "$my_c_html_get $my_c_pipe $my_c_bterm<exit>"
-set my_c_style		= "$my_c_pipe <shell-escape>ml md2html<enter>"
-# BROWSER/EXTERNALS ##########################################
-# INLINE NONFLOATING
-macro index,pager		'B' 	"$my_c_b_x"
-macro attach,compose 	'B' 	"$my_c_b_y
-# FLOATING
-macro index,pager		'of' "$my_c_bfl_x"
-macro attach,compose 	'of' "$my_c_bfl_y"
-# browser.text
-macro index,pager 		'I' "$my_c_bterm_x"
-# EMAIL POST PROCESS STYLING 
-macro compose 			.mm "$my_c_style"
-#macro attach,compose 	'ob'
-#macro index,pager		'ob' 
 #== mb nav ==========================
 #cc alts: gl gc gld glm gl
 macro index,pager co 	"<change-folder>" #quicker keystrokes
@@ -89,5 +69,51 @@ macro index,pager .ww 	"<save-message>="
 ## notmuch ===================================
 macro index,pager vl 	"<modify-labels>"
 macro index,pager vc 	"<change-vfolder>?" "Change to vfolder root"
+#######################################################
+# BROWSERS/VIEWERS #####################################
+## VARS ##########
+set my_tmp_ml		= "~/.cache/mutt/mail.html"
+set my_c_html_get	= "<view-attachments><search>html<enter>"
+# PIPES
+set my_c_pipe		= "<pipe-entry>cat > $my_tmp_ml<enter>"
+set my_c_pipe_ic	= "<pipe-entry>iconv -c --to-code=UTF8 > $my_tmp_ml<enter>"
+# BROWSERS
+set my_c_b		= "<shell-escape>mlx browser > /dev/null 2>&1 &<enter>"
+set my_c_bfl		= "<shell-escape>mlx qb.float<enter>"
+set my_c_bterm		= "<shell-escape>mlx term<enter>"
+# MACRO STRING
+set my_c_b_x		= "$my_c_html_get  $my_c_pipe    $my_c_b<exit>"
+set my_c_b_y		= "$my_c_pipe_ic   $my_c_brow<exit>"
+set my_c_bfl_x		= "$my_c_html_get  $my_c_pipe_ic $my_c_bfl<exit>"
+set my_c_bfl_y		= "$my_c_pipe_ic   $my_c_bfl<exit>"
+set my_c_bterm_x	= "$my_c_html_get  $my_c_pipe    $my_c_bterm<exit>"
+set my_c_style		= "$my_c_pipe <shell-escape>mlx md2html<enter>"
+#set my_v_if         = "<enter-command>if-shell 'test \"$qute_view\" = \"yes\"' 'push $my_c_b_x'<enter>"
+# BROWSER/EXTERNALS ##########################################
+macro index,pager		'B' 	"$my_c_b_x"
+macro attach,compose 	'B' 	"$my_c_b_y
+# floating
+macro index,pager		'of' "$my_c_bfl_x"
+macro attach,compose 	'of' "$my_c_bfl_y"
+# browser.text
+macro index,pager 		'I'  "$my_c_bterm_x"
+# EMAIL POST PROCESS STYLING 
+macro compose 			.mm  "$my_c_style"
+#macro attach,compose 	'ob'
+#macro index,pager		'ob' 
+set my_next_u             = '<enter-command>macro index,pager j "<next-entry>$my_c_b_x"'
+set my_next_d             = '<enter-command>macro index,pager j "<next-entry>"'
+set my_prev_u             = '<enter-command>macro index,pager k "<previous-entry>$my_c_b_x"'
+set my_prev_d             = '<enter-command>macro index,pager k "<previous-entry>"'
+macro index,pager               bu "$my_next_u<enter>$my_prev_u<enter>"
+macro index,pager               bd "$my_next_d<enter>$my_prev_d<enter>"
+# TODO: is the index version above useful?
+#unbind j
+#unbind k
+#macro pager               j  "" # does not work yet
+#macro pager               k  "<previous-entry>$my_c_pageb" # does not work yet
+#message-hook             . "|qb qmutt %s\n"
+#message-hook             . 'B' # does not work yet
+#message-hook             . "$my_c_b_x" # does not work yet
 ##############################################
 # TODO: integrate urlview or someway to extract a url and open it in qb.. an unsub url

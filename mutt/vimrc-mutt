@@ -4,4 +4,3 @@ augroup mail_textwidth_no
 	autocmd FileType mail setlocal spell spelllang=en
 augroup END 
 
-

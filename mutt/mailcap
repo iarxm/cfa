@@ -1,11 +1,17 @@
 # vim:ft=mailcap
-text/*;                           LESSQUIET=1 lesspipe.sh '%s'; copiousoutput
-
-text/html; qutebrowser %s; needsterminal; nametemplate=%s.html
+text/plain;       copiousoutput;
+#text/html;        LESSQUIET=1 lesspipe.sh '%s'; copiousoutput;
+#
+#text/html;       nohup qb qmutt %s > /dev/null 2>&1 &; copiousoutput; needsterminal; nametemplate=%s.html;
+#text/html;       qb qmutt %s &; copiousoutput; needsterminal; nametemplate=%s.html;
+#text/html;       qb qmutt %s & LESSQUIET=1 lesspipe.sh '%s'; copiousoutput; needsterminal; nametemplate=%s.html;
+#text/html;       qb qmutt %s & w3m -I %{charset} -T text/html -o display_charset=%{charset} -o auto_image=TRUE %s; copiousoutput; nametemplate=%s.html
+text/html;       w3m -I %{charset} -T text/html -o display_charset=%{charset} -o auto_image=TRUE; copiousoutput
+image/*;         sxiv %s
+application/*;   xdg-open %s &> /dev/null &; 
+image/*;         xdg-open %s &> /dev/null &;
+pgp/mime;        lynx -dump %s; copiousoutput; nametemplate=%s.html
 application/pdf; zathura %s
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; pandoc --from docx --to markdown %s; copiousoutput
 application/vnd.oasis.opendocument.text; pandoc --from odt --to markdown %s; copiousoutput
-image/*; sxiv %s
-pgp/mime; lynx -dump %s; copiousoutput; nametemplate=%s.html
-application/*; xdg-open %s &> /dev/null &; 
-image/*; xdg-open %s &> /dev/null &;
+# LESSCOLORIZER='pygmentize -O style=foo'
