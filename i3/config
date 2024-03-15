@@ -1,80 +1,74 @@
 ### vim: set ft=i3config
 exec --no-startup-id i3bcol
 exec source ~/.profile
+set $mda  mod4
 set $mod  mod4
+set $mdb  mod1
 set $mod1 mod1
-set $ma   mod4
-set $mb   mod1
 set $scr                 /home/$USER/iis/scr
-set $ex_noid             exec --no-startup-id
-set $wi3                 exec i3w aa
-set $wi3mr               exec i3w mr
-set $refresh_i3status killall -SIGUSR1 i3status
-set $refresh $refresh_i3status
-floating_modifier $mod
+set $exn                 exec --no-startup-id
+set $stfm                exec i3s mrfl
+set $stfx                exec i3s stfl
+set $stfy                exec i3s stfl 0.5
+set $wsf                 exec i3s
+set $ffx                 exec i3s ffxr
+set $refresh             killall -SIGUSR1 i3status
+floating_modifier $mda
 floating_maximum_size 0 x 0
-include ~/.config/i3/xprev.config
-include ~/.config/i3/xcolor.config
-include ~/.config/i3/xwindow.config
-bindsym $mod1+Ctrl+k     $ex_noid pamixer --allow-boost -i 10 && $refresh
-bindsym $mod1+Ctrl+j     $ex_noid pamixer --allow-boost -d 10 && $refresh
-bindsym $mod1+Ctrl+p     $ex_noid mpc toggle
-# menus 
-bindsym $mod+p           $ex_noid passmenu -b -nb black -l 10
-bindsym $mod+$mod1+p     $ex_noid networkmanager_dmenu
-bindsym $mod1+d          $ex_noid dmenu_runx
-bindsym $mod+d           $ex_noid i3.ydmenu-titles
-bindsym $mod1+r          $ex_noid i3-dmenu-desktop --dmenu='dmenu -b -nb #000000'
-#menu: oil: todo update
-bindsym $mod+$mod1+v     $wi3 0.3 stf-buku1 oil-search
-bindsym $mod+mod1+Ctrl+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
-#screenshots
-bindsym $mod1+s          $ex_noid flameshot gui
-bindsym Print            $ex_noid maimx screen
-bindsym $mod+Print       $ex_noid maimx win
-bindsym Shift+Print      $ex_noid maimx sel
-# launch
-bindsym $mod1+Return     exec /usr/bin/st
-bindsym $mod1+b          exec qb
-#bindsym $mod+Control+s exec "systemctl suspend"
-# func
-bindsym $mod1+q          kill
-bindsym $mod+Space       focus mode_toggle
-bindsym $mod+Ctrl+k      focus parent
-bindsym $mod+Ctrl+j      focus child
-bindsym $mod1+x          split h
-bindsym $mod+x           split v
-bindsym $mod+s           layout stacking
-bindsym $mod+w           layout tabbed
-bindsym $mod+e           layout toggle split
-bindsym $mod+f           fullscreen
-bindsym $mod+z           move scratchpad 
-bindsym $mod1+z          scratchpad show
-bindsym $mod+Shift+z     floating toggle
-bindsym $mod1+Shift+f    [class=.*] scratchpad show 
-bindsym $mod+j           focus down
-bindsym $mod+k           focus up 
-bindsym $mod+l           focus right 
-bindsym $mod+h           focus left
-bindsym $mod1+j          focus right
-bindsym $mod1+k          focus left
-#bindsym $mod1+l          focus right # todo: move 1 workspace over
-#bindsym $mod1+h          focus left # todo: sim to above
-bindsym $mod1+Shift+j     move right
-bindsym $mod1+Shift+k     move left
-bindsym $mod+Shift+j     move down
-bindsym $mod+Shift+k     move up
-bindsym $mod+Shift+l     move right 
-bindsym $mod+Shift+h     move left 
-bindsym $mod+Shift+Down  move down
-bindsym $mod+Shift+Up    move up
-bindsym $mod+Shift+Right move right
-bindsym $mod+Shift+Left  move left
-bindsym $mod+Semicolon   focus left 
-bindsym $mod+Left        focus left
-bindsym $mod+Down        focus down
-bindsym $mod+Up          focus up
-bindsym $mod+Right       focus right
+include ~/.config/i3/xprv.config
+include ~/.config/i3/xcol.config
+include ~/.config/i3/xwin.config
+bindsym $mdb+Ctrl+k     $exn pamixer --allow-boost -i 10 && $refresh
+bindsym $mdb+Ctrl+j     $exn pamixer --allow-boost -d 10 && $refresh
+bindsym $mdb+Ctrl+p     $exn mpc toggle
+bindsym $mda+$mdb+Ctrl+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+bindsym $mda+s          $exn flameshot gui
+bindsym Print           $exn maimx screen
+bindsym $mda+Print      $exn maimx win
+bindsym Shift+Print     $exn maimx sel
+bindsym $mda+p          $exn passmenu -b -nb black -l 10
+bindsym $mda+$mdb+p     $exn networkmanager_dmenu
+bindsym $mdb+d          $exn dmenu_runx
+bindsym $mda+d          $exn i3-dmenu-desktop --dmenu='dmenu -b -nb #000000'
+bindsym $mda+w          $exn dmenu-wins
+bindsym $mda+Control+s  exec "systemctl suspend"
+bindsym $mdb+q          kill
+bindsym $mda+Space      focus mdae_toggle
+bindsym $mda+Ctrl+k     focus parent
+bindsym $mda+Ctrl+j     focus child
+bindsym $mdb+x          split h
+bindsym $mda+x          split v
+bindsym $mdb+s          layout stacking
+bindsym $mdb+w          layout tabbed
+bindsym $mdb+e          layout toggle split
+bindsym $mdb+f          fullscreen
+bindsym $mda+z          move scratchpad 
+bindsym $mdb+z          scratchpad show
+bindsym $mda+Shift+z    floating toggle
+bindsym $mdb+Shift+f    [class=.*] scratchpad show 
+bindsym $mda+j          focus down
+bindsym $mda+k          focus up 
+bindsym $mda+l          focus right 
+bindsym $mda+h          focus left
+bindsym $mdb+j          focus right
+bindsym $mdb+k          focus left
+#bindsym $mdb+l          focus right # todo: move 1 workspace over
+#bindsym $mdb+h          focus left # todo: sim to above
+bindsym $mdb+Shift+j    move right
+bindsym $mdb+Shift+k    move left
+bindsym $mda+Shift+j    move down
+bindsym $mda+Shift+k    move up
+bindsym $mda+Shift+l    move right 
+bindsym $mda+Shift+h    move left 
+bindsym $mda+Shift+Down move down
+bindsym $mda+Shift+Up   move up
+bindsym $mda+Shift+Right move right
+bindsym $mda+Shift+Left move left
+bindsym $mda+Semicolon  focus left 
+bindsym $mda+Left       focus left
+bindsym $mda+Down       focus down
+bindsym $mda+Up         focus up
+bindsym $mda+Right      focus right
 set $ws1 1
 set $ws2 2
 set $ws3 3
@@ -85,6 +79,102 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
+#workspace a output primary
+#workspace m output primary
+#workspace o output primary
+#workspace p output primary
+workspace $ws1 output primary
+workspace $ws2 output primary
+workspace $ws3 output primary
+workspace $ws4 output primary
+workspace $ws5 output primary
+workspace $ws7 output primary
+workspace $ws8 output nonprimary
+workspace $ws9 output nonprimary
+workspace $ws10 output nonprimary
+bindsym $mdb+1 workspace number $ws1
+bindsym $mdb+2 workspace number $ws2
+bindsym $mdb+3 workspace number $ws3
+bindsym $mdb+4 workspace number $ws4
+bindsym $mdb+5 workspace number $ws5
+bindsym $mdb+6 workspace number $ws6
+bindsym $mdb+7 workspace number $ws7
+bindsym $mdb+8 workspace number $ws8
+bindsym $mdb+9 workspace number $ws9
+bindsym $mdb+0 workspace number $ws10
+bindsym $mdb+$mda+j $wsf left
+bindsym $mdb+$mda+k $wsf right
+bindsym $mdb+$mda+n workspace number 3
+bindsym $mdb+Shift+1 move container to workspace number $ws1
+bindsym $mdb+Shift+2 move container to workspace number $ws2
+bindsym $mdb+Shift+3 move container to workspace number $ws3
+bindsym $mdb+Shift+4 move container to workspace number $ws4
+bindsym $mdb+Shift+5 move container to workspace number $ws5
+bindsym $mdb+Shift+6 move container to workspace number $ws6
+bindsym $mdb+Shift+7 move container to workspace number $ws7
+bindsym $mdb+Shift+8 move container to workspace number $ws8
+bindsym $mdb+Shift+9 move container to workspace number $ws9
+bindsym $mdb+Shift+0 move container to workspace number $ws10
+bindsym $mda+Shift+r restart
+bindsym $mdb+Shift+r reload 
+bindsym $mda+r       mode "resize"
+bindsym $mda+Shift+e  exec "i3-nagbar -t warning -m 'exit i3 and end X session?' -B 'exit i3' 'i3-msg exit'" 
+mode "resize" {
+        bindsym j     resize shrink height 10 px or 10 ppt
+        bindsym k     resize grow height 10 px or 10 ppt
+        bindsym l     resize grow width 10 px or 10 ppt
+        bindsym h     resize shrink width 10 px or 10 ppt
+        bindsym Left  resize shrink width 2 px or 2 ppt
+        bindsym Down  resize grow height 2 px or 2 ppt
+        bindsym Up    resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 4 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mda+r mode "default"
+}
+bindsym $mdb+Return          exec /usr/bin/st
+bindsym $mdb+b               exec qb
+bindsym $mdb+a               exec qb w.gpt
+bindsym $mdb+$mda+b          exec firefox
+bindsym $mda+m               exec i3s w.ml
+bindsym $mdb+r               $wsf wx "xrd"
+bindsym $mdb+$mda+Shift+r    $wsf    "wxrd"
+bindsym $mdb+o               $wsf wx "xai"
+bindsym $mdb+Shift+o         $wsf    "wxai"
+bindsym $mdb+p               $wsf wx "xoo"
+bindsym $mdb+Shift+p         $wsf    "wxoo"
+bindsym $mdb+m               $wsf wx "xml"
+bindsym $mdb+Shift+m         $wsf    "wxml"
+bindsym $mda+a               $wsf wx "xsx"
+bindsym $mda+Shift+a         $wsf    "wxsx"
+#bindsym $mdb+a               $wsf wx "xsy"
+#bindsym $mdb+Shift+a         $wsf    "wxsy"
+bindsym $mda+o               $wsf wx "xmj"
+bindsym $mda+Shift+o         $wsf    "wxmj"
+bindsym $mda+b               $wsf wx "xau"
+bindsym $mda+Shift+b         $wsf    "wxau"
+bindsym $mdb+n               $ffx 'n4'
+bindsym $mdb+Shift+n         $stfy n4 'vub'
+bindsym $mda+n               [class="^n3$"] scratchpad show
+bindsym $mda+Shift+n         $stfy n3 'vua'
+bindsym $mdb+Control+n       [class="^n0$"] scratchpad show
+bindsym $mdb+Control+Shift+n $stfy n0 'vxx'
+bindsym $mda+Ctrl+n          [class="^n2$"] scratchpad show
+bindsym $mda+Ctrl+Shift+n    $stfy n2 'vxx'
+bindsym $mdb+i               $ffx  'nnn1'
+bindsym $mdb+Shift+i         $stfy "nnn1" 'nnn -a'
+bindsym $mda+i               $ffx  'nnn2'
+bindsym $mda+Shift+i         $stfy "nnn2" 'nnn -a'
+bindsym $mdb+Ctrl+i          $ffx  'nnn3'
+bindsym $mdb+Ctrl+Shift+i    $stfy "nnn3" 'nnn'
+#bindsym $mdb+f               [class="^zoom "] scratchpad show
+#TODO: make floating spaces - letter spaces - correspond to actual workspaces
+# - mda+a would focus on workspace 'a'
+# - whilst saving the current dynamic workspace number to cache
+# - then the same keybind would return to the previous dynamic ws
+#TODO: make 'scratchpad show' parts into ffxer like call
+# archive ##########################################################
+# vv right column TODO: include 'right' 'left' column in class name
 #set $ws1 "1"
 #set $ws2 "2"
 #set $ws3 "3"
@@ -95,167 +185,25 @@ set $ws10 10
 #set $ws8 "8"
 #set $ws9 "9"
 #set $ws10 "10"
-workspace $ws1 output primary
-workspace $ws2 output primary
-workspace $ws3 output primary
-workspace $ws4 output primary
-workspace $ws5 output primary
-workspace $ws7 output primary
-workspace $ws8 output nonprimary
-workspace $ws9 output nonprimary
-workspace $ws10 output nonprimary
-bindsym $mod1+1 workspace number $ws1
-bindsym $mod1+2 workspace number $ws2
-bindsym $mod1+3 workspace number $ws3
-bindsym $mod1+4 workspace number $ws4
-bindsym $mod1+5 workspace number $ws5
-bindsym $mod1+6 workspace number $ws6
-bindsym $mod1+7 workspace number $ws7
-bindsym $mod1+8 workspace number $ws8
-bindsym $mod1+9 workspace number $ws9
-bindsym $mod1+0 workspace number $ws10
-#bindsym $mod1+$mod+h exec i3s left
-#bindsym $mod1+$mod+l exec i3s right
-#bindsym $mod1+$mod+h workspace number 2
-#bindsym $mod1+$mod+l workspace number 4
-#bindsym $mod1+$mod+j workspace number 2
-#bindsym $mod1+$mod+k workspace number 4
-bindsym $mod1+$mod+j exec i3s left
-bindsym $mod1+$mod+k exec i3s right
-bindsym $mod1+$mod+n workspace number 3
-bindsym $mod1+Shift+1 move container to workspace number $ws1
-bindsym $mod1+Shift+2 move container to workspace number $ws2
-bindsym $mod1+Shift+3 move container to workspace number $ws3
-bindsym $mod1+Shift+4 move container to workspace number $ws4
-bindsym $mod1+Shift+5 move container to workspace number $ws5
-bindsym $mod1+Shift+6 move container to workspace number $ws6
-bindsym $mod1+Shift+7 move container to workspace number $ws7
-bindsym $mod1+Shift+8 move container to workspace number $ws8
-bindsym $mod1+Shift+9 move container to workspace number $ws9
-bindsym $mod1+Shift+0 move container to workspace number $ws10
-bindsym $mod+Shift+r  restart
-bindsym $mod1+Shift+r reload 
-bindsym $mod+Shift+e  exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'" 
-mode "resize" {
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym Left resize shrink width 2 px or 2 ppt
-        bindsym Down resize grow height 2 px or 2 ppt
-        bindsym Up resize shrink height 2 px or 2 ppt
-        bindsym Right resize grow width 2 px or 4 ppt
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-bindsym $mod+r    mode "resize"
+#bindsym $mda+$mdb+b     $stf 0.3 stf-buku1 oil-search # can put this as a qb bind instead - but keep the window rules
+#bindsym $mdb+$mda+h $wsf left
+#bindsym $mdb+$mda+l $wsf right
+#bindsym $mdb+$mda+h workspace number 2
+#bindsym $mdb+$mda+l workspace number 4
+#bindsym $mdb+$mda+j workspace number 2
+#bindsym $mdb+$mda+k workspace number 4
+#bindsym $mdb+o               [con_mark="flai"] scratchpad show
+#bindsym $mdb+Shift+o         $wsf "ws.flai"
+#bindsym $mdb+p               [con_mark="floo$"] scratchpad show
+#bindsym $mdb+Shift+p         $wsf "ws.floo"
+#bindsym $mdb+m               [con_mark="flml"] scratchpad show
+#bindsym $mdb+Shift+m         $wsf "ws.flml"
+#bindsym $mda+$mdb+o          [con_mark="flau"] scratchpad show
+#bindsym $mda+$mdb+Shift+o    $wsf ws.flau
+#bindsym $mda+a               [con_mark="flshx$"] scratchpad show
+#bindsym $mda+Shift+a         $wsf "ws.flshx"
+#bindsym $mdb+a               [con_mark="flshy$"] scratchpad show
+#bindsym $mdb+Shift+a         $wsf "ws.flshy"
+#bindsym $mda+o               [con_mark="flmj"] scratchpad show
+#bindsym $mda+Shift+o         $wsf "ws.flmj"
 
-# FLOATING WRAPPERS #########################################
-bindsym $mod1+p               [con_mark="fly$"] scratchpad show
-bindsym $mod1+Shift+p         exec i3s ws.fly
-bindsym $mod1+o               [con_mark="flx"] scratchpad show
-bindsym $mod1+Shift+o         exec i3s ws.flx
-bindsym $mod+o                [con_mark="flj"] scratchpad show
-bindsym $mod+Shift+o          exec i3s ws.flj
-#bindsym $mod+o                [class="vmj"] scratchpad show
-#bindsym $mod+Shift+o          $wi3 0.4 vmj 'vmj'
-bindsym $mod+n 		     [class="^nvimf3$"] scratchpad show  #n3
-bindsym $mod+Shift+n    		$wi3 0.6 nvimf3 'vua'
-bindsym $mod1+n       		exec ffxer 'nvimf4'
-bindsym $mod1+Shift+n     	$wi3 0.4 nvimf4 'vub'
-bindsym $mod1+Control+n     	[class="^nvimf$"] scratchpad show
-bindsym $mod1+Control+Shift+n $wi3 0.4 nvimf 'vxx'
-# vv right column
-bindsym $mod+Ctrl+n     		[class="^nvimf2$"] scratchpad show
-bindsym $mod+Ctrl+Shift+n   	$wi3 0.4 nvimf2 'vxx'
-bindsym $mod+a          		[con_mark="flz$"] scratchpad show
-bindsym $mod+Shift+a    	     exec i3s ws.flz
-bindsym $mod1+a       		[class="^stf2$"] scratchpad show
-bindsym $mod1++Shift+a    	$wi3 0.5 stf2
-#android
-bindsym $mod+$mod1+d    		[class="^drdf$"] scratchpad show; focus
-bindsym $mod+$mod1+Shift+d  	$wi3 0.5 drdf 'st'
-#==== cm ml nw news mail audio ====================================
-bindsym $mod+m      		[con_mark="ml"] scratchpad show
-bindsym $mod+Shift+m   		exec i3s ws.ml
-bindsym $mod+$mod1+o          [con_mark="musicf"] scratchpad show
-bindsym $mod+$mod1+Shift+o    exec i3s ws.au
-bindsym $mod1+f               [class="^zoom "] scratchpad show
-bindsym $mod+b                [class="^qutebrowser$" con_mark="a"] scratchpad show
-bindsym $mod+Shift+b          $wi3mr 1.0 qutebrowser a 'qb'
-
-
-#### asurf ###################################################
-bindsym $mod1+i               exec ffxer 'nnn1'
-bindsym $mod1+Shift+i         $wi3 0.5 nnn1 'nnn -a'
-
-bindsym $mod+i                exec ffxer 'nnn2'
-bindsym $mod+Shift+i          $wi3 0.5 nnn1 'nnn -a'
-
-bindsym $mod1+Ctrl+i          [class="^nnn3$"] scratchpad show; focus
-bindsym $mod1+Ctrl+Shift+i    $wi3 0.5 nnn3 'nnn'
-
-#bindsym $mod1+i                [class="^nnn1$"] scratchpad show; focus
-#bindsym $mod+o [class="^tabbed$"] focus
-#bindsym $mod+i exec xdotool windowactivate --sync $(xdotool search --class "nnnf1")
-#bindsym $mod1+i    focusfixer 'nnnf1'
-
-
-
-
-### To Archive / no longer used ###############################################
-#bindsym $mod1+m       		exec "/usr/bin/st neomutt"
-
-#bindsym $mod+F4               $wi3 0.1 pulsef 'pulsemixer'
-#bindsym $mod+$mod1+o          [class="^musicf$"] scratchpad show
-#bindsym $mod+$mod1+Shift+o    $wi3 0.5 musicf "$(cat $HOME/.cache/au.playf)"
-
-#### nnn #############################################
-#bindsym $mod+Ctrl+i    [class="^nnnf2$"] scratchpad show; focus
-#bindsym $mod+Ctrl+Shift+i  $wi3 0.5 nnnf2 'tmux new nnn -Pa t'
-#bindsym $mod+$mod1+u     [class="^nnnf4$"] scratchpad show; focus
-#bindsym $mod+$mod1+Shift+u   $wi3 0.5 nnnf4 'nnn'
-
-# TODO: have a set of shortcuts to some of the below, rather than bindings
-#    - too many bindings for tools that are not used
-#    - rather, hit an alias which lists possible tools to use
-#bindsym Ctrl+Print            $ex_noid maimx clip
-#bindsym Ctrl+$mod+Print       $ex_noid maimx clip.win
-#bindsym Ctrl+Shift+Print      $ex_noid maimx clip.sel
-
-#bindsym $mod1+Ctrl+m 		[class="^nboatf$"] scratchpad show
-#bindsym $mod1+Ctrl+Shift+m  	$wi3 0.5 nboatf 'newsboat'
-
-bindsym $mod+mod1+b           [class="^qutebrowser$" con_mark="b"] scratchpad show
-bindsym $mod+mod1+Shift+b     $wi3mr 1.0 qutebrowser b 'qb'
-bindsym $mod+Control+b        [class="^qutebrowser$" con_mark="d"] scratchpad show
-bindsym $mod+Control+Shift+b  $wi3mr 1.0 qutebrowser b 'qb'
-bindsym $mod+$mod1+m          [class="^qutebrowser$" con_mark="cm"] scratchpad show
-bindsym $mod+$mod1+Shift+m    $wi3mr 1.0 qutebrowser cm 'qb x.wa'
-#opx
-bindsym $mod1+u               [class="^twf9$"] scratchpad show
-bindsym $mod1+Shift+u         $wi3 0.4 twf9 'vx.opa'
-##opb
-bindsym $mod+u                [class="^ooa$"] scratchpad show
-bindsym $mod+Shift+u          $wi3 0.5 ooa 'vx.opb'
-#tw nvim TODO:
-bindsym $mod+$mod1+y          [class="^stf-tw2$"] scratchpad show
-bindsym $mod+$mod1+Shift+y    $wi3 0.5 stf-tw2 'vo.tw'
-#xtdo-make below into ascript where you choose a file and vim changes directory to ~/d/ upon opening it
-#set $wi3                 exec /home/$USER/.local/bin/i3w aa
-#set $wi3mr               exec /home/$USER/.local/bin/i3w mr
-#set $i3s                 exec /home/$USER/.local/bin/i3s
-#exec --no-startup-id redshift -l 53.34:6.26
-#ws.fl-y 
-## n1
-#bindsym $mod+$mod1+n         [class="^nvimf1$"] scratchpad show
-#bindsym $mod+mod1+Shift+n   	$wi3 0.4 nvimf1 'vuy'
-
-# todo: 
-#    - integrate opx and opb etc as alternative options in +p floating space
-#    - also for vo.tw (taskwarrior integrations)
-#    - change class names (eg nvimfx to vx..)
-
-#fm #brw #cli #tx #tw #cm #ot other ####
-# TODO: compact into one program/script - all dmenu invocations
