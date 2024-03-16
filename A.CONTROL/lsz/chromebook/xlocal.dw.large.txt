@@ -1,3 +1,0 @@
-linuxbrew 
- MEGAsync 
-
