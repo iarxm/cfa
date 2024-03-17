@@ -69,6 +69,7 @@ bindsym $mda+Left       focus left
 bindsym $mda+Down       focus down
 bindsym $mda+Up         focus up
 bindsym $mda+Right      focus right
+set $ws0 0
 set $ws1 1
 set $ws2 2
 set $ws3 3
@@ -101,10 +102,10 @@ bindsym $mdb+6 workspace number $ws6
 bindsym $mdb+7 workspace number $ws7
 bindsym $mdb+8 workspace number $ws8
 bindsym $mdb+9 workspace number $ws9
-bindsym $mdb+0 workspace number $ws10
+bindsym $mdb+0 workspace number $ws0
 bindsym $mdb+$mda+j $wsf left
 bindsym $mdb+$mda+k $wsf right
-bindsym $mdb+$mda+n workspace number 3
+bindsym $mdb+$mda+n workspace number 1
 bindsym $mdb+Shift+1 move container to workspace number $ws1
 bindsym $mdb+Shift+2 move container to workspace number $ws2
 bindsym $mdb+Shift+3 move container to workspace number $ws3
