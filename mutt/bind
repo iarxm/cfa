@@ -35,7 +35,7 @@ bind index,pager    'mv'  	"view-attachments"
 bind index,pager    'mb'  	"buffy-list"
 bind index,pager    'mr'  	"view-raw-message"
 macro index,pager   'mw'  	"<sync-mailbox>y<enter>"
-macro index,pager   'mww'  	"<sync-mailbox>y<enter>"
+#macro index,pager   'mww'  	"<sync-mailbox>y<enter>"
 bind index,pager 	'oo' 	sort-mailbox
 bind index,pager 	'ob' 	sort-mailbox
 bind index,pager	'R'  	group-reply

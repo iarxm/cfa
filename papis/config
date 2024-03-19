@@ -1,12 +1,15 @@
-[dncuu]
-dir = ~/llt/dncuu
+#[dncuu]
+#dir = ~/llt/dncuu
 
-[ii.artc]
-dir = ~/lllt/aii.artc
+#[ii.artc]
+#dir = ~/lllt/aii.artc
 
-[papers]
-dir = ~/lllt/aii.artc
+#[papers]
+#dir = /dat//aii.artc
+
+[books]
+dir = ~/.local/share/papis/books/
 
 [settings]
-default-library = ii.artc
+default-library = books
 
