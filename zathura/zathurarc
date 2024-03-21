@@ -1,6 +1,15 @@
-# set default-bg \#111111
-set statusbar-home-tilde true
-set selection-clipboard clipboard
 include /home/x/.config/zathura/color-set # set color
-map <A-k> feedkeys kkkk
-map <A-j> feedkeys jjjj
+set statusbar-home-tilde  true
+set selection-clipboard   clipboard
+set database              sqlite
+set guioptions            ""
+map <A-k>                 feedkeys kkkk
+map <A-j>                 feedkeys jjjj
+map F                     toggle_fullscreen
+map p                     toggle_page_mode
+map S                     toggle_statusbar
+map i                     toggle_index
+map R                     recolor            # make light/dark
+map W                     recolor
+
+# TODO: create toogle to switch between black and white color schemes

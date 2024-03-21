@@ -1,41 +1,38 @@
 
-set font "inconsolata 15"
-set default-bg "#000000" #FF
-set default-fg "#e0c88a" #01
+# ##############################################
 
-set statusbar-fg "#d8dee9" #04
-set statusbar-bg "#000000" #01
-
-set inputbar-bg "#434c5e" #00 currently not used
-set inputbar-fg "#000000" #02
-
-set notification-error-bg "#bf616a" #08
-set notification-error-fg "#d8dee9" #00
-
+set font                    "inconsolata 15"
+set default-bg              "#000000" #FF
+set default-fg              "#e0c88a" #01
+set statusbar-fg            "#d8dee9" #04
+set statusbar-bg            "#000000" #01
+set inputbar-bg             "#000000" #00 currently not used
+set inputbar-fg             "#d8dee9" #02
+set notification-error-bg   "#bf616a" #08
+set notification-error-fg   "#d8dee9" #00
 set notification-warning-bg "#ebcb8b" #08
 set notification-warning-fg "#d8dee9" #00
-
-set highlight-color "#b48ead" #0A
-set highlight-active-color "#eceff4" #0D
-
+set highlight-color         "#b48ead" #0A
+set highlight-active-color  "#eceff4" #0D
 set completion-highlight-fg "#eceff4" #02
 set completion-highlight-bg "#b48ead" #0C
+set completion-bg           "#4c566a" #02
+set completion-fg           "#5e81ac" #0C
+set notification-bg         "#434c5e" #0B
+set notification-fg         "#d8dee9" #00
+set index-bg                "#000000" #02
 
-set completion-bg "#4c566a" #02
-set completion-fg "#5e81ac" #0C
-
-set notification-bg "#434c5e" #0B
-set notification-fg "#d8dee9" #00
 
 # RECOLOR DOCUMENT ####################
-set recolor "true"
-set recolor-lightcolor "#000000" #00                                                                                       
-# FONT COLOR
-#set recolor-darkcolor "#93a1a1" #06
+set recolor                 "true"
+set recolor-lightcolor      "#000000" #00
+set recolor-darkcolor       "#e0c88a"
+#set recolor-darkcolor "#93a1a1" #06 
 #set recolor-darkcolor "#8ae0c8"
 #set recolor-darkcolor "#ebdbb2" #06
-set recolor-darkcolor "#e0c88a"
+set recolor-reverse-video   "true" # image coloring
+set recolor-keephue         "true" # original hue
+#set recolor-reverse-video   "false" # image coloring
+#set recolor-keephue         "false" # original hue
 
-# WHAT? ##################
-set recolor-reverse-video "true" # image coloring
-set recolor-keephue "true" # original hue
+# set default-bg \#111111
