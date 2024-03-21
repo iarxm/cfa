@@ -196,6 +196,9 @@ c.aliases.update({
 c.aliases['dread-enable']   = 'spawn --userscript darkreader.py enable domain'
 c.aliases['dread-disable']  = 'spawn --userscript darkreader.py disable domain'
 c.aliases['darkreader']     = 'spawn --userscript darkreader.py'
+c.aliases['mpvq']           = 'spawn xdotool key space ;; spawn --userscript mpv.qt {url}'
+c.aliases['mpvh']           = 'hint links spawn --userscript view_in_mpv {hint-url}'
+c.aliases['mpv']            = 'spawn --userscript view_in_mpv {url}'
 config.bind(',d', "set-cmd-text -s :darkreader enable '{url}*'")
 config.bind(',r', "set-cmd-text -s :darkreader disable '{url}*'")
 config.bind(',s', 'spawn --userscript rebuild-qutebrowser-grease-styles.py', mode='normal')
@@ -203,18 +206,20 @@ config.bind(',s', 'spawn --userscript rebuild-qutebrowser-grease-styles.py', mod
 # config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/darculized/darculized-all-sites.css ""' )
 # config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/draconian-darkmode-stylesheet.css ""' )
 # config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/solarized-dark-all-sites.css ""' )
-config.bind(';r', 'reload')
-config.bind(';c', 'config-source')
-config.bind(';t', 'hint links spawn transmission-remote -a {hint-url}') # tors
-config.bind(';T', 'hint -r links spawn transmission-remote -a {hint-url}')
-config.bind('qq', 'spawn xdotool key space ;; spawn --userscript mpv.qt {url}') # mpv
-config.bind(';ml', 'hint links spawn --userscript view_in_mpv {hint-url}')
-config.bind(';mm', 'spawn --userscript view_in_mpv {url}')
-c.aliases['ytdl'] = 'spawn yt-dlp {url}' # youtube-dl
+config.bind(';r',  'reload')
+config.bind(';c',  'config-source')
+config.bind(';t',  'hint links spawn transmission-remote -a {hint-url}') # tors
+config.bind(';T',  'hint -r links spawn transmission-remote -a {hint-url}')
+#config.bind('qq', 'spawn xdotool key space ;; spawn --userscript mpv.qt {url}') # mpv
+#config.bind(';ml', 'hint links spawn --userscript view_in_mpv {hint-url}')
+config.bind('qq',  'mpvq') # mpv
+config.bind(';ml', 'mpvh')
+config.bind(';mm', 'mpv')
+c.aliases['ytdl']  = 'spawn yt-dlp {url}' # youtube-dl
 c.aliases['ytdlx'] = 'spawn yt-dlp -x {url}'
-config.bind(';u', 'hint links spawn yt-dlp {hint-url}')
-config.bind(';U', 'spawn yt-dlp {url}')
-config.bind(';a', 'spawn yt-dlp -x {url}')
+config.bind(';u',  'hint links spawn yt-dlp {hint-url}')
+config.bind(';U',  'spawn yt-dlp {url}')
+config.bind(';a',  'spawn yt-dlp -x {url}')
 # download
 config.bind(';o', 'spawn --userscript open_download')
 config.bind('gd', 'spawn -u jsdownload')
