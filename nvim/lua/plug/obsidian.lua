@@ -24,7 +24,7 @@ return {
       },
       {
         name = "code notes",
-        path = "~/.xx/cfgzx",
+        path = "/dat/ud/dsa/dotdoc",
       },
     },
     -- see below for full list of options 👇

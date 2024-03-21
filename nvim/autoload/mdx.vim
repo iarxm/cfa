@@ -42,7 +42,7 @@ endfunction
 function! mdx#EqualWidth() "EQUALISE
 	let l:t_cur = tabpagenr()
 	tabdo set noequalalways equalalways
-     write all
+     wall
 	exe "tabnext " . l:t_cur
      "wa - above to trigger sep resize in markdownt
 endfunction

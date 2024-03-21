@@ -1,8 +1,5 @@
-# Default Server List for podget
-#
 # Default format with category and name:
 #   <url> <category> <name>
-#
 # Alternate Formats:
 #   1. With a category but no name.
 #       <url> <category>
@@ -11,9 +8,8 @@
 #       <url> . <name>
 #   3. With neither a category or name.
 #       <url>
-#
-# For additional formating documentation, please refer to 'man podget'.
-#
 #FEEDS:
-# ----------------------------------------------------------------------------------------------------------------------------------
-http://thelinuxlink.net/tllts/tllts.rss LINUX The Linux Link
+#http://thelinuxlink.net/tllts/tllts.rss LINUX The Linux Link
+https://rss.samharris.org/feed/92dccb84-cc25-446a-adf0-20ec79253160 aaa sam
+https://feeds.megaphone.fm/RSV2347142881 aab bari
+
