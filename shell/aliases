@@ -1,5 +1,6 @@
 #!/bin/sh
 ## vim:ft=sh
+alias castget="castget -C ${HOME}/.config/castget/castgetrc"
 alias s='sxiv'
 alias sx='sxiv'
 alias blue='bluetuith'
