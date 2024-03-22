@@ -39,6 +39,7 @@ bindsym $mda+Print        $exn maimx win
 bindsym Shift+Print       $exn maimx sel
 bindsym $mda+p            $exn passmenu -b -nb black -l 10
 bindsym $mda+$mdb+p       $exn networkmanager_dmenu
+bindsym Ctrl+$mda+p       $exn dmenu-bluetooth -b -nb black -l 10
 bindsym $mdb+d            $exn dmenu_runx
 bindsym $mda+d            $exn i3-dmenu-desktop --dmenu='dmenu -b -nb #000000'
 bindsym $mda+w            $exn dmenu-wins
