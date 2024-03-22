@@ -1,24 +1,28 @@
 # AUTHOR: IAROM MADDEN future@iarom.org
 # ENVIRONMENT =======================================
-config.load_autoconfig(True)
 import os
-os.environ['QUTE_POST_CLONE'] = 'notify-send "cloned!" "${QUTE_URL}"'
-os.environ['QUTE_BIB_FILEPATH'] = "${HOME}/jf/iic/bib/qute.bib"
-c.downloads.location.directory = "${HOME}/aia/"
-qb_cfg_dir = "file://"+os.getenv("HOME")+"/.config/qutebrowser"
-blocked_hosts = qb_cfg_dir+"/blocked-hosts"
-# home page #####################################
-ui_dir = qb_cfg_dir+"/ui"
-ui_hm_blank = ui_dir+"/a.hm/index.blank.html"
-ui_hm_bg = ui_dir+"/a.hm/index.html"
+import glob
+DATA                               = '/dat'
+HOME                               = os.getenv("HOME")
+os.environ['QUTE_POST_CLONE']      = 'notify-send "cloned!" "${QUTE_URL}"'
+os.environ['QUTE_BIB_FILEPATH']    = "${HOME}/jf/iic/bib/qute.bib"
+QUTE_CFG_DIR                       = HOME + "/.config/qutebrowser"
+QUTE_UIX_DIR                       = QUTE_CFG_DIR + "/userinterfa"
+COL_SOLARD                         = QUTE_UIX_DIR + "/sty/solarizedd/solarized-dark-all-sites.css"
+COL_SOLARL                         = QUTE_UIX_DIR + "/sty/solarizedl/solarized-light-all-sites.css"
+COL_BLACKX                         = QUTE_UIX_DIR + "/sty/blackblack/black-all-sites.css"
+QUTE_BLOCKED                       = QUTE_CFG_DIR + "/blocked-hosts"
+QUTE_UIX_BLK                       = "file://" + QUTE_UIX_DIR + "/ahm/index-blank.html"
+QUTE_UIX_BGX                       = "file://" + QUTE_UIX_DIR + "/ahm/index-backg.html"
 # general ========================================
-ui_hm = ui_hm_bg
-c.url.default_page = ui_hm
-c.url.start_pages  = ui_hm
-c.editor.command = ["st", "-c", "float", "nvim", "-O", "{}"] # i3 config 'float'
-c.new_instance_open_target = "tab-bg"
-c.input.insert_mode.auto_load = True
-c.prompt.filebrowser = True
+c.content.user_stylesheets         = [ COL_BLACKX ]
+c.url.default_page                 = QUTE_UIX_BGX
+c.url.start_pages                  = QUTE_UIX_BGX
+c.downloads.location.directory     = DATA + "/ui/iaa/"
+c.editor.command                   = ["st", "-c", "float", "nvim", "-O", "{}"] # i3 config 'float'
+c.new_instance_open_target         = "tab-bg"
+c.input.insert_mode.auto_load      = True
+c.prompt.filebrowser               = True
 filepicker = [ # todo: folder picker; and beautify
     "st",
     "-c",
@@ -31,23 +35,23 @@ filepicker = [ # todo: folder picker; and beautify
     "set nohidden",
     "-selection-path={}",
 ]
-c.fileselect.handler = "external"
-c.fileselect.folder.command = filepicker
+c.fileselect.handler                = "external"
+c.fileselect.folder.command         = filepicker
 c.fileselect.multiple_files.command = filepicker
-c.fileselect.single_file.command = filepicker
-c.completion.height = "30%"
-c.completion.web_history.max_items = 1000000
-c.completion.cmd_history_max_items = 100000
-c.input.partial_timeout = 2000
-c.tabs.position = "bottom"
-c.tabs.background = True
-c.tabs.favicons.show = "never"
-c.tabs.title.format = "{current_title}"
-c.tabs.new_position.related = "last"
-c.tabs.show = "switching"
-c.tabs.show_switching_delay = 3000
-c.session.default_name = "default_restore"
-c.auto_save.session = True
+c.fileselect.single_file.command    = filepicker
+c.completion.height                 = "30%"
+c.completion.web_history.max_items  = 1000000
+c.completion.cmd_history_max_items  = 100000
+c.input.partial_timeout             = 2000
+c.tabs.position                     = "bottom"
+c.tabs.background                   = True
+c.tabs.favicons.show                = "never"
+c.tabs.title.format                 = "{current_title}"
+c.tabs.new_position.related         = "last"
+c.tabs.show                         = "switching"
+c.tabs.show_switching_delay         = 3000
+c.session.default_name              = "default_restore"
+c.auto_save.session                 = True
 config.set('content.headers.user_agent', \
         'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) Chrome/110.0.0.0 Safari/{webkit_version} Edg/110.0.1587.57', \
         '*://www.bing.com/*') # setting user agent per domain pattern - bing: for accessing new chatgpt feature via edge browser usage
@@ -85,7 +89,7 @@ c.content.blocking.adblock.lists = [ \
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt" \
         ]
 c.content.blocking.hosts.lists = [ \
-    blocked_hosts, \
+    QUTE_BLOCKED, \
     'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', \
     'https://raw.githubusercontent.com/blocklistproject/Lists/master/youtube.txt' \
         ]
@@ -192,6 +196,15 @@ c.aliases.update({
     'recycle':  'quit --save _recycle',
     'restart':  'quit --save _restart',
     'shutdown': 'quit --save _shutdown',})
+# TODO: styling #######################################
+config.bind(',d', "set-cmd-text -s :darkreader enable '{url}*'")
+config.bind(',r', "set-cmd-text -s :darkreader disable '{url}*'")
+
+config.bind(',s', 'spawn --userscript rebuild-qutebrowser-grease-styles.py', mode='normal')
+
+# config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/darculized/darculized-all-sites.css ""' )
+# config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/draconian-darkmode-stylesheet.css ""' )
+# config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/solarized-dark-all-sites.css ""' )
 # keybinds #############################################
 c.aliases['dread-enable']   = 'spawn --userscript darkreader.py enable domain'
 c.aliases['dread-disable']  = 'spawn --userscript darkreader.py disable domain'
@@ -199,22 +212,15 @@ c.aliases['darkreader']     = 'spawn --userscript darkreader.py'
 c.aliases['mpvq']           = 'spawn xdotool key space ;; spawn --userscript mpv.qt {url}'
 c.aliases['mpvh']           = 'hint links spawn --userscript view_in_mpv {hint-url}'
 c.aliases['mpv']            = 'spawn --userscript view_in_mpv {url}'
-config.bind(',d', "set-cmd-text -s :darkreader enable '{url}*'")
-config.bind(',r', "set-cmd-text -s :darkreader disable '{url}*'")
-config.bind(',s', 'spawn --userscript rebuild-qutebrowser-grease-styles.py', mode='normal')
-#c.content.user_stylesheets = ['~/.config/qutebrowser/styles/solarized-light-all-sites.css'] 
-# config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/darculized/darculized-all-sites.css ""' )
-# config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/draconian-darkmode-stylesheet.css ""' )
-# config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/solarized-dark-all-sites.css ""' )
-config.bind(';r',  'reload')
-config.bind(';c',  'config-source')
-config.bind(';t',  'hint links spawn transmission-remote -a {hint-url}') # tors
-config.bind(';T',  'hint -r links spawn transmission-remote -a {hint-url}')
-config.bind('qq',  'mpvq') # mpv
-config.bind(';ml', 'mpvh')
-config.bind(';mm', 'mpv')
-c.aliases['ytdl']  = 'spawn yt-dlp {url}' # youtube-dl
-c.aliases['ytdlx'] = 'spawn yt-dlp -x {url}'
+c.aliases['ytdl']           = 'spawn yt-dlp {url}' # youtube-dl
+c.aliases['ytdlx']          = 'spawn yt-dlp -x {url}'
+config.bind(';r',           'reload')
+config.bind(';c',           'config-source')
+config.bind(';t',           'hint links spawn transmission-remote -a {hint-url}') # tors
+config.bind(';T',           'hint -r links spawn transmission-remote -a {hint-url}')
+config.bind('qq',           'mpvq') # mpv
+config.bind(';ml',          'mpvh')
+config.bind(';mm',          'mpv')
 config.bind(';u',  'hint links spawn yt-dlp {hint-url}')
 config.bind(';U',  'spawn yt-dlp {url}')
 config.bind(';a',  'spawn yt-dlp -x {url}')

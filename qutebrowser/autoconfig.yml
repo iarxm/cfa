@@ -46,6 +46,8 @@ settings:
     https://calendar.google.com?cid=%25s: true
     https://outlook.office.com?mailtouri=%25s: false
     https://outlook.office365.com?mailtouri=%25s: false
+  content.user_stylesheets:
+    global: /home/x/.config/qutebrowser/userinterfa/sty/solarizedd/solarized-dark-all-sites.css
   fonts.completion.entry:
     global: 13pt source sans pro
   fonts.prompts:

@@ -72,6 +72,11 @@ c.fonts.messages.warning      = c.fonts.messages.info
 c.fonts.messages.error        = c.fonts.messages.info
 c.fonts.completion.entry      = c.fonts.statusbar
 c.fonts.completion.category   = c.fonts.statusbar
+c.colors.webpage.bg                     = "black"
+c.colors.webpage.darkmode.enabled       = True
+c.colors.webpage.darkmode.policy.images = "never"
+c.colors.webpage.preferred_color_scheme = "dark"
+c.colors.webpage.darkmode.contrast
 # #222222
 #"#DDDDDD"
 #c.colors.statusbar.insert.bg = "#222222"
@@ -79,4 +84,15 @@ c.fonts.completion.category   = c.fonts.statusbar
 #c.url.default_page = 'file://{home_dir}/.config/qutebrowser/ui/a.hm/index.html'
 #c.url.start_pages = 'file://{home_dir}/.config/qutebrowser/ui/a.hm/index.html'
 # c.url.start_pages = 'file://{home_dir}/.config/qutebrowser/ui/a.hm/.jpg'
+
+#c.colors.webpage.darkmode.policy.page
+#c.colors.webpage.darkmode.threshold.background
+#c.colors.webpage.darkmode.threshold.text
+#c.colors.webpage.darkmode.algorithm
+#c.colors.webpage.darkmode.grayscale.all
+#c.colors.webpage.darkmode.grayscale.images
+#c.content.user_stylesheets = "/home/iao/.c/q/css/draconian-darkmode-stylesheet.css"
+#c.content.user_stylesheets = "/home/iao/.c/q/stylesheet/solarized-dark-all-sites.css"
+#c.content.user_stylesheets = '/home/iao/.config/qutebrowser/css/solarized-light-all-sites.css'
+#c.content.user_stylesheets = ['/home/iao/.config/qutebrowser/css/solarized-light-all-sites.css', '/home/iao/.c/q/css/solarized-dark-all-sites.css', '/home/iao/.c/q/css/draconian-darkmode-stylesheet.css', '/home/iao/.c/q/css/a.null.css' ]
 
