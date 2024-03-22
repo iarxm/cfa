@@ -210,8 +210,6 @@ config.bind(';r',  'reload')
 config.bind(';c',  'config-source')
 config.bind(';t',  'hint links spawn transmission-remote -a {hint-url}') # tors
 config.bind(';T',  'hint -r links spawn transmission-remote -a {hint-url}')
-#config.bind('qq', 'spawn xdotool key space ;; spawn --userscript mpv.qt {url}') # mpv
-#config.bind(';ml', 'hint links spawn --userscript view_in_mpv {hint-url}')
 config.bind('qq',  'mpvq') # mpv
 config.bind(';ml', 'mpvh')
 config.bind(';mm', 'mpv')
