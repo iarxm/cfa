@@ -1,5 +1,4 @@
 ### vim: set ft=i3config
-exec --no-startup-id i3bcol
 exec source ~/.profile
 set $mda                 mod4
 set $mod                 mod4
@@ -84,6 +83,7 @@ bindsym $mda+Right        focus right
 bindsym $mda+Shift+r      restart
 bindsym $mdb+Shift+r      reload 
 bindsym $mda+r            mode "resize"
+#bindsym $mda+$mdb         $exn i3poly-hide
 bindsym $mda+Shift+e      exec "i3-nagbar -t warning -m 'exit i3?' -B 'exit i3' 'i3-msg exit'" 
 bindsym $mdb+$mda+j       $wsf left
 bindsym $mdb+$mda+k       $wsf right
@@ -135,21 +135,21 @@ bindsym $mdb+b               exec qb
 bindsym $mdb+a               exec qb w.gpt
 bindsym $mdb+$mda+b          exec firefox
 bindsym $mda+m               exec i3s w.ml
-bindsym $mdb+r               $wsf wx "0xrd"
+bindsym $mdb+r               $wsf wx "xrd"
 bindsym $mdb+$mda+Shift+r    $wsf    "wxrd"
-bindsym $mdb+o               $wsf wx "0xai"
+bindsym $mdb+o               $wsf wx "xai"
 bindsym $mdb+Shift+o         $wsf    "wxai"
-bindsym $mdb+p               $wsf wx "0xoo"
+bindsym $mdb+p               $wsf wx "xoo"
 bindsym $mdb+Shift+p         $wsf    "wxoo"
-bindsym $mdb+m               $wsf wx "0xml"
+bindsym $mdb+m               $wsf wx "xml"
 bindsym $mdb+Shift+m         $wsf    "wxml"
-bindsym $mda+a               $wsf wx "0xsx"
+bindsym $mda+a               $wsf wx "xsx"
 bindsym $mda+Shift+a         $wsf    "wxsx"
 #bindsym $mdb+a               $wsf wx "xsy"
 #bindsym $mdb+Shift+a         $wsf    "wxsy"
-bindsym $mda+o               $wsf wx "0xmj"
+bindsym $mda+o               $wsf wx "xmj"
 bindsym $mda+Shift+o         $wsf    "wxmj"
-bindsym $mda+b               $wsf wx "0xau"
+bindsym $mda+b               $wsf wx "xau"
 bindsym $mda+Shift+b         $wsf    "wxau"
 bindsym $mdb+n               $ffx  n4
 bindsym $mdb+Shift+n         $stfy n4 'vub'
