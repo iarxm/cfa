@@ -10,42 +10,26 @@
 
 (function() {
     'use strict';
-
-    // Function to check if an element has a non-default background color
-    function hasBackgroundColor(element) {
+    function testCol(element) { // test if color is incorrect
         const backgroundColor = window.getComputedStyle(element, null).getPropertyValue('background-color');
-        // Check if the color is not default or transparent
-        return backgroundColor !== 'rgba(0, 0, 0, 0)' && backgroundColor !== 'transparent';
-    }
+        return backgroundColor !== 'rgba(0, 0, 0, 0)' ;};
 
-    // Function to change background color
-    function changeBackgroundColor(element) {
-        if (hasBackgroundColor(element)) {
-            element.style.backgroundColor = '#000000';
-        }
-    }
+    const changeBgr = element => testCol(element) && (element.style.backgroundColor = '#000000');
 
-    // Iterating over all elements
-    document.querySelectorAll('*').forEach(element => {
-        changeBackgroundColor(element);
-    });
+    document.querySelectorAll('*').forEach(element => { changeBgr(element); }); //  iterate
 
     // Optional: MutationObserver to handle dynamically added elements
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
-            if (mutation.addedNodes) {
-                mutation.addedNodes.forEach(node => {
+            if (!mutation.addedNodes) return;
+            mutation.addedNodes.forEach(node => {
                     if (node.nodeType === 1) { // Checks if the node is an element
-                        changeBackgroundColor(node);
+                        changeBgr(node);
+                        console.log(node);
                     }
-                });
-            }
-        });
-    });
-
-    // Start observing
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
+            });
+       });
+   });
+    observer.observe(document.body, { childList: true, subtree: true }); // init observing
 })();
+// && backgroundColor !== 'transparent'

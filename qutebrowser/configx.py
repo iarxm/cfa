@@ -1,9 +1,10 @@
 # AUTHOR: IAROM MADDEN future@iarom.org
-# ENVIRONMENT =======================================
 import os
 import glob
 DATA                               = '/dat'
 HOME                               = os.getenv("HOME")
+os.environ['QT_QPA_PLATFORMTHEME'] = "qt6ct" # req to load qt6 cfgs
+os.environ['QUTE_POST_CLONE']      = 'notify-send "cloned!" "${QUTE_URL}"'
 os.environ['QUTE_POST_CLONE']      = 'notify-send "cloned!" "${QUTE_URL}"'
 os.environ['QUTE_BIB_FILEPATH']    = "${HOME}/jf/iic/bib/qute.bib"
 QUTE_CFG_DIR                       = HOME + "/.config/qutebrowser"
@@ -14,7 +15,6 @@ COL_BLACKX                         = QUTE_UIX_DIR + "/sty/blackblack/black-all-s
 QUTE_BLOCKED                       = QUTE_CFG_DIR + "/blocked-hosts"
 QUTE_UIX_BLK                       = "file://" + QUTE_UIX_DIR + "/ahm/index-blank.html"
 QUTE_UIX_BGX                       = "file://" + QUTE_UIX_DIR + "/ahm/index-backg.html"
-# general ========================================
 c.content.user_stylesheets         = [ COL_BLACKX ]
 c.url.default_page                 = QUTE_UIX_BGX
 c.url.start_pages                  = QUTE_UIX_BGX
@@ -57,7 +57,6 @@ config.set('content.headers.user_agent', \
         '*://www.bing.com/*') # setting user agent per domain pattern - bing: for accessing new chatgpt feature via edge browser usage
 #c.auto_save.interval = 
 #c.tabs.show = "multiple"
-# PERFORMANCE ###############################################################
 #c.content.webgl = False # can provide performance improvements for a low resource laptop?
 #c.backend = webkit
 c.content.webgl = True
@@ -71,7 +70,6 @@ c.content.cache.size = 2147483647
 c.qt.chromium.experimental_web_platform_features = "always"
 c.qt.chromium.low_end_device_mode = "auto"
 c.qt.chromium.process_model = "process-per-site"
-# BLOCKING ###################################################################
 #config.set('content.cookies.accept', 'all', '*://*/*')
 #c.content.proxy = "http://localhost:8118/" # must configure dns first???
 c.content.blocking.adblock.lists = [ \
@@ -96,20 +94,21 @@ c.content.blocking.hosts.lists = [ \
 c.content.blocking.whitelist = ['*://example.com/*', '*://surfline.com/*', '*://calendar.google.com/*']
 #c.content.blocking.enabled = ['*://surfline.com*']
 #c.content.blocking.enabled = ['*://example.com/*']
-c.content.cookies.accept = 'all'
-c.content.blocking.method = 'both'
-c.content.blocking.enabled = True
-c.content.notifications.enabled = False
-c.hints.border = "3px solid #CCCCCC"
-c.hints.mode = "letter"
-c.hints.chars = "asdfghklqweruiopzxcvbn"
-c.hints.min_chars = 1
-c.keyhint.blacklist = ["*"]
-c.completion.open_categories = ["quickmarks", "bookmarks", "history"]
-c.statusbar.show = "in-mode"
-c.statusbar.widgets = []
-#c.statusbar.widgets = ["url", "progress", "scroll"]
-c.window.hide_decoration = True
+c.content.cookies.accept           = 'all'
+c.content.blocking.method          = 'both'
+c.content.blocking.enabled         = True
+c.content.notifications.enabled    = False
+c.hints.border                     = "3px solid #CCCCCC"
+c.hints.mode                       = "letter"
+c.hints.chars                      = "asdfghklqweruiopzxcvbn"
+c.hints.min_chars                  = 1
+c.keyhint.blacklist                = ["*"]
+c.completion.open_categories       = ["quickmarks", "bookmarks", "history"]
+c.statusbar.show                   = "in-mode"
+c.statusbar.widgets                = []
+#c.statusbar.widgets               = ["url", "progress", "scroll"]
+c.window.hide_decoration           = True
+c.scrolling.smooth                 = True # can make scrolling slow with mouse, but improves key scrolling
 # alias.searches ================================
 # academic; qute-zotero; getbib; gitclone; readability; readability-js
 c.url.searchengines['gs'] = 'http://scholar.google.ch/scholar?hl=en&q={}'
@@ -191,6 +190,8 @@ c.aliases['bk']           = 'spawn --userscript ~/.config/qutebrowser/userscript
 c.aliases['qbx']          = 'spawn qb xw {url}'
 c.aliases['oil']          = 'spawn st -c stf-buku1 oil-search'
 c.aliases['us_echo']      = 'spawn --userscript ~/.config/qutebrowser/userscripts/echo'
+c.aliases['colcycle']     = 'config-cycle content.user_stylesheets ~/.config/qutebrowser/userinterfa/sty/blackblack/black-all-sites.css ""'
+c.aliases['colblack']     = 'set content.user_stylesheets ~/.config/qutebrowser/userinterfa/sty/blackblack/black-all-sites.css'
 # for daemon mode script:
 c.aliases.update({
     'recycle':  'quit --save _recycle',
@@ -199,12 +200,9 @@ c.aliases.update({
 # TODO: styling #######################################
 config.bind(',d', "set-cmd-text -s :darkreader enable '{url}*'")
 config.bind(',r', "set-cmd-text -s :darkreader disable '{url}*'")
-
-config.bind(',s', 'spawn --userscript rebuild-qutebrowser-grease-styles.py', mode='normal')
-
+# config.bind(',s', 'spawn --userscript rebuild-qutebrowser-grease-styles.py', mode='normal')
 # config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/darculized/darculized-all-sites.css ""' )
 # config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/draconian-darkmode-stylesheet.css ""' )
-# config.bind(',n', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/styles/solarized-dark-all-sites.css ""' )
 # keybinds #############################################
 c.aliases['dread-enable']   = 'spawn --userscript darkreader.py enable domain'
 c.aliases['dread-disable']  = 'spawn --userscript darkreader.py disable domain'
@@ -216,6 +214,9 @@ c.aliases['ytdl']           = 'spawn yt-dlp {url}' # youtube-dl
 c.aliases['ytdlx']          = 'spawn yt-dlp -x {url}'
 config.bind(';r',           'reload')
 config.bind(';c',           'config-source')
+config.bind(';g',           'greasemonkey-reload')
+config.bind(';s',           'colblack')
+config.bind(';d',           'colcycle')
 config.bind(';t',           'hint links spawn transmission-remote -a {hint-url}') # tors
 config.bind(';T',           'hint -r links spawn transmission-remote -a {hint-url}')
 config.bind('qq',           'mpvq') # mpv

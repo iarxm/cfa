@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name            youtube: video screen mods
-// @author:         iarom
+// @name              google:youtube: video screen mods
+// @author:           iarom
 // @include           *://*youtube.com/watch?v=*
 // // @include           *youtube.com/*
 // ==/UserScript==

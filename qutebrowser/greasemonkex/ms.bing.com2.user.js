@@ -3,7 +3,7 @@
 // @namespace   Greasemonkey
 // @description Hide specific elements on Bing search page
 // @include     *://*.bing.com/*
-//
+// 
 // ==/UserScript==
 
  
@@ -17,7 +17,6 @@ function addGlobalStyle(css) {
     head.appendChild(style);
 }
 
-addGlobalStyle('#b_header #id_h, #b_footer, #b_header .b_logoArea { visibility: hidden; }')
-     
-addGlobalStyle('html { background: #000000; }')
+addGlobalStyle('#b_header #id_h, #b_footer, #b_header .b_logoArea { visibility: hidden; }');
+addGlobalStyle('html { background: #000000; }');
 

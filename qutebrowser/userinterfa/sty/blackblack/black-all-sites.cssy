@@ -1,0 +1,12 @@
+
+/*
+::-webkit-resizer,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb:hover {
+     scrollbar-color:  #111111; /* thumb and track color */
+     background: black;
+     background-color: black;
+} 
+*/

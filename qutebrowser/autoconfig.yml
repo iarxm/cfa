@@ -18,8 +18,10 @@ settings:
     global: black
   colors.completion.odd.bg:
     global: black
+  colors.completion.scrollbar.bg:
+    global: '#000000'
   colors.completion.scrollbar.fg:
-    global: black
+    global: '#999999'
   colors.tabs.even.bg:
     global: black
   colors.tabs.odd.bg:
@@ -47,13 +49,15 @@ settings:
     https://outlook.office.com?mailtouri=%25s: false
     https://outlook.office365.com?mailtouri=%25s: false
   content.user_stylesheets:
-    global: /home/x/.config/qutebrowser/userinterfa/sty/solarizedd/solarized-dark-all-sites.css
+    global: ~/.config/qutebrowser/userinterfa/sty/blackblack/black-all-sites.css
   fonts.completion.entry:
     global: 13pt source sans pro
   fonts.prompts:
     global: 10pt
   fonts.statusbar:
     global: default_size default_family
+  scrolling.smooth:
+    global: true
   statusbar.show:
     global: in-mode
   statusbar.widgets:
