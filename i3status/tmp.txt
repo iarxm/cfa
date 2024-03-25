@@ -1,1 +1,0 @@
-{"name":"ip_local","button":1,"modifiers":["Control","Mod4"],"x":1257,"y":1064,"relative_x":54,"relative_y":9,"output_x":1257,"output_y":1064,"width":150,"height":25}
