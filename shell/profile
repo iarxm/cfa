@@ -136,5 +136,5 @@ export PROFILE_I="${XDG_CONFIG_HOME}/shell/profile-i" # interactive shell export
 #########################################################
 export MR_CONFIG="${XDG_CONFIG_HOME}/mr/mrconfig"
 export LC_COLLATE="C" # dotfiles first in ls and nnn?
-#export QT_QPA_PLATFORMTHEME="qt6ct"
+export QT_QPA_PLATFORMTHEME="qt6ct"
 #export QT_STYLE_OVERRIDE=kvantum

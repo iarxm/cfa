@@ -1,5 +1,7 @@
 #!/bin/sh
 ## vim:ft=sh
+alias sy="systemctl"
+alias syd="systemctl"
 alias castget="castget -C ${HOME}/.config/castget/castgetrc"
 alias s='sxiv'
 alias sx='sxiv'
