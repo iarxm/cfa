@@ -37,6 +37,7 @@ video/x-msvideo=mpv.desktop;
 video/x-matroska=mpv.desktop;
 video/webm=mpv.desktop;
 audio/mp3=mpv.desktop;
+audio/m4b=mpv.desktop;
 # mailto=mail.desktop;
 x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/notion=notion-app.desktop
