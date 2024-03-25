@@ -1,3 +1,4 @@
+# picking space
 
 /* all  ################################ */
 
@@ -21,8 +22,8 @@ root: {
     --btnbk7:                #000000;
     --btnbk8:                #000000;
     --background-color:      #000000;
-    background-color: #000000 !important; 
-    background:       #000000 !important;
+    /*background-color:        #000000 !important;  */
+    /*background:              #000000 !important; */
 }
 
 root:   {
@@ -34,19 +35,12 @@ root:   {
     --secbrdcole5:           #3b3a39;
 }
 
-#b_header,
-#b_content,
-canvas,
-body,
-html,
-a,p,
-article,
-section,
+#b_header, #b_content,
+html, body, article, section, canvas, a, p,
 input,
-textarea,
 blockquote {
      background-color: #000000 !important; 
-     background:       #000000 !important;
+     /*background:       #000000 !important; */
 }
 
 *, body {
@@ -63,14 +57,14 @@ blockquote {
 /* redditt ############################### */
 
 root: {
-    background-color: #000000 !important;
+     background-color: #000000 !important;
 }
 
 /* bing ################################## */
 
 
 #b_header #id_h, #b_footer, #b_header  .b_logoArea { 
-  visibility: hidden; }
+     visibility: hidden; }
 
 #b_results>li {
      background-color: #000000 !important; 
@@ -102,7 +96,7 @@ root: {
 
 root:, html[dark], [dark], html, ytd-app, canvas, ytd-mini-guide-renderer {
      background-color: #000000 !important; 
-     background:       #000000 !important;
+     /*background:       #000000 !important; */
 }
 * {
     --ytd-searchbox-background:                               #000000; !important;
@@ -144,8 +138,12 @@ root:, html[dark], [dark], html, ytd-app, canvas, ytd-mini-guide-renderer {
 
 /* arch linuux ######################### */
 
-#archnavbar,.anb-packages {
+#archnavbar, .anb-packages {
      background-color: #000000 !important; 
      background:       #000000 !important;
 }
+
+/* github ############################## */
+
+/*textarea, - applying a background style to this on gh would paint over the text witin the code block
 
