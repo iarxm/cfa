@@ -22,6 +22,8 @@ settings:
     global: '#000000'
   colors.completion.scrollbar.fg:
     global: '#999999'
+  colors.statusbar.caret.bg:
+    global: black
   colors.tabs.even.bg:
     global: black
   colors.tabs.odd.bg:
