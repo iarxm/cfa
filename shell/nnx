@@ -1,51 +1,35 @@
 #!/bin/bash
-
-#== PLUGS =============================
 prg_anot="anotr"
 prg_prev="uview"
 NCMD=''
-# gen
-NCMD+='R:renamer;'
-NCMD+='e:togglex;'
-NCMD+='V:-!nvim "$nnn";'
-NCMD+='N:-|!nvim "$nnn";'
-NCMD+='r:-|!vidir;'
-# opn
-NCMD+='f:finder;'
-NCMD+='o:fzopen;'
-NCMD+='n:nuke;'
-NCMD+='O:-|openall;'
-NCMD+='O:-|openall;'
-# preview
-NCMD+="t:preview-tui;"
-
-# asurf ###########################
-#NCMD+='a:!rename-prefix "$nnn";'
-NCMD+='w:cleanfilename;'
-NCMD+='x:!uview "$NNN_FIFO"*;' #TODO: call this from dsnn or dsev??? Have a centralised callback location?
-#NCMD+='x:!uview "$NNN_FIFO" "$nnn"*;'
-NCMD+=';:!anotr tag.mk "$nnn"*;'
-NCMD+='u:!anotr tag.rm "$nnn"*;'
-NCMD+='c:!anotr clone "$nnn"*;'
-NCMD+='a:!anotr tag.mk.quick "$nnn"*'
-
+NCMD+='w:cleanfilename;'               #rnm | asurf
+NCMD+='r:-|!vidir;'                    #rnm
+NCMD+='R:renamer;'                     #rnm
+NCMD+='e:togglex;'                     #mod
+NCMD+='v:-!nvim "$nnn";'               #edi
+NCMD+='n:-|!nvim "$nnn";'              #edi
+NCMD+='f:finder;'                      #opn
+NCMD+='o:fzopen;'                      #opn
+NCMD+='O:-|openall;'                   #opn
+NCMD+='n:nuke;'                        #opn
+NCMD+="t:preview-tui;"                 #prv
+NCMD+='x:!uview "$NNN_FIFO"*;'         # TODO: call this from dsnn or dsev??? Have a centralised callback location? #NCMD+='x:!uview "$NNN_FIFO" "$nnn"*;'
+NCMD+=';:!anotr tag.mk "$nnn"*;'       #asurf
+NCMD+='u:!anotr tag.rm "$nnn"*;'       #asurf
+NCMD+='c:!anotr clone "$nnn"*;'        #asurf
+NCMD+='a:!anotr tag.mk.quick "$nnn"*'  #asurf
+DIR="04" EXE="06" REG="00" SYMLINK="06"	BLK="0B" CHR="0B" HARDLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06" # CUSTOM MOD # MODS #DIR="1f" OTHER="11"
+DIR="26" OTHER="14"
+export NNN_PLUG="$NCMD"
+export NNN_TRASH=1
+export sel=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection
+export NNN_COLORS='#1f1f1f1f'
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
+##################################
+#export NNN_FIFO=/tmp/nnn.fifo
+#alterantive option for setting configs: nnn wrapper setting the vars on nnn launch
+#NCMD+='a:!rename-prefix "$nnn";'      #rnmA
 #NCMD+='x:-|!uview*;' #TODO: call this from dsnn or dsev??? Have a centralised callback location?
 #NCMD+='d:-|!addtoplaylist;'
 #NCMD+='g:!dsnn gimp "$nnn";'
 #NCMD+='m:!dsnn mpv.ws "$nnn";'
-
-# export ##########################
-export NNN_PLUG="$NCMD"
-export NNN_TRASH=1
-export sel=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection
-
-#== COLORS - FILE SPECIFIC ==============================
-DIR="04" EXE="06" REG="00" SYMLINK="06"	BLK="0B" CHR="0B" HARDLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06" # CUSTOM MOD
-# MODS #DIR="1f" OTHER="11"
-DIR="26" OTHER="14"
-export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
-export NNN_COLORS='#1f1f1f1f'
-
-############################
-#export NNN_FIFO=/tmp/nnn.fifo
-

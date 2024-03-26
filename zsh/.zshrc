@@ -1,18 +1,17 @@
 # ZSHRC
-# ###########################################
+# ###########################################A
 # AUTHOR: IAROM MADDEN
-# NOTES
 # - USE lf for nav (C-o, nav and exit)
 # - USE autocompletion features
 # - USE 
-# ############################################
-#
-# # POWERLEVEL10K
-# 	Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc. Important so that other initialisation processes can continue after the prompt has loaded. Providing a sense of responsiveness
-#
-# 	Note, Initialization code that may require console input (password prompts, [y/n]
+# POWERLEVEL10K Enable Powerlevel10k instant prompt. Should stay close to the top of 
+# ~/.config/zsh/.zshrc. Important so that other initialisation processes can continue 
+# after the prompt has loaded. Providing a sense of responsiveness
+# Note, Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 #
+##############################################
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
   PROMPT_C_OFF="1"
@@ -135,4 +134,4 @@ syntaxx="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.
 [[ -f $syntaxx ]] && source $syntaxx
 
 # SOURCING
-[[ -f $PROFILE_I ]] && source $PROFILE_I
+[[ -f $PROFILEI ]] && source $PROFILEI

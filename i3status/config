@@ -1,12 +1,11 @@
 general {
- 	interval = 5
+  interval = 5
   markup = "pango"
   output_format= "i3bar"
- 	colors = true
+  colors = true
   color_good = "#88b090"
   color_separator = "#88b090"
 }
-
 order += "workspaces"
 order += "disk /"
 order += "ipv6"
@@ -26,16 +25,16 @@ wireless _first_ {
 ethernet _first_ {
   format_down = ""
   format_up = "E: %ip (%speed)" 
-	color_good = "#88b090"
+  color_good = "#88b090"
 }
 tztime local {
   format = "%m/%d %H:%M"
 }
 battery all {
-	format = "%status %percentage %remaining"
+  format = "%status %percentage %remaining"
   format_down = ""
   #path ="/sys/class/power_supply/BAT1/uevent"
-	path = "/sys/class/power_supply/BAT%d/uevent"
+  path = "/sys/class/power_supply/BAT%d/uevent"
 }
 battery 0 {
   format = "%status %percentage %remaining"

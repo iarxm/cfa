@@ -1,22 +1,14 @@
 #!/bin/sh
 # vim: set ft=sh syntax=sh
-# VARIABLES ########################
+# VARIABLES ################################
 # Keep these as they are for sanity reasons / reduce complexity
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share" 
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_BIN_HOME="$HOME/.local/bin"
-export XCFG="${XDG_CONFIG_HOME}"
-export XBIN="${XDG_BIN_HOME}"
-export XDAT="${XDG_DATA_HOME}"
-export PATH="$PATH:$HOME/.local/usr/bin"
-export PATH="$PATH:$HOME/.local/bin"
-for d in "${XBIN}"/*; do [ -d "$d" ] && export PATH="$PATH:$d"; done
-# PATHS ############################
-#export PATH="$PATH:$HOME/.local/usr/binx" #tmp testing dir until skills improve
-#export PATH="$PATH:$XDG_BIN_HOME/:$BINX"
-#### PERSON POINTERS #########################
+export PATH="$PATH:$HOME/.local/usr/bin:$HOME/.local/bin"
+for d in "${XDG_BIN_HOME}"/*; do [ -d "$d" ] && export PATH="$PATH:$d"; done
 ## ENVIRONMENT ##############################
 export VISUAL="nvim"
 export EDITOR="nvim"
@@ -26,6 +18,8 @@ export LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
 export LESSCOLORIZER='bat'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
+export LC_COLLATE="C" # dotfiles first in ls and nnn?
+export QT_QPA_PLATFORMTHEME="qt6ct" #export QT_STYLE_OVERRIDE=kvantum
 export MAILCAPS=$XDG_CONFIG_HOME/shell/mailcap
 export TERMINAL="st"
 export PONYSAY_FULL_WIDTH="y"
@@ -82,6 +76,7 @@ export TASKRC="$XDG_CONFIG_HOME/task/taskrc"
 export VIT_DIR="$XDG_CONFIG_HOME/vit"
 export TIMEWARRIOR="$XDG_CONFIG_HOME/timewarrior"
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/notmuchrc"
+export MR_CONFIG="${XDG_CONFIG_HOME}/mr/mrconfig"
 # CONFIG.B
 export W3M_DIR="$XDG_CONFIG_HOME/w3m"
 export WWW_HOME="$XDG_CONFIG_HOME/w3m"
@@ -105,7 +100,7 @@ export TEXMFSYSVAR=/var/lib/texmf
 export TEXMFSYSCONFIG=/etc/texmf
 [[ ! -n $(which systemctl | grep "not found") ]] && systemctl --user import-environment GNUPGHOME XAUTHORITY
 #### XDG DIR ######################################
-export XDGX="$XDG_DATA_HOME/adir"
+export XDGX="$XDG_DATA_HOME/aaa"
 export XDG_DOWNLOAD_DIR="$HOME/ii"
 export XDG_DESKTOP_DIR="$XDGX/xdsk"
 export XDG_DOCUMENTS_DIR="$XDGX/doc"
@@ -115,26 +110,19 @@ export XDG_PUBLICSHARE_DIR="$XDGX/xpublic"
 export XDG_TEMPLATES_DIR="$XDGX/xtmpl"
 export XDG_VIDEOS_DIR="$XDGX/xvid"
 # HOME CLEANING ####################
-export LCX="${HOME}/.xx"
-export BINX="${LCX}/bin"
-export DATX="${LCX}/share"
-export CFGC="${LCX}/cfg"
-export CFGX="${LCX}/cfgx"
-# X
-export SHELL_X="${XDG_CONFIG_HOME}/shell_p"
-export PROFILE_X="${XDG_CONFIG_HOME}/shell_p/profile"
-export ALIAS_X="${XDG_CONFIG_HOME}/shell_p/alias"
-# O
-export ALIASESRC="$XDG_CONFIG_HOME/shell/aliases"
-export PROFILE_I="${XDG_CONFIG_HOME}/shell/profile-i" # interactive shell exports
-#export CFG_PERSON="${CFGP}"
-#== INTERACTIVE SHELL PREPERATION ===============
-[[ -f "$PROFILE_X" ]] 	&& . "$PROFILE_X"
-# START X ### IDEALLY GOES LAST #########################
-[ "$(tty)" = '/dev/tty1' ] && startx -- -keeptty >~/.local/share/xorg/zxorg.log 2>&1 
-#########################################################
-#########################################################
-export MR_CONFIG="${XDG_CONFIG_HOME}/mr/mrconfig"
-export LC_COLLATE="C" # dotfiles first in ls and nnn?
-export QT_QPA_PLATFORMTHEME="qt6ct"
-#export QT_STYLE_OVERRIDE=kvantum
+export SHELLX_D="${XDG_CONFIG_HOME}/shelx/"
+export PROFILEX="${XDG_CONFIG_HOME}/shelx/profile"
+export PROFILEI="${XDG_CONFIG_HOME}/shell/profili" # interactive shell exports
+export ALIASESR="${XDG_CONFIG_HOME}/shell/aliases"
+[[ -f "$PROFILEX" ]] 	&& . "$PROFILEX"
+#== INTERACTIVE SHELL INIT ######################
+[ "$(tty)" = '/dev/tty1' ] && startx -- -keeptty >~/.local/share/xorg/zxorg.log 2>&1 # ideally goes last
+# PATHS #####################################
+#export PATH="$PATH:$HOME/.local/usr/binx" #tmp testing dir until skills improve
+#export PATH="$PATH:$XDG_BIN_HOME/:$BINX"
+#### PERSON POINTERS #######################
+export XCFG="${XDG_CONFIG_HOME}"
+export XBIN="${XDG_BIN_HOME}"
+export XDAT="${XDG_DATA_HOME}"xport XCFG="${XDG_CONFIG_HOME}"
+export XBIN="${XDG_BIN_HOME}"
+export XDAT="${XDG_DATA_HOME}"

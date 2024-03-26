@@ -1,5 +1,14 @@
 #!/bin/sh
 ## vim:ft=sh
+makeu()      { cd $1; exec make & }
+killc()      { i=0; while i < 10 ; do sudo pkill $1; done } # aggressive kill
+_xargs()     { xargs -0 < $sel ;}
+_xinit_dwm() { while true; do dwm 2> ~/.cache/dwm.log ; done } # Log stderror to a file 
+_finddiff()  { find "$1" "$2" "$2" -printf '%P\n' | sort | uniq -u ;}
+_khalmod()   { [ -n "$1" ] && khal $@ -a Calendar -a Birthdays -a recur.yr || khal; }
+alias unmountall='udiskie-umount -a --detach'
+alias vdirsyncer="vdirsyncer sync && vdirsyncer metasync"
+alias tabbedx="tabbed -r 2 st -w ''"
 alias sy="systemctl"
 alias syd="systemctl"
 alias castget="castget -C ${HOME}/.config/castget/castgetrc"
@@ -301,15 +310,12 @@ sys.cache.clear() {
 	printf "CCACHE: Clearing pacman cache\n"
 	sudo paccache -rk1 # keep latest 1 of pacman cache
 	paccache -ruk0 # rm cache of uninstalled
-
 }
-
 sys.cursorfix() {
 	#sudo rmmod psmouse
 	sudo modprobe -r psmouse
 	sudo modprobe psmouse
 	# another potential solution: Change the Touchpad setting in your BIOS from ADVANCED to BASIC (makes no difference with regards to functionality)
-	
 	## pacman -Qtdq | pacman -Rns -
 		## uninstall and remove configs for orphan packages:
 			## check for useful packages first
