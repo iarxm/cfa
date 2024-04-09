@@ -34,18 +34,18 @@ bind index,pager 	'mm' 	"mail"
 bind index,pager    'mv'  	"view-attachments"
 bind index,pager    'mb'  	"buffy-list"
 bind index,pager    'mr'  	"view-raw-message"
-macro index,pager   'mw'  	"<sync-mailbox>y<enter>"
-#macro index,pager   'mww'  	"<sync-mailbox>y<enter>"
+#macro index,pager   'mw'  	"<sync-mailbox>y<enter>"
+macro index,pager   'mww'  	"<sync-mailbox>y<enter>"
 bind index,pager 	'oo' 	sort-mailbox
 bind index,pager 	'ob' 	sort-mailbox
 bind index,pager	'R'  	group-reply
-macro index,pager	gg		"<first-entry>"
-macro index,pager	G		"<last-entry>"
+macro index,pager	'gg'		"<first-entry>"
+macro index,pager	'G'		"<last-entry>"
 macro index,pager	\ej \
 	"<next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted>"
 macro index,pager	\ek \
 	"<previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted>"
-#== sidebar =========================
+# sidebar ####################################
 #bind index,pager    B   sidebar-toggle-visible
 bind index,pager 	bs 	sidebar-toggle-visible
 bind index,pager 	"\Ck" 	sidebar-prev
@@ -106,8 +106,8 @@ set my_next_u             = '<enter-command>macro index,pager j "<next-entry>$my
 set my_next_d             = '<enter-command>macro index,pager j "<next-entry>"'
 set my_prev_u             = '<enter-command>macro index,pager k "<previous-entry>$my_c_b_x"'
 set my_prev_d             = '<enter-command>macro index,pager k "<previous-entry>"'
-macro index,pager               bu "$my_next_u<enter>$my_prev_u<enter>"
-macro index,pager               bd "$my_next_d<enter>$my_prev_d<enter>"
+macro index,pager         bu "$my_next_u<enter>$my_prev_u<enter>"
+macro index,pager         bd "$my_next_d<enter>$my_prev_d<enter>"
 # TODO: is the index version above useful?
 #unbind j
 #unbind k

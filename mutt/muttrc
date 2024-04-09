@@ -21,17 +21,18 @@ unignore to: cc: from:                  # ..then selectively show only these hea
 unhdr_order *                           # some distros order things by default
 hdr_order from: to: cc: date: subject:  # header item ordering
 set sleep_time 		= 0
+#set pager                = "nvim"
 set pager_index_lines	= 3
 set pager_context       	= 12     # context lines to show
 set pager_stop			= yes
-set wrap				= 100
-set smart_wrap 		= yes
-set markers 			= no
+#set wrap				= 100
+#set smart_wrap 		= yes
+set markers 			= yes
 set implicit_autoview 	= yes
 #alternative_order        text/plain text/enriched text/html multipart/alternative # this can mess up the mailcap functioning for autoview
 auto_view                text/plain text/html
 #auto_view autoview text/* application/* image/* audio/* video/* # for lesspipe
-#==== Sidebar ========================
+#### Sidebar #############################
 set sidebar_visible 	= no
 set sidebar_format 		= "%D%?F? [%F]?%* %?N?%N/?%S" # "%B%?F? [%F]?%* %?N?%N/?%S"
 set vfolder_format 		= "%6n(%6N) %f"
@@ -73,7 +74,7 @@ source $my_gpg
 # VARS
 set my_cfgx  			= "$HOME/.config/muttm"
 set certificate_file	= "$my_cfgx/dt.certificates"
-set signature			= "$my_cfgx/dt.sig"
+#set signature			= "$my_cfgx/dt.sig"
 set my_cfgx_file		= "$my_cfgx/amuttrc"
 source $my_cfgx_file
 set alias_file 		= "$my_cfgx/dt.aliases"

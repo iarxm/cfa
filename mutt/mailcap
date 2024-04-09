@@ -1,12 +1,7 @@
 # vim:ft=mailcap
-text/plain;       copiousoutput;
-#text/html;        LESSQUIET=1 lesspipe.sh '%s'; copiousoutput;
-#
-#text/html;       nohup qb qmutt %s > /dev/null 2>&1 &; copiousoutput; needsterminal; nametemplate=%s.html;
-#text/html;       qb qmutt %s &; copiousoutput; needsterminal; nametemplate=%s.html;
-#text/html;       qb qmutt %s & LESSQUIET=1 lesspipe.sh '%s'; copiousoutput; needsterminal; nametemplate=%s.html;
-#text/html;       qb qmutt %s & w3m -I %{charset} -T text/html -o display_charset=%{charset} -o auto_image=TRUE %s; copiousoutput; nametemplate=%s.html
-text/html;       w3m -I %{charset} -T text/html -o display_charset=%{charset} -o auto_image=TRUE; copiousoutput
+text/plain;      w3m -I %{charset} -s -T text/plain -o display_charset=%{charset} -o auto_image=TRUE | ml.spaces; copiousoutput
+
+text/html;       w3m -I %{charset} -s -T text/html -o display_charset=%{charset} -o auto_image=TRUE | ml.spaces; copiousoutput
 image/*;         sxiv %s
 application/*;   xdg-open %s &> /dev/null &; 
 image/*;         xdg-open %s &> /dev/null &;
@@ -15,3 +10,10 @@ application/pdf; zathura %s
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; pandoc --from docx --to markdown %s; copiousoutput
 application/vnd.oasis.opendocument.text; pandoc --from odt --to markdown %s; copiousoutput
 # LESSCOLORIZER='pygmentize -O style=foo'
+#text/html;        LESSQUIET=1 lesspipe.sh '%s'; copiousoutput;
+#
+#text/html;       nohup qb qmutt %s > /dev/null 2>&1 &; copiousoutput; needsterminal; nametemplate=%s.html;
+#text/html;       qb qmutt %s &; copiousoutput; needsterminal; nametemplate=%s.html;
+#text/html;       qb qmutt %s & LESSQUIET=1 lesspipe.sh '%s'; copiousoutput; needsterminal; nametemplate=%s.html;
+#text/html;       qb qmutt %s & w3m -I %{charset} -T text/html -o display_charset=%{charset} -o auto_image=TRUE %s; copiousoutput; nametemplate=%s.html
+#text/plain;       copiousoutput;
