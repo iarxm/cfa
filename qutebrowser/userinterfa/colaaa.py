@@ -1,7 +1,4 @@
 # temp fix for statusbar bug:
-c.fonts.statusbar      = "0pt Sourc Sans Pro"
-c.zoom.default         = "100%"
-c.downloads.position = "bottom"
 c.colors.completion.fg                           = "#899CA1"
 c.colors.completion.category.fg                  = "#F2F2F2"
 c.colors.completion.category.bg                  = "black"
@@ -44,57 +41,49 @@ c.colors.tabs.indicator.error                    = "#8A2F58"
 c.colors.downloads.start.fg                      = "white"
 c.colors.downloads.start.bg                      = "black"
 c.colors.downloads.stop.fg                       = "white"
-c.colors.downloads.stop.bg                       = "#F0F0F0"
+c.colors.downloads.stop.bg                       = "black"
 c.colors.hints.bg                                = "#CCCCCC"
 c.colors.hints.match.fg                          = "#000"
 c.colors.messages.error.bg                       = "#8A2F58"
 c.colors.messages.error.border                   = "#8A2F58"
 c.colors.messages.warning.bg                     = "#BF85CC"
 c.colors.messages.warning.border                 = c.colors.messages.warning.bg
-c.colors.messages.info.bg                        = "#333333"
+c.colors.messages.info.bg                        = "#000000"
 c.colors.prompts.fg                              = "#333333"
 c.colors.prompts.bg                              = "#000000"
+c.colors.prompts.border                          = "#000000"
 c.colors.prompts.selected.bg                     = "#4779B3"
 c.colors.keyhint.fg                              = "#FFFFFF"
 c.colors.keyhint.suffix.fg                       = "#FFFF00"
 c.colors.keyhint.bg                              = "rgba(0, 0, 0, 80%)"
-c.fonts.default_family        = ["Source Sans Pro",
-                                 "Noto Sans Mono",
-                                 "DejaVu Sans Mono",
-                                 "Liberation Mono"]
-c.fonts.tabs.selected         = "10pt Source Sans Pro"
-c.fonts.statusbar             = "10pt Sourc Sans Pro"
-c.fonts.hints                 = "16pt DejaVu Sans Mono"
-c.fonts.messages.info         = "13pt Noto Sans Mono"
-c.fonts.tabs.unselected       = c.fonts.tabs.selected
-c.fonts.downloads             = c.fonts.statusbar 
-c.fonts.prompts               = c.fonts.statusbar
-c.fonts.keyhint               = c.fonts.messages.info
-c.fonts.messages.warning      = c.fonts.messages.info
-c.fonts.messages.error        = c.fonts.messages.info
-c.fonts.completion.entry      = c.fonts.statusbar
-c.fonts.completion.category   = c.fonts.statusbar
-c.colors.webpage.bg                     = "black"
-c.colors.webpage.darkmode.enabled       = True
-c.colors.webpage.darkmode.policy.images = "never"
-c.colors.webpage.preferred_color_scheme = "dark"
+c.fonts.default_family                           = ["Source Sans Pro",
+                                                    "Noto Sans Mono",
+                                                    "DejaVu Sans Mono",
+                                                    "Liberation Mono"]
+c.fonts.tabs.selected                            = "10pt Source Sans Pro"
+c.fonts.statusbar                                = "10pt Sourc Sans Pro"
+c.fonts.hints                                    = "16pt DejaVu Sans Mono"
+c.fonts.messages.info                            = "13pt Noto Sans Mono"
+c.fonts.tabs.unselected                          = c.fonts.tabs.selected
+c.fonts.downloads                                = c.fonts.statusbar 
+c.fonts.prompts                                  = c.fonts.statusbar
+c.fonts.keyhint                                  = c.fonts.messages.info
+c.fonts.messages.warning                         = c.fonts.messages.info
+c.fonts.messages.error                           = c.fonts.messages.info
+c.fonts.completion.entry                         = c.fonts.statusbar
+c.fonts.completion.category                      = c.fonts.statusbar
+c.colors.webpage.bg                              = "black"
+c.colors.webpage.darkmode.enabled                = True
+c.colors.webpage.darkmode.policy.images          = "never"
+c.colors.webpage.preferred_color_scheme          = "dark"
 c.colors.webpage.darkmode.contrast
 # #222222
 #"#DDDDDD"
 #c.colors.statusbar.insert.bg = "#222222"
-# colors - ===============================================
-#c.url.default_page = 'file://{home_dir}/.config/qutebrowser/ui/a.hm/index.html'
-#c.url.start_pages = 'file://{home_dir}/.config/qutebrowser/ui/a.hm/index.html'
-# c.url.start_pages = 'file://{home_dir}/.config/qutebrowser/ui/a.hm/.jpg'
-
 #c.colors.webpage.darkmode.policy.page
 #c.colors.webpage.darkmode.threshold.background
 #c.colors.webpage.darkmode.threshold.text
 #c.colors.webpage.darkmode.algorithm
 #c.colors.webpage.darkmode.grayscale.all
 #c.colors.webpage.darkmode.grayscale.images
-#c.content.user_stylesheets = "/home/iao/.c/q/css/draconian-darkmode-stylesheet.css"
-#c.content.user_stylesheets = "/home/iao/.c/q/stylesheet/solarized-dark-all-sites.css"
-#c.content.user_stylesheets = '/home/iao/.config/qutebrowser/css/solarized-light-all-sites.css'
-#c.content.user_stylesheets = ['/home/iao/.config/qutebrowser/css/solarized-light-all-sites.css', '/home/iao/.c/q/css/solarized-dark-all-sites.css', '/home/iao/.c/q/css/draconian-darkmode-stylesheet.css', '/home/iao/.c/q/css/a.null.css' ]
 

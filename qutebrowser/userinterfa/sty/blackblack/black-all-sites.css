@@ -36,12 +36,13 @@ root:   {
 }
 
 #b_header, #b_content,
-html, body, article, section, canvas, a, p,
+html, body, article, section, canvas,
 input,
 blockquote {
      background-color: #000000 !important; 
      /*background:       #000000 !important; */
 }
+/* a, p, was blacking out some text area's */
 
 *, body {
      border-color:     #000000 !important;

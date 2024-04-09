@@ -30,6 +30,8 @@ settings:
     global: black
   colors.webpage.bg:
     global: black
+  content.blocking.enabled:
+    global: false
   content.cache.size:
     global: 10000000000
   content.desktop_capture:
@@ -51,13 +53,15 @@ settings:
     https://outlook.office.com?mailtouri=%25s: false
     https://outlook.office365.com?mailtouri=%25s: false
   content.user_stylesheets:
-    global: ~/.config/qutebrowser/userinterfa/sty/blackblack/black-all-sites.css
+    global: null
   fonts.completion.entry:
     global: 13pt source sans pro
   fonts.prompts:
     global: 10pt
   fonts.statusbar:
     global: default_size default_family
+  input.partial_timeout:
+    global: 1000
   scrolling.smooth:
     global: true
   statusbar.show:
