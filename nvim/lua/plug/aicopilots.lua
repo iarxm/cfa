@@ -1,7 +1,8 @@
+
 -- ## others:
 -- https://github.com/dpayne/CodeGPT.nvim
 -- https://github.com/Bryley/neoai.nvim
-local gpt_configs = {
+local gpt_configs = { -- chatgpt.nvim
 	api_key_cmd = "pass openai.com/future@iarom.org/key",
     	yank_register = "+",
     	edit_with_instructions = {
@@ -137,16 +138,17 @@ local gpt_configs = {
 	predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
 }
 
---- ##################################################
--- RUN #############
-return { 'jackMort/ChatGPT.nvim',
-	event = 'VeryLazy',
-	config = function()
-			require("chatgpt").setup(gpt_configs)
-		end,
-	dependencies = {
-		"MunifTanjim/nui.nvim",
- 		"nvim-lua/plenary.nvim",
- 		"nvim-telescope/telescope.nvim",
-	},
+-- RUN #################################################
+return { 
+     {'jackMort/ChatGPT.nvim', -- chatgpt.nvim
+	     event = 'VeryLazy',
+	     config = function()
+     			require("chatgpt").setup(gpt_configs)
+     		end,
+     	dependencies = {
+     		"MunifTanjim/nui.nvim",
+      		"nvim-lua/plenary.nvim",
+      		"nvim-telescope/telescope.nvim",},},
+     {'https://github.com/github/copilot.vim', -- gh copilot
+          cmd = 'Copilot',},
 }

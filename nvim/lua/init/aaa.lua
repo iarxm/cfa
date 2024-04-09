@@ -19,23 +19,10 @@ opt.laststatus      = 3
 vim.cmd.syntax('on')
 vim.cmd.filetype('plugin on')
 opt.tags:append({ "./.tags;", ".tags" })
---require("init") -- how to load everythin in 'init/' by one command?
---require("auto")
 require("init.map")
 require("init.laz")
 require("init.lsp")
 require("init.col")
 require("init.zlt")
 require("auto.odo")
--- TODO: load all the 'requires' via plugins??
-
--- TODO: INTEGRATE VIA OTHER LOADING MECHANISMS...::
--- vim.cmd [[ source $HOME/.config/nvim/init.vim ]]
-
--- TODO: modularise my configs further by setting rtp to a plugin like configuration dir
-
--- opt.relativenumber = true
--- vim.loader.enable()
--- opt.formatlistpat = '^>\\s*\\[({]?[0-9]+\\|[a-zA-Z]+\\)[\\]:.)}]\\s\\+\\|\\^>\\s*[-–+o*•]\\s\\+'
--- opt.tabline= '%!uix#MyTabLine()'
 

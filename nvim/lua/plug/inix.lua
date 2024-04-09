@@ -1,4 +1,5 @@
 return {
+  {'sheerun/vim-polyglot'},
   {'blindFS/vim-taskwarrior', 
     lazy = true,
     cmd = 'TW',
@@ -19,7 +20,7 @@ return {
   { "powerman/vim-plugin-AnsiEsc" },
   { "scateu/tsv_edl.vim",      cmd = "Edl",},        --exp?
   { "folke/lazy.nvim",         version = "*" },              -- focus?
-    {'junegunn/limelight.vim', cmd = 'Limelight'},   -- focus/write
+  {'junegunn/limelight.vim',   cmd = 'Limelight'},   -- focus/write
   {'bilalq/lite-dfm',          cmd = 'LiteDFMToggle' },   -- focus/write
   {'junegunn/goyo.vim',        cmd = 'Goyo' },       -- focus/write
   {'https://github.com/Dotrar/nvim-writeonly'},      -- write only mode (forced insert)

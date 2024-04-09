@@ -5,10 +5,8 @@ return { "nvim-neo-tree/neo-tree.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
-      {
-        -- only needed if you want to use the commands with "_with_window_picker" suffix
-        's1n7ax/nvim-window-picker',
-        config = function()
+      { 's1n7ax/nvim-window-picker', -- only needed if you want to use the commands with "_with_window_picker" suffix
+          config = function()
           require'window-picker'.setup({
             autoselect_one = true,
             include_current = false,
@@ -25,12 +23,9 @@ return { "nvim-neo-tree/neo-tree.nvim",
             other_win_hl_color = '#e35e4f',
           })
         end,
-      }
-    },
-    config = function ()
-      -- Unless you are still migrating, remove the deprecated commands from v1.x
+      }},
+    config = function () -- Unless you are still migrating, remove the deprecated commands from v1.x
       vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-
       -- If you want icons for diagnostic errors, you'll need to define them somewhere:
       vim.fn.sign_define("DiagnosticSignError",
         {text = " ", texthl = "DiagnosticSignError"})
@@ -262,7 +257,6 @@ return { "nvim-neo-tree/neo-tree.nvim",
           }
         }
       })
-
       vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
     end
 }

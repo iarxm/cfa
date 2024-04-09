@@ -1,19 +1,11 @@
 return {
-	-- TREESITTER #################################
-	-- { "nvim-treesitter/nvim-treesitter",
-	--	lazy = 'VeryLazy'
-	-- },
 	{ "nvim-treesitter/playground" },
   	{ "nvim-treesitter/nvim-treesitter",
     		event = { "BufReadPost", "BufNewFile" },
-    		dependencies = {
-      		{ "nvim-treesitter/nvim-treesitter-textobjects",},
-    		},
+    		dependencies = { { "nvim-treesitter/nvim-treesitter-textobjects",},},
 		keys = {
       		{ "<c-space>", desc = "Increment selection" },
-      		{ "<bs>", desc = "Decrement selection", mode = "x" },
-    		},
-    		-- ? ---@type TSConfig
+      		{ "<bs>", desc = "Decrement selection", mode = "x" },},
     		opts = {
       		highlight = { enable = true },
       		indent = { enable = true },
@@ -31,12 +23,11 @@ return {
 	        		"python",
 	        		"query",
 	        		"regex",
-	       		 "tsx",
+	       		"tsx",
 	        		"typescript",
-	       		 "vim",
+	       		"vim",
 	        		"vimdoc",
-	        		"yaml",
-	      	},
+	        		"yaml",},
 	      	incremental_selection = {
 	        		enable = true,
 	        		keymaps = {
@@ -44,9 +35,5 @@ return {
 	          		node_incremental = "<C-space>",
 	          		scope_incremental = false,
 	          		node_decremental = "<bs>",
-	      	  	},
-	      	},
-    		},
-	},
-}
-
+},   },   },   },   }
+-- ? ---@type TSConfig
