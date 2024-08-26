@@ -1,9 +1,5 @@
 ! vim:ft=xdefaults
 #include "urxvt/config"
-#include "X11/col.set"
-! ==== dynamically set font size - scriptable: ==========
-#include "X11/xresources.font"
-! ==== basic ============
 *.dpi: 			96
 *.antialias: 		true
 *.hinting: 		true
@@ -11,8 +7,7 @@
 *.autohint: 		true
 *.hintstyle: 		hintslight
 *.lcdfilter: 		lcddefault
-
-! ==== alphas ============
+! alphas #####################
 *.alpha: 			0.9
 *.nnnf1.alpha: 	0.5
 *.nnnf4.alpha: 	0.6
@@ -23,21 +18,31 @@
 *.tabbed.alpha: 	1
 *.preview.alpha: 	1
 *.ooaa.alpha: 		1
+! apps #######################
 urxvt*urgentOnBell: true
 st*urgentOnBell:    true
-! SXIV ---------------------
 Sxiv.font: 		Hack-9
 Sxiv.background: 	#000000
 Sxiv.foreground:	#5A5A5A
-
-! tabbed --------------------
 tabbed.normbgcolor:	#000000
-
-! ==== man pages ================
-! add colors 
+! man pages #################
 *VT100.colorBDMode:     true
 *VT100.colorBD:         red
 *VT100.colorULMode:     true
 *VT100.colorUL:         cyan
 *VT100.veryBoldColors: 	6
-
+! color scheme ##############
+#include "X11/z/zcol.dracula.Xresources"
+! #include "X11/z/zcol.kanagawa.Xresources"
+! #include "X11/z/zcol.terminal.sexy.Xresources"
+! #include "X11/z/zcol.newer.Xresources"
+! #include "X11/z/zcol.sourcerer.Xresources"
+! #include "X11/z/zcol.th1.Xresources"
+! #include "X11/z/zcol.drac.Xresources"
+! #include "X11/z/zcol.dracula.Xresources"
+! TODO: kanagawa-dragon Xreousrces variant
+! font ######################
+!*.font:	Liberation Mono:antialias=true:autohint=true;
+!*.font:	Liberation Mono:pixelsize=12:antialias=true:autohint=true;
+! *.font:	Liberation Mono:antialias=true:autohint=true:pixelsize=16;
+ *.font:	Liberation Mono:pixelsize=14:antialias=true:autohint=true;
