@@ -1,1 +1,1 @@
-[[ -f ~/.config/shell/profile ]] && . ~/.config/shell/profile
+. ~/.config/shell/profile 2>/dev/null

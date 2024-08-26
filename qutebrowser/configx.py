@@ -57,7 +57,7 @@ c.content.xss_auditing              = True
 c.content.cache.size                = 2147483647
 c.qt.chromium.low_end_device_mode   = "auto"
 c.qt.chromium.process_model         = "process-per-site-instance"
-c.qt.chromium.experimental_web_platform_features = "always"
+#c.qt.chromium.experimental_web_platform_features = "always"
 c.qt.workarounds.disable_accelerated_2d_canvas = "always"
 c.qt.args                           = [ \
     'ignore-gpu-blacklist', \
