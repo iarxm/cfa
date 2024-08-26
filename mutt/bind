@@ -98,7 +98,7 @@ macro index,pager		'of' "$my_c_bfl_x"
 macro attach,compose 	'of' "$my_c_bfl_y"
 # browser.text
 macro index,pager 		'I'  "$my_c_bterm_x"
-# EMAIL POST PROCESS STYLING 
+# post processing styling
 macro compose 			.mm  "$my_c_style"
 #macro attach,compose 	'ob'
 #macro index,pager		'ob' 
@@ -108,6 +108,7 @@ set my_prev_u             = '<enter-command>macro index,pager k "<previous-entry
 set my_prev_d             = '<enter-command>macro index,pager k "<previous-entry>"'
 macro index,pager         bu "$my_next_u<enter>$my_prev_u<enter>"
 macro index,pager         bd "$my_next_d<enter>$my_prev_d<enter>"
+startup-hook 		      "push 'bu'"
 # TODO: is the index version above useful?
 #unbind j
 #unbind k
