@@ -1,9 +1,9 @@
 ### vim: set ft=i3config
 exec source ~/.profile
-set $mda                 mod4
 set $mod                 mod4
-set $mdb                 mod1
 set $mod1                mod1
+set $mda                 mod4
+set $mdb                 mod1
 set $ws0                 0
 set $ws1                 1
 set $ws2                 2
@@ -15,21 +15,18 @@ set $ws7                 7
 set $ws8                 8
 set $ws9                 9
 set $ws10                10
-set $scr                 /home/$USER/iis/scr
 set $exn                 exec --no-startup-id
-set $stfm                exec i3s mrfl
-set $stfx                exec i3s stfl
-set $stfy                exec i3s stfl 0.5
-set $wsf                 exec i3s
-set $ffx                 exec i3s ffxr
-set $refresh             killall -SIGUSR1 i3status
+set $ixx                 exec ixx
+set $isf                 exec i3s ffxr
+set $isw                 exec i3s wx
+set $isx                 exec i3s
 floating_modifier        $mda
 floating_maximum_size    0 x 0
 include                  ~/.config/i3/xprv.config
 include                  ~/.config/i3/xcol.config
 include                  ~/.config/i3/xwin.config
-bindsym $mdb+Ctrl+k       $exn pamixer --allow-boost -i 10 && $refresh
-bindsym $mdb+Ctrl+j       $exn pamixer --allow-boost -d 10 && $refresh
+bindsym $mdb+Ctrl+k       $exn pamixer --allow-boost -i 10
+bindsym $mdb+Ctrl+j       $exn pamixer --allow-boost -d 10
 bindsym $mdb+Ctrl+p       $exn mpc toggle
 bindsym $mda+$mdb+Ctrl+m  exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mda+s            $exn flameshot gui
@@ -57,37 +54,22 @@ bindsym $mda+z            move scratchpad
 bindsym $mdb+z            scratchpad show
 bindsym $mda+Shift+z      floating toggle
 bindsym $mdb+Shift+f      [class=.*] scratchpad show 
-bindsym $mda+j            focus down
-bindsym $mda+k            focus up 
-bindsym $mda+l            focus right 
-bindsym $mda+h            focus left
-bindsym $mdb+j            focus right
-bindsym $mdb+k            focus left
-#bindsym $mdb+l          focus right # todo: move 1 workspace over
-#bindsym $mdb+h          focus left # todo: sim to above
-bindsym $mdb+Shift+j      move right
-bindsym $mdb+Shift+k      move left
-bindsym $mda+Shift+j      move down
-bindsym $mda+Shift+k      move up
-bindsym $mda+Shift+l      move right 
-bindsym $mda+Shift+h      move left 
-bindsym $mda+Shift+Down   move down
-bindsym $mda+Shift+Up     move up
-bindsym $mda+Shift+Right  move right
-bindsym $mda+Shift+Left   move left
-bindsym $mda+Semicolon    focus left 
-bindsym $mda+Left         focus left
-bindsym $mda+Down         focus down
-bindsym $mda+Up           focus up
-bindsym $mda+Right        focus right
+bindsym $mdb+h            focus left
+bindsym $mdb+l            focus right
+bindsym $mdb+j            focus down
+bindsym $mdb+k            focus up
+bindsym $mdb+Shift+h      move left
+bindsym $mdb+Shift+l      move right
+bindsym $mdb+Shift+j      move down
+bindsym $mdb+Shift+k      move up
 bindsym $mda+Shift+r      restart
 bindsym $mdb+Shift+r      reload 
 bindsym $mda+r            mode "resize"
 #bindsym $mda+$mdb         $exn i3poly-hide
 bindsym $mda+Shift+e      exec "i3-nagbar -t warning -m 'exit i3?' -B 'exit i3' 'i3-msg exit'" 
-bindsym $mdb+$mda+j       $wsf left
-bindsym $mdb+$mda+k       $wsf right
-bindsym $mdb+$mda+n       workspace number 1
+bindsym $mda+h            $isx left
+bindsym $mda+l            $isx right
+#bindsym $mdb+$mda+n       workspace number 1
 bindsym $mdb+0            workspace number $ws0
 bindsym $mdb+1            workspace number $ws1
 bindsym $mdb+2            workspace number $ws2
@@ -134,35 +116,56 @@ bindsym $mdb+Return          exec /usr/bin/st
 bindsym $mdb+b               exec qb
 bindsym $mdb+a               exec qb w.gpt
 bindsym $mdb+$mda+b          exec firefox
-bindsym $mda+m               exec i3s w.ml
-bindsym $mdb+r               $wsf wx "xrd"
-bindsym $mdb+$mda+Shift+r    $wsf    "wxrd"
-bindsym $mdb+o               $wsf wx "xai"
-bindsym $mdb+Shift+o         $wsf    "wxai"
-bindsym $mdb+p               $wsf wx "xoo"
-bindsym $mdb+Shift+p         $wsf    "wxoo"
-bindsym $mdb+m               $wsf wx "xml"
-bindsym $mdb+Shift+m         $wsf    "wxml"
-bindsym $mda+a               $wsf wx "xsx"
-bindsym $mda+Shift+a         $wsf    "wxsx"
+bindsym $mda+m               $ixx w.ml
+bindsym $mdb+r               $isw xrd
+bindsym $mdb+$mda+Shift+r    $ixx wxrd
+bindsym $mdb+o               $isw xai
+bindsym $mdb+Shift+o         $ixx wxai
+bindsym $mdb+p               $isw xoo
+bindsym $mdb+Shift+p         $ixx wxoo
+bindsym $mdb+m               $isw xml
+bindsym $mdb+Shift+m         $ixx wxml
+bindsym $mda+a               $isw xsx
+bindsym $mda+Shift+a         $ixx wxsx
+bindsym $mda+o               $isw xmj
+bindsym $mda+Shift+o         $ixx wxmj
+bindsym $mda+b               $isw xau
+bindsym $mda+Shift+b         $ixx wxau
+bindsym $mdb+i               $isf nnn1
+bindsym $mdb+Shift+i         $ixx nn1
+bindsym $mda+i               $isf nnn2
+bindsym $mda+Shift+i         $ixx nn2
+bindsym $mdb+Ctrl+i          $isf nnn3
+bindsym $mdb+Ctrl+Shift+i    $ixx nn3
+bindsym $mdb+n               $isf n0
+bindsym $mdb+Shift+n         $ixx vfua
+bindsym $mda+n               [class="^n1$"] scratchpad show
+bindsym $mda+Shift+n         $ixx vfub
+#bindsym $mdb+Control+n       [class="^n2$"] scratchpad show
+#bindsym $mdb+Control+Shift+n $ixx vfuc 'vxx'
+#bindsym $mda+Ctrl+n          [class="^n3$"] scratchpad show
+#bindsym $mda+Ctrl+Shift+n    $ixx n2 'vxx'
+
+#   -m2-b - qutebrowser
+# m1-m2-b - firefox
+#   -m2-a - gpt
+#   -m1-m - mutt
+
+#   -m2-r - rd
+#   -m2-o - ai
+#   -m2-p - oo
+#   -m2-m - ml
+
+#   -m1-a - sx
+#   -m1-o - mj
+#   -m1-b - au
+#############################################################3
 #bindsym $mdb+a               $wsf wx "xsy"
 #bindsym $mdb+Shift+a         $wsf    "wxsy"
-bindsym $mda+o               $wsf wx "xmj"
-bindsym $mda+Shift+o         $wsf    "wxmj"
-bindsym $mda+b               $wsf wx "xau"
-bindsym $mda+Shift+b         $wsf    "wxau"
-bindsym $mdb+n               $ffx  n4
-bindsym $mdb+Shift+n         $stfy n4 'vub'
-bindsym $mda+n               [class="^n3$"] scratchpad show
-bindsym $mda+Shift+n         $stfy n3 'vua'
-bindsym $mdb+Control+n       [class="^n0$"] scratchpad show
-bindsym $mdb+Control+Shift+n $stfy n0 'vxx'
-bindsym $mda+Ctrl+n          [class="^n2$"] scratchpad show
-bindsym $mda+Ctrl+Shift+n    $stfy n2 'vxx'
-bindsym $mdb+i               $ffx  'nnn1'
-bindsym $mdb+Shift+i         $stfy "nnn1" 'nnn -a'
-bindsym $mda+i               $ffx  'nnn2'
-bindsym $mda+Shift+i         $stfy "nnn2" 'nnn -a'
-bindsym $mdb+Ctrl+i          $ffx  'nnn3'
-bindsym $mdb+Ctrl+Shift+i    $stfy "nnn3" 'nnn'
+#set $scr                 /dat/ui/iis/scr
+#set $refresh             killall -SIGUSR1 i3status
+#set $flfy                exec i3s fl.st 0.5
+#set $flfr                exec i3s fl.mr
+#set $flfx                exec i3s fl.st
+# todo: use control-right, alt-rigt (alt-gr), etc as extra mod pathways
 
