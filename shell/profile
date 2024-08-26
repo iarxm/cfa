@@ -62,9 +62,9 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 #gpg2 --homedir "$XDG_DATA_HOME"/gnupg
 # TEX
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
-export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
-export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
+export MANPATH="/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH"
+export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 # CONFIG
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
@@ -114,15 +114,18 @@ export SHELLX_D="${XDG_CONFIG_HOME}/shelx/"
 export PROFILEX="${XDG_CONFIG_HOME}/shelx/profile"
 export PROFILEI="${XDG_CONFIG_HOME}/shell/profili" # interactive shell exports
 export ALIASESR="${XDG_CONFIG_HOME}/shell/aliases"
-[[ -f "$PROFILEX" ]] 	&& . "$PROFILEX"
-#== INTERACTIVE SHELL INIT ######################
-[ "$(tty)" = '/dev/tty1' ] && startx -- -keeptty >~/.local/share/xorg/zxorg.log 2>&1 # ideally goes last
+[[ -f "${PROFILEX}" ]] 	&& . "${PROFILEX}"
 # PATHS #####################################
 #export PATH="$PATH:$HOME/.local/usr/binx" #tmp testing dir until skills improve
 #export PATH="$PATH:$XDG_BIN_HOME/:$BINX"
 #### PERSON POINTERS #######################
 export XCFG="${XDG_CONFIG_HOME}"
 export XBIN="${XDG_BIN_HOME}"
-export XDAT="${XDG_DATA_HOME}"xport XCFG="${XDG_CONFIG_HOME}"
+export XDAT="${XDG_DATA_HOME}"
 export XBIN="${XDG_BIN_HOME}"
 export XDAT="${XDG_DATA_HOME}"
+export RANDFILE="${XDG_CACHE_HOME}/rnd"
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+#== INTERACTIVE SHELL INIT ######################
+[ "$(tty)" = '/dev/tty1' ] && startx -- -keeptty >~/.local/share/xorg/zxorg.log 2>&1 # goes last
+

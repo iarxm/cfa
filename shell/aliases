@@ -1,5 +1,7 @@
 #!/bin/sh
-## vim:ft=sh
+alias xset.a="xset r 90 150"
+alias xset.b="xset r 150 90"
+alias nm.x='nmcli con up id x'
 makeu()      { cd $1; exec make & }
 killc()      { i=0; while i < 10 ; do sudo pkill $1; done } # aggressive kill
 _xargs()     { xargs -0 < $sel ;}
@@ -15,7 +17,7 @@ alias castget="castget -C ${HOME}/.config/castget/castgetrc"
 alias s='sxiv'
 alias sx='sxiv'
 alias blue='bluetuith'
-alias feh.setbg='feh --bg-max "${HOME}/.local/share/abg/bg.jpg"'
+alias feh.setbg='feh --no-fehbg --bg-max "${HOME}/.local/share/abg/bg.jpg"'
 alias l='lf'
 alias r='ranger'
 ## git ##################################
@@ -87,18 +89,19 @@ alias vc="cud && nvim -c Ntr"
 [ -x "$(command -v nvim)" ] && \
 	alias vim="nvim" vimdiff="nvim -d"
 # media
-alias yt="yt-dlp --add-metadata"
-alias ytx="yt -x"
-alias ytxa="yt -x -f bestaudio/best"
-alias yt480="yt -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
+alias         yt="yt-dlp --add-metadata"
+alias      yt480="yt -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
+alias     ytcook="yt --cookies-from-browser firefox -o '%(id)s.%(ext)s'"
+alias        ytx="yt -x"
+alias      ytdlp="yt"
 alias youtube-dl="yt"
-alias ytdlp="yt"
-alias ytcook="yt --cookies-from-browser firefox -o '%(id)s.%(ext)s'"
-#alias ytl="yt"
-#alias yt="yt-dlp --add-metadata -i"
+#alias         ytl="yt"
+#alias         yt="yt-dlp --add-metadata -i"
+#alias       ytxa="yt -x -f bestaudio/best" # this is the default behaviour of ytdlp
 # ffmpeg
 alias ffmpeg="ffmpeg -hide_banner"
-alias YT="youtube-viewer"
+alias     YT="youtube-viewer"
+alias    ytv="youtube-viewer"
 # other
 alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove -R"
@@ -273,7 +276,7 @@ alias tc='task context'
 function tcvadd () { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
 function twwww () { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
 #==== newly appended ======================
-alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+#alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 alias bc="bc -ql"
 alias sc="sc-im"
 alias scim="sc-im"
@@ -299,6 +302,8 @@ alias blue.adiscon="bluetoothctl disconnect"
 alias openu="xdg-open "$@" &"
 alias reboot="systemctl reboot"
 alias sys.sleep="systemctl suspend"
+alias sle="systemctl suspend"
+alias sll="systemctl suspend"
 
 #### MAINTENANCE ##########################
 # TODO: add to arch linux host env file
