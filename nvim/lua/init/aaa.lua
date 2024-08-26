@@ -16,6 +16,8 @@ opt.ignorecase      = true
 opt.tabline         = ' '
 opt.statusline      = '%!uix#MyTabLine()'
 opt.laststatus      = 3
+opt.shortmess       = 'I'
+opt.fillchars:append({ vert = " " })
 vim.cmd.syntax('on')
 vim.cmd.filetype('plugin on')
 opt.tags:append({ "./.tags;", ".tags" })
