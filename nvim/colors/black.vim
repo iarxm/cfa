@@ -36,8 +36,6 @@ hi LspInfoBorder  guifg=#5f87af
 hi link           VertSplit AllBlack
 "hi VertSplit      guifg=black ctermfg=black
 " hi link Art NormalOpposite
-
-
 " #############################################
 " MARKDOWN
 " #############################################
