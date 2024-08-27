@@ -1,92 +1,91 @@
 # vim: set ft=neomuttrc
-#### notmuch #########################
-set nm_default_url 		= "notmuch:///home/$USER/.local/mail/"
-set nm_query_type 		= messages
-set nm_record_tags 		= "-ii,ar,snt,me"
-set nm_unread_tag 		= unread
-set nm_exclude_tags 	= "kill"
-#### INDEX ###########################
-set sort			      	= "last-date-received"
-set sort_aux			    = "date"
-set use_threads		    = "reverse"
+# notmuch #########################
+set nm_default_url       = "notmuch:///home/$USER/.local/mail/"
+set nm_query_type        = messages
+set nm_record_tags       = "-ii,ar,snt,me"
+set nm_unread_tag        = unread
+set nm_exclude_tags      = "kill"
+# index ###########################
+folder-hook              . push '<collapse-all>' # Everything collapsed by default
+folder-hook              . 'rm -f /tmp/mutt/*'
 unset help
 unset collapse_unread
-set uncollapse_jump  	= yes  # jump to unread message when uncollapse
-set uncollapse_new   	= yes  # open threads when new mail
-folder-hook           . push '<collapse-all>' # Everything collapsed by default
-folder-hook           . 'rm -f /tmp/mutt/*'
-#### Pager ###########################
+set sort                 = "last-date-received"
+set sort_aux             = "date"
+set use_threads          = "reverse"
+set uncollapse_jump      = yes  # jump to unread message when uncollapse
+set uncollapse_new       = yes  # open threads when new mail
+# pager ###########################
 ignore *                                # ignore all headers
 unignore to: cc: from:                  # ..then selectively show only these headers
 unhdr_order *                           # some distros order things by default
 hdr_order from: to: cc: date: subject:  # header item ordering
-set sleep_time 		= 0
-#set pager                = "nvim"
-set pager_index_lines	= 3
-set pager_context       	= 12     # context lines to show
-set pager_stop			= yes
-#set wrap				= 100
-#set smart_wrap 		= yes
-set markers 			= yes
-set implicit_autoview 	= yes
+set sleep_time           = 0
+set pager_index_lines    = 3
+set pager_context        = 12     # context lines to show
+set pager_stop           = yes
+set markers              = yes
+set implicit_autoview    = yes
+#set wrap                = 100
+#set smart_wrap          = yes
 #alternative_order        text/plain text/enriched text/html multipart/alternative # this can mess up the mailcap functioning for autoview
-auto_view                text/plain text/html
+auto_view                text/plain text/enriched text/html multipart/alternative
 #auto_view autoview text/* application/* image/* audio/* video/* # for lesspipe
 #### Sidebar #############################
-set sidebar_visible 	= no
-set sidebar_format 		= "%D%?F? [%F]?%* %?N?%N/?%S" # "%B%?F? [%F]?%* %?N?%N/?%S"
-set vfolder_format 		= "%6n(%6N) %f"
-set sidebar_width 		= 22
-set sidebar_sort_method	= "desc"
-set sidebar_sort_method	= "alpha"
-set sort_browser		= desc # use this for sorting in virtual sidebar too"
+set sidebar_visible      = yes
+set sidebar_format       = "%D%?F? [%F]?%* %?N?%N/?%S" # "%B%?F? [%F]?%* %?N?%N/?%S"
+set vfolder_format       = "%6n(%6N) %f"
+set sidebar_width        = 22
+set sidebar_sort_method  = "desc"
+set sidebar_sort_method  = "alpha"
+set sort_browser         = desc # use this for sorting in virtual sidebar too"
 #### REPLY ###############################
-# .config/vim/ftplugin/mail.vim
-set charset 			= "utf-8"
-set include			= yes
-set fast_reply			= yes
-#set editor			= "nvim -c 'source $HOME/.config/mutt/vimrc-mutt'"
-set editor			= "nvim"
-set reverse_realname     =yes  # use any real name provided when replying
-set reverse_name	     # reply as whomever it was to
-set header			= yes
-#### NEWS ##############################
+set charset              = "utf-8"
+set include              = yes
+set fast_reply           = yes
+set editor               = "nvim"
+set reverse_realname     = yes  # use any real name provided when replying
+set reverse_name         # reply as whomever it was to
+set header               = yes
+# news ##################################
 set auto_subscribe
-#==== Other ================================
-set query_command		= "goobook query '%s'" # CONTACTS
-set wait_key			= no # remove confirmation message after using 'pipe-entry'
-set mark_old			= no
+# other #################################
+set query_command       = "goobook query '%s'" # CONTACTS
+set wait_key            = no # remove confirmation message after using 'pipe-entry'
+set mark_old            = no
 set mail_check_stats
-## ENVIORNMENT ###################
+# env ####################################
 # Set as VARS to enable efficient resourcing from maildir specific scripts
 # VARS
-set my_cfg			= "$XDG_CONFIG_HOME/mutt"
-set my_cfg_file		= "$XDG_CONFIG_HOME/mutt/muttrc"
-set mailcap_path		= "$my_cfg/mailcap"
-set my_mb_sh			= "$XDG_CONFIG_HOME/mutt/mb.sh"
-set my_bind 			= "$my_cfg/bind"
-source $my_bind 	
-set my_set_col			= "$my_cfg/set.col"
-source $my_set_col	
-set my_gpg			= "$my_cfg/gpg" # 'p' in compose fields..
+set my_cfg              = "$XDG_CONFIG_HOME/mutt"
+set my_cfg_file         = "$XDG_CONFIG_HOME/mutt/muttrc"
+set mailcap_path        = "$my_cfg/mailcap"
+set my_mb_sh            = "$XDG_CONFIG_HOME/mutt/mb.sh"
+set my_bind             = "$my_cfg/bind"
+source $my_bind     
+set my_set_col          = "$my_cfg/set.col"
+source $my_set_col  
+set my_gpg              = "$my_cfg/gpg" # 'p' in compose fields..
 source $my_gpg
-# PERSONAL DATA LOADING: #################
-# VARS
-set my_cfgx  			= "$HOME/.config/muttm"
-set certificate_file	= "$my_cfgx/dt.certificates"
-#set signature			= "$my_cfgx/dt.sig"
-set my_cfgx_file		= "$my_cfgx/amuttrc"
+# personal config source #################
+# vars
+set my_cfgx             = "$HOME/.config/muttm"
+set certificate_file    = "$my_cfgx/dt.certificates"
+#set signature          = "$my_cfgx/dt.sig"
+set my_cfgx_file        = "$my_cfgx/amuttrc"
 source $my_cfgx_file
-set alias_file 		= "$my_cfgx/dt.aliases"
+set alias_file          = "$my_cfgx/dt.aliases"
 source $alias_file
-set my_bind_m			= "$my_cfgx/bind.m"
+set my_bind_m           = "$my_cfgx/bind.m"
 source $my_bind_m
-set my_bind_mx			= "$my_cfgx/bind.mx"
+set my_bind_mx          = "$my_cfgx/bind.mx"
 source $my_bind_mx
 # mdirs/smstp goes last ####################
-set my_set_mdir		= "$my_cfgx/aset.mdir"
+set my_set_mdir         = "$my_cfgx/aset.mdir"
 source $my_set_mdir
-set my_set_send 		= "$my_cfgx/aset.send"
+set my_set_send         = "$my_cfgx/aset.send"
 source $my_set_send
-#set my_mb_virtual 		= "$my_cfgx/mb.virtual"
-
+#set my_mb_virtual      = "$my_cfgx/mb.virtual"
+# .config/vim/ftplugin/mail.vim
+#set editor              = "nvim -c 'source $HOME/.config/mutt/vimrc-mutt'"
+#set pager              = "nvim"

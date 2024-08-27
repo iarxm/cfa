@@ -1,6 +1,7 @@
 # vim:ft=mailcap
 text/plain;      w3m -I %{charset} -s -T text/plain -o display_charset=%{charset} -o auto_image=TRUE | ml.spaces; copiousoutput
-
+text/html;       xdg-open %s &> /dev/null &; nametemplate=%s.html
+#text/html;       html2text --images-to-alt --ignore-tables --decode-errors=ignore %s; copiousoutput
 text/html;       w3m -I %{charset} -s -T text/html -o display_charset=%{charset} -o auto_image=TRUE | ml.spaces; copiousoutput
 image/*;         sxiv %s
 application/*;   xdg-open %s &> /dev/null &; 
@@ -11,7 +12,6 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document; pandoc 
 application/vnd.oasis.opendocument.text; pandoc --from odt --to markdown %s; copiousoutput
 # LESSCOLORIZER='pygmentize -O style=foo'
 #text/html;        LESSQUIET=1 lesspipe.sh '%s'; copiousoutput;
-#
 #text/html;       nohup qb qmutt %s > /dev/null 2>&1 &; copiousoutput; needsterminal; nametemplate=%s.html;
 #text/html;       qb qmutt %s &; copiousoutput; needsterminal; nametemplate=%s.html;
 #text/html;       qb qmutt %s & LESSQUIET=1 lesspipe.sh '%s'; copiousoutput; needsterminal; nametemplate=%s.html;
