@@ -41,10 +41,8 @@
     # width is 0.
     shrink = no
     transparency = 0
-    # The height of the entire notification.  If the height is smaller
-    # than the font height and padding combined, it will be raised
-    # to the font height and padding.
-    notification_height = 0
+    # The height of the entire notification.
+    #notification_height = 0
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
@@ -187,7 +185,7 @@
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = false
+    #startup_notification = false # deprecated
 
     # Manage dunst's desire for talking
     # Can be one of the following values:
@@ -196,7 +194,7 @@
     #  mesg: Important Messages
     #  info: all unimportant stuff
     # debug: all less than unimportant stuff
-    verbosity = mesg
+    #verbosity = mesg # deprecated
 
     # Define the corner radius of the notification window
     # in pixel size. If the radius is 0, you have no rounded
@@ -248,27 +246,17 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
-[shortcuts]
-
+#[shortcuts] # no deprecated
     # Shortcuts are specified as [modifier+][modifier+]...key
     # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
     # "mod3" and "mod4" (windows-key).
     # Xev might be helpful to find names for keys.
-
-    # Close notification.
-    close = ctrl+space
-
-    # Close all notifications.
-    close_all = ctrl+shift+space
-
-    # Redisplay last message(s).
-    # On the US keyboard layout "grave" is normally above TAB and left
-    # of "1". Make sure this key actually exists on your keyboard layout,
+    #close = ctrl+space
+    #close_all = ctrl+shift+space
     # e.g. check output of 'xmodmap -pke'
-    history = ctrl+grave
-
+    #history = ctrl+grave
     # Context menu.
-    context = ctrl+shift+period
+    #context = ctrl+shift+period
 
 [urgency_low] # IMPORTANT: colors have to be defined in quotation marks.
     background = "#111111"
@@ -337,10 +325,10 @@
 
 # Disable the transient hint so that idle_threshold cannot be bypassed from the
 # client
+
 #[transient_disable]
 #    match_transient = yes
 #    set_transient = no
-#
 # Make the handling of transient notifications more strict by making them not
 # be placed in history.
 #[transient_history_ignore]
