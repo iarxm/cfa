@@ -1,6 +1,9 @@
 #!/bin/sh
-alias xset.a="xset r 90 150"
-alias xset.b="xset r 150 90"
+alias xset.a="xset r rate 90 150"
+alias xset.b="xset r rate 100 100"
+alias xset.c="xset r rate 120 100"
+alias xset.d="xset r rate 150 90"
+alias xset.e="xset r rate 200 50"
 alias nm.x='nmcli con up id x'
 makeu()      { cd $1; exec make & }
 killc()      { i=0; while i < 10 ; do sudo pkill $1; done } # aggressive kill
