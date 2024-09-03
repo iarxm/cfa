@@ -1,10 +1,9 @@
-#!/bin/sh 
-feh --no-fehbg --bg-max "${HOME}/.local/share/abg/bg.jpg"
-xrdb -I${XDG_CONFIG_HOME:-$HOME} .config/X11/xresources &
-xset r rate 90 150
-unclutter &         # autohide mouse
-picom &             # transparency
-dunst &             # notications
-udiskie &           # hardware
-#atd &              # schedule jobs daemon #systemd
+#!/bin/sh
+feh --no-fehbg --bg-max "${HOME}/.local/share/abg/bg.jpg" &
+xrdb -I${HOME} .config/X11/xresources &
+xset r rate 120 120 &
+unclutter &
+picom &
+dunst &
+udiskie &
 # can any of these be migrated to systemd?

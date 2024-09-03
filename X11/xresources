@@ -1,5 +1,5 @@
 ! vim:ft=xdefaults
-#include "urxvt/config"
+#include ".config/urxvt/config"
 *.dpi: 			96
 *.antialias: 		true
 *.hinting: 		true
@@ -32,7 +32,7 @@ tabbed.normbgcolor:	#000000
 *VT100.colorUL:         cyan
 *VT100.veryBoldColors: 	6
 ! color scheme ##############
-#include "X11/z/zcol.dracula.Xresources"
+#include ".config/X11/z/zcol.dracula.Xresources"
 ! #include "X11/z/zcol.kanagawa.Xresources"
 ! #include "X11/z/zcol.terminal.sexy.Xresources"
 ! #include "X11/z/zcol.newer.Xresources"
