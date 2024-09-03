@@ -1,34 +1,34 @@
-local map            = vim.api.nvim_set_keymap
-local usr_cmd        = vim.api.nvim_create_user_command
-local auc	           = vim.api.nvim_create_autocmd
-local aug            = vim.api.nvim_create_augroup
+local map            = vim.api.nvim_set_keymap          -- keymap
+local usc            = vim.api.nvim_create_user_command -- user command
+local auc	         = vim.api.nvim_create_autocmd      -- auto command
+local aug            = vim.api.nvim_create_augroup      -- auto group
 local o_done         = "$HOME/daa/a/ozd"
 vim.g.mapleader      = ' '
 vim.g.maplocalleader = '.'
-map('n', '<leader>sv', 	 ':wa <bar> so $MYVIMRC<CR>', { noremap = true }) -- fw
-map('n', '<leader>t', 	 ':w<CR>:! sh %<CR>',         { noremap = true })
-map('n', ';x', 		       ':! chmod +x %<CR>',         { noremap = true })
-map('n', ';j',           '100j', { noremap = true }) -- nav ###############################
-map('n', ';k',           '100k', { noremap = true })
-map('n', '<M-j>',        '10j', { noremap = true })
-map('n', '<M-k>',        '10k', { noremap = true })
-map('n', '<M-h>',        '5b', { noremap = true })
-map('n', '<M-l>',        '5w', { noremap = true })
-map('n', '<M-w>',        '5w', { noremap = true })
-map('n', '<M-;>',        '5w', { noremap = true })
-map('n', '<C-w>w',       '<C-w>w 100w', { noremap = true }) -- silent?
-map('n', 'd/',           'F/jli', { noremap = true })
-map('i', 'f/',           '<ESC>F/jli', { noremap = true }) -- input map
-map('i', 'jk',           '<ESC>', { noremap = true })
-map('n', '<leader>j', 	 '<C-w>J', { noremap = true }) --## nav. pane manage ###########
-map('n', '<leader>k', 	 '<C-w>K', { noremap = true })
-map('n', '<leader>h', 	 '<C-w>H', { noremap = true })
-map('n', '<leader>l', 	 '<C-w>L', { noremap = true })
-map('n', '<C-J>', 		   ':wincmd j<CR>', { noremap = true })
-map('n', '<C-j>', 		   '<C-w>j', 		{ noremap = true })
-map('n', '<C-K>', 		   '<C-w>k', 		{ noremap = true })
-map('n', '<C-H>', 		   '<C-w>h', 	{ noremap = true })
-map('n', '<C-L>', 		   '<C-w>l', { noremap = true })
+map('n', '<leader>sv',  ':wa <bar> so $MYVIMRC<CR>', { noremap = true }) -- fw
+map('n', '<leader>t',   ':w<CR>:! sh %<CR>',         { noremap = true })
+map('n', ';x',          ':! chmod +x %<CR>',         { noremap = true })
+map('n', ';j',          '100j', { noremap = true }) -- nav ###############################
+map('n', ';k',          '100k', { noremap = true })
+map('n', '<M-j>',       '10j', { noremap = true })
+map('n', '<M-k>',       '10k', { noremap = true })
+map('n', '<M-h>',       '5b', { noremap = true })
+map('n', '<M-l>',       '5w', { noremap = true })
+map('n', '<M-w>',       '5w', { noremap = true })
+map('n', '<M-;>',       '5w', { noremap = true })
+map('n', '<C-w>w',      '<C-w>w 100w', { noremap = true }) -- silent?
+map('n', 'd/',          'F/jli', { noremap = true })
+map('i', 'f/',          '<ESC>F/jli', { noremap = true }) -- input map
+map('i', 'jk',          '<ESC>', { noremap = true })
+map('n', '<leader>j',   '<C-w>J', { noremap = true }) --## nav. pane manage ###########
+map('n', '<leader>k',   '<C-w>K', { noremap = true })
+map('n', '<leader>h',   '<C-w>H', { noremap = true })
+map('n', '<leader>l',   '<C-w>L', { noremap = true })
+map('n', '<C-J>', 	    ':wincmd j<CR>', { noremap = true })
+map('n', '<C-j>', 	    '<C-w>j', 		{ noremap = true })
+map('n', '<C-K>', 	    '<C-w>k', 		{ noremap = true })
+map('n', '<C-H>', 	    '<C-w>h', 	{ noremap = true })
+map('n', '<C-L>', 	    '<C-w>l', { noremap = true })
 map('n', '<leader>z',    '<C-w>>', { noremap = true }) -- resize
 map('n', '<leader>x',    '<C-w><', { noremap = true })
 map('n', '<leader>v',    '<C-w>v<C-l>:e', { noremap = true })
@@ -54,7 +54,7 @@ map('n', '<leader>L', ':Limelight!<CR>', { noremap = true })
 -- map('n', '<leader>g', ':Goyo 90%x90% <bar> call md#HideAll()<CR>', { noremap = true })
 -- map('n', '<leader>G', ':Goyo 60%x90% <bar> call md#HideAll()<CR>', { noremap = true })
 -- map('n', ';g', ':Goyo <bar> call md#HideAll()<CR>', { noremap = true })
-usr_cmd('Zen', 'ZenMode', {})
+usc('Zen', 'ZenMode', {})
 map('n', ';z', ':ZenMode<CR>', { noremap = true })
 map('n', '<leader>nn', ':NnnPicker<CR>', { noremap = true })
 map('n', '<leader>nc', ':NnnPicker %:p:h<CR>', { noremap = true })
@@ -129,8 +129,7 @@ map('n', ';w', ':WhichKey<cr>', { silent = true })
 -- map('n', ';fb', ':Telescope buffers', {})
 -- map('n', ';fh', ':Telescope help_tags', {})
 -- ## COMMANDS ###############################################
-usr_cmd('Gpt', 'ChatGPT', {})
--- AUTOCMDS FILE
+usc('Gpt', 'ChatGPT', {})
 -- COLORS ###############################
 aug('COLORS', { clear = true })
 auc({"ColorScheme"}, {
