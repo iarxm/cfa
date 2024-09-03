@@ -1,5 +1,3 @@
-### vim: set ft=i3config
-exec source ~/.profile
 set $mod                 mod4
 set $mod1                mod1
 set $mda                 mod4
@@ -23,8 +21,10 @@ set $isx                 exec i3s
 floating_modifier        $mda
 floating_maximum_size    0 x 0
 include                  ~/.config/i3/xprv.config
-include                  ~/.config/i3/xcol.config
 include                  ~/.config/i3/xwin.config
+include                  ~/.config/i3/xcol.config
+include                  ~/.config/i3/xbar.config
+exec --no-startup-id     i3sbar-c
 bindsym $mdb+Ctrl+k       $exn pamixer --allow-boost -i 10
 bindsym $mdb+Ctrl+j       $exn pamixer --allow-boost -d 10
 bindsym $mdb+Ctrl+p       $exn mpc toggle
@@ -141,31 +141,5 @@ bindsym $mdb+n               $isf n0
 bindsym $mdb+Shift+n         $ixx vfua
 bindsym $mda+n               [class="^n1$"] scratchpad show
 bindsym $mda+Shift+n         $ixx vfub
-#bindsym $mdb+Control+n       [class="^n2$"] scratchpad show
-#bindsym $mdb+Control+Shift+n $ixx vfuc 'vxx'
-#bindsym $mda+Ctrl+n          [class="^n3$"] scratchpad show
-#bindsym $mda+Ctrl+Shift+n    $ixx n2 'vxx'
-
-#   -m2-b - qutebrowser
-# m1-m2-b - firefox
-#   -m2-a - gpt
-#   -m1-m - mutt
-
-#   -m2-r - rd
-#   -m2-o - ai
-#   -m2-p - oo
-#   -m2-m - ml
-
-#   -m1-a - sx
-#   -m1-o - mj
-#   -m1-b - au
-#############################################################3
-#bindsym $mdb+a               $wsf wx "xsy"
-#bindsym $mdb+Shift+a         $wsf    "wxsy"
-#set $scr                 /dat/ui/iis/scr
-#set $refresh             killall -SIGUSR1 i3status
-#set $flfy                exec i3s fl.st 0.5
-#set $flfr                exec i3s fl.mr
-#set $flfx                exec i3s fl.st
-# todo: use control-right, alt-rigt (alt-gr), etc as extra mod pathways
-
+## vim: set ft=i3config
+#exec source ~/.profile
