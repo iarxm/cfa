@@ -36,7 +36,7 @@ return {
     {'powerman/vim-plugin-AnsiEsc',},
 
     -- video vim
-    {'scateu/tsv_edl.vim',      cmd = "Edl",},             --exp?
+    {'scateu/tsv_edl.vim',      cmd = "Edl",},           --exp
 
     
     -- syntax
