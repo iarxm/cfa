@@ -167,9 +167,11 @@ c.aliases['gj']                    = 'open -t http://jasonwryan.com'
 c.aliases['gp']                    = 'open -t http://127.0.0.1:4000'
 c.aliases['gr']                    = 'open -t https://feedbin.com/'
 c.aliases['pdf']                   = 'print --pdf'
-c.aliases['dict']                  = 'spawn --userscript ~/.ccnfig/qutebrowser/userscripts/dict'
+c.aliases['dict']                  = 'spawn --userscript ~/.config/qutebrowser/userscripts/dict'
 c.aliases['bk']                    = 'spawn --userscript ~/.config/qutebrowser/userscripts/bukuadd'
 c.aliases['qbx']                   = 'spawn qb xw {url}'
+c.aliases['firefox']               = 'spawn firefox --new-window {url}'
+c.aliases['ff']                    = 'firefox'
 c.aliases['oil']                   = 'spawn st -c stf-buku1 oil-search'
 c.aliases['us_echo']               = 'spawn --userscript ~/.config/qutebrowser/userscripts/echo'
 c.aliases['colcycle']              = 'config-cycle content.user_stylesheets ~/.config/qutebrowser/userinterfa/sty/blackblack/black-all-sites.css ""'
@@ -193,6 +195,8 @@ config.unbind('b',                 mode='normal')
 config.unbind('m',                 mode='normal')
 config.unbind('q',                 mode='normal')
 config.unbind('<Ctrl-B>',          mode='normal')
+config.bind(';f',                  'firefox')
+config.bind(';x',                  'qbx')
 config.bind(';r',                  'reload')
 config.bind(';c',                  'config-source')
 config.bind(';g',                  'greasemonkey-reload')
