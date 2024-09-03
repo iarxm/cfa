@@ -1,6 +1,6 @@
 local mp = require "mp"
 local utils = require 'mp.utils'
-package.path = mp.command_native({"expand-path", "~~/script-modules/?.lua;"})..package.path
+package.path = mp.command_native({"expand-path", "~~/scripts/a-modules/?.lua;"})..package.path
 local ds = require 'asurf'
 	-- load surf analysis functions
 

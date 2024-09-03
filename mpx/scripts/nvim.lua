@@ -4,7 +4,7 @@
 local socket = require("socket")
 local mp = require "mp"
 local utils = require 'mp.utils'
-package.path = mp.command_native({"expand-path", "~~/script-modules/?.lua;"})..package.path
+package.path = mp.command_native({"expand-path", "~~/scripts/a-modules/?.lua;"})..package.path
 -- load surf analysis functions 'asurf'
 local ds = require 'asurf'
 local msg = require 'mp.msg'  -- Import the msg module
