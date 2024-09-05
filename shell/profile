@@ -26,6 +26,7 @@ export PONYSAY_FULL_WIDTH="y"
 export MPD_HOST="127.0.0.1"
 export MPD_PORT="6600"
 export MPV_SOCKET_DIR="/tmp/mpvsocket."
+export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export R_ENVIRON=$XDG_CONFIG_HOME/r/renviron
 export R_PROFILE_USER=$XDG_CONFIG_HOME/r/rprofile
