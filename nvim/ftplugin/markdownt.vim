@@ -1,6 +1,8 @@
+
 source $VIMDIR/syntax/markdown.vim
-AnyFoldActivate
 set conceallevel=2
+set foldlevel=0
+"AnyFoldActivate
 
 " dynamic seperator color lengths
 function! CustomFormat(line)
@@ -19,20 +21,20 @@ function! CustomFormat(line)
 endfunction
 
 function! PadSeps()
-	"silent! :%s/\(.*::::.*\)/\=printf('%-40s', submatch(0))/
-     execute 'silent! %s/\(.*::::.*\)/\=CustomFormat(submatch(0))/'
+    "silent! :%s/\(.*::::.*\)/\=printf('%-40s', submatch(0))/
+    execute 'silent! %s/\(.*::::.*\)/\=CustomFormat(submatch(0))/'
 endfunction
 
-"todo: apply similar to below
-function! PadTodo()
-	silent! :%s/\v(,,[[:alnum:]]+(\.[[:alnum:]]+){0,2})\.\.(.*)/\=submatch(1) . repeat('.', 15 - len(submatch(1)) - 1) . matchstr(submatch(3), '^[.]*\zs.*')/
+function! PadTodo() "todo: apply similar to below
+    silent! :%s/\v(,,[[:alnum:]]+(\.[[:alnum:]]+){0,2})\.\.(.*)/\=submatch(1) . repeat('.', 15 - len(submatch(1)) - 1) . matchstr(submatch(3), '^[.]*\zs.*')/
 endfunction
 
 function! PadAll()
-	let l:save_cursor = getcurpos()
-	call PadTodo()
-	call PadSeps()
-    	call setpos('.', l:save_cursor)
+    let l:save_cursor = getcurpos()
+    call PadTodo()
+    call PadSeps()
+    call setpos('.', l:save_cursor)
 endfunction
+
 au BufWritePre <buffer> call PadAll()
 

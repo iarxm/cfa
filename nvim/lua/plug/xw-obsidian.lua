@@ -1,5 +1,5 @@
 return {
-  "epwalsh/obsidian.nvim",
+    "epwalsh/obsidian.nvim",
   version = "*",  -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = { "markdown", "text" },

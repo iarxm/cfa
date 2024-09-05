@@ -1,19 +1,13 @@
 -- TODO: Move to specific files for each plugin, to load on launch
 local g = vim.g
-g.netrw_banner                = 0
-g.netrw_liststyle             = 0
-g.table_mode_corner           = "|"
-g.limelight_conceal_ctermfg 	= "gray"
-g.gutentags_project_root 	= { "$HOME/daa/.tags", ".tags" }
-g.gutentags_ctags_tagfile 	= "$HOME/daa/.tags"
--- g.gutentags_add_default_project_roots = { "$HOME/d/", ".tags" }
-g.tagbar_compact 			= 1
-g.tagbar_indent 			= 1
+
+g.tagbar_compact              = 1
+g.tagbar_indent               = 1
 g.tagbar_show_data_type       = 1
-g.tagbar_position 			= "topleft vertical"
-g.tagbar_width 			= "25"
+g.tagbar_position             = "topleft vertical"
+g.tagbar_width                = "25"
 g.tagbar_sort                 = 0
-g.tagbar_type_markdown 		= {
+g.tagbar_type_markdown = {
   ctagstype = "markdown",
   kinds = {
     "h:heading",
@@ -27,7 +21,7 @@ g.tagbar_type_markdown 		= {
     "y:todo:5"
     },
   }
-g.tagbar_type_markdownt 		= {
+g.tagbar_type_markdownt = {
  tagbar_sort = "0",
  ctagstype = "markdownt",
   kinds = {
@@ -40,13 +34,13 @@ g.tagbar_type_markdownt 		= {
    },
 }
 g.tlist_markdown_settings = "markdown;h:heading;s:section;S:subsection;o:todo"
-g.Tlist_Auto_Highlight_Tag 		= 1
-g.Tlist_Highlight_Tag_On_BufEnter 	= 1
-g.Tlist_Auto_Update 			= 1
-g.Tlist_Compact_Format 			= 1
-g.Tlist_Enable_Fold_Column		= 0
+g.Tlist_Auto_Highlight_Tag                                  = 1
+g.Tlist_Highlight_Tag_On_BufEnter                           = 1
+g.Tlist_Auto_Update                                                                       = 1
+g.Tlist_Compact_Format                                                                    = 1
+g.Tlist_Enable_Fold_Column                                  = 0
 g.Tlist_Display_Prototype          = 1
--- g.Tlist_Show_One_File			= 1
+-- g.Tlist_Show_One_File                                                                  = 1
 -- folding ####################################
 g.anyfold_fold_comments = 1
 -- g.anyfold_identify_comments = 1
@@ -137,20 +131,15 @@ g.task_rc_override = 'defaultwidth=999'
 --let wiki_1 = {}
 --let wiki_1.path = 
 --let wiki_1.index = 
-
-
 --g.vimwiki_list = { 
 --     wiki_1,
 --     wiki_2,
 --     wiki_3 }
-
-
 -- gcal creds ####################################################
 vim.env.gcalcred = "$XDG_CACHE_HOME/calendar.vim/credentials.vim"
 if vim.fn.filereadable(vim.env.gcalcred) == 1 then
   vim.cmd("source " .. vim.env.gcalcred)
 end
-
 -- EXPIRED?
 -- g.airline_extensions_tabline_fnamemod = ":t"
 -- g.airline_extensions_disable_rtp_load = 1 -- disable checking rtp for extensions for line

@@ -13,7 +13,6 @@ lspc.clangd.setup{}
 
 lsp.setup()
 
--- #######################################################
 -- HOW TO ADD BORDERS TO MENUS? ##############################
 -- DISABLE BELOW?
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(

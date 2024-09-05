@@ -31,6 +31,7 @@ local ub       = ha .. '/ub'
 local uc       = ha .. '/uc'
 local ux       = ha .. '/ux'
 local uy       = ha .. '/uy'
+local uo       = ha .. '/uo'
 local msu      = hb .. '/x.msux' --hb's
 local bufs = { -- bufs
     'oxpb',
@@ -49,21 +50,22 @@ local bufs = { -- bufs
     'oxbfn',
     'oxcm'
 }
-local zen = function() cmd('silent ZenMode') end
-local wmode = function() cmd('call mdx#ToggleWrite()') end
+local zen       = function() cmd('silent ZenMode') end
+local wmode     = function() cmd('call mdx#ToggleWrite()') end
 local tlist_all = function() cmd('silent tabdo Tlist') end
-local tagbarx = function() cmd('silent tabdo Tagbar') end
-local tagl_all = function() tagbarx() end
-local enva = function() cmd('cd' .. hr) end -- X.tbn = cmd('echom tabpagenr()')
-local envx = function() cmd('cd' .. hr) end -- opt.number = true -- opt.numberwidth = 9
-local envy = function() cmd('tabfirst'); cmd('quit') end
-local envz = function() tagl_all(); cmd('tabfirst'); cmd('quit') end
-local envzx = function() cmd('tabfirst'); cmd('quit') end
-local buf = function(filename) cmd('silent badd ' .. filename) end
-local edit = function(filename) cmd('edit ' .. filename) end
-local tnew = function(filename) cmd('tabnew ' .. filename) end
-local newx = function() cmd('tabnew ') end
-local svert = function(filename) cmd('vsplit ' .. filename) end
+local tagbarx   = function() cmd('silent tabdo Tagbar') end
+local tagl_all  = function() tagbarx() end
+local enva      = function() cmd('cd' .. hr) end -- X.tbn = cmd('echom tabpagenr()')
+local envx      = function() cmd('cd' .. hr) end -- opt.number = true -- opt.numberwidth = 9
+local envy      = function() cmd('tabfirst'); cmd('quit') end
+local envz      = function() tagl_all(); cmd('tabfirst'); cmd('quit') end
+local envzx     = function() cmd('tabfirst'); cmd('quit') end
+local buf       = function(filename) cmd('silent badd ' .. filename) end
+local edit      = function(filename) cmd('edit ' .. filename) end
+local tnew      = function(filename) cmd('tabnew ' .. filename) end
+local newx      = function() cmd('tabnew ') end
+local svert     = function(filename) cmd('vsplit ' .. filename) end
+local shori     = function(filename) cmd('split ' .. filename) end
 
 M.a = function() -- # a
   envx()
@@ -179,6 +181,9 @@ end
 M.oa_x = function() -- Actionable Panels (o#oa_x)
   tnew (oa)
   svert(oi)
+  --cmd('wincmd l')
+  --shori(uo)
+  --cmd('wincmd J')
   tnew (ob)
   svert(oi)
   tnew (oc)

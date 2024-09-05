@@ -1,4 +1,5 @@
-return {'goolord/alpha-nvim',
+return {
+    'goolord/alpha-nvim',
     	--lazy = 'false',
     	--event = "VimEnter",
     	dependencies = { 'nvim-tree/nvim-web-devicons' },

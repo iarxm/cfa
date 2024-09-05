@@ -3,7 +3,6 @@ return {
         config = function()
             require('decisive').setup{}
             end,
-        lazy=true,
         ft = {'csv'},
         keys = {
             { '<leader>cca', ":lua require('decisive').align_csv({})<cr>",       { silent = true }, desc = "Align CSV",          mode = 'n' },
@@ -36,7 +35,7 @@ return {
     {'powerman/vim-plugin-AnsiEsc',},
 
     -- video vim
-    {'scateu/tsv_edl.vim',      cmd = "Edl",},           --exp
+    {'scateu/tsv_edl.vim',         cmd = "Edl",},           --exp
 
     
     -- syntax
@@ -76,7 +75,9 @@ return {
     {'vim-test/vim-test',          cmd = 'TestNearest'},
     {'dstein64/vim-startuptime',
            cmd = "StartupTime",
-           config = function() vim.g.startuptime_tries = 10 end
+           config = function()
+               vim.g.startuptime_tries = 10
+           end
     },
 
 
@@ -95,60 +96,18 @@ return {
     {'universal-ctags/ctags'},                       -- tag
     {'ctrlpvim/ctrlp.vim'},    -- search
     {'junegunn/fzf'}, -- which fzf??
-       
+
 
     -- gui
     {'majutsushi/tagbar',          cmd = 'Tagbar'},  -- tag
     {'vim-scripts/taglist.vim',    cmd = 'Tlist'},   -- tag-
     {'Bekaboo/deadcolumn.nvim',
-         ft = { "sh", "bash", "lua", }
+         ft = {
+             "sh",
+             "bash",
+             "lua",
+         }
     },
     {'vim-airline/vim-airline',    cmd = 'AirlineToggle'},
-
-    -- #######################################################
-    -- TODO: switch limelight folke/twilight.nvim - based on treesitter
-    -- TODO: ANALYZE ASTROVIM
-    -- https://astronvim.com/Recipes/black_belt
-    -- {'ThePrimeagen/harpoon',},
-    -- DEBUGGING/TESTING ###################################
-    -- {'michaelb/sniprun',},
-    -- {'arjunmahishi/flow.nvim',}, --snippets
-    -- {'nvim-neotest/neotest',},
-    -- { "LazyVim/LazyVim", config = true,},
-    -- ######################################################
-    -- {'Shougo/vimproc.vim', {'do' : 'make'},} -- unite taskwarrior dep.
-    -- {'shougo/unite.vim',}, "unite tw dep
-    -- {'Shougo/denite.nvim',}, "unite replacement
-    -- {"nvim-lua/plenary.nvim", lazy = true },   -- library used by other plugins
-    -- {'blakesweeney/unite-taskwarrior',}, "very interesting tool?
-    -- {'/usr/bin/fzf',}, -- Specify path to fzf bin
-    -- {'vim-pandoc/vim-pandoc', { 'for': ['markdown','tex'] },},
-    -- {'vim-pandoc/vim-pandoc', { 'for': ['tex'] },},
-    -- {'vim-pandoc/vim-pandoc-after',},
-    -- {'vim-pandoc/vim-pandoc-syntax',},
-    -- {'preservim/vim-markdown',},
-    -- {'vim-pandoc/vim-markdownfootnotes',},
-    -- {'mgor/vim-markdown-grip',},
-    -- {'xuhdev/vim-latex-live-preview', { 'for': 'tex' },},
-    -- {newton/vim-latex-preview',},
-    -- {'yegappan/asyncmake',}, "errors
-    -- {bra/NrrwRgn',},
-    -- {'https://github.com/ludovicchabant/vim-gutentags',},
-    -- ####################################################
-    -- {'jremmen/vim-ripgrep',}
-    -- {'vim-scripts/ctags.vim',}
-    -- {'junegunn/vim-github-dashboard.git',}
-    -- {'rktjmp/git-info.vim',}
-    -- ######################################################
-    -- {'mhinz/vim-startify',}
-    -- ######################################################
-    -- {'hsitz/VimOrganizer',}
-    -- {'itchyny/calendar.vim', cmd = 'Calendar'},
-    -- #######################################################
-    -- {'honza/writer.vim'},} -- focus
-    -- {'mikewest/vimroom', { 'on': 'VimroomToggle' }} -- focus
-    -- {'amix/vim-zenroom'} -- focus
-    -- {'amix/vim-zenroom2'} -- focus
-    -- {'kurkale6ka/vim-chess'} -- chess
 }
 

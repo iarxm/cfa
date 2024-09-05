@@ -78,8 +78,10 @@ hi mdH2h        ctermbg=yellow    guibg=lightgreen ctermfg=black guifg=black
 " GENERAL
 " #####################################
 " FOLDING
-hi Folded        ctermfg=white guibg=black ctermbg=black guifg=lightcyan
+"hi Folded        ctermfg=white guibg=black ctermbg=black guifg=lightcyan
 	"\ guifg=#c0caf5
+hi Folded              guibg=black ctermbg=black
+
 hi SignColumn          guibg=black
 hi MyTagListFileName   guibg=black   guifg=#5f87af
 hi MyTagListTitle      guibg=black   guifg=yellow
