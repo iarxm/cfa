@@ -7,7 +7,6 @@
 # 
 XDGX="$HOME/.local/share/aaa"
 XDG_DOWNLOAD_DIR="$XDGX/aia"
-
 XDG_DESKTOP_DIR="$XDGX/xdsk"
 XDG_TEMPLATES_DIR="$XDGX/xtmpl"
 XDG_PUBLICSHARE_DIR="$XDGX/xpublic"
