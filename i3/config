@@ -117,20 +117,22 @@ bindsym $mdb+b               exec qb
 bindsym $mdb+a               exec qb w.gpt
 bindsym $mdb+$mda+b          exec firefox
 bindsym $mda+m               $ixx w.ml
-bindsym $mdb+r               $isw xrd
-bindsym $mdb+$mda+Shift+r    $ixx wxrd
+# work
 bindsym $mdb+o               $isw xai
 bindsym $mdb+Shift+o         $ixx wxai
 bindsym $mdb+p               $isw xoo
 bindsym $mdb+Shift+p         $ixx wxoo
 bindsym $mdb+m               $isw xml
 bindsym $mdb+Shift+m         $ixx wxml
-bindsym $mda+a               $isw xsx
-bindsym $mda+Shift+a         $ixx wxsx
 bindsym $mda+o               $isw xmj
 bindsym $mda+Shift+o         $ixx wxmj
+bindsym $mdb+r               $isw xrd
+bindsym $mdb+$mda+Shift+r    $ixx wxrd
+# functional
 bindsym $mda+b               $isw xau
 bindsym $mda+Shift+b         $ixx wxau
+bindsym $mda+a               $isw xsx
+bindsym $mda+Shift+a         $ixx wxsx
 bindsym $mdb+i               $isf nnn1
 bindsym $mdb+Shift+i         $ixx nn1
 bindsym $mda+i               $isf nnn2
@@ -142,4 +144,3 @@ bindsym $mdb+Shift+n         $ixx vfua
 bindsym $mda+n               [class="^n1$"] scratchpad show
 bindsym $mda+Shift+n         $ixx vfub
 ## vim: set ft=i3config
-#exec source ~/.profile

@@ -6,6 +6,7 @@ general {
   colors = true
   color_good = "#88b090"
   color_separator = "#88b090"
+  separator = ''
 }
 
 order += "wireless _first_"
@@ -24,7 +25,7 @@ wireless _first_ {
     #format_up = "%quality at %essid)--- %ip"
     format_up = "%quality %essid"
     format_down = ""
-    color_good = "#88b090"
+    #color_good = "#88b090"
 }
 
 ethernet _first_ {
