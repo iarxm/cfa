@@ -1,5 +1,26 @@
 #!/bin/sh
-mdir="$1"
-prefix="$2"
-_mdirs() { find "$mdir" -maxdepth 1 -mindepth 1 -type d -printf "+'$prefix%f' "; }
-echo "mailboxes $(_mdirs)"
+
+case $1 in
+
+    a|aa|all)
+        echo "mailboxes $(\
+            find "$2" \
+                -maxdepth 1 -mindepth 1 -type d \
+                -printf "+'%f' ")"
+        ;;
+    nn)
+        echo "mailboxes $(\
+            find "$2" \
+                -maxdepth 1 -mindepth 1 -type d \
+                -name "x.*" \
+                -printf "+'%f' ")"
+        ;;
+    tt)
+        echo "mailboxes $(\
+            find "$2" \
+                -maxdepth 1 -mindepth 1 -type d \
+                ! -name "x.*" \
+                -printf "+'%f' ")"
+        ;;
+esac
+

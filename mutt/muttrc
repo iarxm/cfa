@@ -26,10 +26,9 @@ set pager_context       = "12"
 set pager_stop          = "yes"
 set markers             = "yes"
 set implicit_autoview   = "yes"
-auto_view                text/plain text/enriched text/html multipart/alternative
+auto_view                 text/plain text/enriched text/html multipart/alternative
 ## Sidebar #############################
-set sidebar_format      = "%D %* %?F?%F?.%?N?%N?"
-set vfolder_format      = "%6n(%6N) %f"
+set sidebar_on_right    = "true"
 set sidebar_width       = "18"
 set sidebar_sort_method = "desc"
 set sidebar_sort_method = "alpha"
@@ -41,7 +40,7 @@ set query_command       = "goobook query '%s'"
 set wait_key            = "no"                     #  remove confirmation msg after 'pipe-entry'
 set mark_old            = "no"
 set confirmappend       = "no"
-set mail_check_stats
+set mail_check_stats    = "yes"
 ## compose #############################
 set charset             = "utf-8"
 set include             = "yes"

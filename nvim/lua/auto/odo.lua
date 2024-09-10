@@ -254,7 +254,7 @@ M.ml = function() -- mail ###########################
   tnew('ii')
   tnew('ii.aa')
   tnew('~/.config/mutt/bind')
-  svert('~/.config/muttm/bind.m')
+  tnew('~/.config/muttm/bind.m')
   buf('ii.aab')
   buf('ii.sc')
   buf('ii.pn')
