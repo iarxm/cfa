@@ -116,12 +116,14 @@ bindsym $mdb+Return          exec /usr/bin/st
 bindsym $mdb+b               exec qb
 bindsym $mdb+a               exec qb w.gpt
 bindsym $mdb+$mda+b          exec firefox
-bindsym $mda+m               $ixx w.ml
+bindsym $mda+$mdb+m          $ixx w.ml
 # work
 bindsym $mdb+o               $isw xai
 bindsym $mdb+Shift+o         $ixx wxai
 bindsym $mdb+p               $isw xoo
 bindsym $mdb+Shift+p         $ixx wxoo
+bindsym $mda+m               $isw xmk  # coms (beeper)
+bindsym $mda+Shift+m         $ixx wxmk # coms (beeper)
 bindsym $mdb+m               $isw xml
 bindsym $mdb+Shift+m         $ixx wxml
 bindsym $mda+o               $isw xmj
