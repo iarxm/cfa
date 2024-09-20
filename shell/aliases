@@ -12,7 +12,7 @@ _xinit_dwm() { while true; do dwm 2> ~/.cache/dwm.log ; done } # Log stderror to
 _finddiff()  { find "$1" "$2" "$2" -printf '%P\n' | sort | uniq -u ;}
 _khalmod()   { [ -n "$1" ] && khal $@ -a Calendar -a Birthdays -a recur.yr || khal; }
 alias unmountall='udiskie-umount -a --detach'
-alias vdirsyncer="vdirsyncer sync && vdirsyncer metasync"
+#alias vdirsyncer="vdirsyncer sync && vdirsyncer metasync"
 alias tabbedx="tabbed -r 2 st -w ''"
 alias sy="systemctl"
 alias syd="systemctl"
