@@ -1,12 +1,19 @@
+
+# luke smith
 https://lukesmith.xyz/rss.xml
 https://notrelated.xyz/rss
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)"
 https://landchad.net/rss.xml
 https://based.cooking/rss.xml
+
+# technology
 https://artixlinux.org/feed.php "tk"
 https://www.archlinux.org/feeds/news/ "tk"
 
+# outlets
 https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml "nyt.pol.us"
 
+# science
 https://api.quantamagazine.org/mathematics/feed/ "mth" "~quanta"
-https://www.ams.org/rss/jams.rss "mth" "jou" "~ams"
+https://www.ams.org/rss/jams.rss                 "mth" "jou" "~ams"
+https://www.nature.com/nature.rss                "nature
