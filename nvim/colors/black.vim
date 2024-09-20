@@ -3,9 +3,7 @@
 hi Normal 		ctermbg=black 	ctermfg=lightblue guibg=black   guifg=LightBlue
 hi NormalOpposite 	ctermbg=black	ctermfg=lightblue guibg=black   guifg=#c0caf5 gui=standout
 
-" ########################################
-" UI
-" ########################################
+" UI #####################################################################
 " BACKGROUND
 hi AllBlack  		ctermbg=black 	ctermfg=black 	guibg=black 	guifg=black
 hi AsciContainer 	ctermbg=black	ctermfg=blue 	guibg=black 	guifg=#c0caf5 	gui=standout,bold
@@ -68,11 +66,13 @@ hi mdSh2 ctermbg=yellow guibg=yellow ctermfg=grey guifg=grey
 " OO
 hi mdOoPrioHigh ctermfg=red       guifg=red        cterm=italic gui=italic
 hi mdOo         ctermfg=lightblue guifg=lightcyan
-hi mdOoSep1     ctermbg=yellow    guibg=lightgreen ctermfg=black guifg=black
-hi mdOoSep2     ctermbg=blue      guibg=#5f87af    ctermfg=black guifg=black
+hi mdOoSep1     ctermbg=yellow    guibg=#16161D    ctermfg=white guifg=white
+hi mdOoSep2     ctermbg=blue      guibg=#2A2A37    ctermfg=white guifg=white
+"#2A2A37
+"#5f87af
+"https://github.com/rebelot/kanagawa.nvim/blob/f491b0fe68fffbece7030181073dfe51f45cda81/lua/kanagawa/colors.lua
 " Headings SPECIAL
-hi mdH2h        ctermbg=yellow    guibg=lightgreen ctermfg=black guifg=black
-
+hi mdH2h        ctermbg=yellow    guibg=#49443C ctermfg=white guifg=white
 
 " #####################################
 " GENERAL

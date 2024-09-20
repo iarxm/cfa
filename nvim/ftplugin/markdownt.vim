@@ -36,5 +36,12 @@ function! PadAll()
     call setpos('.', l:save_cursor)
 endfunction
 
+function! PadSepsOnly()
+    let l:save_cursor = getcurpos()
+    call PadSeps()
+    call setpos('.', l:save_cursor)
+endfunction
+
 au BufWritePre <buffer> call PadAll()
+"au WinResized * call PadSepsOnly()
 
