@@ -19,7 +19,7 @@ unset collapse_unread
 ignore *                                           #  ignore all headers
 unignore to: cc: from:                             #  ..then selectively show only these
 unhdr_order *                                      #  some distros order things by default
-hdr_order from: to: cc: date: subject:             #  header item ordering
+hdr_order Date: From: Subject: To: Cc:              #  header item ordering
 set sleep_time          = "0"
 set pager_index_lines   = "3"
 set pager_context       = "12"
@@ -36,12 +36,14 @@ set sidebar_visible     = "yes"
 set sort_browser        = "desc"                   #  also works in virtual sideb
 set auto_subscribe                                 #  news
 ## other ###############################
-set query_command       = "goobook query '%s'"
+set query_command       = "goobook query '%s'"     # keep my own version of goobook
 set wait_key            = "no"                     #  remove confirmation msg after 'pipe-entry'
 set mark_old            = "no"
 set confirmappend       = "no"
 set mail_check_stats    = "yes"
 ## compose #############################
+#set pipe_decode         = "yes"
+#set pipe_decode_weed    = "yes"
 set charset             = "utf-8"
 set include             = "yes"
 set fast_reply          = "yes"
@@ -60,4 +62,5 @@ source "$my_bind_a"
 source "$my_cfg/set.col"
 source "$my_cfg/gpg"                               #  'p' in compose fields..
 source "$XDG_CONFIG_HOME/muttm/amuttrc"
-
+#
+#set query_command       = ""     # khard

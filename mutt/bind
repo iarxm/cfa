@@ -52,7 +52,7 @@ bind pager          "\CV" sidebar-toggle-virtual
 bind editor         "<Tab>" complete-query
 bind editor         "^T"  complete
 macro index,pager   "A"   "<create-alias>"
-macro index,pager   "a"   "<pipe-message>goobook add<return>"
+#macro index,pager   "a"   "<pipe-message>khard...<return>" # khard
 ## viewers #####################################
 set my_uid           = `mlx uid` # mutt fails to recognise $UID by itself
 set my_fifo          = "/tmp/mutt-fifo"
@@ -65,6 +65,7 @@ set my_c_pipe_ic     = "<pipe-entry>iconv -c --to-code=UTF8 > $my_tmp_mlx<enter>
 set my_c_brx         = "<shell-escape>mlx browser > /dev/null 2>&1 &<enter>" # browser
 set my_c_bfl         = "<shell-escape>mlx qb.float<enter>" # browser
 set my_c_btrm        = "<shell-escape>mlx term<enter>" # browser
+#set my_c_b_x         = "$my_c_html_get  $my_c_pipe    $my_c_brx<exit>" # macro
 set my_c_b_x         = "$my_c_html_get  $my_c_pipe    $my_c_brx<exit>" # macro
 set my_c_bfl_x       = "$my_c_html_get  $my_c_pipe_ic $my_c_bfl<exit>" # macro
 set my_c_bterm_x     = "$my_c_html_get  $my_c_pipe    $my_c_btrm<exit>"
@@ -92,4 +93,5 @@ macro index A "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<e
 #############################################################
 ## TODO: integrate urlview or someway to extract a url and open it in qb.. an unsub url
 ## TODO: is the index version above useful?
-
+# archive
+#macro index,pager   "a"   "<pipe-message>goobook add<return>" # goobook unmainted

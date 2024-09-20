@@ -1,6 +1,7 @@
 # vim:ft=mailcap
 text/plain;      w3m -I %{charset} -s -T text/plain -o display_charset=%{charset} -o auto_image=TRUE | ml.spaces; copiousoutput
-text/html;       xdg-open %s &> /dev/null &; nametemplate=%s.html
+text/html;       qb m %s > /dev/null 2>&1 &; nametemplate=%s.html
+#text/html;       xdg-open %s &> /dev/null 2>&1 &; nametemplate=%s.html
 #text/html;       html2text --images-to-alt --ignore-tables --decode-errors=ignore %s; copiousoutput
 text/html;       w3m -I %{charset} -s -T text/html -o display_charset=%{charset} -o auto_image=TRUE | ml.spaces; copiousoutput
 image/*;         sxiv %s

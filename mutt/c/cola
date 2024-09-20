@@ -6,19 +6,21 @@ color         prompt            default   default                             # 
 color         search            black     color10                             # search highlight
 color         progress   black    cyan
 # statusbar
-color         status  color141   black
-color         status  color7     black '([a-zA-Z0-9\.,]|\[|\])(\s)'  # bubble content 1
-color         status  color7     black '(\s)([a-zA-Z0-9\.,]|\[|\])'  # bubble content 2
-color         status  color7     black '(\% )'                       # % symbol
-color         status  color7     black '(\S)'                        # empty spaces
-color         status  color8     default '(|)'                     # statusline "bubbles"
-color         status  color69    black '(\` )'                      # bubble account variation
-color         status  white      color69 '([a-zA-Z0-9\.]+)( )'       # account text
-color         status  green      color8 ''                          # Unread messages count
-color         status  blue       color8 ''                          # Read messages count icon
-color         status  yellow     color8 ''                          # Flagged icon
-color         status  red        color8 ''                          # Pending delete icon
-color         status  black      black                               # HIDE IT
+color         status  color8   black
+#color         status  color141   black
+#color         status  cyan   black
+#color         status  color7     black '([a-zA-Z0-9\.,]|\[|\])(\s)'  # bubble content 1
+#color         status  color7     black '(\s)([a-zA-Z0-9\.,]|\[|\])'  # bubble content 2
+#color         status  color7     black '(\% )'                       # % symbol
+#color         status  color7     black '(\S)'                        # empty spaces
+#color         status  color8     default '(|)'                     # statusline "bubbles"
+#color         status  color69    black '(\` )'                      # bubble account variation
+#color         status  white      color69 '([a-zA-Z0-9\.]+)( )'       # account text
+#color         status  green      color8 ''                          # Unread messages count
+#color         status  blue       color8 ''                          # Read messages count icon
+#color         status  yellow     color8 ''                          # Flagged icon
+#color         status  red        color8 ''                          # Pending delete icon
+#color         status  black      black                               # HIDE IT
 # index colors
 color index           white        black
 color index_author    cyan         black
@@ -63,10 +65,10 @@ color hdrdefault    color8     default
 color attachment    color8     default # Attachments
 color signature     color8     default  # Signature
 color body          color14    default  '[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+'         # emails
-color body          color0 color0  '<mailto:[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+>'  # "mailto" 
-color body          color8 default  '(https?|ftp)://[-\.,/%~_:?&=\#a-zA-Z0-9\+]+' # URLs
-color body          color8 default '(^[-_]*$)' # Dividers
-color body          color6 default '^(Date\/Time|Location|Organiser|Invitees|Teams Meeting)(:| \~\~)' # Important info in calendar invites
+color body          color0     color0  '<mailto:[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+>'  # "mailto" 
+color body          color8     default  '(https?|ftp)://[-\.,/%~_:?&=\#a-zA-Z0-9\+]+' # URLs
+color body          color8     default '(^[-_]*$)' # Dividers
+color body          color6     default '^(Date\/Time|Location|Organiser|Invitees|Teams Meeting)(:| \~\~)' # Important info in calendar invites
 color quoted        color61    default # Quotes
 color quoted1       color117	 default
 color quoted2       color84    default
