@@ -8,8 +8,10 @@ local hr       = "$HOME/daa"
 local ha       = 'a'
 local hb       = 'aa/aa'
 local hm_ml    = hr .. '/cm/yml' -- mail
-local maa      = ha .. '/aa' -- ha's
-local mab      = ha .. '/ab'
+local paa      = ha .. '/aa' -- ha's
+local pab      = ha .. '/ab'
+local pax      = ha .. '/ax' -- ha's
+local pay      = ha .. '/ay'
 local mba      = ha .. '/ba'
 local mbb      = ha .. '/bb'
 local mjma     = ha .. '/jm'
@@ -32,7 +34,7 @@ local uc       = ha .. '/uc'
 local ux       = ha .. '/ux'
 local uy       = ha .. '/uy'
 local uo       = ha .. '/uo'
-local msu      = hb .. '/x.msux' --hb's
+local msu      = ha .. '/v.msux' --hb's
 local bufs = { -- bufs
     'oxpb',
     'oxtk',
@@ -69,11 +71,22 @@ local shori     = function(filename) cmd('split ' .. filename) end
 
 M.a = function() -- # a
   envx()
-  tnew(maa)
-  tnew(mab)
-  svert(maa)
-  tnew(mab)
-  svert(mab)
+  tnew(paa)
+  tnew(pab)
+  svert(paa)
+  tnew(pab)
+  svert(pab)
+  envz()
+  --wmode()
+end
+
+M.pb = function() -- # a
+  envx()
+  tnew(pax)
+  tnew(pay)
+  svert(pax)
+  tnew(pay)
+  svert(pay)
   envz()
   --wmode()
 end
@@ -131,8 +144,8 @@ M.m_future = function() -- # o#m_future #############################3
   tnewx()
   tnew (mbb)
   svert(mbb)
-  tnew (maa)
-  svert(maa)
+  tnew (mba)
+  svert(mba)
   tnewx()
 end
 
