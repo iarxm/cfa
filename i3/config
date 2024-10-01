@@ -126,6 +126,8 @@ bindsym $mda+m               $isw xmk  # coms (beeper)
 bindsym $mda+Shift+m         $ixx wxmk # coms (beeper)
 bindsym $mdb+m               $isw xml
 bindsym $mdb+Shift+m         $ixx wxml
+bindsym $mdb+n               $isw xmr  # news readers
+bindsym $mdb+Shift+n         $ixx wxmr # news readers
 bindsym $mda+o               $isw xmj
 bindsym $mda+Shift+o         $ixx wxmj
 bindsym $mdb+r               $isw xrd
@@ -141,8 +143,8 @@ bindsym $mda+i               $isf nnn2
 bindsym $mda+Shift+i         $ixx nn2
 bindsym $mdb+Ctrl+i          $isf nnn3
 bindsym $mdb+Ctrl+Shift+i    $ixx nn3
-bindsym $mdb+n               $isf n0
-bindsym $mdb+Shift+n         $ixx vfua
+#bindsym $mdb+n               $isf n0
+#bindsym $mdb+Shift+n         $ixx vfua
 bindsym $mda+n               [class="^n1$"] scratchpad show
 bindsym $mda+Shift+n         $ixx vfub
 ## vim: set ft=i3config

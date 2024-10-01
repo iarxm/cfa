@@ -165,7 +165,7 @@ alias abook="abook \
 		--datafile $XDG_DATA_HOME/abook/addressbook"
 alias weechat="weechat -d $XDG_CONFIG_HOME/weechat/"
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
+alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/isyncrc"
 alias nrss="nrss -D $XDG_CONFIG_HOME/nrss/ \
 	-F $XDG_CACHE_HOME/nrss/feeds \
 	-L $XDG_CACHE_HOME/nrss/log"
@@ -184,6 +184,10 @@ alias m="neomutt"
 alias nmh="notmuch"
 alias nmhs="notmuch search"
 alias nmhn="notmuch new"
+
+##### news ##########################################
+alias news="newsboat"
+alias ne="newsboat"
 #==== browsers.quteb =================================
 alias qbw='qb win'
 alias qw='qb win'
