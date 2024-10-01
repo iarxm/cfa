@@ -1,0 +1,10 @@
+@-moz-document url(chrome://browser/content/browser.xul), url(chrome://browser/content/browser.xhtml) 
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+/* ====================== */
+@import url("toolbr.urlbar.css"); /**/
+@import url("toolbr.buttons.css"); /**/
+@import url("toolbr.tabs.css"); /**/
+/*@import url("toolbr.0.css"); /**/
+/* ===================== */
+@import url("sidebar.css");
+/*@import url("simpleMenuWizard/0simpleMenuWizard.css");      /* menu wizard importing  */

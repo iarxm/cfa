@@ -1,0 +1,64 @@
+/* https://gist.github.com/EdmundsEcho/89dbf5a4a0bb3bd22b94cb87426f5f16 */
+
+/* userChrome.css
+General design and troubleshooting guide
+Navigate to your profile folder (link can be found at about:config use profile).
+Place this file in a folder named 'chrome'.  You likely have 
+to create the folder.
+Augmenting the css: Use the browser developer toolbox to find the id tags for the
+firefox layout.  You will know you have the right window open
+when you are asked to confirm the choice (pop-up).
+    Advanced settings: Enable browser chrome and add-on debugging
+    Enable remote debugging
+    command - shift - R
+    burger menu: open browser toolbox
+last updated: Jan 14, 2022
+used with latest firefox: Sep 21, 2022
+*/
+
+/***********************************************************/
+/* Bring search and other to the bottom of the window      */
+/***********************************************************/
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* Parent to bookmarks, tabs and navigation
+   v72 includes browser
+#navigator-toolbox {
+  display: none;
+} */
+
+/* toolbar order (start) ************************************/
+#print-preview-toolbar,
+#printedit-toolbar,
+
+#browser {
+  -moz-box-ordinal-group: 0 !important;
+}
+
+/* tabs */
+#titlebar {
+  -moz-box-ordinal-group: 1 !important;
+}
+
+/* tabs toolbar */
+#navigator-toolbox #TabsToolbar {
+  -moz-box-ordinal-group: 1 !important;
+}
+
+/* optional, can't see diff when hidden */
+#navigator-toolbox #toolbar-menubar {
+  -moz-box-ordinal-group: 5 !important;
+}
+
+/* navigation and browser navigation toolbar */
+#navigator-toolbox #nav-bar {
+  -moz-box-ordinal-group: 3 !important;
+}
+
+/* bookmarks toolbar */
+#navigator-toolbox #PersonalToolbar {
+  -moz-box-ordinal-group: 7 !important;
+}
+
+/* END */

@@ -12,11 +12,12 @@ QUTE_UIX_DIR                        = QUTE_CFG_DIR + "/userinterfa"
 COL_SOLARD                          = QUTE_UIX_DIR + "/sty/solarizedd/solarized-dark-all-sites.css"
 COL_SOLARL                          = QUTE_UIX_DIR + "/sty/solarizedl/solarized-light-all-sites.css"
 COL_BLACKX                          = QUTE_UIX_DIR + "/sty/blackblack/black-all-sites.css"
+WINDOW_ELEMENTS                     = QUTE_UIX_DIR + "/sty/user.css"
 QUTE_BLOCKED                        = QUTE_CFG_DIR + "/blocked-hosts"
 QUTE_BLOCKED_ETC                    = "/etc/qutebrowser/blocked-hosts"
 QUTE_UIX_BLK                        = "file://" + QUTE_UIX_DIR + "/ahm/index-blank.html"
 QUTE_UIX_BGX                        = "file://" + QUTE_UIX_DIR + "/ahm/index-backg.html"
-c.content.user_stylesheets          = [ COL_BLACKX ]
+c.content.user_stylesheets          = [ WINDOW_ELEMENTS, COL_BLACKX ]
 c.url.default_page                  = QUTE_UIX_BGX
 c.url.start_pages                   = QUTE_UIX_BGX
 c.downloads.location.directory      = DATA + "/ui/iaa/"
@@ -24,7 +25,6 @@ c.editor.command                    = ["st", "-c", "float", "nvim", "-O", "{}"] 
 filepicker                          = ["st", "-c", "filepicker", "-t", "filepicker", "-e", "lf", "-command", "set nohidden", "-selection-path={}",]
 # todo: folder picker; and beautify
 c.spellcheck.languages              = ['en-GB']
-c.fonts.statusbar                   = "1pt Sourc Sans Pro"
 c.zoom.default                      = "80%"
 c.downloads.position                = "bottom"
 c.prompt.radius                     = 0
@@ -39,13 +39,14 @@ c.completion.height                 = "30%"
 c.completion.web_history.max_items  = 1000000
 c.completion.cmd_history_max_items  = 100000
 c.input.partial_timeout             = 2000
+c.messages.timeout                  = 2000
 c.tabs.position                     = "bottom"
 c.tabs.background                   = True
 c.tabs.favicons.show                = "never"
 c.tabs.title.format                 = "{current_title}"
 c.tabs.new_position.related         = "last"
 c.tabs.show                         = "switching"
-c.tabs.show_switching_delay         = 3000
+c.tabs.show_switching_delay         = 2000
 c.session.default_name              = "default_restore"
 c.auto_save.session                 = True
 c.content.webgl                     = True
@@ -102,7 +103,10 @@ c.hints.chars                      = "asdfghklqweruiopzxcvbn"
 c.hints.min_chars                  = 1
 c.keyhint.blacklist                = ["*"]
 c.completion.open_categories       = ["quickmarks", "bookmarks", "history"]
-c.statusbar.show                   = "in-mode"
+c.fonts.statusbar                  = "1pt Sourc Sans Pro"
+c.statusbar.padding                = { "bottom": 0, "left": 0, "right": 0, "top": 0 }
+#c.statusbar.show                   = "in-mode"
+c.statusbar.show                   = "never"
 c.statusbar.widgets                = [] # ["url", "progress", "scroll"]
 c.window.hide_decoration           = True
 c.scrolling.smooth                 = True # can make scrolling slow with mouse, but improves key scrolling
@@ -228,32 +232,45 @@ config.bind('<z><o>',              'spawn --userscript qute-pass --otp-only')
 config.bind('<Alt-j>',             'cmd-run-with-count 15 scroll down', mode='normal')
 config.bind('<Alt-k>',             'cmd-run-with-count 15 scroll up', mode='normal')
 config.bind('<Alt-j>',             'cmd-run-with-count 10 scroll down', mode='normal')
-config.bind('<Ctrl-r>',            'restart', mode='normal')
-config.bind('<Ctrl-Right>',        'tab-next', mode='normal')
-config.bind('<Ctrl-Left>',         'tab-prev', mode='normal')
+config.bind('<Ctrl-r>',            'restart',    mode='normal')
+config.bind('<Ctrl-Right>',        'tab-next',   mode='normal')
+config.bind('<Ctrl-Left>',         'tab-prev',   mode='normal')
 config.bind('<Ctrl-Shift-Right>',  'tab-move +', mode='normal')
 config.bind('<Ctrl-Shift-Left>',   'tab-move -', mode='normal')
-config.bind('P',                   'back', mode='normal')
-config.bind('<Escape>',            'leave-mode', mode='passthrough')
-config.bind('o',                   'set statusbar.show always;; cmd-set-text -s :open')
-config.bind('O',                   'set statusbar.show always;; cmd-set-text -s :open -t')
-config.bind('t',                   'set statusbar.show always;; cmd-set-text -s :open -t')
-config.bind(':',                   'set statusbar.show always;; cmd-set-text :')
-config.bind('<Escape>',            'mode-enter normal;; set statusbar.show in-mode', mode='command')
-config.bind('<Return>',            'command-accept;; set statusbar.show in-mode', mode='command')
-config.bind('/',                   'set statusbar.show always;; cmd-set-text /')
+config.bind('P',                   'back',       mode='normal')
+config.bind('o',                   'set statusbar.show always;; clear-messages;; cmd-set-text -s :open')
+config.bind('O',                   'set statusbar.show always;; clear-messages;; cmd-set-text -s :open -t')
+config.bind('t',                   'set statusbar.show always;; clear-messages;; cmd-set-text -s :open -t')
+config.bind(':',                   'set statusbar.show always;; clear-messages;; cmd-set-text :')
+config.bind('/',                   'set statusbar.show always;; clear-messages;; cmd-set-text /')
+config.bind('V',                   'set statusbar.show always;; mode-enter caret ;; selection-toggle --line', mode='normal')
+config.bind('v',                   'set statusbar.show always;; mode-enter caret',       mode='normal')
+config.bind('i',                   'set statusbar.show always;; mode-enter insert',      mode='normal')
+config.bind('f',                   'set statusbar.show always;; hint',                   mode='normal')
+config.bind('<Ctrl-v>',            'set statusbar.show always;; mode-enter passthrough', mode='normal')
+config.bind('`',                   'set statusbar.show always;; mode-enter set_mark',    mode='normal')
+config.bind("'",                   'set statusbar.show always;; mode-enter jump_mark',   mode='normal')
+config.bind('c',                   'mode-enter normal;; set statusbar.show never',         mode='caret')
+config.bind('<Escape>',            'mode-leave;;        set statusbar.show never',         mode='caret')
+config.bind('<Escape>',            'mode-leave;;        set statusbar.show never',         mode='passthrough')
+config.bind('<Escape>',            'mode-leave;;        set statusbar.show never',         mode='insert')
+config.bind('<Escape>',            'mode-leave;;        set statusbar.show never',         mode='hint')
+config.bind('<Escape>',            'mode-leave;;        set statusbar.show never',         mode='command')
+config.bind('<Return>',            'command-accept;;    set statusbar.show never',         mode='command')
+#config.bind('<Escape>',            'mode-enter normal', mode='command')
+#config.bind('<Return>',            'command-accept',    mode='command')
+config.bind('xx',                  'config-cycle statusbar.show always in-mode ;; config-cycle tabs.show always switching') #visualmods
+config.bind('xb',                  'config-cycle statusbar.show always in-mode')
+config.bind('xt',                  'config-cycle tabs.show always switching')
 config.bind('<Ctrl-m>',            'cmd-set-text -s :quickmark-save', mode='normal')
 config.bind('<Shift-m>',           'cmd-set-text -s :quickmark-save', mode='normal')
-config.bind('B',                   'oil', mode='normal')
-config.bind('b',                   'cmd-set-text -s :bk', mode='normal')
+config.bind('B',                   'oil',                  mode='normal')
+config.bind('b',                   'cmd-set-text -s :bk',  mode='normal')
 config.bind('p',                   'cmd-set-text -s :pdf', mode='normal')
 config.bind('se',                  ':cmd-set-text -s :session-load', mode='normal')
 config.bind('sl',                  ':cmd-set-text -s :session-load', mode='normal')
 config.bind('sw',                  ':cmd-set-text -s :session-save', mode='normal')
 config.bind('sr',                  ':cmd-set-text -s :session-delete', mode='normal')
-config.bind('xx',                  'config-cycle statusbar.hide ;; config-cycle tabs.show always switching') #visualmods
-config.bind('xt',                  'config-cycle tabs.show always switching')
-config.bind('xb',                  'config-cycle statusbar.hide')
 config.bind(';r',                  'reload')
 config.bind('<Alt-Shift-k>',       'zoom-in')
 config.bind('<Alt-Shift-j>',       'zoom-out')

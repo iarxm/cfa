@@ -1,0 +1,29 @@
+/* to move to bottom of window - play with ordianal group number */
+/*
+#.titlebar-buttonbox-container{
+  display: none;
+}
+#navigator-toolbox {
+  border: 0px !important;
+}
+
+/**//*
+appMenu-viewCache + box {
+    -moz-box-ordinal-group: 11 !important;
+}
+/**//*
+#nav-bar { display: bottom !important; 
+} 
+#toolbar-menubar {-moz-box-ordinal-group: 1 !important}
+#PersonalToolbar {-moz-box-ordinal-group: 2 !important}
+#nav-bar {-moz-box-ordinal-group: 3 !important}
+/**/
+
+/*
+toolbar .toolbarbutton-1 {
+    appearance: none !important;
+    margin: -1px;
+    padding: 0 var(--toolbarbutton-outer-padding);
+    -moz-box-pack: center;
+}
+

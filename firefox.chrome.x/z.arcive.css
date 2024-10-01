@@ -1,0 +1,94 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* from https://www.h3xed.com/web-and-internet/how-to-remove-back-forward-buttons-from-firefox-context-menu 
+- old, doesnt seem to work
+*/ 
+
+
+/* 
+#context-reload image,
+#context-stop image,
+#context-bookmarkpage image,
+#context-navigation,
+#context-sep-navigation,
+
+
+#context-back image,
+#context-forward image {
+    display:none !important;
+}
+*/
+
+
+
+
+
+
+
+
+
+/*===================================
+=====================================
+=====================================/*
+/* reddit 2020 january */
+/*
+/* autohide forward button */
+/*
+#forward-button {
+	transform: scale(1, 1) !important;
+	transition: margin-left 150ms var(--animation-easing-function), opacity 250ms var(--animation-easing-function), transform 350ms var(--animation-easing-function) !important;
+}
+
+#forward-button[disabled="true"] {
+	margin-left: -28px !important;
+	opacity: 0 !important;
+	transform: scale(0.8, 0.8) !important;
+	pointer-events: none !important;
+}
+
+
+/* remove this if you don't want the forward button to be slightly smaller than the back button, a la australis */
+
+/*
+#forward-button .toolbarbutton-icon {
+	padding: calc(var(--toolbarbutton-inner-padding) + 1px) !important;
+}
+
+/* autohide forward button */
+/*
+#forward-button {
+    transform: scale(1, 1) !important;
+    transition: margin-left 150ms var(--animation-easing-function), opacity 250ms var(--animation-easing-function), transform 350ms var(--animation-easing-function) !important;
+}
+
+#forward-button[disabled="true"] {
+    margin-left: -28px !important;
+    opacity: 0 !important;
+    transform: scale(0.8, 0.8) !important;
+    pointer-events: none !important;
+}
+
+/* remove this if you don't want the forward button to be slightly smaller than the back button, a la australis */
+/*
+
+#forward-button .toolbarbutton-icon {
+    padding: calc(var(--toolbarbutton-inner-padding) + 1px) !important;
+}
+
+*/
+

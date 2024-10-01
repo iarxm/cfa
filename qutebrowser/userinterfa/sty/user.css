@@ -1,0 +1,52 @@
+/* scroll bars */
+
+/* https://gist.github.com/olmokramer/5eabbce5dfbfbdafcbcbd497b02ffb17 */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar */
+/* #383838  #899CA1 */
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-right: 5px solid black;
+}
+
+::-webkit-scrollbar:hover {
+    width: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar-track:vertical {
+  background: black;
+  border-right 1px solid black;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background: #383838;
+  border-left: 1px solid black;
+}
+
+::-webkit-scrollbar:horizontal {
+    background: black;
+    max-height: 15px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #383838;
+  max-height: 5px;
+}
+
+::-webkit-scrollbar-corner {
+  background: black;
+}
+/*
+::-webkit-resizer,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb:hover {
+     width: 0pt;
+     height: 0pt;
+     background: black;
+     background-color: black;
+}
+*/
