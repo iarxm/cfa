@@ -1,8 +1,6 @@
 # vim:ft=mailcap
 text/plain;      w3m -I %{charset} -s -T text/plain -o display_charset=%{charset} -o auto_image=TRUE | ml.spaces; copiousoutput
 text/html;       qb m %s > /dev/null 2>&1 &; nametemplate=%s.html
-#text/html;       xdg-open %s &> /dev/null 2>&1 &; nametemplate=%s.html
-#text/html;       html2text --images-to-alt --ignore-tables --decode-errors=ignore %s; copiousoutput
 text/html;       w3m -I %{charset} -s -T text/html -o display_charset=%{charset} -o auto_image=TRUE | ml.spaces; copiousoutput
 image/*;         sxiv %s
 application/*;   xdg-open %s &> /dev/null &; 
@@ -18,3 +16,10 @@ application/vnd.oasis.opendocument.text; pandoc --from odt --to markdown %s; cop
 #text/html;       qb qmutt %s & LESSQUIET=1 lesspipe.sh '%s'; copiousoutput; needsterminal; nametemplate=%s.html;
 #text/html;       qb qmutt %s & w3m -I %{charset} -T text/html -o display_charset=%{charset} -o auto_image=TRUE %s; copiousoutput; nametemplate=%s.html
 #text/plain;       copiousoutput;
+#text/html;       xdg-open %s &> /dev/null 2>&1 &; nametemplate=%s.html
+#text/html;       html2text --reference-links --images-to-alt --ignore-tables --decode-errors=ignore %s; ml.spaces; copiousoutput
+#text/html;       w3m -I %{charset} -s -T text/html -o display_charset=%{charset} -o auto_image=TRUE; copiousoutput
+#text/html;       elinks -dump -dump-color-mode 1; copiousoutput;
+#text/html;        lynx -assume_charset=%{charset} -display_charset=utf-8 -collapse_br_tags -dump %s; nametemplate=%s.html; copiousoutput
+#text/html;       elinks -dump -dump-color-mode 1 | ml.spaces; copiousoutput;
+
