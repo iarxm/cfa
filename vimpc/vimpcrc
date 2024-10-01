@@ -1,4 +1,3 @@
-" vimpcrc
 map J nop
 map K nop
 map J :tabnext<CR>
@@ -6,6 +5,16 @@ map K :tabprevious<CR>
 map Q :qa<CR>
 map gj 10j
 map gk 10k
+hi tab     default white
+hi status  default bold_white
+hi current default bold_white
+set tabbar!
+set browsenumbers!
+set showlists
+set progressbar!
 
 directory
 playlist
+outputs
+"set windows outputs,lists,library,browse,directory,playlist
+
