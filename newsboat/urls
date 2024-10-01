@@ -1,19 +1,100 @@
 
-# luke smith
-https://lukesmith.xyz/rss.xml
-https://notrelated.xyz/rss
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)"
-https://landchad.net/rss.xml
-https://based.cooking/rss.xml
+# physics / mathematics ##################################################################
 
-# technology
-https://artixlinux.org/feed.php "tk"
-https://www.archlinux.org/feeds/news/ "tk"
+https://phys.org/rss-feed/science-news/mathematics/                     "~porg.math"                   mth
+https://api.quantamagazine.org/mathematics/feed/                        "~quan"                        mth
 
-# outlets
-https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml "nyt.pol.us"
+https://phys.org/rss-feed/breaking/physics-news/quantum-physics/        "~porg.quant.a"                mph mth
+https://phys.org/rss-feed/breaking/physics-news/superconductivity/      "~porg.superc.a"               mph mth
+https://phys.org/rss-feed/breaking/physics-news/physics/                "~porg.phys.a"                 mph mth
 
-# science
-https://api.quantamagazine.org/mathematics/feed/ "mth" "~quanta"
-https://www.ams.org/rss/jams.rss                 "mth" "jou" "~ams"
-https://www.nature.com/nature.rss                "nature
+https://rss.sciencedirect.com/publication/science/00034916              "~scidir.annals"               mph mth
+https://rss.sciencedirect.com/publication/science/00219991              "~scidir.comp-phy"             mph mth
+https://rss.sciencedirect.com/publication/science/03759601              "~scidir.lettr-a"              mph mth
+https://rss.sciencedirect.com/publication/science/22126864              "~scidir.dark-u"               mph mth
+https://rss.sciencedirect.com/publication/science/26660326              "~scidir.phy-open"             mph mth
+https://rss.sciencedirect.com/publication/science/03930440              "~scidir.geo&phy"              mph mth
+
+https://iopscience.iop.org/journal/rss/2058-7058                        "~iop.physics-world"           mph mth
+https://iopscience.iop.org/journal/rss/1367-2630                        "~iop.new-journal-of-physics"  mpt mth
+https://iopscience.iop.org/journal/rss/0951-7715                        "~iop.nonlinearity"            mph mth
+https://iopscience.iop.org/journal/rss/1402-4896                        "~iop.physica-scripta"         mph mth
+https://iopscience.iop.org/journal/rss/1751-8121                        "~iop.journal-of-phy-a"        mph mth
+https://iopscience.iop.org/journal/rss/2399-6528                        "~iop.jounral-of-phy-com"      mph mth
+https://iopscience.iop.org/journal/rss/0264-9381                        "~iop.c&q-gravity"             mph mth
+https://ioppublishing.org/feed/                                         "~iop.a"                       mph mth
+
+https://www.newscientist.com/subject/physics/feed/                      "~nsci.phys"       mph mth
+https://www.newscientist.com/subject/space/feed/                        "~nsci space"      mph mth
+
+https://phys.org/rss-feed/physics-news/quantum-physics/                 "~porg.quan"       mph mth
+https://phys.org/rss-feed/physics-news/physics/                         "~porg.phys"       mph mth
+https://phys.org/rss-feed/physics-news/superconductivity/               "~porg.superc"     mph mth
+
+https://rss.arxiv.org/rss/math                                          "~arxi.math"       mph mth
+https://rss.arxiv.org/rss/quant-ph                                      "~arxi.phy.q"      mph mth
+
+http://www.ams.org/rss/mcom.rss                                         "~ams.mcom"        mph mth
+http://www.ams.org/rss/proc.rss                                         "~ams.proc"        mph mth
+
+https://www.astronomy.com/tags/news/feed/                               "~astr"            mph mth
+https://www.astronomy.com/tags/sky-this-week/feed/                      "~astr.this-week"  mph mth
+https://www.astronomy.com/tags/sky-this-month/feed/                     "~astr.this-month" mph mth
+
+
+# science general #########################################################################
+
+https://www.nature.com/nature.rss                                       "~nature"       sci mph
+https://www.newscientist.com/feed/home/                                 "~nsci"         sci
+https://www.science.org/action/showFeed?type=axatoc&feed=rss&jc=science "~sci"          sci
+https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science   "~sci"          sci
+http://rss.sciam.com/basic-science                                      "~nature.sci"   sci
+https://www.astronomy.com/feed/?post_type=potd%2F                       "~astro.photo"  sci
+https://www.smithsonianmag.com/rss/air-space-magazine/                  "~smith.space"  sci
+https://www.smithsonianmag.com/rss/science-nature/                      "~smith.sci"    sci
+
+https://phys.org/rss-feed/breaking/space-news/astronomy/                "~porg.astro"   sci
+https://phys.org/rss-feed/breaking/space-news/space-exploration/        "~porg.space"   sci
+https://phys.org/rss-feed/breaking/physics-news/materials/              "~porg.mater"   sci
+https://phys.org/rss-feed/breaking/physics-news/optics-photonics/       "~porg.optic"   sci
+https://phys.org/rss-feed/breaking/physics-news/plasma/                 "~porg.plasma"  sci
+https://phys.org/rss-feed/breaking/physics-news/soft-matter/            "~porg.softmat" sci
+
+
+# technology ##########################################################
+
+https://cdn.technologyreview.com/topnews.rss                            "~mit.tkrv"  tk
+https://cdn.technologyreview.com/c/computing/rss/                       "~mit.tkrv"  tk
+https://artixlinux.org/feed.php                                         "~artilinux" tk
+https://www.archlinux.org/feeds/news/                                   "~archlinux" tk
+
+
+# mainstream ##########################################################
+
+https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml               "~nyt.pol"   pol
+
+
+# careers ##############################################################
+
+https://www.science.org/digital-feed/careers-articles                   "~science.jobs" job
+
+
+# podcasts #############################################################
+
+https://feeds.megaphone.fm/RSV2347142881                                "~bari"  pod pol
+https://rss.samharris.org/feed/92dccb84-cc25-446a-adf0-20ec79253160     "~sam"   pod aa
+
+# pod.science
+
+https://feeds.megaphone.fm/AAAS8717073854
+
+
+# luke smith ############################################################
+
+https://lukesmith.xyz/rss.xml                                          "~luke"
+https://notrelated.xyz/rss                                             "~luke.notrelated"
+https://landchad.net/rss.xml                                           "~luke.landchad"
+https://based.cooking/rss.xml                                          "~luke.cooking"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~luke.(YouTube)"
+
+
