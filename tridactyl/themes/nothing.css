@@ -1,0 +1,18 @@
+:root {
+    --nothing-black: #000000;
+    --nothing-white: white;
+
+    /* https://github.com/bezmi/base16-tridactyl/tree/master */
+    /*--tridactyl-fg: white !important; */
+    --tridactyl-fg:               var(--nothing-white);
+    --tridactyl-bg:               var(--nothing-black);
+
+    --tridactyl-header-first-bg:  var(--nothing-black);
+    --tridactyl-header-second-bg: var(--nothing-black);
+    --tridactyl-header-third-bg:  var(--nothing-black);
+    --tridactyl-header-border-bottom: 0;
+    --tridactyl-header-border-top: 0;
+
+    --tridactyl-cmdl-bg:          var(--nothing-black);
+    --tridactyl-cmdl-fg:          var(--nothing-white);
+}
