@@ -1,4 +1,6 @@
 #!/bin/sh
+alias wifi.birdsarentreal="nmcli connection up birdsarentreal"
+# xset #########################
 alias xset.a="xset r rate 90 150"
 alias xset.b="xset r rate 100 100"
 alias xset.c="xset r rate 120 100"
@@ -234,6 +236,8 @@ alias hli='hledger import'
 # ==================================================
 # TASKWARRIOR ALIASES
 alias tt='taskwarrior-tui'
+alias ttu='taskwarrior-tui'
+alias vit="TASKRC=$HOME/.config/task/modules/vit-taskrc && vit && TASKRC=$HOME/.config/task/taskrc"
 #==== Listing through filters ===
 alias \
 	tl='task list' \

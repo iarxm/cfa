@@ -1,14 +1,14 @@
 ! Dracula Xresources palette
 ! modified bg and fg
-!*.foreground:	#c2c2b0
+!*.foreground: #c2c2b0
 !*.foreground: #00ff15
-!*.foreground:	rgb:a8/a8/a8
+!*.foreground: rgb:a8/a8/a8
 
 ! bright white #FDFEFF or #FFFFFF
-!*.foreground:  #d0d0d0
-!*.foreground:  lightgreen
-!*.foreground:  yellow
-!*.foreground:  lightgray
+!*.foreground: #d0d0d0
+!*.foreground: lightgreen
+!*.foreground: yellow
+!*.foreground: lightgray
 
 *.foreground:  #FFFFFF
 *.background:  #000000
