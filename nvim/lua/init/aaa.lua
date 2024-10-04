@@ -30,7 +30,7 @@ glo.table_mode_corner = "|"
 require("init.map")
 require("init.laz")
 require("init.lsp")
-require("init.col")
 require("init.zlt")
 require("auto.odo")
+require("init.col")
 --opt.colorcolumn     = '79' leave this to the particlar filetype

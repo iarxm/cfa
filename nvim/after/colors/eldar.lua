@@ -1,1 +1,1 @@
-vim.cmd.colorscheme('black')
+--vim.cmd.colorscheme('black')

@@ -34,26 +34,26 @@ g.tagbar_type_markdownt = {
    },
 }
 g.tlist_markdown_settings = "markdown;h:heading;s:section;S:subsection;o:todo"
-g.Tlist_Auto_Highlight_Tag                                  = 1
-g.Tlist_Highlight_Tag_On_BufEnter                           = 1
-g.Tlist_Auto_Update                                                                       = 1
-g.Tlist_Compact_Format                                                                    = 1
-g.Tlist_Enable_Fold_Column                                  = 0
+g.Tlist_Auto_Highlight_Tag         = 1
+g.Tlist_Highlight_Tag_On_BufEnter  = 1
+g.Tlist_Auto_Update                = 1
+g.Tlist_Compact_Format             = 1
+g.Tlist_Enable_Fold_Column         = 0
 g.Tlist_Display_Prototype          = 1
--- g.Tlist_Show_One_File                                                                  = 1
+-- g.Tlist_Show_One_File           = 1
 -- folding ####################################
-g.anyfold_fold_comments = 1
--- g.anyfold_identify_comments = 1
+g.anyfold_fold_comments            = 1
+-- g.anyfold_identify_comments     = 1
 -- g.markdown_folding = 4
-g.vim_markdown_folding_level = 5
-g.pandoc_filetypes_handled = { "pandoc", "markdown" }
-g.pandoc_modules_enabled = { "toc" }
+g.vim_markdown_folding_level       = 5
+g.pandoc_filetypes_handled         = { "pandoc", "markdown" }
+g.pandoc_modules_enabled           = { "toc" }
 g.pandoc_filetypes_pandoc_markdown = 0
 g.pandoc_toc_close_after_navigating = 1
-g.pandoc_toc_position = 1
-g.pandoc_folding_fdc = 0
-g.pandoc_folding_level = 4
-g.pandoc_folding_mode = "relative"
+g.pandoc_toc_position               = 1
+g.pandoc_folding_fdc                = 0
+g.pandoc_folding_level              = 4
+g.pandoc_folding_mode               = "relative"
 g.pandoc_folding_fold_yaml = 1
 g.pandoc_folding_fold_div_classes = 1
 g.pandoc_keyboard_sections_header_style = "atx"
@@ -114,7 +114,9 @@ g.vim_markdown_preview_github = 1
 g.table_mode_syntax = 0
 g.calendar_google_calendar = 1
 -- g.calendar_google_task = 0
+-- taskwarrior #######################
 g.task_rc_override = 'defaultwidth=999'
+g.task_info_vsplit = 1
 -- vimwiki ###########################
 --local wiki_1 = {}
 --wiki_1.path = "~/dd/"

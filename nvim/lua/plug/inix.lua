@@ -1,6 +1,7 @@
 
 return {
-    { "emmanueltouzery/decisive.nvim",
+
+    { "emmanueltouzery/decisive.nvim", -- csv mode
         config = function()
             require('decisive').setup{}
             end,
@@ -11,7 +12,7 @@ return {
             { '[c', ":lua require('decisive').align_csv_prev_col()<cr>",         { silent = true }, desc = "Align CSV prev col", mode = 'n' },
             { ']c', ":lua require('decisive').align_csv_next_col()<cr>",         { silent = true }, desc = "Align CSV next col", mode = 'n' },}
     },
-    {'cameron-wags/rainbow_csv.nvim',
+    {'cameron-wags/rainbow_csv.nvim', -- csv mode
         config = true,
         ft = {
             'csv',
@@ -29,15 +30,12 @@ return {
             'RainbowMultiDelim'}
     },
 
-
     {'sheerun/vim-polyglot'}, -- language pack
-
 
     {'powerman/vim-plugin-AnsiEsc',},
 
     -- video vim
     {'scateu/tsv_edl.vim',         cmd = "Edl",},           --exp
-
     
     -- syntax
     {'godlygeek/tabular',          cmd = 'Tabularize'},  -- syn
@@ -56,10 +54,7 @@ return {
     {'pseewald/vim-anyfold', cmd = 'AnyFoldActivate'},
     {'Konfekt/FastFold'},
 
-    {'manasthakur/vim-asyncmake',  cmd = 'AsyncMake'},  -- syn
-   
-
-    -- language specific
+    -- syntax: language specific
     {'elzr/vim-json'},      -- func
     {'jalvesaq/Nvim-R',            ft = 'rmarkdown'},    -- syn
     {'vim-pandoc/vim-rmarkdown',   ft = 'rmarkdown'},    -- syn
@@ -71,7 +66,6 @@ return {
          ft = 'go'
     },
 
-
     -- testing
     {'vim-test/vim-test',          cmd = 'TestNearest'},
     {'dstein64/vim-startuptime',
@@ -81,27 +75,26 @@ return {
            end
     },
 
+    -- compile
+    {'manasthakur/vim-asyncmake',  cmd = 'AsyncMake'},  -- syn
 
     -- preview / present
     {'sotte/presenting.vim',       cmd = 'PresentingStart'},
     {'JamshedVesuna/vim-markdown-preview', cmd = 'MdPreview'},
 
+    -- search
+    {'universal-ctags/ctags'}, -- tag
+    {'ctrlpvim/ctrlp.vim'},    -- search
+    {'junegunn/fzf'},          -- which fzf??
 
     -- fm
     {'cocopon/vaffle.vim',       cmd = 'Vaffle'},      --fm
     {'mcchrish/nnn.vim',         cmd = 'NnnExplorer'}, --fm
-    {'vim-voom/VOoM',              cmd = 'VoomToggle'},
+    {'vim-voom/VOoM',            cmd = 'VoomToggle'},
 
-
-    -- search
-    {'universal-ctags/ctags'},                       -- tag
-    {'ctrlpvim/ctrlp.vim'},    -- search
-    {'junegunn/fzf'}, -- which fzf??
-
-
-    -- gui
-    {'majutsushi/tagbar',          cmd = 'Tagbar'},  -- tag
-    {'vim-scripts/taglist.vim',    cmd = 'Tlist'},   -- tag-
+    -- ui
+    {'majutsushi/tagbar',       cmd = 'Tagbar'},  -- tag
+    {'vim-scripts/taglist.vim', cmd = 'Tlist'},   -- tag-
     {'Bekaboo/deadcolumn.nvim',
          ft = {
              "sh",
