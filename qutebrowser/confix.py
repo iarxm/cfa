@@ -1,4 +1,4 @@
-# IAROM MADDEN think@iarom.org
+# iarom madden mail@iarom.org
 import os
 import glob
 DATA                                = '/dat'
