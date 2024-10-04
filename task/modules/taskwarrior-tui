@@ -51,7 +51,7 @@ uda.taskwarrior-tui.keyconfig.priority:M=M
 uda.taskwarrior-tui.selection.indicator=•
 uda.taskwarrior-tui.selection.bold=yes
 uda.taskwarrior-tui.selection.italic=no
-uda.taskwarrior-tui.selection.dim=no
+uda.taskwarrior-tui.selection.dim=yes
 uda.taskwarrior-tui.selection.blink=no
 uda.taskwarrior-tui.selection.reverse=no
 uda.taskwarrior-tui.mark.indicator=✔
@@ -60,7 +60,7 @@ uda.taskwarrior-tui.mark-selection.indicator=+
 uda.taskwarrior-tui.unmark-selection.indicator=⦾
 uda.taskwarrior-tui.calendar.months-per-row=4
 ## style #################################
-uda.taskwarrior-tui.style.report.selection=
+#uda.taskwarrior-tui.style.report.selection=
 uda.taskwarrior-tui.style.context.active=black on rgb444
 uda.taskwarrior-tui.style.calendar.title=black on rgb444
 uda.taskwarrior-tui.style.report.scrollbar=black
@@ -68,12 +68,12 @@ uda.taskwarrior-tui.scrollbar.indicator=█
 uda.taskwarrior-tui.style.report.scrollbar.area=white
 uda.taskwarrior-tui.scrollbar.area=║
 ## report ################################
-uda.taskwarrior-tui.task-report.show-info=no
 uda.taskwarrior-tui.task-report.looping=true
 uda.taskwarrior-tui.task-report.jump-on-task-add=false
 uda.taskwarrior-tui.task-report.prompt-on-delete=false
 uda.taskwarrior-tui.task-report.prompt-on-done=false
 uda.taskwarrior-tui.task-report.prompt-on-modify=false
+#uda.taskwarrior-tui.task-report.show-info=no
 #report.tui-nx.filter=( status:pending -WAITING limit:page )
 #uda.taskwarrior-tui.task-report.next.filter= status:pending -WAITING prio:H
 #report.next.filter= status:pending -WAITING prio:H or status:pending prio:M
@@ -82,4 +82,4 @@ uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-annotate=true
 uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-log=true
 uda.taskwarrior-tui.task-report.reset-filter-on-esc=true
 uda.taskwarrior-tui.context-menu.select-on-move=false
-report.next.filter= status:pending -WAITING and urgency>6
+
