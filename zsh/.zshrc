@@ -1,15 +1,12 @@
-# ZSHRC
 # ###########################################A
 # AUTHOR: IAROM MADDEN
-# - USE lf for nav (C-o, nav and exit)
-# - USE autocompletion features
-# - USE 
+# USE lf for nav (C-o, nav and exit)
+# USE autocompletion features
 # POWERLEVEL10K Enable Powerlevel10k instant prompt. Should stay close to the top of 
 # ~/.config/zsh/.zshrc. Important so that other initialisation processes can continue 
 # after the prompt has loaded. Providing a sense of responsiveness
 # Note, Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-#
 ##############################################
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
