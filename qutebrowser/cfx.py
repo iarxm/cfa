@@ -1,5 +1,5 @@
 
-config.load_autoconfig(False)
+config.load_autoconfig()
 config.source('confix.py')
-config.source("userinterfa/colaaa.py")
+config.source("userinterfa/colxdy.py")
 

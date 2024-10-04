@@ -1,3 +1,12 @@
+import os
+HOME                                = os.getenv("HOME")
+QUTE_CFG_DIR                        = HOME + "/.config/qutebrowser"
+QUTE_UIX_DIR                        = QUTE_CFG_DIR + "/userinterfa"
+COL_SOLARD                          = QUTE_UIX_DIR + "/sty/solarizedd/solarized-dark-all-sites.css"
+COL_SOLARL                          = QUTE_UIX_DIR + "/sty/solarizedl/solarized-light-all-sites.css"
+COL_BLACKX                          = QUTE_UIX_DIR + "/sty/blackblack/black-all-sites.css"
+WINDOW_ELEMENTS                     = QUTE_UIX_DIR + "/sty/user.css"
+c.content.user_stylesheets          = [ WINDOW_ELEMENTS, COL_BLACKX ]
 # temp fix for statusbar bug:
 c.colors.completion.fg                           = "#899CA1"
 c.colors.completion.category.fg                  = "#F2F2F2"
@@ -56,22 +65,6 @@ c.colors.prompts.selected.bg                     = "#4779B3"
 c.colors.keyhint.fg                              = "#FFFFFF"
 c.colors.keyhint.suffix.fg                       = "#FFFF00"
 c.colors.keyhint.bg                              = "rgba(0, 0, 0, 80%)"
-c.fonts.default_family                           = ["Source Sans Pro",
-                                                    "Noto Sans Mono",
-                                                    "DejaVu Sans Mono",
-                                                    "Liberation Mono"]
-c.fonts.tabs.selected                            = "10pt Source Sans Pro"
-c.fonts.statusbar                                = "10pt Sourc Sans Pro"
-c.fonts.hints                                    = "16pt DejaVu Sans Mono"
-c.fonts.messages.info                            = "13pt Noto Sans Mono"
-c.fonts.tabs.unselected                          = c.fonts.tabs.selected
-c.fonts.downloads                                = c.fonts.statusbar 
-c.fonts.prompts                                  = c.fonts.statusbar
-c.fonts.keyhint                                  = c.fonts.messages.info
-c.fonts.messages.warning                         = c.fonts.messages.info
-c.fonts.messages.error                           = c.fonts.messages.info
-c.fonts.completion.entry                         = c.fonts.statusbar
-c.fonts.completion.category                      = c.fonts.statusbar
 c.colors.webpage.bg                              = "black"
 c.colors.webpage.darkmode.enabled                = True
 c.colors.webpage.darkmode.policy.images          = "never"

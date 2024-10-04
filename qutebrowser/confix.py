@@ -9,15 +9,10 @@ os.environ['QUTE_POST_CLONE']       = 'notify-send "cloned!" "${QUTE_URL}"'
 os.environ['QUTE_BIB_FILEPATH']     = "${HOME}/jf/iic/bib/qute.bib"
 QUTE_CFG_DIR                        = HOME + "/.config/qutebrowser"
 QUTE_UIX_DIR                        = QUTE_CFG_DIR + "/userinterfa"
-COL_SOLARD                          = QUTE_UIX_DIR + "/sty/solarizedd/solarized-dark-all-sites.css"
-COL_SOLARL                          = QUTE_UIX_DIR + "/sty/solarizedl/solarized-light-all-sites.css"
-COL_BLACKX                          = QUTE_UIX_DIR + "/sty/blackblack/black-all-sites.css"
-WINDOW_ELEMENTS                     = QUTE_UIX_DIR + "/sty/user.css"
 QUTE_BLOCKED                        = QUTE_CFG_DIR + "/blocked-hosts"
 QUTE_BLOCKED_ETC                    = "/etc/qutebrowser/blocked-hosts"
 QUTE_UIX_BLK                        = "file://" + QUTE_UIX_DIR + "/ahm/index-blank.html"
 QUTE_UIX_BGX                        = "file://" + QUTE_UIX_DIR + "/ahm/index-backg.html"
-c.content.user_stylesheets          = [ WINDOW_ELEMENTS, COL_BLACKX ]
 c.url.default_page                  = QUTE_UIX_BGX
 c.url.start_pages                   = QUTE_UIX_BGX
 c.downloads.location.directory      = DATA + "/ui/iaa/"
@@ -276,4 +271,19 @@ config.bind('<Alt-Shift-k>',       'zoom-in')
 config.bind('<Alt-Shift-j>',       'zoom-out')
 config.bind(',d',                  "set-cmd-text -s :darkreader enable '{url}*'")
 config.bind(',r',                  "set-cmd-text -s :darkreader disable '{url}*'")
-
+c.fonts.default_family                           = ["Source Sans Pro",
+                                                    "Noto Sans Mono",
+                                                    "DejaVu Sans Mono",
+                                                    "Liberation Mono"]
+c.fonts.tabs.selected                            = "10pt Source Sans Pro"
+c.fonts.statusbar                                = "10pt Sourc Sans Pro"
+c.fonts.hints                                    = "16pt DejaVu Sans Mono"
+c.fonts.messages.info                            = "13pt Noto Sans Mono"
+c.fonts.tabs.unselected                          = c.fonts.tabs.selected
+c.fonts.downloads                                = c.fonts.statusbar 
+c.fonts.prompts                                  = c.fonts.statusbar
+c.fonts.keyhint                                  = c.fonts.messages.info
+c.fonts.messages.warning                         = c.fonts.messages.info
+c.fonts.messages.error                           = c.fonts.messages.info
+c.fonts.completion.entry                         = c.fonts.statusbar
+c.fonts.completion.category                      = c.fonts.statusbar

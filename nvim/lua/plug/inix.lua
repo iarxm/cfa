@@ -1,6 +1,4 @@
-
 return {
-
     { "emmanueltouzery/decisive.nvim", -- csv mode
         config = function()
             require('decisive').setup{}
@@ -104,4 +102,3 @@ return {
     },
     {'vim-airline/vim-airline',    cmd = 'AirlineToggle'},
 }
-

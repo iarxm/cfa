@@ -17,8 +17,10 @@ set my_nund = "<next-undeleted><next-undeleted><next-undeleted>"
 set my_pund = "<previous-undeleted><previous-undeleted><previous-undeleted>"
 bind compose,attach 'o'  noop
 bind index,pager    'o'  noop
-bind compose,attach 'ob' noop
+bind index,pager    'b' noop
+bind compose,attach 'b' noop
 bind index,pager    'ob' noop
+bind compose,attach 'ob' noop
 bind index,pager    'c'  noop
 bind index,pager    'v'  noop
 bind index          ','  noop
@@ -81,15 +83,17 @@ set my_next_u        = '<enter-command>macro index,pager j "<next-entry>$my_c_pi
 set my_next_d        = '<enter-command>macro index,pager j "<next-entry>"'
 set my_prev_u        = '<enter-command>macro index,pager k "<previous-entry>$my_c_pipe_fifo'
 set my_prev_d        = '<enter-command>macro index,pager k "<previous-entry>"'
-macro index,pager    'bu' "$my_next_u<enter>$my_prev_u<enter>"
+set my_c_mlx_init    = "<shell-escape>mlx qb.rip &<enter>"
+macro index,pager    'ba' "$my_c_mlx_init $my_next_u<enter>$my_prev_u<enter>"
 macro index,pager    'bd' "$my_next_d<enter>$my_prev_d<enter>"
-macro index,pager    'bi' "<shell-escape>mlx qb.rip &<enter>"
+macro index,pager    'bi' "$my_c_mlx_init"
+macro index,pager    'bb'   "$my_c_b_x" # viewer
+macro attach,compose 'bb'   "$my_c_b_y" # viewer
+macro index,pager    'bfx'   "$my_c_bfl_x"   # floating
+macro attach,compose 'bfy'   "$my_c_bfl_y"   # floating
 #startup-hook         "push 'bi'"
 #startup-hook         "push 'bu'"
-macro index,pager    'B'    "$my_c_b_x" # viewer
-macro attach,compose 'B'    "$my_c_b_y" # viewer
-macro index,pager    'of'   "$my_c_bfl_x"   # floating
-macro attach,compose 'of'   "$my_c_bfl_y"   # floating
+# other #########################################
 macro compose        '.mm'  "$my_c_style"   # post processing styling
 #macro index,pager    'I'    "$my_c_bterm_x" # browser.text
 macro index A "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \

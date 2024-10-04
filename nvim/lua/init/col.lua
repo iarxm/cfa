@@ -25,7 +25,7 @@
 vim.cmd("colorscheme kanagawa-wave")
 vim.cmd("colorscheme black")
 
---vim.cmd.colorscheme('eldar')
+--vim.cmd("colorscheme eldar")
 --vim.cmd("colorscheme black")
 
 --vim.cmd.colorscheme('rose-pine')
