@@ -1,4 +1,0 @@
---vim.cmd("colorscheme black")
---vim.cmd("setlocal spell!")
---vim.cmd("set spell!")
---vim.opt.spell = false

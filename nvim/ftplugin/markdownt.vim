@@ -1,7 +1,7 @@
 
 source $VIMDIR/syntax/markdown.vim
-set conceallevel=2
-set foldlevel=0
+"set conceallevel=2
+"set foldlevel=0
 "AnyFoldActivate
 
 " dynamic seperator color lengths

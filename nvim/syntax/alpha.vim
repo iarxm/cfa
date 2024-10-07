@@ -1,3 +1,2 @@
-" color everything in between || and ||
-syntax match AsciContainer /\v\|\|.*\|\|/ containedin=ALL
+syntax match AsciContainer /\v\|\|.*\|\|/ containedin=ALL " color everything in between || and ||
 "hi link AsciContainer Art

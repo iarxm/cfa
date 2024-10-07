@@ -11,10 +11,14 @@ return {
         vim.keymap.set('n', 'zm', require('ufo').closeAllFolds)
     end,
     config = function()
-        require('ufo').setup( {
-            --
-
+        require('ufo').setup({
+            close_fold_kinds_for_ft = {
+                markdown = {'YamlFrontMatter', 'comment'},
+            },
+            open_fold_hl_timeout = 300,
+            provider_selector = function(bufnr, filetype, buftype)
+                return {'treesitter', 'indent'}
+            end,
         })
-    end,
+    end
 }
-
