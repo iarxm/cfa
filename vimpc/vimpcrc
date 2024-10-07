@@ -1,5 +1,7 @@
 map J nop
 map K nop
+map q nop
+map q :quitall<CR>
 map J :tabnext<CR>
 map K :tabprevious<CR>
 map Q :qa<CR>
@@ -12,9 +14,9 @@ set tabbar!
 set browsenumbers!
 set showlists
 set progressbar!
-
+set windows playlist
 directory
 playlist
-outputs
+"outputs
 "set windows outputs,lists,library,browse,directory,playlist
 
