@@ -307,6 +307,10 @@ ncdusy() { ncdu --exclude="/data/" / ;}
 # MIC TEST
 mic_tst.a() { arecord -vvv -f dat /dev/null ; }
 mic_tst.b() { arecord -d 5 test-mic.wav ; }
+alias a="vimpc"
+alias au="vimpc"
+#alias a="ncmpcpp"
+#alias au="ncmpcpp"
 
 #### SYSTEM ################################
 alias blue.adiscon="bluetoothctl disconnect"
