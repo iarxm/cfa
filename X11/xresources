@@ -1,5 +1,4 @@
 ! vim:ft=xdefaults
-#include ".config/urxvt/config"
 *.dpi:                 96
 *.antialias:           true
 *.hinting:             true
@@ -31,18 +30,21 @@ tabbed.normbgcolor:    #000000
 *VT100.colorULMode:    true
 *VT100.colorUL:        cyan
 *VT100.veryBoldColors: 6
+#include "urxvt/config"
 ! color scheme ##############
-#include ".config/X11/z/zcol.dracula.Xresources"
-! #include "X11/z/zcol.kanagawa.Xresources"
-! #include "X11/z/zcol.terminal.sexy.Xresources"
+!#include "X11/z/zcol.dracula.Xresources"
+#include "X11/z/zcol.kanagawa.Xresources"
+!#include "X11/z/zcol.terminal.sexy.Xresources"
 ! #include "X11/z/zcol.newer.Xresources"
 ! #include "X11/z/zcol.sourcerer.Xresources"
 ! #include "X11/z/zcol.th1.Xresources"
 ! #include "X11/z/zcol.drac.Xresources"
-! #include "X11/z/zcol.dracula.Xresources"
 ! TODO: kanagawa-dragon Xreousrces variant
+#include "X11/z/zcol.nothingness.Xresources"
 ! font ######################
-!*.font:	Liberation Mono:antialias=true:autohint=true;
-!*.font:	Liberation Mono:pixelsize=12:antialias=true:autohint=true;
-! *.font:	Liberation Mono:antialias=true:autohint=true:pixelsize=16;
- *.font:	Liberation Mono:pixelsize=14:antialias=true:autohint=true;
+!*.font:             Liberation Mono:antialias=true:autohint=true;
+!*.font:             Liberation Mono:pixelsize=12:antialias=true:autohint=true;
+! *.font:            Liberation Mono:antialias=true:autohint=true:pixelsize=16;
+!*.font:              Liberation Mono:pixelsize=14:antialias=true:autohint=true;
+*.font:              JetBrainsMonoNL Nerd Font:pixelsize=14:antialias=true:autohint=true;
+
