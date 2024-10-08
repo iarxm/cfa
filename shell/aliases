@@ -198,10 +198,11 @@ alias qf='qb win.float'
 alias qx='qb x win'
 alias qxt='qb x tab'
 #==== quteb.webapps ===================================
-alias whatsapp='qb x.wa'
-	alias wa='whatsapp'
+#alias whatsapp='qb x.wa'
+alias whatsapp='qb wa'
+alias wa='whatsapp'
 alias calendar='qb win calendar.google.com'
-	alias cala='calendar'
+alias cala='calendar'
 alias habit='qb w.oo.win'
 alias gpt.qb='qb win chat.openai.com'
 #==== Browsers =================================
@@ -233,55 +234,54 @@ alias hl='hledger'
 alias hla='hledger add'
 alias hlai='hledger +iadd'
 alias hli='hledger import'
-# ==================================================
-# TASKWARRIOR ALIASES
+# ### taskwarrior #############################
 alias tt='taskwarrior-tui'
 alias ttu='taskwarrior-tui'
 alias vit="TASKRC=$HOME/.config/task/modules/vit-taskrc && vit && TASKRC=$HOME/.config/task/taskrc"
 #==== Listing through filters ===
-alias \
-	tl='task list' \
-	tls='task ls' \
-	th='task priority:H' \
-	tlh='task priority:H' \
-	tlph='task priority:H' \
-	tsd='task due:TODAY' \
-	tlsdt='task due:TODAY' \
-	tsa='task status:ACTIVW' \
-	tlsa='task status:ACTIVW' \
-	tn='task next' \
-	tln='task next' \
-	tnx='task state:nx' \
-	tlnx='task state:nx'
-alias tlb='task blocked'
-alias tlbl='task blocking'
-#==== Builtin Reports =========
-alias \
-	trr='task report' \
-	trc='task calendar' \
-	tro='task overdue'
-#==== Listting meta data==========
-alias \
-	trp="task projects rc.list.all.projects=yes 2>/dev/null | grep -E '^\w'" \
-	tppp="task projects rc.list.all.projects=yes" \
-	trs='task summary'
+alias tl='task list'
+alias t.l='task list'
+alias tls='task ls'
+alias t.ls='task ls'
+alias tph='task priority:H'
+alias t.ph='task priority:H'
+alias tsdt='task due:TODAY'
+alias t.sdt='task due:TODAY'
+alias tsa='task status:ACTIVW'
+alias t.sa='task status:ACTIVW'
+alias tn='task next'
+alias t.n='task next'
+alias tnx='task state:nx'
+alias t.nx='task state:nx'
+alias t.na='task state:na'
+alias tb='task blocking'
+alias t.b='task blocked'
+#==== builtin reports =========
+alias trr='task report'
+alias trc='task calendar'
+alias tro='task overdu'
+#==== listting meta data==========
+alias t.rp="task projects rc.list.all.projects=yes 2>/dev/null | grep -E '^\w'"
+alias t.pp="task projects rc.list.all.projects=yes"
+alias t.sum='task summary'
 #==== Adding ===========
-alias \
-	t='task' \
-	ta='task add' \
-	taph='task add priority:H'
+alias t='task'
+alias ta='task add'
+alias t.a='task add'
+alias t.aph='task add priority:H'
 #==== Modifying and reviewing =========
 alias tm='task modify'
 alias tmod='task modify'
 alias te='task edit'
-alias td='task done'
-alias ts='task start'
-alias tst='task stop'
-alias tdel='task delete'
-alias tsy='task sync'
+alias tmm='task edit'
+alias tsd='task done'
+alias tss='task start'
+alias tsp='task stop'
+alias tsx='task delete'
+alias t.sync='task sync'
 #==== Context =====================
 alias tcrm="task context none"
-alias tcr="task context none"
+alias tcrr="task context none"
 alias tc='task context'
 #==== functions ===================
 function tcvadd () { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
