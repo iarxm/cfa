@@ -1,10 +1,11 @@
 return {
-    { 'folke/lazy.nvim',     version = "*" }, --TODO: move to other file
+    { 'folke/lazy.nvim',     version = "*" },
     { 'sheerun/vim-polyglot'}, -- language pack
     { 'powerman/vim-plugin-AnsiEsc',},
+    
+    { 'dkarter/bullets.vim'}, -- mdx?
     -- syntax
-    { 'godlygeek/tabular',          cmd = 'Tabularize'},  -- syn
-    { 'dhruvasagar/vim-table-mode', cmd = 'TableModeEnable' },
+
     { 'tpope/vim-surround'}, -- func
     { 'junegunn/vim-easy-align',    cmd = 'Easy' },
     { 'tmsvg/pear-tree'},    -- func
@@ -14,8 +15,9 @@ return {
     { 'rdnetto/YCM-Generator',      branch = 'stable'},
     { 'tpope/vim-speeddating'},
     { 'vim-scripts/utl.vim'},   -- ?
-    { 'tpope/vim-repeat', event = "VeryLazy" }, -- makes plugs dot-repeatable like leap
-    { 'dkarter/bullets.vim'},
+    { 'tpope/vim-repeat', -- makes plugs dot-repeatable like leap
+        --event = "VeryLazy" 
+    }, 
     { 'pseewald/vim-anyfold', cmd = 'AnyFoldActivate'},
     { 'Konfekt/FastFold'},
     { 'Bekaboo/deadcolumn.nvim',
@@ -49,9 +51,8 @@ return {
      --     },
      --}, -- couldn't get this to work, and currently prefer 'deadcolumn'
  -- #######################################################
-    -- TODO: switch limelight folke/twilight.nvim - based on treesitter
-    -- TODO: ANALYZE ASTROVIM
-    -- https://astronvim.com/Recipes/black_belt
+    -- TASK: switch limelight folke/twilight.nvim - based on treesitter
+    -- TASK: ANALYZE ASTROVIM [astro](https://astronvim.com/Recipes/black_belt)
     -- {'ThePrimeagen/harpoon',},
     -- DEBUGGING/TESTING ###################################
     -- {'michaelb/sniprun',},
@@ -89,7 +90,6 @@ return {
     -- {'vim-scripts/ctags.vim',}
     -- {'junegunn/vim-github-dashboard.git',}
     -- {'rktjmp/git-info.vim',}
-    
     -- move to ~/dpz/
     -- ######################################################
     -- {'mhinz/vim-startify',}
@@ -102,4 +102,5 @@ return {
     -- {'mikewest/vimroom', { 'on': 'VimroomToggle' }} -- focus
     -- {'amix/vim-zenroom'} -- focus
     -- {'amix/vim-zenroom2'} -- focus
+    -- chess
     -- {'kurkale6ka/vim-chess'} -- chess    

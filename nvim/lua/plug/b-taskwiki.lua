@@ -1,10 +1,9 @@
 return {
     {
     'tbabej/taskwiki',
-        lazy = true,
         cmd = 'Taskwiki',
         ft = {
-             'markdownt',
+             --'markdownt',
              'wiki'
          },
          dependencies = {
@@ -14,7 +13,6 @@ return {
     },
     {
     'vimwiki/vimwiki',
-        lazy = true,
         ft = "wiki",
         --init = { }
     }

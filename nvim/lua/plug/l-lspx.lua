@@ -1,4 +1,4 @@
--- https://github.com/theHamsta/nvim-dap-virtual-text
+-- TASK: https://github.com/theHamsta/nvim-dap-virtual-text
 return {
     { 'nvimdev/lspsaga.nvim',
         config = function()
@@ -16,24 +16,7 @@ return {
             require("mason").setup()
         end
     },
-    { "VonHeikemen/lsp-zero.nvim",
-        event = 'VeryLazy',
-        dependencies = { -- LSP Support
-            { "neovim/nvim-lspconfig" }, -- Required
-            { "williamboman/mason.nvim", -- Optional
-                cmd = { "Mason", "MasonUpdate",},
-                build = function()
-                    pcall(vim.cmd, "MasonUpdate")
-                end,},
-            { "williamboman/mason-lspconfig.nvim" }, -- Optional
-            -- Autocompletion
-            { "hrsh7th/nvim-cmp" },     -- Required
-            { "hrsh7th/cmp-path" },     -- Required
-            { "hrsh7th/cmp-nvim-lsp" }, -- Required
-            { "L3MON4D3/LuaSnip",
-                run = "make install_jsregexp"
-            },     -- Required
-    },},
+    
     { "neovim/nvim-lspconfig",
         event = 'VeryLazy',
         ui = { -- TODO
@@ -44,9 +27,7 @@ return {
             require("lsp_lines").setup()
         end,
     },
-
     -- linting ######################################
-
     { 'jose-elias-alvarez/null-ls.nvim',
         event = 'VeryLazy', -- also contains a formatter? alternative linter: https://github.com/jose-elias-alvarez/null-ls.nvim
     },
@@ -85,17 +66,15 @@ return {
                 toggle_fold = {"zA", "za"}, -- toggle fold of current file
                 previous = "k", -- previous item
                 next = "j", -- next item
-    },},},
-    -- DAP ##########################################
-    -- DIAGNOSTICS 
-    { 'https://github.com/mfussenegger/nvim-dap',
-                                  event = 'VeryLazy'
+            },
+        },
     },
-    -- COMPLETION ####################################
+    { 'mfussenegger/nvim-dap', -- diagnositics
+        event = 'VeryLazy'
+    },
+    -- completion ####################################
     { 'neoclide/coc.nvim' },
     { "hrsh7th/nvim-cmp"},
-    -- ############################################### 
-    --{'roxma/nvim-yarp'}, -- yet another remote plugin..
     -- VERSIONING ###################################
     {"kdheepak/lazygit.nvim",
         event = 'VeryLazy',
@@ -107,5 +86,5 @@ return {
             require("telescope").load_extension("lazygit")
         end,},
 }
-
-
+-- ############################################### 
+    --{'roxma/nvim-yarp'}, -- yet another remote plugin..

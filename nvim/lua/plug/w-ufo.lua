@@ -1,6 +1,7 @@
 return {
     'kevinhwang91/nvim-ufo',
-    lazy = 'false',
+    --lazy = 'false',
+    ft = { 'markdown', },
     dependencies = 'kevinhwang91/promise-async',
     init = function()
         vim.o.foldcolumn = '1' -- '0' is not bad

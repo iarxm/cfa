@@ -1,6 +1,7 @@
 return {
     'duckdm/neowarrior.nvim',
-    event = 'VeryLazy',
+    --event = 'VeryLazy',
+    cmd = 'NeoWarriorOpen',
     dependencies = {
         'nvim-telescope/telescope.nvim',
         --- Optional but recommended for nicer inputs
