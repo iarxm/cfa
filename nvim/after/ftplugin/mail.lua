@@ -1,6 +1,6 @@
--- 'after' directory is required. Another file in the runtime directory was
--- overiding the options in this file, when sourced from ftplugin alone..
+-- 'after' directory is required to overide options set in rtp
 vim.wo.spell                 = true
 vim.bo.spelllang             = 'en' -- TODO: download en_gb or en_uk
-vim.opt.formatoptions:append({'aw'})
+vim.cmd('set formatoptions+=aw')
+--vim.opt.formatoptions:append({'aw'})
 

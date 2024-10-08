@@ -11,9 +11,8 @@ vim.api.nvim_create_autocmd({"BufReadPost"}, {
     pattern = "*.md",
     callback = function()
         --vim.cmd('echom "hello"')
-        vim.cmd('1,/^---$/fold')
-        --if vim.api.search('^---$', 'nw') == 1 then
-        --    vim.cmd('1,/^---$/fold')
-        --end
+        if vim.fn.getline(1) == "---" then
+            vim.cmd('1,/^---$/fold')
+        end
     end
 })

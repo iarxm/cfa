@@ -1,38 +1,5 @@
--- TODO: Move to specific files for each plugin, to load on launch
+-- - [ ] Move to specific files for each plugin, to load on launch
 local g = vim.g
-
-g.tagbar_compact              = 1
-g.tagbar_indent               = 1
-g.tagbar_show_data_type       = 1
-g.tagbar_position             = "topleft vertical"
-g.tagbar_width                = "25"
-g.tagbar_sort                 = 0
-g.tagbar_type_markdown = {
-  ctagstype = "markdown",
-  kinds = {
-    "h:heading",
-    "c:chapter",
-    "s:section",
-    "S:subsection",
-    "t:subsubsection",
-    "T:l4subsection",
-    "u:l5subsection",
-    "x:xheads:4",
-    "y:todo:5"
-    },
-  }
-g.tagbar_type_markdownt = {
- tagbar_sort = "0",
- ctagstype = "markdownt",
-  kinds = {
-   --"h:heading",
-   "c:h:heading:chapter",
-   "s:section",
-   "S:subsection",
-   "x:xheads:4",
-   "o:todo"
-   },
-}
 g.tlist_markdown_settings = "markdown;h:heading;s:section;S:subsection;o:todo"
 g.Tlist_Auto_Highlight_Tag         = 1
 g.Tlist_Highlight_Tag_On_BufEnter  = 1
@@ -60,14 +27,13 @@ g.pandoc_keyboard_sections_header_style = "atx"
 g.pandoc_syntax_conceal_blacklist = { "atx", "titleblock" }
 g.vimtex_compiler_progname = "nvr"
 g.vimtex_view_method = "zathura"
+g.vim_markdown_preview_browser = "qtc.win"
+g.vim_markdown_preview_use_xdg_open = 1
+g.vim_markdown_preview_github = 1
+g.table_mode_syntax = 0
+-- #########################################
 g.voom_ft_modes = { markdown = "pandoc", rmd = "pandoc" }
-g.limelight_default_coefficient = 0.85
-g.limelight_paragraph_span = 1
-g.limelight_bop = "^\\s"
-g.limelight_eop = "\\ze\\n^\\s"
-g.limelight_priority = -1
-g.lite_dfm_left_offset = 16
-g.lite_dfm_keep_ruler = 1
+-- #######################################
 g.org_agenda_files = { "index.org", "project.org" }
 g.NERDTreeShowBookmarks = 1
 g.NERDTreeHijackNetrw = 0
@@ -108,41 +74,13 @@ g.fzf_history_dir = "~/.local/share/fzf-history"
 g.ctrlp_map = "<c-p>"
 g.ctrlp_cmd = "CtrlP"
 g.ctrlp_extensions = { "tag", "buffertag", "dir", "undo", "line", "mixed", "bookmarkdir" }
-g.vim_markdown_preview_browser = "qtc.win"
-g.vim_markdown_preview_use_xdg_open = 1
-g.vim_markdown_preview_github = 1
-g.table_mode_syntax = 0
 g.calendar_google_calendar = 1
 -- g.calendar_google_task = 0
--- taskwarrior #######################
-g.task_rc_override = 'defaultwidth=999'
-g.task_info_vsplit = 1
--- vimwiki ###########################
---local wiki_1 = {}
---wiki_1.path = "~/dd/"
---wiki_1.index = "wi/main"
---wiki_1.html_template = "~/dp/html/wikitemplate.tpl"
---wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
---wiki_2 = {}
---wiki_2.path = '/dat/ud/dp/'
---let wiki_2.index = 'index'
---wiki_3 = {}
--- let wiki_3.path = '~/ds/' 
---let wiki_3.index = 'index'
--- template
---let wiki_1 = {}
---let wiki_1.path = 
---let wiki_1.index = 
---g.vimwiki_list = { 
---     wiki_1,
---     wiki_2,
---     wiki_3 }
 -- gcal creds ####################################################
 vim.env.gcalcred = "$XDG_CACHE_HOME/calendar.vim/credentials.vim"
 if vim.fn.filereadable(vim.env.gcalcred) == 1 then
   vim.cmd("source " .. vim.env.gcalcred)
 end
--- EXPIRED?
 -- g.airline_extensions_tabline_fnamemod = ":t"
 -- g.airline_extensions_disable_rtp_load = 1 -- disable checking rtp for extensions for line
 

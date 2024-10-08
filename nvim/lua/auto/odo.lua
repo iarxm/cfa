@@ -35,187 +35,170 @@ local ux       = ha .. '/ux.md'
 local uy       = ha .. '/uy.md'
 local uo       = ha .. '/uo.md'
 local msu      = ha .. '/v.msux.md' --hb's
-local bufs = { -- bufs
-    'oxpb',
-    'oxtk',
-    'oxeng',
-    'oxds',
-    'oxds.a',
-    'oxds.dev',
-    'oxds.asf',
-    'oxdm',
-    'oxdw',
-    'oxdn',
-    'oxuu',
-    'oxmm',
-    'oxbb',
-    'oxbfn',
-    'oxcm'
+local bufs_a = { -- bufs x
+    oi,
+    oj,
+    oa,
+    ob,
+    oc,
+    uc
 }
-local zen       = function() cmd('silent ZenMode') end
-local wmode     = function() cmd('call mdx#ToggleWrite()') end
+local bufs = { -- bufs
+    'oxpb.md',
+    'oxtk.md',
+    'oxeng.md',
+    'oxds.md',
+    'oxds.a.md',
+    'oxds.dev.md',
+    'oxds.asf.md',
+    'oxdm.md',
+    'oxdw.md',
+    'oxdn.md',
+    'oxuu.md',
+    'oxmm.md',
+    'oxbb.md',
+    'oxbfn.md',
+    'oxcm.md'
+}
+local zen1      = function() cmd('silent zen1Mode') end
+local zen2      = function() cmd('call mdx#ToggleWrite()') end
+local zen3      = function() cmd('silent MuttonToggle') end
+local zen4      = function() cmd('silent LiteDFMToggle') end
 local tlist_all = function() cmd('silent tabdo Tlist') end
 local tagbarx   = function() cmd('silent tabdo Tagbar') end
 local tagl_all  = function() tagbarx() end
 local enva      = function() cmd('cd' .. hr) end -- X.tbn = cmd('echom tabpagenr()')
 local envx      = function() cmd('cd' .. hr) end -- opt.number = true -- opt.numberwidth = 9
 local envy      = function() cmd('tabfirst'); cmd('quit') end
-local envz      = function() tagl_all(); cmd('tabfirst'); cmd('quit') end
 local envzx     = function() cmd('tabfirst'); cmd('quit') end
+--local envzy      = function() tagl_all(); cmd('tabfirst'); cmd('quit') end
 local buf       = function(filename) cmd('silent badd ' .. filename) end
 local edit      = function(filename) cmd('edit ' .. filename) end
-local tnew      = function(filename) cmd('tabnew ' .. filename) end
+local tnew      = function(filename) cmd('silent tabnew ' .. filename) end
 local newx      = function() cmd('tabnew ') end
-local svert     = function(filename) cmd('vsplit ' .. filename) end
+local svrt      = function(filename) cmd('silent vsplit ' .. filename) end
 local shori     = function(filename) cmd('split ' .. filename) end
 
 M.a = function() -- # a
   envx()
   tnew(paa)
   tnew(pab)
-  svert(paa)
+  svrt(paa)
   tnew(pab)
-  svert(pab)
-  envz()
-  --wmode()
+  svrt(pab)
+  envzx()
+  --zen2()
 end
 
 M.pb = function() -- # a
   envx()
   tnew(pax)
   tnew(pay)
-  svert(pax)
+  svrt(pax)
   tnew(pay)
-  svert(pay)
-  envz()
-  --wmode()
+  svrt(pay)
+  envzx()
+  --zen2()
 end
 
 M.ma = function() -- # ma
   envx()
   tnew(mjma)
   tnew(mjmb)
-  svert(mjma)
+  svrt(mjma)
   tnew(mbb)
-  svert(msu)
-  envz()
-  cmd('TagbarClose')
-  wmode()
-  --zen()
+  svrt(msu)
+  envzx()
+  --cmd('TagbarClose')
+  zen2()
+  --zen1()
 end
 
 M.mj = function() -- # o#mj ##########################################
   enva()
   tnew(mjma)
-  --wmode()
+  --zen2()
   tnew(msu)
-  --wmode()
+  --zen2()
   envzx()
 end
 
 M.mb = function() -- # mb ###########################################
   enva()
-  tnew (m_auc)
-  svert(m_aub)
-  svert(m_aua)
-  tnew (mba)
-  svert(mbb)
-  svert(mbb)
+  tnew(m_auc)
+  svrt(m_aub)
+  svrt(m_aua)
+  tnew(mba)
+  svrt(mbb)
+  svrt(mbb)
   tnewx()
-  tnew (m_qra)
-  tnew (m_qra)
-  tnew (m_yra)
-  svert(m_yra)
+  tnew(m_qra)
+  tnew(m_qra)
+  tnew(m_yra)
+  svrt(m_yra)
   tnewx()
-  tnew (mba)
-  svert(mba)
-  tnew (mbb)
-  svert(mbb)
+  tnew(mba)
+  svrt(mba)
+  tnew(mbb)
+  svrt(mbb)
   tnewx()
-  envz()
+  envzx()
 end
 
 M.m_future = function() -- # o#m_future #############################3
   enva()
-  tnew (m_qra)
-  svert(m_qra)
-  tnew (m_yra)
-  svert(m_yra)
+  tnew(m_qra)
+  svrt(m_qra)
+  tnew(m_yra)
+  svrt(m_yra)
   tnewx()
-  tnew (mbb)
-  svert(mbb)
-  tnew (mba)
-  svert(mba)
+  tnew(mbb)
+  svrt(mbb)
+  tnew(mba)
+  svrt(mba)
   tnewx()
 end
 
 M.m_future_qr = function() -- # o#m_future_qr ####################
   enva()
   tnew (m_qra)
-  svert(m_qra)
+  svrt(m_qra)
   tnew (m_yra)
-  svert(m_yra)
+  svrt(m_yra)
   tnewx()
   tnew (m_aua)
-  svert(m_aua)
+  svrt(m_aua)
   tnewx()
 end
 
 M.ua = function() -- Note Taking (o#na) #######################
   enva()
   edit(ua)
-  tagl_all()
+  --tagl_all()
 end
 
 M.ub = function()
   enva()
   edit(ub)
-  tagl_all()
+  --tagl_all()
 end
 
 M.uc = function()
   enva()
   edit(uc)
-  tagl_all()
+  --tagl_all()
 end
 
 M.ux = function()
   enva()
   edit(ux)
-  tagl_all()
+  --tagl_all()
 end
 
 M.ux = function()
   enva()
   edit(uy)
-  tagl_all()
-end
-
-M.oa_x = function() -- Actionable Panels (o#oa_x)
-  tnew (oa)
-  svert(oi)
-  --cmd('wincmd l')
-  --shori(uo)
-  --cmd('wincmd J')
-  tnew (ob)
-  svert(oi)
-  tnew (oc)
-  svert(oj)
-  tnew (uc)
-  wmode()
-end
-
-
-M.oa = function() -- Actionable Panels Master Function (o#oa)
-  enva()
-  M.oa_x()
-  M.ox_bufs()
-  cmd('silent tabnext 1')
-  cmd('silent quit')
-  tagl_all()
-  cmd('silent tabdo wincmd =')
-  -- cmd('tabnext ' .. X.tbn)
-  cmd('silent tabnext 1')
+  --tagl_all()
 end
 
 M.ox_bufs = function()
@@ -224,21 +207,50 @@ M.ox_bufs = function()
   end
 end
 
+M.oa_bufs = function()
+  for _, file in ipairs(bufs_a) do
+   buf(file)
+  end
+end
+
+M.oa_x = function() -- Actionable Panels (o#oa_x)
+  tnew(oi)
+  zen3()
+  tnew(oa)
+  svrt(oi)
+  --tnew(ob)
+  --svrt(oj)
+  --tnew(oc)
+  --svrt(oj)
+  tnew(uc)
+  zen2()
+end
+
+M.oa = function() -- Actionable Panels Master Function (o#oa)
+  enva()
+  M.oa_bufs()
+  M.ox_bufs()
+  M.oa_x()
+  cmd('silent tabnext 1')
+  cmd('silent quit')
+end
+
+
 M.ob = function() -- ob #############################
   enva()
   M.oa_x()
   tnew(oc)
-  svert(od)
+  svrt(od)
   envzx()
 end
 
 M.ocx = function() -- oc #############################
   tnew(oc)
-  svert(oc)
+  svrt(oc)
   tnew(od)
-  svert(od)
+  svrt(od)
   tnew(oi)
-  svert(oi)
+  svrt(oi)
 end
 
 M.oc = function()
@@ -262,24 +274,24 @@ end
 
 M.ml = function() -- mail ###########################
   cmd('cd' .. hm_ml)
-  tnew('aa')
-  tnew('ab')
-  tnew('oi')
-  tnew('oa')
-  tnew('oxtk')
+  tnew('aa.md')
+  tnew('ab.md')
+  tnew('oi.md')
+  tnew('oa.md')
+  tnew('oxtk.md')
   tnew('~/.config/muttm/bind.m')
-  buf('ob')
+  buf('ob.md')
   buf('README') -- ConfigGS
   buf('~/.config/mutt/muttrc')
   buf('~/.config/mutt/bind')
   buf('~/.config/mutt/bind.mx')
-  buf('~/.config/sieve/Open-Xchange')
+  --buf('~/.config/sieve/Open-Xchange')
   --buf('~/.local/bin/mlx/ml')
   --buf('ii.sc')
   --buf('ii.pn')
-  envz()
-  zen()
-  -- wmode()
+  envzx()
+  zen1()
+  --zen2()
 end
 
 return M
