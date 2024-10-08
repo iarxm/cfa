@@ -1,6 +1,10 @@
 data.location=$XDG_DATA_HOME/task
 hooks.location=$HOME/.config/task/hooks
-# opts ###########################
+# ### sync ##########################
+sync.encryption_secret=secretsecret
+sync.local.server.server_dir=$XDG_DATA_HOME/tasksync
+sync.sync.server=google.com
+# ### opts ###########################
 news.version=2.6.0
 verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 dateformat=j
