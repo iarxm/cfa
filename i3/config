@@ -116,6 +116,7 @@ bindsym $mdb+Return          exec /usr/bin/st
 bindsym $mdb+b               exec qb
 bindsym $mdb+a               exec qb w.gpt
 bindsym $mdb+$mda+b          exec firefox
+bindsym $mda+$mdb+a          $ixx au
 bindsym $mda+$mdb+m          $ixx w.ml
 # work
 bindsym $mdb+o               $isw xai
