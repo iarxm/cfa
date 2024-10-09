@@ -195,44 +195,44 @@ M.ux = function()
   --tagl_all()
 end
 
-M.ux = function()
+M.uy = function()
   enva()
   edit(uy)
   --tagl_all()
 end
 
 M.ox_bufs = function()
-  for _, file in ipairs(bufs) do
-   buf(ha .. "/" .. file)
-  end
+    for _, file in ipairs(bufs) do
+        buf(ha .. "/" .. file)
+    end
 end
 
 M.oa_bufs = function()
-  for _, file in ipairs(bufs_a) do
-   buf(file)
-  end
+    for _, file in ipairs(bufs_a) do
+        buf(file)
+    end
 end
 
 M.oa_x = function() -- Actionable Panels (o#oa_x)
-  tnew(oi)
-  zen3()
-  tnew(oa)
-  svrt(oi)
-  --tnew(ob)
-  --svrt(oj)
-  --tnew(oc)
-  --svrt(oj)
-  tnew(uc)
-  zen2()
+    tnew(oi)
+    zen3()
+    tnew(oa)
+    svrt(oi)
+    --tnew(ob)
+    --svrt(oj)
+    --tnew(oc)
+    --svrt(oj)
+    tnew(uc)
+    zen2()
 end
 
 M.oa = function() -- Actionable Panels Master Function (o#oa)
-  enva()
-  M.oa_bufs()
-  M.ox_bufs()
-  M.oa_x()
-  cmd('silent tabnext 1')
-  cmd('silent quit')
+    enva()
+    M.oa_bufs()
+    M.ox_bufs()
+    M.oa_x()
+    cmd('silent tabnext 1')
+    cmd('silent quit')
 end
 
 

@@ -1,4 +1,5 @@
 return {
+    { "iruzo/matrix-nvim",             name = 'matrix' },
     { "agude/vim-eldar",               name = 'eldar' },
     { 'junegunn/seoul256.vim',         name = 'seoul' },
     { 'jaywilliams/vim-vwilight',      name = 'vwilight' },

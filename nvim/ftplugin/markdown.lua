@@ -6,13 +6,7 @@ vim.wo.conceallevel    = 2
 --vim.cmd('silent! TableModeEnable')
 vim.cmd('source $VIMDIR/syntax/markdown.vim')
 
--- Automatically fold YAML front matter in markdown files
-vim.api.nvim_create_autocmd({"BufReadPost"}, {
-    pattern = "*.md",
-    callback = function()
-        --vim.cmd('echom "hello"')
-        if vim.fn.getline(1) == "---" then
+if vim.fn.getline(1) == "---" then
             vim.cmd('1,/^---$/fold')
-        end
-    end
-})
+end
+
