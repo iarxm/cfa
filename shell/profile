@@ -45,7 +45,6 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 # CACHE
 export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
 export DUC_DATABASE="$XDG_CACHE_HOME/duc/duc.db"
-export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var 
 export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
 # DATA
 export AUDIO_PRG="$XDG_DATA_HOME/aay/au.playf"
@@ -62,10 +61,16 @@ export MAILDIR="$HOME/.localx/mail/"
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 #gpg2 --homedir "$XDG_DATA_HOME"/gnupg
 # TEX
-export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export MANPATH="/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH"
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
+#export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var 
+#export TEXMFHOME="$XDG_DATA_HOME/texmf"
+#export TEXMFDIST=/usr/share/texmf-dist
+#export TEXMFLOCAL=/usr/local/share/texmf:/usr/share/texmf
+#export TEXMFSYSVAR=/var/lib/texmf
+#export TEXMFSYSCONFIG=/etc/texmf
+#export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
 # CONFIG
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
@@ -91,14 +96,10 @@ export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export TMSU_DB="$XDG_CONFIG_HOME/tmsu/defaultdb"
-export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
 # RUNTIME/SYSTEM
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd.sock"
-export TEXMFDIST=/usr/share/texmf-dist
-export TEXMFLOCAL=/usr/local/share/texmf:/usr/share/texmf
-export TEXMFSYSVAR=/var/lib/texmf
-export TEXMFSYSCONFIG=/etc/texmf
+
 [[ ! -n $(which systemctl | grep "not found") ]] && systemctl --user import-environment GNUPGHOME XAUTHORITY
 #### XDG DIR ######################################
 export XDGX="$XDG_DATA_HOME/aaa"
