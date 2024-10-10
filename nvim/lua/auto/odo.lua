@@ -60,7 +60,7 @@ local bufs = { -- bufs
     'oxbfn.md',
     'oxcm.md'
 }
-local zen1      = function() cmd('silent zen1Mode') end
+local zen1      = function() cmd('silent ZenMode') end
 local zen2      = function() cmd('call mdx#ToggleWrite()') end
 local zen3      = function() cmd('silent MuttonToggle') end
 local zen4      = function() cmd('silent LiteDFMToggle') end
@@ -273,28 +273,41 @@ end
 
 
 M.ml = function() -- mail ###########################
-  cmd('cd' .. hm_ml)
-  tnew('aa.md')
-  tnew('ab.md')
-  tnew('oi.md')
-  tnew('oa.md')
-  tnew('oxtk.md')
-  tnew('~/.config/muttm/bind.m')
-  buf('ob.md')
-  buf('README') -- ConfigGS
-  buf('~/.config/mutt/muttrc')
-  buf('~/.config/mutt/bind')
-  buf('~/.config/mutt/bind.mx')
+    cmd('cd' .. hm_ml)
+    tnew('aa.md')
+    --cmd('NeoWarriorOpen Left')
+    zen3()
+    tnew('ab.md')
+    zen3()
+    tnew('oi.md')
+    require('neowarrior').open_left()
+    --zen3()
+    tnew('oa.md')
+    svrt('oi.md')
+
+    buf('oxtk.md')
+    buf('~/.config/muttm/bind.m')
+    buf('ob.md')
+    buf('README.md') -- ConfigGS
+    buf('~/.config/mutt/muttrc')
+    buf('~/.config/mutt/bind')
+    buf('~/.config/mutt/bind.mx')
   --buf('~/.config/sieve/Open-Xchange')
   --buf('~/.local/bin/mlx/ml')
   --buf('ii.sc')
   --buf('ii.pn')
   envzx()
-  zen1()
   --zen2()
 end
 
+M.mlx = function() -- instant messaging / resources to share via whatsapp etc..
+    cmd('cd' .. hm_ml)
+    tnew('oy.md')
+    envzx()
+end
+
 return M
+
 -- xTODO: change filename of this script to a 3 letter name
 -- TODO: o#ox_p ox_ds oe oe_x
 

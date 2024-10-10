@@ -1,6 +1,6 @@
 local map            = vim.api.nvim_set_keymap          -- keymap
 local usc            = vim.api.nvim_create_user_command -- user command
-local auc	         = vim.api.nvim_create_autocmd      -- auto command
+local auc            = vim.api.nvim_create_autocmd      -- auto command
 local aug            = vim.api.nvim_create_augroup      -- auto group
 local o_done         = "$HOME/daa/a/ozd"
 vim.g.mapleader      = ' '
@@ -49,12 +49,15 @@ map('n', '<leader>aq', ':wa <bar> qa<CR>',   { noremap = true })
 map('n', 'E',          ':e ',                { noremap = true }) -- open/edit
 map('n', '<leader>e',  ':e ',                { noremap = true })
 -- based on plugins #######################################
-map('n', '<leader>l', ':Limelight<CR>', { noremap = true })
-map('n', '<leader>L', ':Limelight!<CR>', { noremap = true })
+map('n', '<leader>wl', ':Limelight<CR>', { noremap = true })
+map('n', '<leader>wL', ':Limelight!<CR>', { noremap = true })
+map('n', '<leader>wz', ':ZenMode<CR>', { noremap = true })
+map('n', '<leader>wm', ':MuttonToggle<CR>', { noremap = true })
 -- map('n', '<leader>g', ':Goyo 90%x90% <bar> call md#HideAll()<CR>', { noremap = true })
 -- map('n', '<leader>G', ':Goyo 60%x90% <bar> call md#HideAll()<CR>', { noremap = true })
 -- map('n', ';g', ':Goyo <bar> call md#HideAll()<CR>', { noremap = true })
 usc('Zen', 'ZenMode', {})
+usc('Z', 'ZenMode', {})
 map('n', ';z', ':ZenMode<CR>', { noremap = true })
 map('n', '<leader>nn', ':NnnPicker<CR>', { noremap = true })
 map('n', '<leader>nc', ':NnnPicker %:p:h<CR>', { noremap = true })
