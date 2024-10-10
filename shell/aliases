@@ -22,7 +22,7 @@ alias castget="castget -C ${HOME}/.config/castget/castgetrc"
 alias s='sxiv'
 alias sx='sxiv'
 alias blue='bluetuith'
-alias feh.setbg='feh --no-fehbg --bg-max "${HOME}/.local/share/abg/bg.jpg"'
+alias feh.setbg='feh --no-fehbg --bg-max "${HOME}/.local/share/aaa/xbg/bg.jpg"'
 alias l='lf'
 alias r='ranger'
 ## git ##################################

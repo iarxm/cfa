@@ -1,5 +1,5 @@
 #!/bin/sh
-feh --no-fehbg --bg-max "${HOME}/.local/share/abg/bg.jpg" &
+feh --no-fehbg --bg-max "${HOME}/.local/share/aax/xbg/bg.jpg" &
 xrdb -I${HOME} .config/X11/xresources &
 xset r rate 120 120 &
 unclutter &

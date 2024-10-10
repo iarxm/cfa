@@ -47,7 +47,7 @@ export ICEAUTHORITY="${XDG_CACHE_HOME}/ICEauthority"
 export DUC_DATABASE="$XDG_CACHE_HOME/duc/duc.db"
 export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
 # DATA
-export AUDIO_PRG="$XDG_DATA_HOME/aay/au.playf"
+#export AUDIO_PRG="$XDG_DATA_HOME/aaa/au.playf" best set this to a config file
 export LESSHISTFILE="$XDG_DATA_HOME/aax/lesshst"
 export HISTFILE="$XDG_DATA_HOME/aax/history"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
