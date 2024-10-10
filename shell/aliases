@@ -1,5 +1,6 @@
 #!/bin/sh
 alias wifi.birdsarentreal="nmcli connection up birdsarentreal"
+alias mr="mr --config $HOME/.config/mr/mrconfig"
 # xset #########################
 alias xset.a="xset r rate 90 150"
 alias xset.b="xset r rate 100 100"
