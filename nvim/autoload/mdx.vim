@@ -140,23 +140,33 @@ function! mdx#ToggleWrite()
 	endif
 endfunction
 
-" ###################################################
 " GOYO #################################################
+
 function! mdx#Goyo_enter()
-	autocmd! goyo TabLeave
-	if executable('tmux') && strlen($TMUX)
-    		silent !tmux set status off
-    		silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  	endif
-	"silent Limelight
+    
+    autocmd! goyo TabLeave
+    
+    if executable('tmux') && strlen($TMUX)
+        silent !tmux set status off
+        silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+    endif
+
+    "silent Limelight
+
 endfunction
+
 function! mdx#Goyo_leave()
-	if executable('tmux') && strlen($TMUX)
-    		silent !tmux set status on
-    		silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  	endif
-	silent call mdx#ToggleHiddenAll()
-	silent syntax on
-	" silent Limelight!
+    
+    if executable('tmux') && strlen($TMUX)
+        silent !tmux set status on
+        silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+    endif
+    
+    "silent call mdx#ToggleHiddenAll()
+    "silent syntax on
+    " silent Limelight!
 endfunction
+
+autocmd! User GoyoEnter nested call mdx#Goyo_enter()
+autocmd! User GoyoLeave nested call mdx#Goyo_leave()
 

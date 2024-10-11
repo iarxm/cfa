@@ -26,7 +26,6 @@ return {-- write
             end,
         config = function()
             vim.g.mutton_min_center_width = "88"
-
             end,
     },
     { 'bilalq/lite-dfm',          cmd = 'LiteDFMToggle' },   -- focus/write

@@ -60,10 +60,11 @@ local bufs = { -- bufs
     'oxbfn.md',
     'oxcm.md'
 }
-local zen1      = function() cmd('silent ZenMode') end
-local zen2      = function() cmd('call mdx#ToggleWrite()') end
-local zen3      = function() cmd('silent MuttonToggle') end
-local zen4      = function() cmd('silent LiteDFMToggle') end
+local zen_zen      = function() cmd('silent ZenMode') end
+local zen_mdx      = function() cmd('call mdx#ToggleWrite()') end
+local zen_mut      = function() cmd('silent MuttonToggle') end
+local zen_dfm      = function() cmd('silent LiteDFMToggle') end
+local zen_goy      = function() cmd('silent Goyo') end
 local tlist_all = function() cmd('silent tabdo Tlist') end
 local tagbarx   = function() cmd('silent tabdo Tagbar') end
 local tagl_all  = function() tagbarx() end
@@ -87,7 +88,7 @@ M.a = function() -- # a
   tnew(pab)
   svrt(pab)
   envzx()
-  --zen2()
+  --zen_mdx()
 end
 
 M.pb = function() -- # a
@@ -98,7 +99,7 @@ M.pb = function() -- # a
   tnew(pay)
   svrt(pay)
   envzx()
-  --zen2()
+  --zen_mdx()
 end
 
 M.ma = function() -- # ma
@@ -110,16 +111,16 @@ M.ma = function() -- # ma
   svrt(msu)
   envzx()
   --cmd('TagbarClose')
-  zen2()
-  --zen1()
+  zen_mdx()
+  --zen_zen()
 end
 
 M.mj = function() -- # o#mj ##########################################
   enva()
   tnew(mjma)
-  --zen2()
+  --zen_mdx()
   tnew(msu)
-  --zen2()
+  --zen_mdx()
   envzx()
 end
 
@@ -215,15 +216,15 @@ end
 
 M.oa_x = function() -- Actionable Panels (o#oa_x)
     tnew(oi)
-    zen3()
     tnew(oa)
-    svrt(oi)
+    require('neowarrior').open_left()
+    --svrt(oi)
     --tnew(ob)
     --svrt(oj)
     --tnew(oc)
     --svrt(oj)
     tnew(uc)
-    zen2()
+    zen_mut()
 end
 
 M.oa = function() -- Actionable Panels Master Function (o#oa)
@@ -233,6 +234,7 @@ M.oa = function() -- Actionable Panels Master Function (o#oa)
     M.oa_x()
     cmd('silent tabnext 1')
     cmd('silent quit')
+    zen_mut()
 end
 
 
@@ -276,12 +278,12 @@ M.ml = function() -- mail ###########################
     cmd('cd' .. hm_ml)
     tnew('aa.md')
     --cmd('NeoWarriorOpen Left')
-    zen3()
+    zen_mut()
     tnew('ab.md')
-    zen3()
+    zen_mut()
     tnew('oi.md')
     require('neowarrior').open_left()
-    --zen3()
+    --zen_mut()
     tnew('oa.md')
     svrt('oi.md')
 
@@ -297,7 +299,7 @@ M.ml = function() -- mail ###########################
   --buf('ii.sc')
   --buf('ii.pn')
   envzx()
-  --zen2()
+  --zen_mdx()
 end
 
 M.mlx = function() -- instant messaging / resources to share via whatsapp etc..
