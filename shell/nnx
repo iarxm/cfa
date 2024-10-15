@@ -3,7 +3,7 @@ prg_anot="anotr"
 prg_prev="uview"
 NCMD=''
 NCMD+='w:cleanfilename;'               #rnm | asurf
-NCMD+='r:-|!vidir;'                    #rnm
+NCMD+='r:!ixx r "$nnn"*;'               #rnm
 NCMD+='R:renamer;'                     #rnm
 NCMD+='e:togglex;'                     #mod
 NCMD+='v:-!nvim "$nnn";'               #edi
@@ -19,7 +19,7 @@ NCMD+='u:!anotr tag.rm "$nnn"*;'       #asurf
 NCMD+='c:!anotr clone "$nnn"*;'        #asurf
 NCMD+='a:!anotr tag.mk.quick "$nnn"*'  #asurf
 #NCMD+='z:!anotr tag.mk.quick "$nnn"*'  #asurf # todo: setup auto annotation with 'zd' for deletion flag
-DIR="04" EXE="06" REG="00" SYMLINK="06"	BLK="0B" CHR="0B" HARDLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06" # CUSTOM MOD # MODS #DIR="1f" OTHER="11"
+DIR="04" EXE="06" REG="00" SYMLINK="06" BLK="0B" CHR="0B" HARDLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06" # CUSTOM MOD # MODS #DIR="1f" OTHER="11"
 DIR="26" OTHER="14"
 export NNN_PLUG="$NCMD"
 export NNN_TRASH=1
