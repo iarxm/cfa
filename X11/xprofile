@@ -1,6 +1,6 @@
 #!/bin/sh
-feh --no-fehbg --bg-max "${HOME}/.local/share/aax/xbg/bg.jpg" &
-xrdb -I${HOME} .config/X11/xresources &
+feh --no-fehbg --bg-max "${BGX_FEH}" &
+xrdb -I${HOME}/.config .config/X11/xresources &
 xset r rate 120 120 &
 unclutter &
 picom &
