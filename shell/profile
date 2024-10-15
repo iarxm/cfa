@@ -127,10 +127,12 @@ export XDAT="${XDG_DATA_HOME}"
 export XBIN="${XDG_BIN_HOME}"
 export XDAT="${XDG_DATA_HOME}"
 export RANDFILE="${XDG_CACHE_HOME}/rnd"
-# NEW #####################################
+# new #####################################
 export DICTIONARY="en_GB"
-export ZK_NOTEBOOK_DIR="$HOME/daa/zk"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+# new
+export ZK_NOTEBOOK_DIR="$HOME/daa/zk"
+export BGX_FEH="${XDG_DATA_HOME}/aaa/xbg/bg.png"
 #== INTERACTIVE SHELL INIT ######################
 [ "$(tty)" = '/dev/tty1' ] && startx -- -keeptty >~/.local/share/xorg/zxorg.log 2>&1 # goes last
 
