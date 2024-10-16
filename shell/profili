@@ -12,7 +12,6 @@ export GIT_PS1_STATESEPARATOR="1"	    # sep between branch name and state symbol
 export GIT_PS1_DESCRIBE_STYLE="1"	    # show commit relative to tag/branch, when detached HEAD
 export GIT_PS1_SHOWCOLORHINTS="1"	    # display in color
 export PIXELFONTSIZE=18 # font
-
 [ ! -n $(which tput | grep "not found") ] && { \ #color
 	export BLACK="$(tput setaf 0)"
 	export RED="$(tput setaf 1)"
@@ -29,26 +28,4 @@ export PIXELFONTSIZE=18 # font
 	export BLINK="$(tput blink)"
 	export REVERSE="$(tput smso)"
 	export UNDERLINE="$(tput smul)" ;}
-
-export NNN_CONFIG="$XDG_CONFIG_HOME/shell/nnx"
-[[ -f "$NNN_CONFIG" ]] && . "$NNN_CONFIG"
-
-# task: remove or strip away below as unecessary
-#### xdg dir ######################################
-export XDGX="$XDG_DATA_HOME/aaa"
-#### home cleaning ####################
-export SHELLX_D="${XDG_CONFIG_HOME}/shelx/"
-export PROFILEX="${XDG_CONFIG_HOME}/shelx/profile"
-export PROFILEI="${XDG_CONFIG_HOME}/shell/profili" # interactive shell exports
-[[ -f "${PROFILEX}" ]] 	&& . "${PROFILEX}"
-#### personal pointers #######################
-export XCFG="${XDG_CONFIG_HOME}"
-export XBIN="${XDG_BIN_HOME}"
-export XDAT="${XDG_DATA_HOME}"
-export XBIN="${XDG_BIN_HOME}"
-export XDAT="${XDG_DATA_HOME}"
-export ALIASESX="${XDG_CONFIG_HOME}/shelx/alias"
-export ALIASESR="${XDG_CONFIG_HOME}/shell/aliases"
-[[ -f "$ALIASESR" ]]   && . "$ALIASESR"
-for a in $SHELLX_D/alias*; do [[ -f "$a" ]] && . "$a"; done
 
