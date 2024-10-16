@@ -20,10 +20,10 @@ set $isw                 exec i3s wx
 set $isx                 exec i3s
 floating_modifier        $mda
 floating_maximum_size    0 x 0
-include                  ~/.config/i3/xprv.config
-include                  ~/.config/i3/xwin.config
-include                  ~/.config/i3/xcol.config
-include                  ~/.config/i3/xbar.config
+include                  ~/.config/i3/x-preview.config
+include                  ~/.config/i3/x-window.config
+include                  ~/.config/i3/x-color.config
+include                  ~/.config/i3/x-status.config
 exec --no-startup-id     i3sbar-c
 bindsym $mdb+Ctrl+k       $exn pamixer --allow-boost -i 10
 bindsym $mdb+Ctrl+j       $exn pamixer --allow-boost -d 10
