@@ -61,6 +61,6 @@ set my_bind_a           = "$my_cfg/bind"
 source "$my_bind_a"
 source "$my_cfg/set.col"
 source "$my_cfg/gpg"                               #  'p' in compose fields..
-source "$XDG_CONFIG_HOME/muttm/amuttrc"
+source "$XDG_CONFIG_HOME/muttm/muttrc"
 #
 #set query_command       = ""     # khard
