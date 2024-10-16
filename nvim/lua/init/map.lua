@@ -65,9 +65,13 @@ map('n', '<S-h>', ':call mdx#ToggleHiddenAll()<CR>', { noremap = true }) --cust
 map('n', ';h', ':call mdx#ToggleWrite()<CR>', { noremap = true })
 map('n', '.n', ':call mdx#WideMargin()<CR>', { noremap = true })
 map('n', '<leader>st', ':CtrlPTag<CR>', { noremap = true }) -- tags
-map('n', ';m', ':!makeu "$PWD" <CR>', { noremap = true }) -- make scripts
+-- make
+--map('n', ';m', ':!makeu "$PWD" <CR>', { noremap = true }) -- make scripts
 map('n', ';M', ':make &<CR><CR>', { noremap = true })
 map('n', ';c', ':silent !xelatex "%s" &<CR>:redraw!<CR>', { noremap = true }) -- scripts
+--map('n', '<leader>m', ':call jobstart("make", {"on_exit": {-> execute("copen")}})<CR>', { silent = false }) -- async make
+map('n', '<leader>m', ':call jobstart("make")<CR>', { silent = false }) -- async make
+
 map('n', ';p', ':!pda "%"<CR>', { noremap = true })
 map('n', ';l', ':TOC<CR>', { noremap = true }) -- syntax
 map('n', ';f',
@@ -131,6 +135,7 @@ map('n', ';w', ':WhichKey<cr>', { silent = true })
 -- map('n', ';fg', ':Telescope live_grep', {})
 -- map('n', ';fb', ':Telescope buffers', {})
 -- map('n', ';fh', ':Telescope help_tags', {})
+
 -- ## COMMANDS ###############################################
 usc('Gpt', 'ChatGPT', {})
 -- COLORS ###############################

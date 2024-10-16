@@ -1,4 +1,4 @@
-return {-- write
+return { -- write
     {
     'junegunn/limelight.vim',
         cmd = 'Limelight',

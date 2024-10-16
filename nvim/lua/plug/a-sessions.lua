@@ -1,4 +1,4 @@
-return {-- session management
+return { -- session management
     { 'tpope/vim-obsession', cmd = 'Obsession'},-- Session Management
     { 'folke/persistence.nvim',
         -- event = "BufReadPre",
