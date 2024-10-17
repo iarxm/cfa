@@ -56,50 +56,63 @@ bind index,pager    "\Co" sidebar-open
 bind pager          "\Cv" sidebar-toggle-virtual
 bind pager          "\CV" sidebar-toggle-virtual
 bind editor         "<Tab>" complete-query
-bind editor         "^T"  complete
-macro index,pager   "A"   "<create-alias>"
-#macro index,pager   "a"   "<pipe-message>khard...<return>" # khard
+bind editor         "^T"    complete
+macro index,pager   "A"     "<create-alias>"
+#macro index,pager  "a"     "<pipe-message>khard...<return>" # khard
 ## viewers #####################################
+# uid
 set my_uid           = `mlx uid` # mutt fails to recognise $UID by itself
-set my_fifo          = "/tmp/mutt-fifo"
-set my_tmp_dir       = "/run/user/$my_uid/mutt"
-set my_tmp_mime      = "$my_tmp_dir/mlx.mime"
-set my_tmp_mlx       = "$my_tmp_dir/mlx.html"
-set my_c_html_get    = "<view-attachments><search>html<enter>"
-set my_c_pipe_mlx    = "<pipe-entry>cat > $my_tmp_mlx<enter>"
-set my_c_pipe_ic     = "<pipe-entry>iconv -c --to-code=UTF8 > $my_tmp_mlx<enter>"
-set my_c_brx         = "<shell-escape>mlx browser > /dev/null 2>&1 &<enter>" # browser
-set my_c_bfl         = "<shell-escape>mlx qb.float<enter>" # browser
-set my_c_btrm        = "<shell-escape>mlx term<enter>" # browser
-#set my_c_b_x         = "$my_c_html_get  $my_c_pipe    $my_c_brx<exit>" # macro
-set my_c_b_x         = "$my_c_html_get  $my_c_pipe    $my_c_brx<exit>" # macro
-set my_c_bfl_x       = "$my_c_html_get  $my_c_pipe_ic $my_c_bfl<exit>" # macro
-set my_c_bterm_x     = "$my_c_html_get  $my_c_pipe    $my_c_btrm<exit>"
-set my_c_b_y         = "$my_c_pipe_ic   $my_c_brx<exit>"
-set my_c_bfl_y       = "$my_c_pipe_ic   $my_c_bfl<exit>"
-set my_c_style       = "$my_c_pipe <shell-escape>mlx md2html<enter>"
-set my_c_pipe_fifo   = "<pipe-entry>cat > $my_tmp_mime && echo y > $my_fifo<enter>"
-set my_next_u        = '<enter-command>macro index,pager j "<next-entry>$my_c_pipe_fifo"'
-set my_next_d        = '<enter-command>macro index,pager j "<next-entry>"'
-set my_prev_u        = '<enter-command>macro index,pager k "<previous-entry>$my_c_pipe_fifo'
-set my_prev_d        = '<enter-command>macro index,pager k "<previous-entry>"'
-set my_c_mlx_init    = "<shell-escape>mlx qb.rip &<enter>"
-macro index,pager    'ba' "$my_c_mlx_init $my_next_u<enter>$my_prev_u<enter>"
-macro index,pager    'bd' "$my_next_d<enter>$my_prev_d<enter>"
-macro index,pager    'bi' "$my_c_mlx_init"
-macro index,pager    'bb'   "$my_c_b_x" # viewer
-macro attach,compose 'bb'   "$my_c_b_y" # viewer
-macro index,pager    'bfx'   "$my_c_bfl_x"   # floating
-macro attach,compose 'bfy'   "$my_c_bfl_y"   # floating
+# files
+set my_f_fifo        = "/run/user/$my_uid/mutt/fifo"
+set my_f_mime        = "/run/user/$my_uid/mutt/mlx.mime"
+set my_f_mlx         = "/run/user/$my_uid/mutt/mlx.html"
+set my_f_mly         = "/run/user/$my_uid/mutt/mly.html"
+# pipes and gets
+set my_donothing     = " "
+set my_get_html      = "<view-attachments><search>html<enter>"
+set my_pipe_ico      = "<pipe-entry>iconv -c --to-code=UTF8   > $my_f_mly<enter>"
+set my_pipe_mly      = "<pipe-entry>cat > $my_f_mly<enter>"
+set my_pipe_mlx      = "<pipe-entry>cat > $my_f_mlx<enter>"
+set my_pipe_fif      = "<pipe-entry>cat > $my_f_mime && echo y > $my_f_fifo<enter>"
+# browser call
+#set my_mlx_bro       = "<shell-escape>mlx brx > /dev/null 2>&1 &<enter>"    # default
+set my_mlx_bro       = "<shell-escape>mlx bry<enter>"                        # default
+set my_mlx_bry       = "<shell-escape>mlx bry<enter>"                        # default
+set my_mlx_bfl       = "<shell-escape>mlx qb.float<enter>"                   # floating
+set my_mlx_btr       = "<shell-escape>mlx term<enter>"                       # terminal
+set my_mlx_ini       = "<shell-escape>mlx qb.rip &<enter>"
+set my_mlx_md2ht     = "<shell-escape>mlx md2html<enter>"
+# browser chains
+set my_bry           = "$my_get_html  $my_pipe_mly  $my_mlx_bro<exit>" # default
+set my_bry_i         = "$my_donothing $my_pipe_ico  $my_mlx_bry<exit>" # second
+set my_bfx           = "$my_get_html  $my_pipe_ico  $my_mlx_bfl<exit>" # float x
+set my_bfy           = "$my_donothing $my_pipe_ico  $my_mlx_bfl<exit>" # float y
+set my_btr           = "$my_get_html  $my_pipe      $my_mlx_btr<exit>" # terminal
+# styling
+set my_stylex        = "$my_donothing $my_pipe      $my_mlx_md2ht"     # styling
+# autocommand hack
+set my_next_on       = '<enter-command>macro index,pager j "<next-entry>$my_pipe_fif"'
+set my_prev_on       = '<enter-command>macro index,pager k "<previous-entry>$my_pipe_fif"'
+set my_next_off      = '<enter-command>macro index,pager j "<next-entry>"'
+set my_prev_off      = '<enter-command>macro index,pager k "<previous-entry>"'
+macro index,pager    'bu'   "$my_mlx_ini   $my_next_on <enter> $my_prev_on <enter>"   # init viewer
+macro index,pager    'bd'   "$my_donothing $my_next_off<enter> $my_prev_off<enter>" # kill viewer
+macro index,pager    'bi'   "$my_mlx_ini"  # init auto pipe
+macro index,pager    'bb'   "$my_bry"      # open in
+macro attach,compose 'bb'   "$my_bry_i"    # open in
+macro index,pager    'bfx'  "$my_bfx"      # open in float
+macro attach,compose 'bfy'  "$my_bfy"      # open in float
+macro index,pager    'bt'   "$my_btr"      # browser.text
+macro compose        '.mm'  "$my_sty"      # post processing styling
 #startup-hook         "push 'bi'"
 #startup-hook         "push 'bu'"
 # other #########################################
-macro compose        '.mm'  "$my_c_style"   # post processing styling
-#macro index,pager    'I'    "$my_c_bterm_x" # browser.text
 macro index A "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
     "mark all new as read"
+
 #############################################################
 ## TODO: integrate urlview or someway to extract a url and open it in qb.. an unsub url
 ## TODO: is the index version above useful?
 # archive
 #macro index,pager   "a"   "<pipe-message>goobook add<return>" # goobook unmainted
+#set my_f_fifo        = "/tmp/mutt-fifo"
