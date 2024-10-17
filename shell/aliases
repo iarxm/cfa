@@ -1,6 +1,7 @@
 #!/bin/sh
 alias wifi.z="nmcli connection up z"
 alias mr="mr --config $HOME/.config/mr/mrconfig"
+alias libr="libreoffice"
 # xset #########################
 alias xset.a="xset r rate 90 150"
 alias xset.b="xset r rate 100 100"
