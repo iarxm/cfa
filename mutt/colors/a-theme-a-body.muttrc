@@ -1,6 +1,4 @@
 # vim:ft=neomuttrc
-#####################################################################
-# Message Body   --------------------------------------------------------------------
 # Message Headers
 color hdrdefault color8 default
 #color body color8 default '(^(To|From|Sent|Subject):.*)'

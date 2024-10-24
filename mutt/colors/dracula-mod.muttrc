@@ -57,7 +57,7 @@ color attachment color8 default
 # Signature
 color signature color8 default
 # emails
-	# color body  color14 default  '[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+'
+    # color body  color14 default  '[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+'
 # hide "mailto" 
 color body  color0 color0  '<mailto:[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+>'
 # URLs
@@ -67,11 +67,11 @@ color body color8 default '(^[-_]*$)'
 # Important info in calendar invites
 color body color6 default '^(Date\/Time|Location|Organiser|Invitees|Teams Meeting)(:| \~\~)'
 # Quotes
-color quoted		color61		default
-color quoted1		color117	default
-color quoted2		color84		default
-color quoted3		color215	default
-color quoted4		color212	default
+color quoted        color61        default
+color quoted1        color117    default
+color quoted2        color84        default
+color quoted3        color215    default
+color quoted4        color212    default
 # Forward/reply headers
 color body color8 default '(^(To|From|Sent|Subject):.*)'
 

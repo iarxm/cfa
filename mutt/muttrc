@@ -27,7 +27,7 @@ set pager_stop          = "yes"
 set markers             = "yes"
 set implicit_autoview   = "yes"
 auto_view                 text/plain text/enriched text/html multipart/alternative
-## Sidebar #############################
+## sidebar #############################
 set sidebar_on_right    = "true"
 set sidebar_width       = "18"
 set sidebar_sort_method = "desc"
@@ -42,8 +42,6 @@ set mark_old            = "no"
 set confirmappend       = "no"
 set mail_check_stats    = "yes"
 ## compose #############################
-#set pipe_decode         = "yes"
-#set pipe_decode_weed    = "yes"
 set charset             = "utf-8"
 set include             = "yes"
 set fast_reply          = "yes"
@@ -51,16 +49,18 @@ set editor              = "nvim"
 set reverse_realname    = "yes"                    #  use any real name provided when replying
 set reverse_name                                   #  reply as whomever it was to
 set header              = "yes"
+#set pipe_decode         = "yes"
+#set pipe_decode_weed    = "yes"
 ## env ###################################
 #set my_uid              = "$UID"
 set my_uid              = `echo $UID`
 set my_cfg              = "$XDG_CONFIG_HOME/mutt"
-set my_mb_sh            = "$XDG_CONFIG_HOME/mutt/mb.sh"
-set mailcap_path        = "$my_cfg/mailcap"
-set my_bind_a           = "$my_cfg/bind"
+set my_mb_sh            = "$XDG_CONFIG_HOME/mutt/mailboxes"
+set my_bind_a           = "$XDG_CONFIG_HOME/mutt/bind.muttrc"
+set mailcap_path        = "$XDG_CONFIG_HOME/mutt/mailcap"
 source "$my_bind_a"
-source "$my_cfg/set.col"
-source "$my_cfg/gpg"                               #  'p' in compose fields..
+source "$XDG_CONFIG_HOME/mutt/color.muttrc"
+source "$XDG_CONFIG_HOME/mutt/format.muttrc"
+source "$XDG_CONFIG_HOME/mutt/gpg.muttrc"
 source "$XDG_CONFIG_HOME/muttm/muttrc"
-#
 #set query_command       = ""     # khard

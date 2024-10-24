@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 case $1 in
 
     a|aa|all)
@@ -22,5 +23,6 @@ case $1 in
                 ! -name "x.*" \
                 -printf "+'%f' ")"
         ;;
+
 esac
 

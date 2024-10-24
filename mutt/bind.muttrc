@@ -1,5 +1,5 @@
 ## vim:ft=muttrc syntax=neomuttrc
-#### ESSENTIALS ##############################
+#### which keys ##############################
 ## |-------|---------------------------------|
 ## | bu/bd | switch on/off qb preview window |
 ## | gg    | first entry                     |
@@ -109,7 +109,6 @@ macro compose        '.mm'  "$my_sty"      # post processing styling
 # other #########################################
 macro index A "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
     "mark all new as read"
-
 #############################################################
 ## TODO: integrate urlview or someway to extract a url and open it in qb.. an unsub url
 ## TODO: is the index version above useful?

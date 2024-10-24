@@ -1,0 +1,11 @@
+# vim:ft=neomuttrc
+#source $XDG_CONFIG_HOME/mutt/colors/gruvbox.muttrc
+#source $XDG_CONFIG_HOME/mutt/colors/zenburn.muttrc
+#source $XDG_CONFIG_HOME/mutt/colors/solarized.dark.muttrc
+#source $XDG_CONFIG_HOME/mutt/colors/solarized.light-256.muttrc.muttrc
+#source $XDG_CONFIG_HOME/mutt/colors/vombat.muttrc
+#source $XDG_CONFIG_HOME/mutt/colors/dracula-mod.muttrc
+#source $XDG_CONFIG_HOME/mutt/colors/gid.muttrc
+#source $XDG_CONFIG_HOME/mutt/colors/a-theme-b.muttrc
+source $XDG_CONFIG_HOME/mutt/colors/a-theme-a.muttrc
+
