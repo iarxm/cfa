@@ -55,8 +55,9 @@ map('n', '<leader>zz', ':ZenMode<CR>', { noremap = true })
 map('n', ';zz', ':ZenMode<CR>', { noremap = true })
 map('n', '<leader>zm', ':MuttonToggle<CR>', { noremap = true })
 --map('n', '<leader>zm', ':MuttonToggle<CR>', { noremap = true })
--- map('n', '<leader>g', ':Goyo 90%x90% <bar> call md#HideAll()<CR>', { noremap = true })
--- map('n', '<leader>G', ':Goyo 60%x90% <bar> call md#HideAll()<CR>', { noremap = true })
+--map('n', '<leader>g', ':Goyo 90%x90% <bar> call md#HideAll()<CR>', { noremap = true })
+map('n', '<leader>g', ':Goyo<CR>', { noremap = true })
+map('n', '<leader>G', ':Goyo 60%x90% <bar> call md#HideAll()<CR>', { noremap = true })
 -- map('n', ';g', ':Goyo <bar> call md#HideAll()<CR>', { noremap = true })
 usc('Zen', 'ZenMode', {})
 usc('Z', 'ZenMode', {})
@@ -117,14 +118,14 @@ map('n', ';T', ':TableModeRealign<CR>', { silent = true })
 map('n', '.t', ':TableModeEnable<CR>', { silent = false })
 map('n', '<leader>r', ':RenumberList<CR>', { silent = true })
 map('n', '<leader>om', ':call OpenMarkdownPreview()<cr>', { silent = true })
--- ## TAGS #######################
--- map('n', ',t', ':Tlist<CR>', { silent = true })
--- map('n', ',t', ':TagbarToggle<CR>', { silent = true })
--- ## OTHER #######################################################
 -- URLs
 map('n', '<leader>U', ':call url#HandleURL()<cr>', { silent = true })
 map('n', '<leader>u', ':call url#HandleUrlCurWin()<cr>', { silent = true })
 map('n', ';w', ':WhichKey<cr>', { silent = true })
+-- ## TAGS #######################
+-- map('n', ',t', ':Tlist<CR>', { silent = true })
+-- map('n', ',t', ':TagbarToggle<CR>', { silent = true })
+-- ## OTHER #######################################################
 -- ## AUTO PARENTHESISE
 -- map('i', '(', '()<ESC>i', {})
 -- map('i', '"', '""<ESC>i', {})
@@ -136,16 +137,12 @@ map('n', ';w', ':WhichKey<cr>', { silent = true })
 -- map('n', ';fg', ':Telescope live_grep', {})
 -- map('n', ';fb', ':Telescope buffers', {})
 -- map('n', ';fh', ':Telescope help_tags', {})
-
--- ## COMMANDS ###############################################
+-- #### COMMANDS ###############################################
 usc('Gpt', 'ChatGPT', {})
--- COLORS ###############################
+-- ## colors ###############################
 aug('COLORS', { clear = true })
-auc({"ColorScheme"}, {
-	pattern = "eldar",
-	group = "COLORS",
-	command = "source $HOME/.config/nvim/colors/black.vim"})
--- WRITING/UI ##############################
+-- ## writers ##############################
+-- task: move to relevant plugin sections
 aug('WORKING', 	{ clear = true })
 auc({'VimEnter'}, 	{
 	group = "WORKING",
@@ -157,20 +154,19 @@ auc("BufWritePost", {
 	group = "WORKING",
 	command = 'echom " "'})
 --	command = 'echom "\"" . expand("%") . "\"" wordcount().words . "w"'})
-auc("User", {
-	pattern = "GoyoEnter",
-	group = "WORKING",
-	nested = true,
-	command = "call mdx#Goyo_enter()" })
-auc("User", {
-	pattern = "GoyoLeave",
-	group = "WORKING",
-	nested = true,
-	command = "call mdx#Goyo_leave()"})
-auc("TabEnter", {
-	group = "WORKING",
-	command = "call uix#ToggleSlineTrig()"})
-auc("VimEnter", {
-	group = "WORKING",
-	command = "call uix#ToggleSlineTrig()"})
-
+--auc("User", {
+--	pattern = "GoyoEnter",
+--	group = "WORKING",
+--	nested = true,
+--	command = "call mdx#Goyo_enter()" })
+--auc("User", {
+--	pattern = "GoyoLeave",
+--	group = "WORKING",
+--	nested = true,
+--	command = "call mdx#Goyo_leave()"})
+--auc("TabEnter", {
+--	group = "WORKING",
+--	command = "call uix#ToggleSlineTrig()"})
+--uc("VimEnter", {
+--	group = "WORKING",
+--	command = "call uix#ToggleSlineTrig()"})

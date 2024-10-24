@@ -107,4 +107,7 @@ return {
         end,
     },
 }
+--opt.colorcolumn     = '79' leave this to the particlar filetype
+-- TASK: nyoom-engineering/nyoom.nvim - learn from this plugin!
+-- TASK: load theme via lazy.nvim configs
 --{ 'https://github.com/naortega/matrix.vim', name= 'matrix' },

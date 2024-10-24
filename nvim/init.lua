@@ -1,1 +1,1 @@
-require("init.aaa")
+require("init.ini")

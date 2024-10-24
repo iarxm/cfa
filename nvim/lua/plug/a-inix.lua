@@ -1,18 +1,31 @@
 return {
-    { 'neomake/neomake', 
+    { 'felipec/notmuch-vim', cmd = 'NotMuch'},
+    -- tasks ###########################################
+    {
+    'blindFS/vim-taskwarrior',
+        cmd = 'TW',
+        config = function()
+            vim.g.task_rc_override = 'defaultwidth=999'
+            vim.g.task_info_vsplit = 1
+        end
+    },
+    -- neomake #########################################
+    { 'neomake/neomake',
         cmd = 'Neomake'
     },
     { 'folke/lazy.nvim',     version = "*" },
     { 'sheerun/vim-polyglot'}, -- language pack
+    --
     { 'powerman/vim-plugin-AnsiEsc',},
-    
+    --
     { 'dkarter/bullets.vim'}, -- mdx?
     -- syntax
     { 'tpope/vim-surround'}, -- func
     { 'junegunn/vim-easy-align',    cmd = 'Easy' },
-    { 'tmsvg/pear-tree'},    -- func
     { 'sirver/ultisnips'},   -- func
     { 'honza/vim-snippets'}, -- func
+    --
+    { 'tmsvg/pear-tree'},    -- func
     { 'vim-scripts/SyntaxRange'},
     { 'rdnetto/YCM-Generator',      branch = 'stable'},
     { 'tpope/vim-speeddating'},
@@ -35,11 +48,26 @@ return {
     { 'manasthakur/vim-asyncmake',  cmd = 'AsyncMake'},  -- syn
     -- search
     { 'universal-ctags/ctags'}, -- tag
-    { 'ctrlpvim/ctrlp.vim'},    -- search
-    { 'junegunn/fzf'},          -- which fzf??
-        -- {'/usr/bin/fzf',}, -- Specify path to fzf bin
-    --
-    { 'vim-scripts/taglist.vim', cmd = 'Tlist'},   -- tag-
+    { 'ctrlpvim/ctrlp.vim',
+        config = function()
+            vim.g.ctrlp_map = "<c-p>"
+            vim.g.ctrlp_cmd = "CtrlP"
+            vim.g.ctrlp_extensions = { "tag", "buffertag", "dir", "undo", "line", "mixed", "bookmarkdir" }
+        end
+    },
+    { 'vim-scripts/taglist.vim',
+        cmd = 'Tlist',
+        config = function()
+            vim.g.tlist_markdown_settings = "markdown;h:heading;s:section;S:subsection;o:todo"
+            vim.g.Tlist_Auto_Highlight_Tag         = 1
+            vim.g.Tlist_Highlight_Tag_On_BufEnter  = 1
+            vim.g.Tlist_Auto_Update                = 1
+            vim.g.Tlist_Compact_Format             = 1
+            vim.g.Tlist_Enable_Fold_Column         = 0
+            vim.g.Tlist_Display_Prototype          = 1
+            -- g.Tlist_Show_One_File           = 1
+        end
+    },
     { "ThePrimeagen/harpoon",
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" }

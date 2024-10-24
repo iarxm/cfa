@@ -227,7 +227,7 @@ M.oa_x = function() -- Actionable Panels (o#oa_x)
     --tnew(oc)
     --svrt(oj)
     tnew(uc)
-    zen_mut()
+    zen_mdx()
 end
 
 M.oa = function() -- Actionable Panels Master Function (o#oa)
@@ -237,7 +237,7 @@ M.oa = function() -- Actionable Panels Master Function (o#oa)
     M.oa_x()
     cmd('silent tabnext 1')
     cmd('silent quit')
-    zen_mut()
+    zen_goy()
 end
 
 

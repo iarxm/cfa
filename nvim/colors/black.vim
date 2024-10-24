@@ -1,12 +1,11 @@
 hi AllBlack              ctermbg=black     guibg=black 	guifg=black      ctermfg=black
 hi link VertSplit AllBlack
-" ########################################################################
+" #### normal ########################################################################
 hi Normal                ctermbg=black     guibg=black
 hi NormalOpposite        ctermbg=black     guibg=black                                       gui=standout
-" ui #####################################################################
-" background
+" #### ui #####################################################################
+" ## background
 hi AsciContainer         ctermbg=black     guibg=black                                       gui=standout,bold
-"hi StatusLine            ctermbg=grey      guibg=grey       guifg=black      ctermfg=black
 hi StatusLine            ctermbg=black     guibg=black      guifg=black      ctermfg=black
 hi StatusLineNC          ctermbg=black     guibg=black      guifg=black      ctermfg=black
 hi TabLine               ctermbg=black     guibg=black      "ctermfg=grey     guifg=grey
@@ -17,11 +16,10 @@ hi TabLineSelSeparator   ctermbg=black     guibg=black      guifg=black      cte
 hi TabLineFillSeparator  ctermbg=black     guibg=black      guifg=black      ctermfg=black
 hi TabLineModified       ctermbg=black     guibg=black      "ctermfg=yellow   guifg=yellow
 hi TabLineSelModified    ctermbg=black     guibg=black      "ctermfg=magenta guifg=magenta
-" trim
+hi LineNr                ctermbg=black     guibg=black
+" ## trim
 hi EndOfBuffer           ctermbg=black     guibg=black      guifg=black      ctermfg=black
-" search
-"hi Search               ctermfg=White ctermbg=Red"
-" floating
+" ## floating
 hi FoldColumn                              guibg=black      guifg=#5f87af 
 hi FloatBorder                             guibg=black      guifg=#5f87af
 hi FloatTitle                              guibg=black      guifg=#5f87af                    "gui=standout
@@ -31,8 +29,8 @@ hi PmenuSbar                               guibg=black      guifg=#5f87af       
 hi LspInfoBorder                                            guifg=#5f87af 
 "hi VertSplit                                               guifg=black      ctermfg=black
 "hi link Art NormalOpposite
-"#### FOLDING ####################################################
-"hi Folded        ctermfg=white guibg=black ctermbg=black guifg=lightcyan "guifg=#c0caf5
+" #### FOLDING ####################################################
+"hi Folded             ctermfg=white guibg=black ctermbg=black guifg=lightcyan "guifg=#c0caf5
 hi Folded              guibg=black ctermbg=black
 hi SignColumn          guibg=black
 hi MyTagListFileName   guibg=black   guifg=#5f87af
@@ -41,6 +39,8 @@ hi TagbarKind          guifg=lightyellow ctermfg=yellow
 hi TagbarNestedKind    guifg=lightyellow ctermfg=yellow
 hi TagbarType          guifg=lightyellow ctermfg=yellow
 hi TagbarScope         guifg=lightyellow ctermfg=yellow
+" ## search
+"hi Search               ctermfg=White ctermbg=Red"
 "#### TODO: #################################
 " GOAL: full fledged color scheme that's extremely minimal.
 " TODO: Can i just 'link' groups that have the same settings?
@@ -81,3 +81,5 @@ hi TagbarScope         guifg=lightyellow ctermfg=yellow
 "hi Comment ctermfg=yellow
 "hi StatusLine ctermfg=lightblue guifg=#5f87af ctermbg=black guibg=black
 "hi StatusLineNC ctermfg=lightblue guifg=#5f87af ctermbg=black guibg=black
+"#########################################################################################
+"hi StatusLine            ctermbg=grey      guibg=grey       guifg=black      ctermfg=black

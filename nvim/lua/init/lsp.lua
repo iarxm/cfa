@@ -1,2 +1,0 @@
--- move this under config function in the lsp-zero.nvim plug call
--- if issues, just move it back, or set lsp-zero to begin on vimEnter
