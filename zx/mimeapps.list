@@ -30,6 +30,7 @@ image/*=img.desktop;
 image/png=img.desktop;
 image/jpeg=img.desktop;
 image/gif=img.desktop;
+image/webp=img.desktop;
 video/mp4=mpv.desktop;
 video/mkv=mpv.desktop;
 video/avi=mpv.desktop;
