@@ -271,19 +271,23 @@ config.bind('<Alt-Shift-k>',       'zoom-in')
 config.bind('<Alt-Shift-j>',       'zoom-out')
 config.bind(',d',                  "set-cmd-text -s :darkreader enable '{url}*'")
 config.bind(',r',                  "set-cmd-text -s :darkreader disable '{url}*'")
-c.fonts.default_family                           = ["Source Sans Pro",
-                                                    "Noto Sans Mono",
-                                                    "DejaVu Sans Mono",
-                                                    "Liberation Mono"]
-c.fonts.tabs.selected                            = "10pt Source Sans Pro"
-c.fonts.statusbar                                = "10pt Sourc Sans Pro"
-c.fonts.hints                                    = "16pt DejaVu Sans Mono"
-c.fonts.messages.info                            = "13pt Noto Sans Mono"
+c.fonts.default_family                           = "JetBrainsMonoNL Nerd Font"
+
+#c.fonts.default_family                           = ["Source Sans Pro",
+#                                                    "Noto Sans Mono",
+#                                                    "DejaVu Sans Mono",
+#                                                    "Liberation Mono"]
+#c.fonts.tabs.selected                            = "10pt Source Sans Pro"
+c.fonts.tabs.selected                            = "10pt JetBrainsMonoNL Nerd Font"
 c.fonts.tabs.unselected                          = c.fonts.tabs.selected
+c.fonts.hints                                    = "16pt DejaVu Sans Mono"
+#c.fonts.statusbar                                = "10pt Sourc Sans Pro"
+c.fonts.statusbar                                = "10pt JetBrainsMonoNL Nerd Font"
 c.fonts.downloads                                = c.fonts.statusbar 
 c.fonts.prompts                                  = c.fonts.statusbar
+c.fonts.completion.entry                         = c.fonts.statusbar
+c.fonts.completion.category                      = c.fonts.statusbar
+c.fonts.messages.info                            = "13pt Noto Sans Mono"
 c.fonts.keyhint                                  = c.fonts.messages.info
 c.fonts.messages.warning                         = c.fonts.messages.info
 c.fonts.messages.error                           = c.fonts.messages.info
-c.fonts.completion.entry                         = c.fonts.statusbar
-c.fonts.completion.category                      = c.fonts.statusbar
