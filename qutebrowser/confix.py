@@ -3,45 +3,37 @@ import os
 import glob
 DATA                                = '/dat'
 HOME                                = os.getenv("HOME")
-os.environ['QT_QPA_PLATFORMTHEME']  = "qt6ct" # req to load qt6 cfgs
-os.environ['QUTE_POST_CLONE']       = 'notify-send "cloned!" "${QUTE_URL}"'
-os.environ['QUTE_POST_CLONE']       = 'notify-send "cloned!" "${QUTE_URL}"'
-os.environ['QUTE_BIB_FILEPATH']     = "${HOME}/jf/iic/bib/qute.bib"
-QUTE_CFG_DIR                        = HOME + "/.config/qutebrowser"
-QUTE_UIX_DIR                        = QUTE_CFG_DIR + "/userinterfa"
-QUTE_BLOCKED                        = QUTE_CFG_DIR + "/blocked-hosts"
+QUTE_CONFIG_HOME                    = HOME + "/.config/qutebrowser"
+QUTE_BLOCKED                        = QUTE_CONFIG_HOME + "/blocked-hosts"
 QUTE_BLOCKED_ETC                    = "/etc/qutebrowser/blocked-hosts"
-QUTE_UIX_BLK                        = "file://" + QUTE_UIX_DIR + "/ahm/index-blank.html"
-QUTE_UIX_BGX                        = "file://" + QUTE_UIX_DIR + "/ahm/index-backg.html"
-c.url.default_page                  = QUTE_UIX_BGX
-c.url.start_pages                   = QUTE_UIX_BGX
+os.environ['QUTE_CONFIG_HOME']     = HOME + "/.config/qutebrowser"
+os.environ['QT_QPA_PLATFORMTHEME'] = "qt6ct" # req to load qt6 cfgs
+os.environ['QUTE_POST_CLONE']      = 'notify-send "cloned!" "${QUTE_URL}"'
+os.environ['QUTE_BIB_FILEPATH']    = "${HOME}/jf/iic/bib/qute.bib"
+os.environ['QUTE_UIX_BLK']         = "file://" + QUTE_CONFIG_HOME + "/interface/index-blank.html"
+os.environ['QUTE_UIX_BGX']         = "file://" + QUTE_CONFIG_HOME + "/interface/index-background.html"
+os.environ['COLORS_SOLAR_D']      = QUTE_CONFIG_HOME + "/interface/styles/solarized-d/solarized-dark-all-sites.css"
+os.environ['COLORS_SOLAR_L']      = QUTE_CONFIG_HOME + "/interface/styles/solarized-l/solarized-light-all-sites.css"
+os.environ['COLORS_BLACKX']        = QUTE_CONFIG_HOME + "/interface/styles/blackblack/black-all-sites.css"
+os.environ['WINDOW_ELEMENTS']      = QUTE_CONFIG_HOME + "/interface/styles/user.css"
+#filepicker                          = ["st", "-c", "filepicker", "-t", "filepicker", "-e", "lf", "-command", "set nohidden", "-selection-path={}",]
+#c.fileselect.handler                = "external"
+#c.fileselect.folder.command         = filepicker
+#c.fileselect.multiple_files.command = filepicker
+#c.fileselect.single_file.command    = filepicker
+# task: folder picker; and beautify
 c.downloads.location.directory      = DATA + "/ui/iaa/"
 c.editor.command                    = ["st", "-c", "float", "nvim", "-O", "{}"] # i3 config 'float'
-filepicker                          = ["st", "-c", "filepicker", "-t", "filepicker", "-e", "lf", "-command", "set nohidden", "-selection-path={}",]
-# todo: folder picker; and beautify
 c.spellcheck.languages              = ['en-GB']
-c.zoom.default                      = "80%"
-c.downloads.position                = "bottom"
-c.prompt.radius                     = 0
-c.fileselect.handler                = "external"
-c.fileselect.folder.command         = filepicker
-c.fileselect.multiple_files.command = filepicker
-c.fileselect.single_file.command    = filepicker
 c.prompt.filebrowser                = True
 c.new_instance_open_target          = "tab-bg"
 c.input.insert_mode.auto_load       = True
-c.completion.height                 = "30%"
 c.completion.web_history.max_items  = 1000000
 c.completion.cmd_history_max_items  = 100000
 c.input.partial_timeout             = 2000
 c.messages.timeout                  = 2000
-c.tabs.position                     = "bottom"
 c.tabs.background                   = True
-c.tabs.favicons.show                = "never"
-c.tabs.title.format                 = "{current_title}"
 c.tabs.new_position.related         = "last"
-c.tabs.show                         = "switching"
-c.tabs.show_switching_delay         = 2000
 c.session.default_name              = "default_restore"
 c.auto_save.session                 = True
 c.content.webgl                     = True
@@ -92,18 +84,11 @@ c.content.cookies.accept           = 'all'
 c.content.blocking.method          = 'both'
 c.content.blocking.enabled         = True
 c.content.notifications.enabled    = False
-c.hints.border                     = "3px solid #CCCCCC"
 c.hints.mode                       = "letter"
 c.hints.chars                      = "asdfghklqweruiopzxcvbn"
 c.hints.min_chars                  = 1
 c.keyhint.blacklist                = ["*"]
 c.completion.open_categories       = ["quickmarks", "bookmarks", "history"]
-c.fonts.statusbar                  = "1pt Sourc Sans Pro"
-c.statusbar.padding                = { "bottom": 0, "left": 0, "right": 0, "top": 0 }
-#c.statusbar.show                   = "in-mode"
-c.statusbar.show                   = "never"
-c.statusbar.widgets                = [] # ["url", "progress", "scroll"]
-c.window.hide_decoration           = True
 c.scrolling.smooth                 = True # can make scrolling slow with mouse, but improves key scrolling
 c.url.searchengines['gs']          = 'http://scholar.google.ch/scholar?hl=en&q={}' #academic.bib
 c.url.searchengines['scihub']      = "https://sci-hub.se/{}" #academic.get
@@ -169,12 +154,12 @@ c.aliases['pdf']                   = 'print --pdf'
 c.aliases['dict']                  = 'spawn --userscript ~/.config/qutebrowser/userscripts/dict'
 c.aliases['bk']                    = 'spawn --userscript ~/.config/qutebrowser/userscripts/bukuadd'
 c.aliases['qbx']                   = 'spawn qb xw {url}'
-c.aliases['firefox']               = 'spawn firefox --new-window {url}'
+c.aliases['firefox']               = 'spawn --userscript ~/.config/qutebrowser/userscripts/firefox --new-window {url} ;; tab-close'
 c.aliases['ff']                    = 'firefox'
 c.aliases['oil']                   = 'spawn st -c stf-buku1 oil-search'
 c.aliases['us_echo']               = 'spawn --userscript ~/.config/qutebrowser/userscripts/echo'
-c.aliases['colcycle']              = 'config-cycle content.user_stylesheets ~/.config/qutebrowser/userinterfa/sty/blackblack/black-all-sites.css ""'
-c.aliases['colblack']              = 'set content.user_stylesheets ~/.config/qutebrowser/userinterfa/sty/blackblack/black-all-sites.css'
+c.aliases['colcycle']              = 'config-cycle content.user_stylesheets ' + os.getenv("COLORS_BLACKX") + '""'
+c.aliases['colblack']              = 'set content.user_stylesheets ' + os.getenv("COLORS_BLACKX")
 c.aliases['dread-enable']          = 'spawn --userscript darkreader.py enable domain'
 c.aliases['dread-disable']         = 'spawn --userscript darkreader.py disable domain'
 c.aliases['darkreader']            = 'spawn --userscript darkreader.py'
@@ -271,23 +256,3 @@ config.bind('<Alt-Shift-k>',       'zoom-in')
 config.bind('<Alt-Shift-j>',       'zoom-out')
 config.bind(',d',                  "set-cmd-text -s :darkreader enable '{url}*'")
 config.bind(',r',                  "set-cmd-text -s :darkreader disable '{url}*'")
-c.fonts.default_family                           = "JetBrainsMonoNL Nerd Font"
-
-#c.fonts.default_family                           = ["Source Sans Pro",
-#                                                    "Noto Sans Mono",
-#                                                    "DejaVu Sans Mono",
-#                                                    "Liberation Mono"]
-#c.fonts.tabs.selected                            = "10pt Source Sans Pro"
-c.fonts.tabs.selected                            = "10pt JetBrainsMonoNL Nerd Font"
-c.fonts.tabs.unselected                          = c.fonts.tabs.selected
-c.fonts.hints                                    = "16pt DejaVu Sans Mono"
-#c.fonts.statusbar                                = "10pt Sourc Sans Pro"
-c.fonts.statusbar                                = "10pt JetBrainsMonoNL Nerd Font"
-c.fonts.downloads                                = c.fonts.statusbar 
-c.fonts.prompts                                  = c.fonts.statusbar
-c.fonts.completion.entry                         = c.fonts.statusbar
-c.fonts.completion.category                      = c.fonts.statusbar
-c.fonts.messages.info                            = "13pt Noto Sans Mono"
-c.fonts.keyhint                                  = c.fonts.messages.info
-c.fonts.messages.warning                         = c.fonts.messages.info
-c.fonts.messages.error                           = c.fonts.messages.info

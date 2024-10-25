@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# using a script to include a sleep command to provide time for current tab to close in qutebrowser before opening firefox, otherwise the attention will be pulled from qutebrowser and the 'current tab' will be lost when issuing the 'tab-close' command. There may be a bug there in qutebrowser which would be worth reporting. The ideal approach would be to retrieve the exact index of the tab via window(x):tab(x)
+
+sleep 1s 
+
+firefox --new-window
+

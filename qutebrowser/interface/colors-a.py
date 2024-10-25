@@ -1,12 +1,3 @@
-import os
-HOME                                = os.getenv("HOME")
-QUTE_CFG_DIR                        = HOME + "/.config/qutebrowser"
-QUTE_UIX_DIR                        = QUTE_CFG_DIR + "/userinterfa"
-COL_SOLARD                          = QUTE_UIX_DIR + "/sty/solarizedd/solarized-dark-all-sites.css"
-COL_SOLARL                          = QUTE_UIX_DIR + "/sty/solarizedl/solarized-light-all-sites.css"
-COL_BLACKX                          = QUTE_UIX_DIR + "/sty/blackblack/black-all-sites.css"
-WINDOW_ELEMENTS                     = QUTE_UIX_DIR + "/sty/user.css"
-c.content.user_stylesheets          = [ WINDOW_ELEMENTS, COL_BLACKX ]
 # temp fix for statusbar bug:
 c.colors.completion.fg                           = "#899CA1"
 c.colors.completion.category.fg                  = "#F2F2F2"
