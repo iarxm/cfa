@@ -2,21 +2,21 @@ map J nop
 map K nop
 map q nop
 map q :quitall<CR>
-map J :tabnext<CR>
-map K :tabprevious<CR>
-map Q :qa<CR>
+map Q :quit<CR>
 map gj 10j
 map gk 10k
-hi tab     default white
-hi status  default bold_white
-hi current default bold_white
+map J :tabnext<CR>
+map K :tabprevious<CR>
+map .d :directory<CR>
+map .p :playlist<CR>
+map .l :library<CR>
+hi tab     default   white
+hi status  default   bold_white
+hi current black     green
 set tabbar!
 set browsenumbers!
 set showlists
 set progressbar!
-set windows playlist
-directory
+set windows library,directory,playlist
 playlist
-"outputs
-"set windows outputs,lists,library,browse,directory,playlist
 
