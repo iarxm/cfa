@@ -60,8 +60,9 @@ local bufs = { -- bufs
     'oxbfn.md',
     'oxcm.md'
 }
+local zen_neo      = function() cmd('Neotree') end
 local zen_zen      = function() cmd('silent ZenMode') end
-local zen_mdx      = function() cmd('call mdx#ToggleWrite()') end
+local zen_mdx      = function() cmd('lua require("markx").write_mode_x()') end
 local zen_mut      = function() cmd('silent MuttonToggle') end
 local zen_dfm      = function() cmd('silent LiteDFMToggle') end
 local zen_goy      = function() cmd('silent Goyo') end
@@ -219,20 +220,25 @@ M.oa_bufs = function()
     end
 end
 
+
 M.oa_x = function() -- Actionable Panels (o#oa_x)
+    
     tnew(oi)
+    --zen_mdx()
+    --cmd('wincmd l')
+
     tnew(oi)
     svrt(oj)
+    
     tnew(oa)
-    require('neowarrior').open_left()
+    --require('neowarrior').open_right() -- currently has a bug
     --svrt(oi)
     --tnew(ob)
     --svrt(oj)
     --tnew(oc)
     --svrt(oj)
     tnew(uc)
-    --zen_mut()
-    --zen_goy()
+    cmd('lua require("markx").write_mode_pad_right()')
 end
 
 M.oa = function() -- Actionable Panels Master Function (o#oa)
@@ -242,9 +248,11 @@ M.oa = function() -- Actionable Panels Master Function (o#oa)
     M.oa_x()
     cmd('silent tabnext 1')
     cmd('silent quit')
-    
-    
-    --zen_mdx()
+
+    cmd('tabdo lua require("markx").write_mode_x()')
+    --cmd('tabdo wincmd 2l')
+    cmd('silent tabnext 1')
+    cmd('Neotree position=right')
 end
 
 
@@ -292,7 +300,7 @@ M.ml = function() -- mail ###########################
     tnew('ab.md')
     zen_mut()
     tnew('oi.md')
-    require('neowarrior').open_left()
+    require('neowarrior').open_right()
     --zen_mut()
     tnew('oa.md')
     svrt('oi.md')

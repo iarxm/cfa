@@ -1,6 +1,6 @@
 local M = {}
 
-function M.mdx_test()
+M.filetype_test = function()
     -- exclusion ft's
     local markdown_file_types = {
         'markdown',
@@ -49,7 +49,6 @@ function M.mdx_test()
 end
 
 
-
 --" markdown functions
 --  
 --function! OpenMarkdownPreview() abort
@@ -69,23 +68,7 @@ end
 
 --endfunction
 
-function OpenMarkdownPreview()
-  if s.markdown_job_id and s.markdown_job_id > 0 then
-    vim.fn.jobstop(s.markdown_job_id)
-    s.markdown_job_id = nil
-  end
-  local available_port = vim.fn.system(
-    "lsof -s tcp:listen -i :40500-40800 | awk -F ' *|:' '{ print $10 }' | sort -n | tail -n1"
-  ) + 1
-  if available_port == 1 then available_port = 40500 end
-  s.markdown_job_id = vim.fn.jobstart('grip ' .. vim.fn.shellescape(vim.fn.expand('%:p')) .. ' :' .. available_port)
-  if s.markdown_job_id <= 0 then return end
-  vim.fn.system('open http://localhost:' .. available_port)
-end
 
---
---
---
 --function! mdx#isAtStartOfLine(mapping) "start table mode from insert mode with __ or ||
 --
 --    let text_before_cursor = getline('.')[0 : col('.')-1]
@@ -162,40 +145,42 @@ end
 
 
 --"#### writemode
---"  - split window. 
---"  - assign winfixwidth to stop 1 window from adapting size on
---"  - next split
---"  - hide '~' symbols
---"  - hide vert boundary
---"     - :hi VertSplit ctermfg=bg ctermbg=bg guifg=bg guibg=bg
---"     - alternative to 'fillchars' to hide window boundaries
 
---function! mdx#WriteModeX()
---
---    vnew                  "far left empty pane
---    vertical resize +10
---    setlocal winfixwidth
---    wincmd =
+M.write_mode_x = function()
+    vim.cmd('vnew')
+    vim.cmd('vertical resize 30')
+    vim.cmd('setlocal winfixwidth')
+    vim.cmd('wincmd =')
+    vim.cmd('wincmd l')
+end
 
---endfunction
+M.write_mode_y = function()
+    vim.cmd('vnew')
+    vim.cmd('vertical resize 10')
+    vim.cmd('setlocal winfixwidth')
+    vim.cmd('wincmd =')
+    vim.cmd('wincmd l')
+end
 
---function! mdx#WriteModeX()
+M.write_mode_pad_right = function()
+    --vim.cmd('vnew')
+    vim.cmd('vert botright split padding')
+    vim.cmd('vertical resize 40')
+    vim.cmd('setlocal winfixwidth')
+    vim.cmd('wincmd =')
+    vim.cmd('wincmd h')
+end
 
---    vnew                  "far left empty pane
---    vert botright split   "far right empty pane
---    wincmd h
---    vertical resize +55
---    setlocal winfixwidth
---    wincmd =
+M.write_mode = function()
+    vim.cmd('vnew')
+    vim.cmd('vert botright split')
+    vim.cmd('wincmd h')
+    vim.cmd('vertical resize +55')
+    vim.cmd('setlocal winfixwidth')
+    vim.cmd('wincmd =')
+end
 
---endfunction
-
-
---function! mdx#WriteModeOff()
---
---    only
---
---endfunction
+M.write_mode_clean = function() vim.cmd('only') end
 
 
 --function! mdx#ToggleWrite()
@@ -253,5 +238,8 @@ end
 -- ucmd("command! -nargs=* Ob call o#ob()")
 -- ucmd("command! -nargs=* Ods call o#ox_ds()")
 -- vim.cmd("command! -nargs=* Ods call o#ox_p('dsao/')")
+
+--"     - :hi VertSplit ctermfg=bg ctermbg=bg guifg=bg guibg=bg
+--"     - alternative to 'fillchars' to hide window boundaries
 
 return M

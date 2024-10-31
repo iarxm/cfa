@@ -1,6 +1,6 @@
 return { "nvim-neo-tree/neo-tree.nvim",
+    cmd = 'Neotree',
     event = 'VeryLazy',
-    --branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -110,7 +110,7 @@ return { "nvim-neo-tree/neo-tree.nvim",
         commands = {},
         window = {
           position = "left",
-          width = 40,
+          width = 20,
           mapping_options = {
             noremap = true,
             nowait = true,

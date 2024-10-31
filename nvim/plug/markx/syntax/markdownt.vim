@@ -1,1 +1,1 @@
-source $VIMDIR/syntax/markdown.vim
+runtime syntax/markdown.vim

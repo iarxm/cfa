@@ -2,7 +2,7 @@
 
 --vim.opt.concellevel = "2"
 --vim.opt.foldlevel   = "0"
---vim.cmd.source "$VIMDIR/syntax/markdown.vim"
+--vim.cmd.runtime "syntax/markdown.vim"
 
 
 function CustomFormat(line)
