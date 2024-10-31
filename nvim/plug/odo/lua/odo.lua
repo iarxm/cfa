@@ -83,6 +83,8 @@ local newx      = function() cmd('tabnew ') end
 local svrt      = function(filename) cmd('silent vsplit ' .. filename) end
 local shori     = function(filename) cmd('split ' .. filename) end
 
+
+
 M.a = function() -- # a
   envx()
   tnew(paa)
@@ -219,6 +221,8 @@ end
 
 M.oa_x = function() -- Actionable Panels (o#oa_x)
     tnew(oi)
+    tnew(oi)
+    svrt(oj)
     tnew(oa)
     require('neowarrior').open_left()
     --svrt(oi)
@@ -227,7 +231,8 @@ M.oa_x = function() -- Actionable Panels (o#oa_x)
     --tnew(oc)
     --svrt(oj)
     tnew(uc)
-    zen_mdx()
+    --zen_mut()
+    --zen_goy()
 end
 
 M.oa = function() -- Actionable Panels Master Function (o#oa)
@@ -237,7 +242,9 @@ M.oa = function() -- Actionable Panels Master Function (o#oa)
     M.oa_x()
     cmd('silent tabnext 1')
     cmd('silent quit')
-    zen_goy()
+    
+    
+    --zen_mdx()
 end
 
 
@@ -312,7 +319,6 @@ M.mlx = function() -- instant messaging / resources to share via whatsapp etc..
 end
 
 return M
-
 -- xTODO: change filename of this script to a 3 letter name
 -- TODO: o#ox_p ox_ds oe oe_x
 

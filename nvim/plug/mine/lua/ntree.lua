@@ -1,0 +1,22 @@
+--function! NeotreeBuf()
+--    " open neotree in current buffer
+--    " Check if NeoTree is open
+--    if !neotree#is_open()
+--        " Open NeoTree
+--        NeotreeOpen
+--    else
+--        " Close NeoTree
+--        NeotreeClose
+--    endif
+--
+--    " Swap window with NeoTree
+--    wincmd x
+--
+--    " Close the other window
+--    wincmd o
+--endfunction
+--
+--command! Neotreebuf call NeotreeBuf()
+--
+--" nnoremap <Leader>n :call OpenNeoTreeInCurrentBuffer()<CR>
+

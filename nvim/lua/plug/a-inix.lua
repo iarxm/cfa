@@ -32,8 +32,14 @@ return {
     { 'vim-scripts/utl.vim'},   -- ?
     { 'tpope/vim-repeat', -- makes plugs dot-repeatable like leap
         --event = "VeryLazy" 
-    }, 
-    { 'pseewald/vim-anyfold', cmd = 'AnyFoldActivate'},
+    },
+    { 'pseewald/vim-anyfold',
+        cmd = 'AnyFoldActivate',
+        config = function()
+            vim.g.anyfold_fold_comments            = 1
+            -- g.anyfold_identify_comments     = 1
+        end
+    },
     { 'Konfekt/FastFold'},
     { 'Bekaboo/deadcolumn.nvim',
          ft = {

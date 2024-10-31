@@ -13,7 +13,11 @@ return { --language specific: markdown / tex / document related
             'mdx',
             'text',
         },
-        cmd = 'TableModeEnable'
+        cmd = 'TableModeEnable',
+        config = function()
+            vim.g.table_mode_corner  = "|"
+            vim.g.table_mode_syntax = 0
+        end
     },
     { 'godlygeek/tabular', -- required?
         cmd = 'Tabularize'
@@ -21,6 +25,10 @@ return { --language specific: markdown / tex / document related
     -- vim-pandooc: mainly markdown and possibly tex
     { 'vim-pandoc/vim-pandoc',
         --ft = { 'markdown','tex' },
+        -- add as deps to vim-pandoc?
+            -- { 'vim-pandoc/vim-pandoc-after',},
+            -- { 'vim-pandoc/vim-pandoc-syntax',},
+            -- { 'vim-pandoc/vim-markdownfootnotes',},
         config = function()
             vim.g.pandoc_filetypes_handled         = { "pandoc", "markdown" }
             vim.g.pandoc_modules_enabled           = { "toc" }
@@ -35,16 +43,27 @@ return { --language specific: markdown / tex / document related
             vim.g.pandoc_keyboard_sections_header_style = "atx"
             vim.g.pandoc_syntax_conceal_blacklist = { "atx", "titleblock" }
         end
-    -- add as deps to vim-pandoc?
-    -- { 'vim-pandoc/vim-pandoc-after',},
-    -- { 'vim-pandoc/vim-pandoc-syntax',},
-    -- { 'vim-pandoc/vim-markdownfootnotes',},
+    },
+    { "lervag/vimtex",
+        lazy = false,
+        init = function() -- VimTeX configuration goes here, e.g.
+            vim.g.vimtex_view_method = "zathura"
+            --vim.g.vimtex_compiler_progname = "nvr"
+        end
     }
 }
     -- latex / tex
     -- { 'xuhdev/vim-latex-live-preview', { 'for': 'tex' },},
     -- { 'newton/vim-latex-preview',},
     -- markdown
-    -- { 'preservim/vim-markdown',},
+    -- { 'preservim/vim-markdown',
+            -- config = function()
+                --vim.g.vim_markdown_folding_level       = 5
+                --vim.g.vim_markdown_preview_browser = "qtc.win"
+                --vim.g.vim_markdown_preview_use_xdg_open = 1
+                --vim.g.vim_markdown_preview_github = 1
+            --end
+    -- },
     -- { 'mgor/vim-markdown-grip',},
+    -- g.markdown_folding = 4
 

@@ -12,10 +12,10 @@ return {
     { 'nanotech/jellybeans.vim',       name = 'jellybeans' },
     { 'NLKNguyen/papercolor-theme',    name = 'papercolor' },
     { 'bluz71/vim-moonfly-colors',     name = 'moonfly' },
-    { 'h3xx/kvim-late_evening',        name = 'late' },
     { 'ray-x/aurora',                  name = 'aurora' },
     { 'ParamagicDev/vim-medic_chalk',  name = 'medicchalk' },
     { 'tpope/vim-vividchalk',          name = 'vividchalk' },
+    { 'https://gitlab.com/h3xx/vim-late_evening',  name = 'late' },
     --
     { 'rose-pine/neovim',              name = 'rose-pine',
         variant = 'auto',

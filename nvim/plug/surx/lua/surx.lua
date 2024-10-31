@@ -1,9 +1,7 @@
--- Autoloaded functions at runtime via lua require('gen') in vimrc
--- If wanting to selectively load functions or scripts, don't call the lua require in vimrc and instead call lua require as a command after nvim startup..
+-- # ds.analysis
+-- nvim preview companion
+-- update filename for specific buffer, if the file was renamed by another script outside of nvim.. Ie in nnn
 
--- ##############################################
--- ds.analysis: nvim preview companion
--- 	- update filename for specific buffer, if the file was renamed by another script outside of nvim.. Ie in nnn
 function updateBufferFilename(oldFilename, newFilename)
     -- Check if the old filename is open in a buffer
     local bufNr = vim.fn.bufnr(oldFilename)

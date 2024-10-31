@@ -1,7 +1,7 @@
 vim.g.mapleader      = ' '
 vim.g.maplocalleader = '.'
+
 local lazypath       = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-local M              = {}
 
 vim.opt.rtp:prepend(lazypath)
 
@@ -12,7 +12,7 @@ if not vim.loop.fs_stat(lazypath) then -- lazy.nvim check existence
             "--branch=stable", lazypath, })
 end
 
-local M = { 
+local M = {
     spec     = { import = "plug", }, -- add LazyVim and import its plugins
     defaults = { lazy = true, },
     dev      = { path = "~/dsa", },
@@ -21,8 +21,8 @@ local M = {
         enabled = true,
         notify = false,
     },
-    performance = { 
-        rtp = { 
+    performance = {
+        rtp = {
             disabled_plugins = { -- improve startup time
                 "gzip",
                 "zip",
@@ -40,7 +40,10 @@ local M = {
                 "rrhelper",
                 "spellfile_plugin",
                 "matchit",
-    },},},}
+            },
+        },
+    },
+}
 
 require("lazy").setup(M)
 

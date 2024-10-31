@@ -31,10 +31,10 @@ hi LspInfoBorder                                            guifg=#5f87af
 "hi link Art NormalOpposite
 " #### FOLDING ####################################################
 "hi Folded             ctermfg=white guibg=black ctermbg=black guifg=lightcyan "guifg=#c0caf5
-hi Folded              guibg=black ctermbg=black
+hi Folded              guibg=black       ctermbg=black
 hi SignColumn          guibg=black
-hi MyTagListFileName   guibg=black   guifg=#5f87af
-hi MyTagListTitle      guibg=black   guifg=yellow
+hi MyTagListFileName   guibg=black       guifg=#5f87af
+hi MyTagListTitle      guibg=black       guifg=yellow
 hi TagbarKind          guifg=lightyellow ctermfg=yellow
 hi TagbarNestedKind    guifg=lightyellow ctermfg=yellow
 hi TagbarType          guifg=lightyellow ctermfg=yellow
