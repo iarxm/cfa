@@ -1,20 +1,32 @@
 #!/bin/sh
+
+#### new
 alias wifi.z="nmcli connection up z"
 alias mr="mr --config $HOME/.config/mr/mrconfig"
 alias libr="libreoffice"
-# xset #########################
+alias libre="libreoffice"
+#alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+alias bc="bc -ql"
+alias sc="sc-im"
+alias scim="sc-im"
+alias iis="i3-swallow"
+
+#### xset
 alias xset.a="xset r rate 90 150"
 alias xset.b="xset r rate 100 100"
 alias xset.c="xset r rate 120 100"
 alias xset.d="xset r rate 150 90"
 alias xset.e="xset r rate 200 50"
 alias nm.x='nmcli con up id x'
+
+#### function aliases
 makeu()      { cd $1; exec make & }
 killc()      { i=0; while i < 10 ; do sudo pkill $1; done } # aggressive kill
 _xargs()     { xargs -0 < $sel ;}
 _xinit_dwm() { while true; do dwm 2> ~/.cache/dwm.log ; done } # Log stderror to a file 
 _finddiff()  { find "$1" "$2" "$2" -printf '%P\n' | sort | uniq -u ;}
 _khalmod()   { [ -n "$1" ] && khal $@ -a Calendar -a Birthdays -a recur.yr || khal; }
+
 alias unmountall='udiskie-umount -a --detach'
 #alias vdirsyncer="vdirsyncer sync && vdirsyncer metasync"
 alias tabbedx="tabbed -r 2 st -w ''"
@@ -27,7 +39,8 @@ alias blue='bluetuith'
 alias feh.setbg='feh --no-fehbg --bg-max "${BGX_FEH}"'
 alias l='lf'
 alias r='ranger'
-## git ##################################
+
+#### git
 alias sudo-git="sudo -E git" # ensure that gpg-agent-ssh with ssh keys added to the gpg-agent is functioning
 alias g="git"
 alias gst="git status"
@@ -45,7 +58,7 @@ alias gcom="git commit"
 alias gcomm="git commit"
 alias gclon="git clone"
 
-#==== file nav/management ====================
+#### file nav / manage
 ## files
 alias rcl="rclone"
 alias rs.a="rsync -avP"
@@ -55,7 +68,7 @@ alias mv="mv -iv"
 alias rm="rm -vI"
 alias mkd="mkdir -pv"
 alias rm='echo "NOTE: Use trash-put instead. If youre sure you want rm, \
-	use /rm to overide this shell alias"; false'
+    use /rm to overide this shell alias"; false'
 alias rmm='echo "Using trash-put"; trash-put -v'
 alias rmmm='sudo rm'
 alias tpt="trash-put"
@@ -94,7 +107,7 @@ alias nv='nvim.aa'
 alias sdv='sudo nvim'
 alias vc="cud && nvim -c Ntr"
 [ -x "$(command -v nvim)" ] && \
-	alias vim="nvim" vimdiff="nvim -d"
+    alias vim="nvim" vimdiff="nvim -d"
 # media
 alias         yt="yt-dlp --add-metadata"
 alias      yt480="yt -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
@@ -124,17 +137,17 @@ alias o='openu'
 alias ma='make'
 alias ec='echo'
 alias q='exit'
-## stuff ---------------------
+
 alias magit="nvim -c MagitOnly"
 alias ref="shortcuts >/dev/null; \
-		source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; \
-		source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc"
+    source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; \
+    source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc"
 alias weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
-## system ==========================
+
+## system 
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
-## sudo
 for x in mount umount sv pacman updatedb su ; do
-	alias $x="sudo $x"
+    alias $x="sudo $x"
 done
 alias sd="sudo"
 alias sdk='sudo pkill'
@@ -154,6 +167,7 @@ alias sytu='systemctl --user'
 alias sytue='systemctl --user enable --now'
 alias sytus='systemctl --user status'
 alias jxe='journalctl -xe'
+
 ## more
 alias pd="sudo pacman -S"
 alias sdn="sudo shutdown -h now"
@@ -163,62 +177,68 @@ alias xrc="xrdb -I$HOME -merge $XDG_CONFIG_HOME/X11/xresources"
 alias ss="systemctl suspend"
 alias pacs='pacman -S'
 alias apip='pip install --user'
-#==== dotfiles cleanup ======================
+
+#### dotfiles cleanup
 alias abook="abook \
-		--config $XDG_CONFIG_HOME/abook/abookrc \
-		--datafile $XDG_DATA_HOME/abook/addressbook"
+    --config $XDG_CONFIG_HOME/abook/abookrc \
+    --datafile $XDG_DATA_HOME/abook/addressbook"
 alias weechat="weechat -d $XDG_CONFIG_HOME/weechat/"
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/isyncrc"
 alias nrss="nrss -D $XDG_CONFIG_HOME/nrss/ \
-	-F $XDG_CACHE_HOME/nrss/feeds \
-	-L $XDG_CACHE_HOME/nrss/log"
+    -F $XDG_CACHE_HOME/nrss/feeds \
+    -L $XDG_CACHE_HOME/nrss/log"
 alias esniper="esniper -c $XDG_CONFIG_HOME/esniper/conf"
 alias apvlv="apvlv -c $XDG_CONFIG_HOME/apvlv/apvlvrc"
-# #############################################
+
+#### cyg
 alias acyg="apt-cyg install"
-#==== transmission remotes =====================
+##### transmission remotes
 alias tsnr="transmission-remote"
 alias tsnr="transmission-remote"
 alias tsnc="transmission-cli"
 alias tsnd="transmission-daemon"
-#==== most-used-most-important ====================
-#==== mail ======================================
+#### mail
 alias m="neomutt"
 alias nmh="notmuch"
 alias nmhs="notmuch search"
 alias nmhn="notmuch new"
-
-##### news ##########################################
+##### news
 alias news="newsboat"
 alias ne="newsboat"
-#==== browsers.quteb =================================
+
+
+######## browsers.quteb
+
+#### basic
 alias qbw='qb win'
 alias qw='qb win'
 alias qwin='qb win'
+alias qx='qb xwin'
+alias qxw='qb xwin'
+alias qxt='qb xtab'
 alias qf='qb win.float'
-alias qx='qb x win'
-alias qxt='qb x tab'
-#==== quteb.webapps ===================================
-#alias whatsapp='qb x.wa'
-alias whatsapp='qb wa'
+##### quteb.webapps
+alias whatsapp='qb win web.whatsapp.com'
 alias wa='whatsapp'
 alias calendar='qb win calendar.google.com'
 alias cala='calendar'
 alias habit='qb w.oo.win'
 alias gpt.qb='qb win chat.openai.com'
-#==== Browsers =================================
+##### other
 alias sw='surfraw'
 alias sf='surfraw -browser="qb"'
-alias iis="i3-swallow"
 alias b="buku --suggest"
-## Calendars ==================================
-#==== gcalcli =================================
+
+
+######## calendars & contacts
+
+#### gcalcli
 alias gca="gcalcli"
 alias gcaw="gcalcli calw"
 alias gcam="gcalcli calm"
-#==== khal ==================================
-#	alias khal='khalmod'
+#### khal
+# alias khal='khalmod'
 alias khalm='khalmod'
 alias k='khalmod'
 alias ki='ikhal'
@@ -227,20 +247,24 @@ alias kn='k new'
 alias ks='k search'
 alias kl='k list'
 alias kc='k calendar'
-#==== khard ==================================
+#### khard
 alias kd='khard'
 alias kdl='khard list'
 alias kdlg='khard list | grep'
-#==== hleder ==================================
+#### hleder
 alias hl='hledger'
 alias hla='hledger add'
 alias hlai='hledger +iadd'
 alias hli='hledger import'
-# ### taskwarrior #############################
+
+
+#### taskwarrior
+
+#### basic
 alias tt='taskwarrior-tui'
 alias ttu='taskwarrior-tui'
 alias vit="TASKRC=$HOME/.config/task/modules/vit-taskrc && vit && TASKRC=$HOME/.config/task/taskrc"
-#==== Listing through filters ===
+#### Listing through filters
 alias tl='task list'
 alias t.l='task list'
 alias tls='task ls'
@@ -258,20 +282,20 @@ alias t.nx='task state:nx'
 alias t.na='task state:na'
 alias tb='task blocking'
 alias t.b='task blocked'
-#==== builtin reports =========
+##### builtin reports
 alias trr='task report'
 alias trc='task calendar'
 alias tro='task overdu'
-#==== listting meta data==========
+##### listting meta data
 alias t.rp="task projects rc.list.all.projects=yes 2>/dev/null | grep -E '^\w'"
 alias t.pp="task projects rc.list.all.projects=yes"
 alias t.sum='task summary'
-#==== Adding ===========
+#### adding
 alias t='task'
 alias ta='task add'
 alias t.a='task add'
 alias t.aph='task add priority:H'
-#==== Modifying and reviewing =========
+#### Modifying and reviewing
 alias tm='task modify'
 alias tmod='task modify'
 alias te='task edit'
@@ -281,19 +305,15 @@ alias tss='task start'
 alias tsp='task stop'
 alias tsx='task delete'
 alias t.sync='task sync'
-#==== Context =====================
+#### context
 alias tcrm="task context none"
 alias tcrr="task context none"
 alias tc='task context'
-#==== functions ===================
+#### functions
 function tcvadd () { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
 function twwww () { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
-#==== newly appended ======================
-#alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
-alias bc="bc -ql"
-alias sc="sc-im"
-alias scim="sc-im"
-##### TERMUX/ADB ##############################
+
+##### termux / adb
 #alias trx.adbf="adb forward tcp:8022 tcp:8022 && ssh localhost -p 8022"
 # TODO:move:
 alias trx.mosh.pull="trx ip.pull && trx mosh.imp"
@@ -301,20 +321,19 @@ alias trx.mosh="trx mosh.imp"
 alias trx.sshfs.pull="trx ip.pull && trx sshfs.imp"
 alias trx.sshfs="trx sshfs.imp"
 
-##### BACKUP #################################
+##### backup / clean data
 ncdudt() { ncdu --exclude=".*" /data/ ; }
 ncdusy() { ncdu --exclude="/data/" / ;}
 
-#### AUDIO #################################
-# MIC TEST
-mic_tst.a() { arecord -vvv -f dat /dev/null ; }
-mic_tst.b() { arecord -d 5 test-mic.wav ; }
+#### audio
+mic_tst.a() { arecord -vvv -f dat /dev/null ; } # mic test
+mic_tst.b() { arecord -d 5 test-mic.wav ; }     # mic test
 alias a="vimpc"
 alias au="vimpc"
 #alias a="ncmpcpp"
 #alias au="ncmpcpp"
 
-#### SYSTEM ################################
+#### system
 alias blue.adiscon="bluetoothctl disconnect"
 alias openu="xdg-open "$@" &"
 alias reboot="systemctl reboot"
@@ -322,25 +341,24 @@ alias sys.sleep="systemctl suspend"
 alias sle="systemctl suspend"
 alias sll="systemctl suspend"
 
-#### MAINTENANCE ##########################
+#### maintentance
 # TODO: add to arch linux host env file
 sys.cache.clear() {
-	# su 
-	printf "CCACHE: Tidying up journal entries..\n"
-	sudo journalctl --vacuum-size=100M
-	sudo journalctl --vacuum-time=3months
-	printf "CCACHE: Clearing pacman cache\n"
-	sudo paccache -rk1 # keep latest 1 of pacman cache
-	paccache -ruk0 # rm cache of uninstalled
+    # su 
+    printf "CCACHE: Tidying up journal entries..\n"
+    sudo journalctl --vacuum-size=100M
+    sudo journalctl --vacuum-time=3months
+    printf "CCACHE: Clearing pacman cache\n"
+    sudo paccache -rk1 # keep latest 1 of pacman cache
+    paccache -ruk0 # rm cache of uninstalled
 }
 sys.cursorfix() {
-	#sudo rmmod psmouse
-	sudo modprobe -r psmouse
-	sudo modprobe psmouse
-	# another potential solution: Change the Touchpad setting in your BIOS from ADVANCED to BASIC (makes no difference with regards to functionality)
-	## pacman -Qtdq | pacman -Rns -
-		## uninstall and remove configs for orphan packages:
-			## check for useful packages first
-
+    #sudo rmmod psmouse
+    sudo modprobe -r psmouse
+    sudo modprobe psmouse
+    # another potential solution: Change the Touchpad setting in your BIOS from ADVANCED to BASIC (makes no difference with regards to functionality)
+    ## pacman -Qtdq | pacman -Rns -
+        ## uninstall and remove configs for orphan packages:
+            ## check for useful packages first
 }
 

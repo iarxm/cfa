@@ -2,7 +2,7 @@ import os
 # task - is it less resources to just import 'getenv' from the 'os' lib?
 c.content.user_stylesheets          = [ os.getenv('WINDOW_ELEMENTS'),
                                        os.getenv('COLORS_BLACKX') ]
-c.url.default_page                  = os.getenv('QUTE_UIX_BLK')
+c.url.default_page                  = os.getenv('QUTE_UIX_BGX')
 c.url.start_pages                   = os.getenv('QUTE_UIX_BGX')
 c.zoom.default                      = "80%"
 c.downloads.position                = "bottom"

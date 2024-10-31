@@ -98,6 +98,7 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export ZK_NOTEBOOK_DIR="$HOME/daa/zk"
 export BGX_FEH="${XDG_DATA_HOME}/aaa/xbg/bg.png"
 export SAL_USE_VCLPLUGIN=gtk3
+export BROWSER="/usr/local/bin/qb win"
 #export SAL_USE_VCLPLUGIN=gtk3
 #export GTK_THEME=BreezeBlackPure
 #export GTK_THEME=BreezeBlackPure.colors
