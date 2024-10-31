@@ -1,55 +1,48 @@
 # vim:ft=neomuttrc
-color         normal            default   default                             # general text
-color         error             color231  color212                            # error messages
-color         message           default   default                             # messages at the bottom
-color         prompt            default   default                             # prompt text
-color         search            black     color10                             # search highlight
-color         progress   black    cyan
+
+# general
+
+color normal          default      default                             # general text
+color error           color231     color212                            # error messages
+color message         default      default                             # messages at the bottom
+color prompt          default      default                             # prompt text
+color search          black        color10                             # search highlight
+color progress        black        cyan
+
+
 # statusbar
-color         status  color8   black
-#color         status  color141   black
-#color         status  cyan   black
-#color         status  color7     black '([a-zA-Z0-9\.,]|\[|\])(\s)'  # bubble content 1
-#color         status  color7     black '(\s)([a-zA-Z0-9\.,]|\[|\])'  # bubble content 2
-#color         status  color7     black '(\% )'                       # % symbol
-#color         status  color7     black '(\S)'                        # empty spaces
-#color         status  color8     default '(|)'                     # statusline "bubbles"
-#color         status  color69    black '(\` )'                      # bubble account variation
-#color         status  white      color69 '([a-zA-Z0-9\.]+)( )'       # account text
-#color         status  green      color8 ''                          # Unread messages count
-#color         status  blue       color8 ''                          # Read messages count icon
-#color         status  yellow     color8 ''                          # Flagged icon
-#color         status  red        color8 ''                          # Pending delete icon
-#color         status  black      black                               # HIDE IT
-# index colors
-color index           white        black
+
+color status          color8       black
+
+
+# index
+
+color tree            cyan         black                        # thread tree lines/arrow
+color indicator       color3       black                        # selection indicator
+
 color index_author    cyan         black
 color index_subject   white        black
-color index_subject   brightwhite  black   '~N'
-color index_collapsed color4       default                   # collapsed thread (message count text)
-color index           color8       black   '~Q'              # messages which have been replied to
-color index           color5       default '!~Q^~p'          # sent only to me and haven't been replied to
-color index           color22      default '~h X-Label..'   # messages with a complete label
-color index           color6       default '~F'                 # flagged messages
-color index           color6       default '~F~N'               # flagged messages (new)
-color index           color14      default '~F~R'               # flagged messages (read)
-color index           color202     black  ~F                    # Flagged
-color index           color39      black  ~O
-color index           color229     black  ~T                    # Tagged
-color index           color240     black  ~D                    # Deleted
-color index           brightyellow black "~N"
-#color index          color39      black  ~N                    # New
+color index_collapsed color4       default                      # collapsed thread (message count text)
+color index_date      color8       default                      # date is always the same colour
+color index_label     color6       default                      # label is always the same colour
+color index_number    color8       default
+color index_flags     color8       default
+color index_tags      color8       default
+color index           color8        black
+color index           color202     black  ~F                    # flagged
+color index           color229     black  ~T                    # tagged
+color index           color240     black  ~D                    # deleted
 color index           color1       default '~D'                 # deleted messages
 color index           color1       default '~D~N'               # deleted messages (new)
 color index           color9       default '~D~R'               # deleted messages (read)
 color index           color3       default '~T'                 # tagged messages
-color index           black        default '~T~N'               # tagged messages (new)
-color index           color11      default '~T~R'               # tagged messages (read)
-color tree            cyan         black                        # thread tree lines/arrow
-color indicator       color3       black                        # selection indicator
-color index_date      color8       default                      # date is always the same colour
-color index_label     color6       default                      # label is always the same colour
-# Sidebar Colors
+color index           color8       black   '~Q'                 # replied to
+color index_subject   yellow       black    '~N'
+color index           yellow       black    '~N'
+
+
+# sidebar
+
 color sidebar_indicator color14 black     # | currently selected mailbox |
 color sidebar_highlight white color8      # | highlighted, but not open, mailbox. |
 color sidebar_ordinary  color8 default    # | Color to give mailboxes by default |
@@ -57,13 +50,12 @@ color sidebar_flagged   red black         # mailboxes containing flagged mail
 color sidebar_new       yellow black      # mailboxes containing new mail
 color sidebar_unread    color7 default    # mailboxes containing unread mail
 color sidebar_divider   black black       # divider between sidebar & content
-# Message Body ##################################################
+
+
+# message body
+
 color   body        black           default '^[[:space:]].*' # Message Headers
-#color hdrdefault    color8          default
-#color body         white           black
-#color  body         color8          default '(.*(To|From|Sent|Subject):.*)'
-#color body color8 default '^\s{4}(To|From|Sent|Subject):.*'
-#color body color8 default '\s*    (To|From|Sent|Subject):.*'
+
 color attachment    color8          default  # Attachments
 color signature     color8          default  # Signature
 color body          color0          color0  '<mailto:[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+>'  # "mailto" 
@@ -75,8 +67,10 @@ color quoted1       color117	      default
 color quoted2       color84         default
 color quoted3       color215        default
 color quoted4       color212        default
-# Forward/reply headers
-# Patch syntax highlighting #####################################
+
+
+# headers
+
 color   body        yellow          default         ^(diff).*
 color   body        white           default         ^[\-\-\-].*
 color   body        white           default         ^[\+\+\+].*
@@ -85,6 +79,10 @@ color   body        red             default         ^[\-].*
 color   body        brightblue      default         [@@].*
 color   body        cyan            default         ^(Signed-off-by).*
 color   body        brightwhite     default         ^(Cc)
+
+
+# message body - syntax highlighting
+
 color   body        yellow          default         "^diff \-.*"
 color   body        brightwhite     default         "^index [a-f0-9].*"
 color   body        brightblue      default         "^---$"
@@ -100,3 +98,43 @@ color   body        brightmagenta   default         "-- Patch Links --"
 color   body        green           default         "^Merged #.*"
 color   body        red             default         "^Closed #.*"
 color   body        brightblue      default         "^Reply to this email.*"
+
+
+# archive
+
+#color hdrdefault    color8          default
+#color body         white           black
+#color  body         color8          default '(.*(To|From|Sent|Subject):.*)'
+#color body color8 default '^\s{4}(To|From|Sent|Subject):.*'
+#color body color8 default '\s*    (To|From|Sent|Subject):.*'
+#color index           black        default '~T~N'               # tagged messages (new)
+#color index           color11      default '~T~R'               # tagged messages (read)
+#color index           color5       default '!~Q^~p'             # sent only to me and haven't been replied to
+#color index           color22      default '~h X-Label..'      # messages with a complete label
+#color index           color6       default '~F'                 # flagged messages
+#color index           color6       default '~F~N'               # flagged messages (new)
+#color index           color14      default '~F~R'               # flagged messages (read)
+#color index          color39       black  ~N                    # New
+#color index           color39      black  ~O
+
+
+#color index_size
+#color index_tag
+#color index_tags
+
+# statusbar archive
+#color         status  color141   black
+#color         status  cyan   black
+#color         status  color7     black '([a-zA-Z0-9\.,]|\[|\])(\s)'  # bubble content 1
+#color         status  color7     black '(\s)([a-zA-Z0-9\.,]|\[|\])'  # bubble content 2
+#color         status  color7     black '(\% )'                       # % symbol
+#color         status  color7     black '(\S)'                        # empty spaces
+#color         status  color8     default '(|)'                     # statusline "bubbles"
+#color         status  color69    black '(\` )'                      # bubble account variation
+#color         status  white      color69 '([a-zA-Z0-9\.]+)( )'       # account text
+#color         status  green      color8 ''                          # Unread messages count
+#color         status  blue       color8 ''                          # Read messages count icon
+#color         status  yellow     color8 ''                          # Flagged icon
+#color         status  red        color8 ''                          # Pending delete icon
+#color         status  black      black                               # HIDE IT
+

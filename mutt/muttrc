@@ -19,16 +19,16 @@ unset collapse_unread
 ignore *                                           #  ignore all headers
 unignore to: cc: from:                             #  ..then selectively show only these
 unhdr_order *                                      #  some distros order things by default
-hdr_order Date: From: Subject: To: Cc:              #  header item ordering
+hdr_order Date: From: Subject: To: Cc:             #  header item ordering
 set sleep_time          = "0"
-set pager_index_lines   = "3"
+set pager_index_lines   = "2"
 set pager_context       = "12"
 set pager_stop          = "yes"
 set markers             = "yes"
 set implicit_autoview   = "yes"
 auto_view                 text/plain text/enriched text/html multipart/alternative
 ## sidebar #############################
-set sidebar_on_right    = "true"
+#set sidebar_on_right    = "true"
 set sidebar_width       = "18"
 set sidebar_sort_method = "desc"
 set sidebar_sort_method = "alpha"

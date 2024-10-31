@@ -1,5 +1,5 @@
 # vim:ft=mailcap
-text/html;       rdrview %s -H | elinks -dump | sed -E 's/\\[IMG\\]/ /g'; copiousoutput;
+text/html;       rdrview %s -H | elinks -dump; copiousoutput;
 image/*;         sxiv %s
 pgp/mime;        lynx -dump %s; copiousoutput; nametemplate=%s.html
 application/*;   xdg-open %s &> /dev/null &; 
