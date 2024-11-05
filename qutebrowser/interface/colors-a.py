@@ -1,4 +1,10 @@
-# temp fix for statusbar bug:
+# temp fix for statusbar bug:?
+
+import os
+# [ ] task - is it less resources to just import 'getenv' from the 'os' lib?
+c.content.user_stylesheets = [ os.getenv('WINDOW_ELEMENTS'), os.getenv('COLORS_BLACKX') ]
+c.url.default_page         =   os.getenv('QUTE_UIX_BGX')
+c.url.start_pages          =   os.getenv('QUTE_UIX_BGX')
 c.colors.completion.fg                           = "#899CA1"
 c.colors.completion.category.fg                  = "#F2F2F2"
 c.colors.completion.category.bg                  = "black"
