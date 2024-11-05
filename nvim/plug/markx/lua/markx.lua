@@ -79,15 +79,15 @@ end
 --endfunction
 
 
---function! mdx#EqualWidth() "EQUALISE
---  
---    let l:t_cur = tabpagenr()
---    tabdo set noequalalways equalalways
---        wall
---    exe "tabnext " . l:t_cur
---        "wa - above to trigger sep resize in markdownt
---
---endfunction
+M.equal_width = function()
+
+    local tab_cur = vim.fn.tabpagenr()
+    vim.cmd.tabdo("set noequalalways equalalways")
+    vim.cmd("wall")
+    vim.cmd("tabnext " .. tab_cur)
+    --wa - above to trigger bufwrite autocommands relating to reformatting
+
+end
 
 
 --function! mdx#WideMargin() " WIDE MARGINS

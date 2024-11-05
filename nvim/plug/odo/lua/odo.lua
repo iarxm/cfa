@@ -294,24 +294,30 @@ end
 
 M.ml = function() -- mail ###########################
     cmd('cd' .. hm_ml)
+
     tnew('aa.md')
+    zen_mdx()
     --cmd('NeoWarriorOpen Left')
-    zen_mut()
+    
     tnew('ab.md')
-    zen_mut()
+    zen_mdx()
+
     tnew('oi.md')
-    require('neowarrior').open_right()
-    --zen_mut()
+    zen_mdx()
+    --require('neowarrior').open_right()
+    
     tnew('oa.md')
     svrt('oi.md')
+    zen_mdx()
+
 
     buf('oxtk.md')
-    buf('~/.config/muttm/bind.m')
+    buf('~/.config/muttm/bind.m.muttrc')
     buf('ob.md')
     buf('README.md') -- ConfigGS
     buf('~/.config/mutt/muttrc')
-    buf('~/.config/mutt/bind')
-    buf('~/.config/mutt/bind.mx')
+    buf('~/.config/mutt/bind.muttrc')
+    buf('~/.config/mutt/bind.mx.muttrc')
   --buf('~/.config/sieve/Open-Xchange')
   --buf('~/.local/bin/mlx/ml')
   --buf('ii.sc')
