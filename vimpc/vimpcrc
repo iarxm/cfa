@@ -18,5 +18,5 @@ set browsenumbers!
 set showlists
 set progressbar!
 set windows library,directory,playlist
-playlist
+set window playlist
 
