@@ -1,17 +1,18 @@
 #!/bin/sh
 
 #### new
+
 alias wifi.z="nmcli connection up z"
 alias mr="mr --config $HOME/.config/mr/mrconfig"
 alias libr="libreoffice"
 alias libre="libreoffice"
-#alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 alias bc="bc -ql"
 alias sc="sc-im"
 alias scim="sc-im"
 alias iis="i3-swallow"
 
 #### xset
+
 alias xset.a="xset r rate 90 150"
 alias xset.b="xset r rate 100 100"
 alias xset.c="xset r rate 120 100"
@@ -20,6 +21,7 @@ alias xset.e="xset r rate 200 50"
 alias nm.x='nmcli con up id x'
 
 #### function aliases
+
 makeu()      { cd $1; exec make & }
 killc()      { i=0; while i < 10 ; do sudo pkill $1; done } # aggressive kill
 _xargs()     { xargs -0 < $sel ;}
@@ -41,6 +43,7 @@ alias l='lf'
 alias r='ranger'
 
 #### git
+
 alias sudo-git="sudo -E git" # ensure that gpg-agent-ssh with ssh keys added to the gpg-agent is functioning
 alias g="git"
 alias gst="git status"
@@ -59,6 +62,7 @@ alias gcomm="git commit"
 alias gclon="git clone"
 
 #### file nav / manage
+
 ## files
 alias rcl="rclone"
 alias rs.a="rsync -avP"
@@ -199,7 +203,7 @@ alias tsnr="transmission-remote"
 alias tsnc="transmission-cli"
 alias tsnd="transmission-daemon"
 #### mail
-alias m="neomutt"
+alias m="neomutt -e "push '<change-folder>=ii<enter>'""
 alias nmh="notmuch"
 alias nmhs="notmuch search"
 alias nmhn="notmuch new"
@@ -322,10 +326,12 @@ alias trx.sshfs.pull="trx ip.pull && trx sshfs.imp"
 alias trx.sshfs="trx sshfs.imp"
 
 ##### backup / clean data
+
 ncdudt() { ncdu --exclude=".*" /data/ ; }
 ncdusy() { ncdu --exclude="/data/" / ;}
 
 #### audio
+
 mic_tst.a() { arecord -vvv -f dat /dev/null ; } # mic test
 mic_tst.b() { arecord -d 5 test-mic.wav ; }     # mic test
 alias a="vimpc"
@@ -334,6 +340,7 @@ alias au="vimpc"
 #alias au="ncmpcpp"
 
 #### system
+
 alias blue.adiscon="bluetoothctl disconnect"
 alias openu="xdg-open "$@" &"
 alias reboot="systemctl reboot"
@@ -342,6 +349,7 @@ alias sle="systemctl suspend"
 alias sll="systemctl suspend"
 
 #### maintentance
+
 # TODO: add to arch linux host env file
 sys.cache.clear() {
     # su 
@@ -362,3 +370,4 @@ sys.cursorfix() {
             ## check for useful packages first
 }
 
+#alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'

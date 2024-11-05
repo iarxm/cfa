@@ -13,6 +13,7 @@ export COLORTERM="truecolor"
 export PAGER="less -R --use-color"
 export LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
 export LESSCOLORIZER='bat'
+export MANWIDTH=100
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
 export LC_COLLATE="C" # dotfiles first in ls and nnn?
