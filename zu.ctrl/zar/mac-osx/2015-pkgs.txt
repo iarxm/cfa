@@ -1,15 +1,14 @@
 # apps root directory
---------------------
-folders:
+
+## folders:
 00 applications
 00 applications - beta
 00 applications - dynamic -
 00 applications - web
-01 -----------------------
-01 ------------------------
 01 applications - to remove (gamma)
----------------------------------
-root apps:
+
+
+## root apps:
 App Store.app
 Automator.app
 Calculator.app
@@ -49,8 +48,7 @@ Xcode.app
 
 
 
-# 00 applications/
-------------------
+## 00 applications/
 8tracks Radio.app
 aText.app
 Bartender.app
@@ -79,8 +77,7 @@ VLC.app
 
 
 
-----------------------
-# apps.beta/ 
+## apps.beta/ 
 Apple Configurator.app
 Awareness.app
 BitTorrent Sync.app
@@ -108,13 +105,12 @@ VOX.app
 
 
 
-------------------
-# apps.dynamic 
+## apps.dynamic 
 
  
  
- --------------------------------- 
- #apps.web
+## apps.web
 Firefox.app
 Google Chrome.app
 Opera.app
+

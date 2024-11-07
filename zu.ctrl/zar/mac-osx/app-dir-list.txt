@@ -1,0 +1,230 @@
+.
+./alpha.ide.plug
+./alpha.ide.plug/06 mathworks (matlab)
+./alpha.ide.plug/06 wolfram alpha
+./alpha.ide.plug/Adobe Acrobat XI Pro 11.0.3 Multilanguage Mac OS X [ChingLiu]
+./alpha.ide.plug/CS5 Master Collection SN + script
+./alpha.ide.plug/Driver software, ethernet to usb cable
+./alpha.ide.plug/a 8TracksRadioHelper.prefPane
+./alpha.ide.plug/rEFind - booting software
+./alpha.ide.plug/.DS_Store
+./alpha.ide.plug/AdobeFlashPlayer_17_a_install.dmg
+./alpha.ide.plug/GoogleVoiceAndVideoSetup.dmg
+./alpha.ide.plug/VirtualBox-4.3.28-100309-OSX.dmg
+./arc.tmp.beta
+./arc.tmp.beta/Apple Configurator.app
+./arc.tmp.beta/Chromium OS Image Creator.app
+./arc.tmp.beta/Divvy.app
+./arc.tmp.beta/Ecoute.app
+./arc.tmp.beta/Focusbar.app
+./arc.tmp.beta/GoodSync.app
+./arc.tmp.beta/Google Earth Pro.app
+./arc.tmp.beta/Hocus Focus.app
+./arc.tmp.beta/NetNewsWire.app
+./arc.tmp.beta/Stay.app
+./arc.tmp.beta/TogglDesktop.app
+./arc.tmp.beta/doubleTwist.app
+./arc.tmp.beta/.DS_Store
+./beta
+./beta/Awaken v 5.0.3 with Core keymagen
+./beta/Data Extractor 1.4
+./beta/IA.Writer.Pro.v1.0.MacOSX.Retail-CORE
+./beta/Reflector 1.6.6 MacOSX {B@tman}
+./beta/.DS_Store
+./beta/BitTorrent-Sync.dmg
+./beta/Byword 1.5.1.zip
+./beta/Cyberduck-4.6.5.zip
+./beta/Divvy.zip
+./beta/Ecoute_3.0.8.zip
+./beta/HackStore.dmg
+./beta/HandBrake-0.10.1-MacOSX.6_GUI_x86_64.dmg
+./beta/MediaFire-Desktop-release-1.4.29.10845.dmg
+./beta/Messenger-0.0.9.1434655833-20a46b37192bfacc.zip
+./beta/NetNewsWire-4.0.0-317.zip
+./beta/Notability 1.0 by Club InMac.dmg
+./beta/SourceTree_2.0.5.2.dmg
+./beta/Stay 1.2.4.zip
+./beta/SuperSync_6.1.1.dmg
+./beta/Typed.zip
+./beta/Unibox 1.2.1 (282) Trial.pkg
+./beta/Vox.dmg
+./beta/XeroxPrintDriver.3.64.0_1572.dmg
+./beta/ccc-4.1.3.4135.zip
+./beta/doubleTwist.dmg
+./beta/gPodder-3.8.3_0.zip
+./beta/gramblr.dmg
+./beta/iBrowse-1.0.1.0.dmg
+./beta/ifunboxmac.dmg
+./beta/shrook-1292.dmg
+./beta/timeout-1.7.1.zip
+./bkp16.x1
+./bkp16.x1/Airmail 2.app
+./bkp16.x1/Dupin.app
+./bkp16.x1/MusicBrainz Picard.app
+./bkp16.x1/TuneUp.app
+./bkp16.x1/.DS_Store
+./bkp16.x1/Chromecast.app
+./bkp16.x1/GitHub Desktop.app
+./bkp16.x1/LibreOffice.app
+./bkp16.x1/OmniDiskSweeper.app
+./bkp16.x1/Quicksilver.app
+./bkp16.x1/Sophos Anti-Virus.app
+./bkp16.x1/uTorrent.app
+./bkp16.x1/eclipse-inst-mac64.tar.gz
+./bkp16.x1/Bartender 2.app
+./bkp16.x1/Last.fm.app
+./bkp16.x1/MediaFire Desktop.app
+./bkp16.x1/Shazam.app
+./bkp16.x1/SongGenie 2.app
+./bkp16.x1/SuperSync.app
+./bkp16.x1/Awareness.app
+./bkp16.x1/BitTorrent Sync.app
+./bkp16.x1/Carbon Copy Cloner.app
+./bkp16.x1/20 URL Manager Pro 4.4.3
+./bkp16.x1/21 Cisco
+./bkp16.x1/21 DivX
+./bkp16.x1/Caffeine.app
+./bkp16.x1/Flux.app
+./bkp16.x1/Google Drive.app
+./bkp16.x1/Time Out.app
+./bkp16.x1/aText.app
+./bkp16.x1/duet.app
+./bkp16.x1/Skype.app
+./bkp16.x1/Bean.app
+./bkp16.x1/Kindle.app
+./bkp16.x1/Notational Velocity.app
+./bkp16.x1/Simplenote.app
+./bkp16.x1/Skim.app
+./bkp16.x1/8tracks Radio.app
+./bkp16.x1/Spotify.app
+./bkp16.x1/VLC.app
+./bkp16.x1/Firefox.app
+./bkp16.x1/Google Chrome.app
+./bkp16.x1/Opera.app
+./bkp16.x2
+./bkp16.x2/.DS_Store
+./bkp16.x2/eclipse-inst-mac64.tar.gz
+./bkp16.x2/Last.fm.app
+./bkp16.x2/MediaFire Desktop.app
+./bkp16.x2/SuperSync.app
+./bkp16.x2/20 URL Manager Pro 4.4.3
+./bkp16.x2/Bean.app
+./bkp16.x2/Chromecast.app
+./bkp16.x2/GitHub Desktop.app
+./bkp16.x2/Kindle.app
+./bkp16.x2/LibreOffice.app
+./bkp16.x2/Notational Velocity.app
+./bkp16.x2/OmniDiskSweeper.app
+./bkp16.x2/Quicksilver.app
+./bkp16.x2/Simplenote.app
+./bkp16.x2/Skim.app
+./bkp16.x2/uTorrent.app
+./bkp16.x2/Firefox.app
+./bkp16.x2/Google Chrome.app
+./bkp16.x2/Opera.app
+./bkp16.x2/8tracks Radio.app
+./bkp16.x2/Spotify.app
+./bkp16.x2/VLC.app
+./bkp16.x2/Skype.app
+./bkp16.x2/Bartender.app
+./bkp16.x2/Caffeine.app
+./bkp16.x2/Cisco
+./bkp16.x2/Citrix Receiver.app
+./bkp16.x2/DivX
+./bkp16.x2/DivX Converter.app
+./bkp16.x2/DivX Player.app
+./bkp16.x2/Flux.app
+./bkp16.x2/Google Drive.app
+./bkp16.x2/Sophos Anti-Virus.app
+./bkp16.x2/aText.app
+./bkp16.x2/duet.app
+./gamma
+./gamma/mysms.app
+./gamma/.DS_Store
+./gamma/AmazonCloudDriveInstaller.dmg
+./gamma/Copy-3.2.01.0481.dmg
+./gamma/Foxmail_for_Mac_V1.2.0.dmg
+./gamma/InkyInstall.dmg
+./gamma/OpenURLInNewChromeWindow.app.tar.gz
+./gamma/Opera-Mail-1.0-1040.i386.dmg
+./gamma/RCDefaultApp-2.1.X (1).dmg
+./gamma/kobosetup.dmg
+./gamma/odrivesync.3185.dmg
+./srt1.1
+./srt1.1/Opera Installer.app
+./srt1.1/Sophos Installer.app
+./srt1.1/.DS_Store
+./srt1.1/Awareness-1.1.dmg
+./srt1.1/Bartender.zip
+./srt1.1/Bean-Install.zip
+./srt1.1/CitrixReceiver.dmg
+./srt1.1/DivXInstaller.dmg
+./srt1.1/Firefox 41.0.2.dmg
+./srt1.1/GitHub Desktop 212.zip
+./srt1.1/Goofy.app.zip
+./srt1.1/GoogleEarthProMac-Intel.dmg
+./srt1.1/Insync-1.2.11.35149.dmg
+./srt1.1/LibreOffice_4.4.4_MacOS_x86-64.dmg
+./srt1.1/Nocturne.2.0.0.zip
+./srt1.1/Notational_Velocity_2_0b5.zip
+./srt1.1/OmniDiskSweeper-1.9.dmg
+./srt1.1/Opera_NI_stable.zip
+./srt1.1/Skim-1.4.12.dmg
+./srt1.1/Skype_7.10.776.dmg
+./srt1.1/URLManagerPro.zip
+./srt1.1/atom-mac.zip
+./srt1.1/chromecast-setup.1.5.0.1773.dmg
+./srt1.1/cisco - AnyConnect Secure Mobility Client - mac-osx.dmg
+./srt1.1/com.blacktree.Quicksilver__16401.dmg
+./srt1.1/duet-1.2.9.zip
+./srt1.1/goodsync-mac.dmg
+./srt1.1/googlechrome.dmg
+./srt1.1/googleearth-mac-plugin-intel.dmg
+./srt1.1/installgoogledrive.dmg
+./srt1.1/jdk-8u60-macosx-x64.dmg
+./srt1.1/mapbox-studio-darwin-x64-v0.2.7.zip
+./srt1.1/nibbble.1.2.zip
+./srt1.1/o 8TracksRadioHelper.prefPane.zip
+./srt1.1/savosx92sa.zip
+./srt1.1/uTorrent.dmg
+./srt1.1/vlc-2.2.1.dmg
+./srt1
+./srt1/Insync-1.2.6.35101.dmg
+./srt1/Juice_2.2_install.dmg.gz
+./srt1/MediaFire-Desktop-release-1.4.28.10833.dmg
+./srt1/Vox.dmg
+./srt1/Winamp-0.8.1.13.dmg
+./srt1/clementine-1.2.2.dmg
+./srt1/prey-mac-1.3.9-x86 (1).pkg
+./srt1/subsonic-5.2.1.pkg
+./zzredundant
+./zzredundant/Nocturne.app
+./zzredundant/.DS_Store
+./aaa
+./aaa/SuperSync.app
+./aaa/set desktop background.app
+./arc.tmp.beta.05 apps - cloud
+./arc.tmp.beta.05 apps - cloud/MediaFire Desktop.app
+./arc.tmp.beta.05 apps - cloud/.DS_Store
+./arc.tmp.beta.05 apps - media -
+./arc.tmp.beta.05 apps - media -/Shazam.app
+./arc.tmp.beta.05 apps - media -/VOX.app
+./arc.tmp.beta.05 apps - media -/.DS_Store
+./arc.tmp.beta.06 apps - COM
+./arc.tmp.beta.06 apps - COM/Go for Gmail.app
+./arc.tmp.beta.06 apps - COM/Goofy.app
+./arc.tmp.beta.06 apps - COM/Messenger.app
+./arc.tmp.beta.06 apps - COM/Opera Mail.app
+./arc.tmp.beta.06 apps - COM/Telegram.app
+./arc.tmp.beta.06 apps - COM/Unibox.app
+./arc.tmp.beta.06 apps - COM/mysms.app
+./arc.tmp.beta.06 apps - COM/.DS_Store
+./arc.tmp.beta.07 apps - writing
+./arc.tmp.beta.07 apps - writing/Writer Pro.app
+./arc.tmp.beta.07 apps - writing/.DS_Store
+./arc.tmp.beta.30 apps - to remove (gamma)
+./arc.tmp.beta.30 apps - to remove (gamma)/Sunrise Calendar.app
+./arc.tmp.beta.30 apps - to remove (gamma)/.DS_Store
+./arc.tmp.beta.30 music
+./arc.tmp.beta.30 music/Burn.localized
+./arc.tmp.beta.30 music/.DS_Store

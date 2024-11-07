@@ -1,16 +1,18 @@
-# README - Configuration System
 
+# README
 
-## TODO
-
-- More if clauses to create specific settings for specific devices
-x- Bootrap scripts for different device types
+Configuration and package systems
 
 
 ## Principles
 
-- Soft links are ignored by 'git add .' by prefixing xx
-    - Update: soft links are now programatically ignored via git.ign.sym script
+- Soft links are ignored by 'git add .' by prefixing xx. Update: soft links are now programatically ignored via git.ign.sym script
 
 
-<!-- vim:ft=markdown
+## TASKS
+
+- [ ] More if clauses to create specific settings for specific devices
+- [X] Bootrap scripts for different device types
+
+
+<!-- vim:set ft=markdown:--->
