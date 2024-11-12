@@ -12,8 +12,8 @@ os.environ['QUTE_POST_CLONE']      = 'notify-send "cloned!" "${QUTE_URL}"'
 os.environ['QUTE_BIB_FILEPATH']    = "${HOME}/jf/iic/bib/qute.bib"
 os.environ['QUTE_UIX_BLK']         = "file://" + QUTE_CONFIG_HOME + "/interface/index-blank.html"
 os.environ['QUTE_UIX_BGX']         = "file://" + QUTE_CONFIG_HOME + "/interface/index-background.html"
-os.environ['COLORS_SOLAR_D']      = QUTE_CONFIG_HOME + "/interface/styles/solarized-d/solarized-dark-all-sites.css"
-os.environ['COLORS_SOLAR_L']      = QUTE_CONFIG_HOME + "/interface/styles/solarized-l/solarized-light-all-sites.css"
+os.environ['COLORS_SOLAR_D']       = QUTE_CONFIG_HOME + "/interface/styles/solarized-d/solarized-dark-all-sites.css"
+os.environ['COLORS_SOLAR_L']       = QUTE_CONFIG_HOME + "/interface/styles/solarized-l/solarized-light-all-sites.css"
 os.environ['COLORS_BLACKX']        = QUTE_CONFIG_HOME + "/interface/styles/blackblack/black-all-sites.css"
 os.environ['WINDOW_ELEMENTS']      = QUTE_CONFIG_HOME + "/interface/styles/user.css"
 #filepicker                          = ["st", "-c", "filepicker", "-t", "filepicker", "-e", "lf", "-command", "set nohidden", "-selection-path={}",]
@@ -22,7 +22,8 @@ os.environ['WINDOW_ELEMENTS']      = QUTE_CONFIG_HOME + "/interface/styles/user.
 #c.fileselect.multiple_files.command = filepicker
 #c.fileselect.single_file.command    = filepicker
 # task: folder picker; and beautify
-c.downloads.location.directory      = DATA + "/ui/iaa/"
+#c.downloads.location.directory      = DATA + "/ui/iaa/"
+c.downloads.location.directory      = HOME + "/aia/"
 c.editor.command                    = ["st", "-c", "float", "nvim", "-O", "{}"] # i3 config 'float'
 c.spellcheck.languages              = ['en-GB']
 c.prompt.filebrowser                = True
