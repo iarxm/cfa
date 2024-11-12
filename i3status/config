@@ -36,7 +36,7 @@ ethernet _first_ {
 }
 
 tztime local {
-    format = "%d %H:%M"
+    format = "%d(%j) %H:%M"
 }
 
 battery all {
