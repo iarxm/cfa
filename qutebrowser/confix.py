@@ -91,6 +91,7 @@ c.hints.min_chars                  = 1
 c.keyhint.blacklist                = ["*"]
 c.completion.open_categories       = ["quickmarks", "bookmarks", "history"]
 c.scrolling.smooth                 = True # can make scrolling slow with mouse, but improves key scrolling
+c.url.searchengines['gpt']         = 'https://chat.openai.com/search?q={}' #academic.bib
 c.url.searchengines['gs']          = 'http://scholar.google.ch/scholar?hl=en&q={}' #academic.bib
 c.url.searchengines['scihub']      = "https://sci-hub.se/{}" #academic.get
 c.url.searchengines['sci']         = c.url.searchengines['scihub'] #academic.get
@@ -108,7 +109,7 @@ c.url.searchengines['yt']          = c.url.searchengines['youtube']
 c.url.searchengines['yy']          = c.url.searchengines['youtube']
 c.url.searchengines['y']           = c.url.searchengines['youtube']
 c.url.searchengines['ww']          = 'https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Special%%3ASearch&search={}'
-c.url.searchengines['DEFAULT']     = c.url.searchengines['bing'] # define
+c.url.searchengines['DEFAULT']     = c.url.searchengines['gpt'] # define
 c.url.searchengines['gh']          = 'https://github.com/search?q={}&type=Code' #csci
 c.url.searchengines['aw']          = 'https://wiki.archlinux.org/?search={}'
 c.url.searchengines['ap']          = 'https://www.archlinux.org/packages/?sort=&q={}'
