@@ -312,12 +312,11 @@ M.ml = function() -- mail ###########################
 
 
     buf('oxtk.md')
-    buf('~/.config/muttm/bind.m.muttrc')
     buf('ob.md')
     buf('README.md') -- ConfigGS
     buf('~/.config/mutt/muttrc')
     buf('~/.config/mutt/bind.muttrc')
-    buf('~/.config/mutt/bind.mx.muttrc')
+    buf('~/.config/muttm/bind.mx.muttrc')
   --buf('~/.config/sieve/Open-Xchange')
   --buf('~/.local/bin/mlx/ml')
   --buf('ii.sc')

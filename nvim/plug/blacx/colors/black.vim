@@ -1,3 +1,7 @@
+
+" vim.api.nvim_set_hl(0, "WhickKeyNormal", {bg = "black",})
+hi WhichKeyNormal                          guibg=black
+
 hi AllBlack              ctermbg=black     guibg=black 	guifg=black      ctermfg=black
 hi link VertSplit AllBlack
 " #### normal ########################################################################
