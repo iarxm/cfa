@@ -10,6 +10,8 @@ alias bc="bc -ql"
 alias sc="sc-im"
 alias scim="sc-im"
 alias iis="i3-swallow"
+alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/isyncrc"
+alias mbsync-pull-create-mailbox="mbsync --pull --create -a"
 
 #### xset
 
@@ -64,6 +66,7 @@ alias gclon="git clone"
 #### file nav / manage
 
 ## files
+
 alias rcl="rclone"
 alias rs.a="rsync -avP"
 alias cc="cd"
@@ -80,19 +83,22 @@ alias tp="trash-put"
 alias chx="chmod +x"
 alias lns='ln -s'
 ln_del() { find -L $DIR -maxdepth 1 -type l -delete; }
+
 ## ls list
+
 alias ls="ls --color=auto"
 alias ll=ls
 alias lll='ls -l --group-directories-first'
 alias lla='ls -lA --group-directories-first'
 alias la='ls -A'
-
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
+
 # nnn
+
 alias nnn="nnn -a"
 alias nna="nnn -ea"
 alias nn="nnn -ea"
@@ -101,32 +107,36 @@ alias sdn='sudo nnn'
 nnu() { 
   i3-msg "split horizontal"
   { sleep 0.3; xdotool key "semicolon+x"; sleep 1;  i3-msg "resize set 80ppt"; } &
-    nnn ;}
-#nnux() { st -e "zsh -c nnu"; } # todo
+    nnn ;} #nnux() { st -e "zsh -c nnu"; } # todo
+
 # nvim
-alias e="$EDITOR"
-# alias v="$EDITOR"
+
+alias e="$EDITOR" # alias v="$EDITOR"
 alias v="nvim"
 alias nv='nvim.aa'
 alias sdv='sudo nvim'
 alias vc="cud && nvim -c Ntr"
 [ -x "$(command -v nvim)" ] && \
     alias vim="nvim" vimdiff="nvim -d"
+
 # media
-alias         yt="yt-dlp --add-metadata"
-alias      yt480="yt -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
-alias     ytcook="yt --cookies-from-browser firefox -o '%(id)s.%(ext)s'"
-alias        ytx="yt -x"
-alias      ytdlp="yt"
-alias youtube-dl="yt"
-#alias         ytl="yt"
-#alias         yt="yt-dlp --add-metadata -i"
-#alias       ytxa="yt -x -f bestaudio/best" # this is the default behaviour of ytdlp
-# ffmpeg
-alias ffmpeg="ffmpeg -hide_banner"
-alias     YT="youtube-viewer"
-alias    ytv="youtube-viewer"
+
+alias yt="yt-dlp --add-metadata"
+alias ytx="yt -x"
+alias ytdlp="yt"
+alias yt480="yt -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
+alias yt.cook="yt --cookies-from-browser firefox -o '%(id)s.%(ext)s'"
+#alias ytl="yt"
+#alias yt="yt-dlp --add-metadata -i"
+#alias ytxa="yt -x -f bestaudio/best" # this is the default behaviour of ytdlp
+#alias youtube-dl="yt"
+alias ffmpeg="ffmpeg -hide_banner" # ffmpeg
+alias YT="youtube-viewer"
+alias ytv="youtube-viewer"
+alias mpv="mpv --config-dir=${HOME}/.config/mpx"
+
 # other
+
 alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove -R"
 alias xq="xbps-query"
@@ -136,30 +146,45 @@ alias mm="man"
 alias c="clear"
 alias cl="clear"
 alias open='openu'
-alias o='openu'
-#alias op='
+alias o='openu' #alias op='
 alias ma='make'
 alias ec='echo'
 alias q='exit'
-
 alias magit="nvim -c MagitOnly"
 alias ref="shortcuts >/dev/null; \
     source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; \
     source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc"
-alias weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
+alias weat="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
 
-## system 
+## system
+
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 for x in mount umount sv pacman updatedb su ; do
     alias $x="sudo $x"
 done
 alias sd="sudo"
+alias xrc="xrdb -I$HOME -merge $XDG_CONFIG_HOME/X11/xresources"
+alias ss="systemctl suspend"
+alias dmesg='sudo dmesg' # journals
+alias jxe='journalctl -xe'
+
+# killing
+
 alias sdk='sudo pkill'
 alias sdkc='sudo pkill clamd'
 alias pk='pkill'
-## journals
-alias dmesg='sudo dmesg'
+alias ka="killall"
+
+## packages/pacman/pip
+
+alias pd="sudo pacman -S"
+alias sdn="sudo shutdown -h now"
+alias p="sudo pacman"
+alias pacs='pacman -S'
+alias apip='pip install --user'
+
 ## systemd
+
 alias srcp="source ~/.config/shell/profile"
 alias syt='systemctl'
 alias sytl='systemctl list-units'
@@ -170,25 +195,14 @@ alias syte='systemctl disable --now'
 alias sytu='systemctl --user'
 alias sytue='systemctl --user enable --now'
 alias sytus='systemctl --user status'
-alias jxe='journalctl -xe'
-
-## more
-alias pd="sudo pacman -S"
-alias sdn="sudo shutdown -h now"
-alias ka="killall"
-alias p="sudo pacman"
-alias xrc="xrdb -I$HOME -merge $XDG_CONFIG_HOME/X11/xresources"
-alias ss="systemctl suspend"
-alias pacs='pacman -S'
-alias apip='pip install --user'
 
 #### dotfiles cleanup
+
 alias abook="abook \
     --config $XDG_CONFIG_HOME/abook/abookrc \
     --datafile $XDG_DATA_HOME/abook/addressbook"
 alias weechat="weechat -d $XDG_CONFIG_HOME/weechat/"
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/isyncrc"
 alias nrss="nrss -D $XDG_CONFIG_HOME/nrss/ \
     -F $XDG_CACHE_HOME/nrss/feeds \
     -L $XDG_CACHE_HOME/nrss/log"
