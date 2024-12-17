@@ -1,11 +1,8 @@
-
 set date_format     = "%a %d %h %H:%M"
-#set index_format    = " %(!%y/%m/%d %H:%M) %X %N%Z%J    %-15.15L  %<M?~(%1M)> %-60.60s  %2.2C"
-set index_format    = " %X%Z%J%-2.2M %-15.15L %-60.60s  %2.2C %N %(%H:%M) %(!%y/%m/%d)"
+set index_format    = " %X%Z%J%-2.2M %-15.15L %-60.60s  %2.2C %N %(%H:%M) %(!%d/%m/%y)"
 set pager_format    = " %* %{!%d %b · %H:%M} %?X? %X?%P"
 set status_format   = " %* %<V?Limit:%V > %D    %<u?%uU >%<R?%RR >%<d?%dD >%<t?%tT >%<F?%FS >%<p?%pP >%<P?%P >%<M?%ML/>%mM   %<b?%bmN>"
 set attach_format   = "%u%D %T%-75.75d %<T?&   > %5s · %m/%M"
-set vfolder_format  = "%N %?n?%3n&   ?  %8m %f"
 set compose_format  = "-- Compose  [Approx. msg size: %l   Atts: %a]%>-"
 set sidebar_format  = "%D %* %?F?%F.?%?S?%S?"
 
@@ -49,7 +46,4 @@ set display_filter="\
     sed -E 's/\\[IMG\\]/ /g' |\
     sed -E '/\\[-- [0-9a-fA-F-]*\([0-9a-fA-F]\{4\}\) --\\]/d' \
     "
-#%> %2.2C
-#%-.60s
-#%<Y?%Y
-#set index_format    = "%-2.2C %(!%y/%m/%d %H:%M) %X %N%Z%J    %-15.15L  %<M?~(%1M)> %-60.60s %2.2C"
+

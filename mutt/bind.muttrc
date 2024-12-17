@@ -1,114 +1,118 @@
-## vim:ft=muttrc syntax=neomuttrc
 
 #### noops
-bind compose,attach 'o'  noop
-bind index,pager    'o'  noop
-bind index,pager    'b'  noop
-bind compose,attach 'b'  noop
-bind index,pager    'ob' noop
-bind compose,attach 'ob' noop
-bind index,pager    'c'  noop
-bind index,pager    'v'  noop
-bind index          ','  noop
-bind index,pager    '.'  noop
-bind index,pager    'g'  noop
-bind index,pager    'b'  noop
-bind index,pager    'm'  noop
-bind index,pager    'V'  noop
-bind index,pager    's'  noop
+
+bind compose,attach o  noop
+bind index,pager    o  noop
+bind index,pager    b  noop
+bind compose,attach b  noop
+bind index,pager    ob noop
+bind compose,attach ob noop
+bind index,pager    c  noop
+bind index,pager    v  noop
+bind index          ,  noop
+bind index,pager    .  noop
+bind index,pager    g  noop
+bind index,pager    b  noop
+bind index,pager    m  noop
+bind index,pager    V  noop
+bind index,pager    s  noop
 
 
 #### binds
-macro index,pager   ".ll"   "<limit>all<enter>"
-macro index,pager   ".lf"   "<limit>~F<enter>" 	# Limit to important flag
-bind index,pager    "mm"    "mail"
-bind index,pager    "mv"    "view-attachments"
-bind index,pager    "mb"    "buffy-list"
-bind index,pager    "mr"    "view-raw-message"
-macro index,pager   "mww"   "<sync-mailbox>y<enter>"
-bind index,pager    "oo"    "sort-mailbox"
-bind index,pager    "ob"    "sort-mailbox"
-bind index,pager    "R"     "group-reply"
-macro index,pager   "gg"    "<first-entry>"
-macro index,pager   "G"     "<last-entry>"
-macro index,pager   ".r"    '<enter-command>source $my_cfg/muttrc<enter>'
-bind index,pager    "bs"    "sidebar-toggle-visible"
-bind index,pager    "\Cg"   "sidebar-first"
-bind index,pager    "\Cf"   "sidebar-last"
-bind index,pager    "\Ck"   "sidebar-prev"
-bind index,pager    "\Cj"   "sidebar-next"
-bind index,pager    "\Ch"   "sidebar-page-down"
-bind index,pager    "\Cl"   "sidebar-page-up"
-bind index,pager    "\Co"   "sidebar-open"
-bind pager          "\Cv"   "sidebar-toggle-virtual"
-bind pager          "\CV"   "sidebar-toggle-virtual"
-bind editor         "<Tab>" "complete-query"
-bind editor         "^T"    "complete"
-macro index,pager   "A"     "<create-alias>"
-#macro index,pager  "a"     "<pipe-message>khard...<return>" # khard
-#macro index,pager   "\ej"   "$my_nund$my_nund$my_nund$my_nund"
-macro index          A      "<tag-pattern>~N<enter>\
-                            <tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
-                            "mark all new as read"
-set my_nund = "<next-undeleted><next-undeleted><next-undeleted>"
-set my_pund = "<previous-undeleted><previous-undeleted><previous-undeleted>"
-macro index,pager   "\ek"   "$my_pund$my_pund$my_pund$my_pund"
+
+bind index,pager    bs      sidebar-toggle-visible
+bind index,pager    "\Cg"   sidebar-first
+bind index,pager    "\Cf"   sidebar-last
+bind index,pager    "\Ck"   sidebar-prev
+bind index,pager    "\Cj"   sidebar-next
+bind index,pager    "\Ch"   sidebar-page-down
+bind index,pager    "\Cl"   sidebar-page-up
+bind index,pager    "\Co"   sidebar-open
+bind pager          "\Cv"   sidebar-toggle-virtual
+bind pager          "\CV"   sidebar-toggle-virtual
+macro index,pager   .ll    "<limit>all<enter>"
+macro index,pager   .lf    "<limit>~F<enter>"
+bind index,pager    mm      mail
+bind index,pager    mv      view-attachments
+bind index,pager    mb      buffy-list
+bind index,pager    mr      view-raw-message
+bind index,pager    oo      sort-mailbox
+bind index,pager    ob      sort-mailbox
+bind index,pager    R       group-reply
+macro index,pager   gg      <first-entry>
+macro index,pager   G       <last-entry>
+set my_nund         =      "<next-undeleted><next-undeleted><next-undeleted>"
+set my_pund         =      "<previous-undeleted><previous-undeleted><previous-undeleted>"
+macro index,pager   "\ek"  "$my_pund$my_pund$my_pund$my_pund"
+macro index,pager   "\ej"  "$my_nund$my_nund$my_nund$my_nund"
 
 
-#### macro binds
-# uid
+#### contacts
+
+macro index,pager   A       <create-alias>
+bind editor         <Tab>   complete-query
+bind editor         ^T      complete
+# macro index,pager   "a"   "<pipe-message>goobook add<return>" # goobook unmainted
+
+
+#### mods
+
+macro index,pager   .r     "<enter-command>source $my_cfg/muttrc<enter>"
+macro index,pager   mww    "<sync-mailbox>y<enter>"
+macro index,pager   "\CR"  "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"
+
+
+#### complex macros
+
 set my_uid           = `mlx uid` # mutt fails to recognise $UID by itself
-# files
+
 set my_f_fifo        = "/run/user/$my_uid/mutt/fifo"
 set my_f_mime        = "/run/user/$my_uid/mutt/mlx.mime"
 set my_f_mlx         = "/run/user/$my_uid/mutt/mlx.html"
 set my_f_mly         = "/run/user/$my_uid/mutt/mly.html"
-# pipes and gets
+
 set my_donothing     = " "
 set my_get_html      = "<view-attachments><search>html<enter>"
+
 set my_pipe_ico      = "<pipe-entry>iconv -c --to-code=UTF8   > $my_f_mly<enter>"
 set my_pipe_mly      = "<pipe-entry>cat > $my_f_mly<enter>"
 set my_pipe_mlx      = "<pipe-entry>cat > $my_f_mlx<enter>"
 set my_pipe_fif      = "<pipe-entry>cat > $my_f_mime && echo y > $my_f_fifo<enter>"
-# browser call
+
 # brx is called by the while loop in 'mlx'. bry is the alternative destination for manual browser calls
-set my_mlx_bry       = "<shell-escape>qb my >/dev/null<enter>"               # default
-set my_mlx_bfl       = "<shell-escape>mlx qb.float<enter>"                   # floating
-set my_mlx_btr       = "<shell-escape>mlx term<enter>"                       # terminal
+set my_mlx_bry       = "<shell-escape>qb my >/dev/null<enter>" # default
+set my_mlx_bfl       = "<shell-escape>mlx qb.float<enter>"
+set my_mlx_btr       = "<shell-escape>mlx term<enter>"
 set my_mlx_ini       = "<shell-escape>mlx qb.rip &<enter>"
 set my_mlx_md2ht     = "<shell-escape>mlx md2html<enter>"
-# browser chains
 set my_bry           = "$my_get_html  $my_pipe_mly  $my_mlx_bry<exit>" #
 set my_bry_i         = "$my_donothing $my_pipe_ico  $my_mlx_bry<exit>" # second
 set my_bfy           = "$my_get_html  $my_pipe_ico  $my_mlx_bfl<exit>" # float x
 set my_bfi           = "$my_donothing $my_pipe_ico  $my_mlx_bfl<exit>" # float y
 set my_btr           = "$my_get_html  $my_pipe      $my_mlx_btr<exit>" # terminal
-# styling
+
 set my_stylex        = "$my_donothing $my_pipe      $my_mlx_md2ht"     # styling
-# autocommand hack
-set my_next_on       = '<enter-command>macro index,pager j "<next-entry>$my_pipe_fif"'
+
+set my_next_on       = '<enter-command>macro index,pager j "<next-entry>    $my_pipe_fif"'
 set my_prev_on       = '<enter-command>macro index,pager k "<previous-entry>$my_pipe_fif"'
 set my_next_off      = '<enter-command>macro index,pager j "<next-entry>"'
 set my_prev_off      = '<enter-command>macro index,pager k "<previous-entry>"'
-macro index,pager    'bu'   "$my_mlx_ini   $my_next_on <enter> $my_prev_on <enter>"   # init viewer
-macro index,pager    'bd'   "$my_donothing $my_next_off<enter> $my_prev_off<enter>" # kill viewer
-macro index,pager    'bi'   "$my_mlx_ini"  # init auto pipe
-macro index,pager    'bb'   "$my_bry"      # open in
-macro attach,compose 'bb'   "$my_bry_i"    # open in
-macro index,pager    'bfx'  "$my_bfx"      # open in float
-macro attach,compose 'bfy'  "$my_bfy"      # open in float
-macro index,pager    'bt'   "$my_btr"      # browser.text
-macro compose        '.mm'  "$my_sty"      # post processing styling
-#startup-hook         "push 'bi'"
-#startup-hook         "push 'bu'"
+
+macro index,pager    bu   "$my_mlx_ini   $my_next_on <enter> $my_prev_on <enter>"   # init viewer
+macro index,pager    bd   "$my_donothing $my_next_off<enter> $my_prev_off<enter>"   # kill viewer
+macro index,pager    bi   "$my_mlx_ini"  # init auto pipe
+macro index,pager    bb   "$my_bry"      # open in
+macro attach,compose bb   "$my_bry_i"    # open in
+macro index,pager    bfx  "$my_bfx"      # open in float
+macro attach,compose bfy  "$my_bfy"      # open in float
+macro index,pager    bt   "$my_btr"      # browser.text
+macro compose        .mm  "$my_sty"      # post processing styling
 
 
 macro index,pager \cb "<enter-command> set my_pdsave=\$pipe_decode<enter>\
         <enter-command> unset pipe_decode<enter>\
         <pipe-message>  extract_url | urlscan --compact --run 'qb win {}'<enter>\
         <enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
-        #<pipe-message>extract_url | urlview<enter>\
 
 
-#macro index,pager   "a"   "<pipe-message>goobook add<return>" # goobook unmainted
-
+## vim:ft=muttrc syntax=neomuttrc

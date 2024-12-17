@@ -7,20 +7,23 @@ set nm_record_tags      = "-ii,ar,snt,me"
 set nm_unread_tag       = "unread"
 set nm_exclude_tags     = "kill"
 
-## index
-folder-hook             . 'push "<collapse-all>"'
 folder-hook             . "rm -f /tmp/mutt/*"
+
+## index
+
+folder-hook             . 'push "<collapse-all>"'
 set sort                = "last-date-received"
 set sort_aux            = "date"
 set use_threads         = "reverse"
-set uncollapse_jump     = "yes"                    #  jump to unread when uncollapsed
+set uncollapse_jump     = "yes"
 set uncollapse_new      = "yes"                    #  open threads when new mail
 unset help
 unset collapse_unread
 
 ## pager
+
 ignore *                                           #  ignore all headers
-unignore to: cc: from:                             #  ..then selectively show only these
+unignore to: cc: from:                             #  selectively show specified
 unhdr_order *                                      #  some distros order things by default
 hdr_order Date: From: Subject: To: Cc:             #  header item ordering
 set sleep_time          = "0"
@@ -29,8 +32,7 @@ set pager_context       = "12"
 set pager_stop          = "yes"
 set markers             = "yes"
 auto_view text/plain text/enriched
-#set implicit_autoview   = "yes"
-#auto_view text/plain text/enriched text/html multipart/alternative
+set implicit_autoview   = "yes"
 
 ## sidebar
 #set sidebar_on_right    = "true"
@@ -38,12 +40,11 @@ set sidebar_width       = "18"
 set sidebar_sort_method = "desc"
 set sidebar_sort_method = "alpha"
 set sidebar_visible     = "yes"
-set sort_browser        = "desc"                   #  also works in virtual sideb
-set auto_subscribe                                 #  news
+set sort_browser        = "desc"
 
 ## other
-set query_command       = "goobook query '%s'"     #  keep my own version of goobook
-set wait_key            = "no"                     #  remove confirmation msg after 'pipe-entry'
+set query_command       = "goobook query '%s'"
+set wait_key            = "no"                     #  rm confirmation msg after 'pipe-entry'
 set mark_old            = "no"
 set confirmappend       = "no"
 set mail_check_stats    = "yes"
@@ -54,8 +55,8 @@ set include             = "yes"
 set fast_reply          = "yes"
 set editor              = "nvim"
 set reverse_realname    = "yes"                    #  use any real name provided when replying
-set reverse_name                                   #  reply as whomever it was to
 set header              = "yes"
+#set reverse_name                                   #  reply as whomever it was to
 
 
 ## env
@@ -71,7 +72,8 @@ source "$XDG_CONFIG_HOME/mutt/format.muttrc"
 source "$XDG_CONFIG_HOME/mutt/gpg.muttrc"
 source "$XDG_CONFIG_HOME/muttm/muttrc"
 
-
+#auto_view text/plain text/enriched text/html multipart/alternative
 #set pipe_decode         = "yes"
 #set pipe_decode_weed    = "yes"
 #set query_command       = ""     # khard
+#set auto_subscribe
