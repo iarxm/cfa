@@ -212,10 +212,10 @@ alias apvlv="apvlv -c $XDG_CONFIG_HOME/apvlv/apvlvrc"
 #### cyg
 alias acyg="apt-cyg install"
 ##### transmission remotes
-alias tsnr="transmission-remote"
-alias tsnr="transmission-remote"
-alias tsnc="transmission-cli"
-alias tsnd="transmission-daemon"
+alias tnr="transmission-remote"
+alias tnr-exit="transmission-remote"
+alias tnc="transmission-cli"
+alias tnd="transmission-daemon"
 #### mail
 alias m="neomutt -e "push '<change-folder>=ii<enter>'""
 alias nmh="notmuch"

@@ -108,6 +108,7 @@ settings:
   content.javascript.enabled:
     global: true
   content.media.audio_capture:
+    https://chatgpt.com: true
     https://euc-word-edit.officeapps.live.com: true
     https://meet.google.com: true
     https://teams.microsoft.com: true
