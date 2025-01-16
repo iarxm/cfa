@@ -4,7 +4,6 @@ return {
             'markdown',
             'markdownt',
         },
-        version = "*",
         dependencies = { "MunifTanjim/nui.nvim" },
         task_statuses = { " ", ">", "x", "~" }, -- The order of toggling task statuses
         status_map = { [" "] = "pending", [">"] = "active", ["x"] = "completed", ["~"] = "deleted" }, -- The mapping between status and symbol in checkbox

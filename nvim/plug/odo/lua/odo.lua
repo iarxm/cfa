@@ -2,7 +2,7 @@ local M        = {}
 local X        = {}
 local opt      = vim.opt
 local cmd      = vim.api.nvim_command
-local hr       = "$HOME/daa"
+local hr       = "$HOME/da"
 -- local ha       = hr .. '/a'
 -- local hb       = hr .. '/a/aa'
 local ha       = 'a'
@@ -178,7 +178,9 @@ M.m_future_qr = function() -- # o#m_future_qr ####################
   tnewx()
 end
 
-M.ua = function() -- Note Taking (o#na) #######################
+-- Note Taking (o#na)
+
+M.ua = function() 
   enva()
   edit(ua)
   --tagl_all()
@@ -220,8 +222,9 @@ M.oa_bufs = function()
     end
 end
 
+-- Actionable Panels (o#oa_x)
 
-M.oa_x = function() -- Actionable Panels (o#oa_x)
+M.oa_x = function() 
     
     tnew(oi)
     --zen_mdx()
@@ -252,7 +255,7 @@ M.oa = function() -- Actionable Panels Master Function (o#oa)
     cmd('tabdo lua require("markx").write_mode_x()')
     --cmd('tabdo wincmd 2l')
     cmd('silent tabnext 1')
-    cmd('Neotree position=right')
+    --cmd('Neotree position=right')
 end
 
 

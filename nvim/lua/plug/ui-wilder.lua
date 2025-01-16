@@ -14,7 +14,7 @@ return {
                         highlights = { border = 'Normal' },
                         border = 'single',
                         -- min_height = '50%',
-                        max_height = '80%',
+                        max_height = '95%',
                     })
                 )
             )

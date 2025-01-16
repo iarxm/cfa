@@ -1,6 +1,5 @@
 return {
     'duckdm/neowarrior.nvim',
-    --event = 'VeryLazy',
     cmd = 'NeoWarriorOpen',
     ft = {
         'markdown',
@@ -17,16 +16,14 @@ return {
             report = "next",
             filter = "\\(due.before:2d or due: \\)",
             dir_setup = {
-                {
-                dir = home .. "/dev/nvim/neowarrior.nvim",
-                filter = "project:neowarrior",
-                mode = "tree",
-                expanded = true,
+                { dir = home .. "/dev/nvim/neowarrior.nvim",
+                    filter = "project:neowarrior",
+                    mode = "tree",
+                    expanded = true,
                 },
-                {
-                dir = home .. "/daa",
-                mode = "tree",
-                expanded = true,
+                { dir = home .. "/da",
+                    mode = "tree",
+                    expanded = true,
                 },
             }
         })

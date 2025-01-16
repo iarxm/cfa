@@ -1,6 +1,5 @@
-return { --language specific: markdown / tex / document related
-    { 'jalvesaq/Nvim-R',            ft = 'rmarkdown'},    -- syn
-    { 'vim-pandoc/vim-rmarkdown',   ft = 'rmarkdown'},    -- syn
+--language specific: markdown / tex / document related
+return {
     { 'vim-pandoc/vim-criticmarkup'},                     -- syn
     -- preview / present
     { 'sotte/presenting.vim',               cmd = 'MdxPresentingStart'},
@@ -50,9 +49,13 @@ return { --language specific: markdown / tex / document related
             vim.g.vimtex_view_method = "zathura"
             --vim.g.vimtex_compiler_progname = "nvr"
         end
-    }
+    },
+    { 'jalvesaq/Nvim-R',            ft = 'rmarkdown'},    -- syn
+    { 'vim-pandoc/vim-rmarkdown',   ft = 'rmarkdown'},    -- syn
 }
-    -- latex / tex
+
+
+-- latex / tex
     -- { 'xuhdev/vim-latex-live-preview', { 'for': 'tex' },},
     -- { 'newton/vim-latex-preview',},
     -- markdown
