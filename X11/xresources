@@ -2,11 +2,11 @@
 *.dpi:                 96
 *.antialias:           true
 *.hinting:             true
-*.rgba:                rgb
 *.autohint:            true
 *.hintstyle:           hintslight
 *.lcdfilter:           lcddefault
-! alphas #####################
+*.rgba:                rgb
+! alphas
 *.alpha:               0.9
 *.nnnf1.alpha:         0.5
 *.nnnf4.alpha:         0.6
@@ -17,23 +17,23 @@
 *.tabbed.alpha:        1
 *.preview.alpha:       1
 *.ooaa.alpha:          1
-! apps #######################
+! apps
 urxvt*urgentOnBell:    true
 st*urgentOnBell:       true
 Sxiv.font:             Hack-9
 Sxiv.background:       #000000
 Sxiv.foreground:       #5A5A5A
 tabbed.normbgcolor:    #000000
-! man pages #################
+! man pages
 *VT100.colorBDMode:    true
 *VT100.colorBD:        red
 *VT100.colorULMode:    true
 *VT100.colorUL:        cyan
 *VT100.veryBoldColors: 6
 #include "urxvt/config"
-! color scheme ##############
-!#include "X11/z/zcol.dracula.Xresources"
+! color scheme
 #include "X11/z/zcol.kanagawa.Xresources"
+!#include "X11/z/zcol.dracula.Xresources"
 !#include "X11/z/zcol.terminal.sexy.Xresources"
 ! #include "X11/z/zcol.newer.Xresources"
 ! #include "X11/z/zcol.sourcerer.Xresources"
@@ -41,10 +41,12 @@ tabbed.normbgcolor:    #000000
 ! #include "X11/z/zcol.drac.Xresources"
 ! TODO: kanagawa-dragon Xreousrces variant
 #include "X11/z/zcol.nothingness.Xresources"
-! font ######################
-!*.font:             Liberation Mono:antialias=true:autohint=true;
-!*.font:             Liberation Mono:pixelsize=12:antialias=true:autohint=true;
-! *.font:            Liberation Mono:antialias=true:autohint=true:pixelsize=16;
-!*.font:              Liberation Mono:pixelsize=14:antialias=true:autohint=true;
-*.font:              JetBrainsMonoNL Nerd Font:pixelsize=14:antialias=true:autohint=true;
-
+! fonts nerds
+*.font: JetBrainsMono Nerd Font:pixelsize=14;
+!*.font: JetBrainsMonoNL Nerd Font:pixelsize=14:hintstyle=hintfull;
+!*.font: FiraCode Nerd Font:pixelsize=14:antialias=true:autohint=true;
+! fonts normal
+!*.font: Liberation Mono:antialias=true:autohint=true;
+!*.font: Liberation Mono:pixelsize=12:antialias=true:autohint=true;
+!*.font: Liberation Mono:antialias=true:autohint=true:pixelsize=16;
+!*.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true;

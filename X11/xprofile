@@ -1,7 +1,8 @@
 #!/bin/sh
-feh --no-fehbg --bg-max "${BGX_FEH}" &
+#feh --no-fehbg --bg-max "${BGX_FEH}" &
+#xset r rate 120 120 &
+xrr init
 xrdb -I${HOME}/.config .config/X11/xresources &
-xset r rate 120 120 &
 unclutter &
 picom &
 dunst &
