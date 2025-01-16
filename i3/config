@@ -95,7 +95,7 @@ workspace $ws2            output primary
 workspace $ws3            output primary
 workspace $ws4            output primary
 workspace $ws5            output primary
-workspace $ws7            output primary
+workspace $ws7            output nonprimary
 workspace $ws8            output nonprimary
 workspace $ws9            output nonprimary
 workspace $ws10           output nonprimary
@@ -112,7 +112,7 @@ mode "resize" {
         bindsym Escape    mode "default"
         bindsym $mda+r    mode "default"
 }
-bindsym $mdb+Return          exec /usr/bin/st
+bindsym $mdb+Return          exec st
 bindsym $mdb+b               exec qb
 bindsym $mdb+a               exec qb w.gpt
 bindsym $mdb+$mda+b          exec firefox

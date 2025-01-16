@@ -2,6 +2,8 @@
 
 #### new
 
+alias redshift-start="systemctl --user start redshift.service"
+alias redshift-stop="systemctl --user stop redshift.service"
 alias wifi.z="nmcli connection up z"
 alias mr="mr --config $HOME/.config/mr/mrconfig"
 alias libr="libreoffice"

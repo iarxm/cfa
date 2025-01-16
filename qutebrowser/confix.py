@@ -23,7 +23,7 @@ os.environ['WINDOW_ELEMENTS']      = QUTE_CONFIG_HOME + "/interface/styles/user.
 #c.fileselect.single_file.command    = filepicker
 # task: folder picker; and beautify
 #c.downloads.location.directory      = DATA + "/ui/iaa/"
-c.downloads.location.directory      = HOME + "/aia/"
+c.downloads.location.directory      = HOME + "/ai/"
 c.editor.command                    = ["st", "-c", "float", "nvim", "-O", "{}"] # i3 config 'float'
 c.spellcheck.languages              = ['en-GB']
 c.prompt.filebrowser                = True
