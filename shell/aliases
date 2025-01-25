@@ -2,6 +2,7 @@
 
 #### new
 
+alias mpd-reset="systemctl --user stop mpd.service"
 alias redshift-start="systemctl --user start redshift.service"
 alias redshift-stop="systemctl --user stop redshift.service"
 alias wifi.z="nmcli connection up z"
