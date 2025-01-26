@@ -1,31 +1,31 @@
 return {
     {
         name = "blacx",
-        dir = "${HOME}/.config/nvim/plug/blacx",
+        dir = "~/.config/nvim/plug/blacx",
         lazy = false,
         event = "VimEnter"
     },
     {
         name = "markx",
-        dir = "${HOME}/.config/nvim/plug/markx",
+        dir = "~/.config/nvim/plug/markx",
         lazy = false,
         event = "VimEnter"
     },
     {
         name = "odo",
-        dir = "${HOME}/.config/nvim/plug/odo",
+        dir = "~/.config/nvim/plug/odo",
         lazy = false,
         event = "VimEnter"
     },
     {
         name = "surx",
-        dir = "${HOME}/.config/nvim/plug/surx",
+        dir = "~/.config/nvim/plug/surx",
         lazy = false,
         event = "VimEnter"
     },
     {
         name = "mine",
-        dir = "${HOME}/.config/nvim/plug/mine",
+        dir = "~/.config/nvim/plug/mine",
         lazy = false,
         event = "VimEnter"
     },
