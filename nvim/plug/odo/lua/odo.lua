@@ -2,55 +2,59 @@ local M        = {}
 local X        = {}
 local opt      = vim.opt
 local cmd      = vim.api.nvim_command
+-- dirs
 local hr       = "$HOME/da"
--- local ha       = hr .. '/a'
--- local hb       = hr .. '/a/aa'
 local ha       = 'a'
-local hb       = 'aa/aa'
+local hb       = 'aa'
 local hm_ml    = hr .. '/cm/yml' -- mail
+-- ha
 local paa      = ha .. '/aa.md' -- ha's
 local pab      = ha .. '/ab.md'
 local pax      = ha .. '/ax.md' -- ha's
 local pay      = ha .. '/ay.md'
-local mba      = ha .. '/ba.md'
-local mbb      = ha .. '/bb.md'
-local mjma     = ha .. '/jm.md'
-local mjmb     = ha .. '/jmb.md'
-local mjmc     = ha .. '/jmc.md'
-local m_aua    = ha .. '/vaua.md'
-local m_aub    = ha .. '/vaux.md'
-local m_auc    = ha .. '/vauy.md'
-local m_qra    = ha .. '/nzqr.md'
-local m_yra    = ha .. '/nyr.md'
-local oa       = ha .. '/oa.md' -- o's
-local ob       = ha .. '/ob.md'
-local oc       = ha .. '/oc.md'
-local od       = ha .. '/od.md'
-local oi       = ha .. '/oi.md'
-local oj       = ha .. '/oj.md'
-local ua       = ha .. '/ua.md' -- u's
-local ub       = ha .. '/ub.md'
-local uc       = ha .. '/uc.md'
-local ux       = ha .. '/ux.md'
-local uy       = ha .. '/uy.md'
-local uo       = ha .. '/uo.md'
-local msu      = ha .. '/v.msux.md' --hb's
-local bufs_a = { -- bufs x
+-- hb
+local m_ba     = hb .. '/cma.md'
+local m_bb     = hb .. '/cmb.md'
+local m_jma    = hb .. '/aja.md'
+local m_jmb    = hb .. '/ajb.md'
+local m_jmc    = hb .. '/ajc.md'
+local m_aua    = hb .. '/mau.md'
+local m_cra    = hb .. '/mcr.md'
+local m_yra    = hb .. '/dxy.md'
+local m_qra    = hb .. '/dyq.md'
+local m_msux   = hb .. '/vmsux.md' --hb's
+local m_msuy   = hb .. '/vmsuy.md' --hb's
+-- oo
+local oa       = hb .. '/oa.md' -- o's
+local ob       = hb .. '/ob.md'
+local oc       = hb .. '/oc.md'
+local od       = hb .. '/od.md'
+local oi       = hb .. '/oi.md'
+local oj       = hb .. '/oj.md'
+-- notes
+local ua       = hb .. '/ua.md' -- u's
+local ub       = hb .. '/ub.md'
+local uc       = hb .. '/uc.md'
+local ux       = hb .. '/ux.md'
+local uy       = hb .. '/uy.md'
+local uo       = hb .. '/uo.md'
+
+local bufs_oa = {
     oi,
     oj,
     oa,
     ob,
     oc,
-    uc
+    uc,
 }
-local bufs = { -- bufs
+local bufs_ox = {
     'oxpb.md',
     'oxtk.md',
     'oxeng.md',
     'oxds.md',
-    'oxds.a.md',
-    'oxds.dev.md',
-    'oxds.asf.md',
+    'oxds-a.md',
+    'oxds-dev.md',
+    'oxds-asf.md',
     'oxdm.md',
     'oxdw.md',
     'oxdn.md',
@@ -58,8 +62,14 @@ local bufs = { -- bufs
     'oxmm.md',
     'oxbb.md',
     'oxbfn.md',
-    'oxcm.md'
+    'oxcm.md',
 }
+
+local bufs_ds = {
+    
+
+}
+
 local zen_neo      = function() cmd('Neotree') end
 local zen_zen      = function() cmd('silent ZenMode') end
 local zen_mdx      = function() cmd('lua require("markx").write_mode_x()') end
@@ -86,7 +96,7 @@ local shori     = function(filename) cmd('split ' .. filename) end
 
 
 
-M.a = function() -- # a
+M.a = function()
   envx()
   tnew(paa)
   tnew(pab)
@@ -97,7 +107,7 @@ M.a = function() -- # a
   --zen_mdx()
 end
 
-M.pb = function() -- # a
+M.pb = function()
   envx()
   tnew(pax)
   tnew(pay)
@@ -108,12 +118,12 @@ M.pb = function() -- # a
   --zen_mdx()
 end
 
-M.ma = function() -- # ma
+M.ma = function()
   envx()
-  tnew(mjma)
-  tnew(mjmb)
-  svrt(mjma)
-  tnew(mbb)
+  tnew(m_jma)
+  tnew(m_jmb)
+  svrt(m_jma)
+  tnew(m_bb)
   svrt(msu)
   envzx()
   --cmd('TagbarClose')
@@ -121,62 +131,61 @@ M.ma = function() -- # ma
   --zen_zen()
 end
 
-M.mj = function() -- # o#mj ##########################################
+M.mj = function()
   enva()
-  tnew(mjma)
+  tnew(m_jma)
   --zen_mdx()
   tnew(msu)
   --zen_mdx()
   envzx()
 end
 
-M.mb = function() -- # mb ###########################################
+M.mb = function()
   enva()
-  tnew(m_auc)
-  svrt(m_aub)
   svrt(m_aua)
-  tnew(mba)
-  svrt(mbb)
-  svrt(mbb)
+  tnew(m_ba)
+  svrt(m_bb)
+  svrt(m_bb)
   tnewx()
   tnew(m_qra)
   tnew(m_qra)
   tnew(m_yra)
   svrt(m_yra)
   tnewx()
-  tnew(mba)
-  svrt(mba)
-  tnew(mbb)
-  svrt(mbb)
+  tnew(m_ba)
+  svrt(m_ba)
+  tnew(m_bb)
+  svrt(m_bb)
   tnewx()
   envzx()
 end
 
-M.m_future = function() -- # o#m_future #############################3
+M.m_future = function()
   enva()
   tnew(m_qra)
   svrt(m_qra)
   tnew(m_yra)
   svrt(m_yra)
   tnewx()
-  tnew(mbb)
-  svrt(mbb)
-  tnew(mba)
-  svrt(mba)
+  tnew(m_bb)
+  svrt(m_bb)
+  tnew(m_ba)
+  svrt(m_ba)
   tnewx()
 end
 
-M.m_future_qr = function() -- # o#m_future_qr ####################
+M.m_future_qr = function()
   enva()
-  tnew (m_qra)
+  tnew(m_qra)
   svrt(m_qra)
-  tnew (m_yra)
+  tnew(m_yra)
   svrt(m_yra)
   tnewx()
-  tnew (m_aua)
+  tnew(m_aua)
   svrt(m_aua)
   tnewx()
 end
+
 
 -- Note Taking (o#na)
 
@@ -198,60 +207,40 @@ M.uc = function()
   --tagl_all()
 end
 
-M.ux = function()
-  enva()
-  edit(ux)
-  --tagl_all()
-end
 
-M.uy = function()
-  enva()
-  edit(uy)
-  --tagl_all()
-end
+-- Actionable Panels
 
-M.ox_bufs = function()
-    for _, file in ipairs(bufs) do
+M.ox_bufs = function(buf_input)
+    for _, file in ipairs(buf_input) do
         buf(ha .. "/" .. file)
     end
 end
 
-M.oa_bufs = function()
-    for _, file in ipairs(bufs_a) do
+local bufs_load = function(buf_input)
+    for _, file in ipairs(buf_input) do
         buf(file)
     end
 end
 
--- Actionable Panels (o#oa_x)
-
 M.oa_x = function() 
-    
     tnew(oi)
-    --zen_mdx()
-    --cmd('wincmd l')
 
     tnew(oi)
     svrt(oj)
     
     tnew(oa)
     --require('neowarrior').open_right() -- currently has a bug
-    --svrt(oi)
-    --tnew(ob)
-    --svrt(oj)
-    --tnew(oc)
-    --svrt(oj)
     tnew(uc)
     cmd('lua require("markx").write_mode_pad_right()')
 end
 
-M.oa = function() -- Actionable Panels Master Function (o#oa)
+M.oa = function()
     enva()
-    M.oa_bufs()
-    M.ox_bufs()
+    bufs_load(bufs_ox)
+    bufs_load(bufs_oa)
     M.oa_x()
     cmd('silent tabnext 1')
     cmd('silent quit')
-
     cmd('tabdo lua require("markx").write_mode_x()')
     --cmd('tabdo wincmd 2l')
     cmd('silent tabnext 1')
@@ -259,7 +248,7 @@ M.oa = function() -- Actionable Panels Master Function (o#oa)
 end
 
 
-M.ob = function() -- ob #############################
+M.ob = function()
   enva()
   M.oa_x()
   tnew(oc)
@@ -267,7 +256,7 @@ M.ob = function() -- ob #############################
   envzx()
 end
 
-M.ocx = function() -- oc #############################
+M.ocx = function()
   tnew(oc)
   svrt(oc)
   tnew(od)
@@ -282,7 +271,7 @@ M.oc = function()
  envzx()
 end
 
-M.odx = function() -- od ###############################
+M.odx = function()
   tnew(jm)
   tnew(ua)
 end
@@ -295,7 +284,7 @@ M.oda = function()
 end
 
 
-M.ml = function() -- mail ###########################
+M.ml = function()
     cmd('cd' .. hm_ml)
 
     tnew('aa.md')
@@ -313,7 +302,6 @@ M.ml = function() -- mail ###########################
     svrt('oi.md')
     zen_mdx()
 
-
     buf('oxtk.md')
     buf('ob.md')
     buf('README.md') -- ConfigGS
@@ -328,13 +316,14 @@ M.ml = function() -- mail ###########################
   --zen_mdx()
 end
 
-M.mlx = function() -- instant messaging / resources to share via whatsapp etc..
+M.mlx = function()
+    -- instant messaging / resources to share via whatsapp etc..
     cmd('cd' .. hm_ml)
     tnew('oy.md')
     envzx()
 end
 
 return M
--- xTODO: change filename of this script to a 3 letter name
--- TODO: o#ox_p ox_ds oe oe_x
 
+-- [x] change filename of this script to a 3 letter name
+-- TODO: o#ox_p ox_ds oe oe_x

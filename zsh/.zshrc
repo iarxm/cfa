@@ -1,72 +1,73 @@
-# ###########################################A
-# AUTHOR: IAROM MADDEN
-# USE lf for nav (C-o, nav and exit)
-# USE autocompletion features
-# POWERLEVEL10K Enable Powerlevel10k instant prompt. Should stay close to the top of 
-# ~/.config/zsh/.zshrc. Important so that other initialisation processes can continue 
-# after the prompt has loaded. Providing a sense of responsiveness
-# Note, Initialization code that may require console input (password prompts, [y/n]
+# IAROM MADDEN mail@iarom.org
+#
+# lf for nav - C-o & exit
+# autocompletion
+#
+# p10K instant prompt. keep close to top of ~/.config/zsh/.zshrc
+# so other init can proceed post prompt loadeding. increases responsiveness
+#
+# note, init code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-##############################################
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-  PROMPT_C_OFF="1"
-  typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-  typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+P10K_INSTANT="${HOME}/.cache/p10k-instant-prompt-${(%):-%n}.zsh"
+P10K_CFG="${HOME}/.config/zsh/.p10k.zsh"
+P10K_THEME_X="/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
+P10K_THEME_Y="${HOME}/.local/pkg/powerlevel10k/powerlevel10k.zsh-theme"
+
+if [[ -r "${P10K_INSTANT}" ]]; then
+    source "${P10K_INSTANT}"
+    PROMPT_C_OFF="1"
+    typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+    typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 fi
-themex="/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
-if [[ -f $themex ]]; then
-  source $themex
-else
-  themey="$HOME/.local/pkg/powerlevel10k/powerlevel10k.zsh-theme"
-  [[ -f $themey ]] && source $themey
+
+if [[ -f "${P10K_THEME_X}" ]]; then
+    source ${P10K_THEME_X}
+else 
+    [[ -f "${P10K_THEME_Y}" ]] && \
+        source ${P10K_THEME_Y}
 fi
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
-# THEMEING ==========================================
-
-autoload -U colors && colors	# Load colors
+[[ ! -f ${P10K_CFG} ]] || source ${P10K_CFG}
 
 
-# WINTITLE AND PROMPT =============================================
+# THEMEING
 
- if [[ $PROMPT_C_OFF == "1" ]]; then
-  # if moding in future, look at 'powerlevel10k' as a tool to do this
-	#source $XDG_BIN_HOME/fdt/git-prompt
-	setopt PROMPT_SUBST
-	#PS1='%{$fg[red]%}%c$(__git_ps1 "(%s)")%{$fg[yellow]%} $%b '
-	RPROMPT='%{$fg[red]%}%c$(__git_ps1 "(%s)")'
-	PS1='%{$fg[yellow]%}>%b '
-	# WINTITLE ############################################
-  	# Dynamic window title
-		function xtitle () { 
-			builtin print -n -- "\e]0;$@\a" }
-  	# updates WIN TITLE on cmd run
-		#function precmd () { 
-			#xtitle "$(print -P \[%2~\])" }
-		#function precmd () {xtitle "\[${PWD/#$HOME/~}\] [$(history | tail -n1 | awk '{for (i=2;i<=NF-1;i++) printf $i " "; print $NF}')]"}
-		#function preexec () {xtitle "\[${PWD/#$HOME/~}\] [$(history | tail -n1 | awk '{for (i=2;i<=NF-1;i++) printf $i " "; print $NF}')]"}
-		function preexec () {xtitle "\e${cmd}"}
-		function preexec () {xtitle "\[${PWD/#$HOME/~}\] ${1[(w)1]}"}
+autoload -U colors && colors    # Load colors
 
- fi
-	setopt autocd				# Automatically cd into typed directory.
-	setopt interactive_comments
-	#stty stop undef			# Disable ctrl-s to freeze terminal.
 
-#preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+# THEMEING - WINTITLE AND PROMPT 
+
+ if [[ ${PROMPT_C_OFF} == "1" ]]; then
+    setopt PROMPT_SUBST
+
+    RPROMPT='%{$fg[red]%}%c$(__git_ps1 "(%s)")'
+    PS1='%{$fg[yellow]%}>%b '
+    
+    # dynamic window title
+    function xtitle () { builtin print -n -- "\e]0;$@\a" }
+    function preexec () {xtitle "\e${cmd}"}
+    function preexec () {xtitle "\[${PWD/#$HOME/~}\] ${1[(w)1]}"}
+
+fi
+
+setopt autocd # auto cd on typed dir
+setopt interactive_comments
+
 
 # COMPLETION
-# Basic auto/tab complete:
-mkdir -p $HOME/.local/share/zsh
-autoload -U compinit && compinit -d $HOME/.local/share/zsh/zcompdump-$HOST #make sure dir exists
+
+ZSH_DAT="$HOME/.local/share/zsh"
+mkdir -p ${ZSH_DAT}
+autoload -U compinit
+compinit -d ${ZSH_DAT}/zcompdump-$HOST
 zstyle ':completion:*' menu select
-#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zmodload zsh/complist
-_comp_options+=(globdots)		# Include hidden files.
+_comp_options+=(globdots)        # Include hidden files.
+
 
 # HIST/AUTOCOMPLETION
+
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=${HISTFILE}
@@ -78,57 +79,56 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# VIM NAV
-# vi mode
-bindkey -v
 export KEYTIMEOUT=1
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
+echo -ne '\e[3 q'
 # Change cursor shape for different vi modes.
-function zle-keymap-select () {
+
+zle-keymap-select () {
     case $KEYMAP in
         vicmd) echo -ne '\e[1 q';;      # block
         #viins|main) echo -ne '\e[5 q';; # beam
         viins|main) echo -ne '\e[3 q';; # underscore
     esac
 }
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q" ;}
-zle -N zle-line-init
-#echo -ne '\e[5 q' # Use beam shape cursor on startup.
-echo -ne '\e[3 q'
-# LF
-lfcd () { # switch dir and launch lf
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp" >/dev/null
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi ;}
 
+lfcd () {
+    # switch dir and launch lf
+    tmp="$(mktemp)"
+    lf -last-dir-path="$TMP_LF" "$@"
+    if [ -f "$TMP_LF" ]; then
+        DIR_LF="$(cat "$TMP_LF")"
+        rm -f "$TMP_LF" >/dev/null
+        [ -d "$DIR_LF" ] && [ "$DIR_LF" != "$(pwd)" ] && cd "$DIR_LF"
+    fi
+}
+
+zle-line-init() {
+    # init `vi insert` as keymap (can be removed if `bindkey -V` is set)
+    zle -K viins 
+    echo -ne "\e[5 q"
+}
+
+autoload edit-command-line
+zle -N zle-line-init
+zle -N zle-keymap-select
+zle -N edit-command-line
+
+bindkey -v
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
 bindkey -s '^o' 'lfcd\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey '^[[P' delete-char
-
-# EDIT
-autoload edit-command-line; zle -N edit-command-line 
 bindkey '^e' edit-command-line # edit line in vim w c-e
-
-# BIND
 bindkey -s '^n' 'nnn\n'
 #bindkey -s '^v' 'nvim\n'
 
-# SYN HIGHLIGHT (keep last)
-syntaxx="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-[[ -f $syntaxx ]] && source $syntaxx
-
-# SOURCING
+# syn hi - keep last
+SYNTAX="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[[ -f $SYNTAX ]] && source $SYNTAX
 [[ -f $PROFILEI ]] && source $PROFILEI
+
