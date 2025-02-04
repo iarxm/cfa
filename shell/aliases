@@ -2,7 +2,7 @@
 
 #### new
 
-alias urls="nvim ~/da/aa/a-url.md"
+alias vurls="cd $HOME/da && nvim $HOME/da/aa/a-url.md"
 alias mosh="mosh --experimental-remote-ip=remote"
 alias s="ssh"
 alias mpd-reset="systemctl --user stop mpd.service"
