@@ -1,4 +1,5 @@
-" #### metadata #################################
+
+" #### metadata
 
 " front matter
 
@@ -20,7 +21,7 @@ syn match mdS2 "<!---.*$"
 syn region mdxCommentModeline start=/<!--- vim:/ end=/--->/ conceal cchar=↔
 
 
-" #### code blocks / inline code #################################
+" #### code blocks / inline code
 
 " latex / match code
 
@@ -30,7 +31,7 @@ syn region highlight_block start='{% highlight .*%}' end='{%.*%}'
 syn region highlight_block start='```' end='```'
 
 
-" #### document ######################################
+" #### document
 
 syn match   mdMailUrl /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/
 syn region  mdString start=/\v"/ skip=/\v\\./ end=/\v"/
@@ -63,7 +64,7 @@ syn match mdOo ",,[^:].*"
 syn match mdOoSep2 "::::.*"
 
 
-" #### linking ###########################################
+" #### linking
 
 hi link mdH1 htmlH1
 hi link mdH2 htmlH2

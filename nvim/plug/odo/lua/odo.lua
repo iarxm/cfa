@@ -1,16 +1,14 @@
 local M        = {}
-local X        = {}
-local opt      = vim.opt
 local cmd      = vim.api.nvim_command
 -- dirs
 local hr       = "$HOME/da"
 local ha       = 'a'
 local hb       = 'aa'
-local hm_ml    = hr .. '/cm/yml' -- mail
+local hm_ml    = hr .. '/cm/yml'
 -- ha
-local paa      = ha .. '/aa.md' -- ha's
+local paa      = ha .. '/aa.md'
 local pab      = ha .. '/ab.md'
-local pax      = ha .. '/ax.md' -- ha's
+local pax      = ha .. '/ax.md'
 local pay      = ha .. '/ay.md'
 -- hb
 local m_ba     = hb .. '/cma.md'
@@ -47,6 +45,7 @@ local bufs_oa = {
     oc,
     uc,
 }
+
 local bufs_ox = {
     'oxpb.md',
     'oxtk.md',
@@ -66,34 +65,35 @@ local bufs_ox = {
 }
 
 local bufs_ds = {
-    
-
+-- https://chatgpt.com/c/6798fbd9-19b8-8006-abf6-43aae9e184ce
+    -- file path collector ^
 }
 
-local zen_neo      = function() cmd('Neotree') end
-local zen_zen      = function() cmd('silent ZenMode') end
 local zen_mdx      = function() cmd('lua require("markx").write_mode_x()') end
-local zen_mut      = function() cmd('silent MuttonToggle') end
-local zen_dfm      = function() cmd('silent LiteDFMToggle') end
-local zen_goy      = function() cmd('silent Goyo') end
+local zen_zen      = function() cmd('silent ZenMode') end
 --local zen_tru      = function() cmd('silent echom ""') end
 --local zen_tru      = function() cmd('silent TZMinimalist') end
 --local zen_tru      = function() cmd('TZNarrow') end
+local zen_mut      = function() cmd('silent MuttonToggle') end
+local zen_dfm      = function() cmd('silent LiteDFMToggle') end
+local zen_goy      = function() cmd('silent Goyo') end
+local zen_neo      = function() cmd('Neotree') end
 local tlist_all = function() cmd('silent tabdo Tlist') end
 local tagbarx   = function() cmd('silent tabdo Tagbar') end
 local tagl_all  = function() tagbarx() end
+
 local enva      = function() cmd('cd' .. hr) end -- X.tbn = cmd('echom tabpagenr()')
+local envb      = function() cmd('tabfirst'); cmd('quit') end
 local envx      = function() cmd('cd' .. hr) end -- opt.number = true -- opt.numberwidth = 9
-local envy      = function() cmd('tabfirst'); cmd('quit') end
-local envzx     = function() cmd('tabfirst'); cmd('quit') end
---local envzy      = function() tagl_all(); cmd('tabfirst'); cmd('quit') end
 local buf       = function(filename) cmd('silent badd ' .. filename) end
 local edit      = function(filename) cmd('edit ' .. filename) end
 local tnew      = function(filename) cmd('silent tabnew ' .. filename) end
-local newx      = function() cmd('tabnew ') end
 local svrt      = function(filename) cmd('silent vsplit ' .. filename) end
-local shori     = function(filename) cmd('split ' .. filename) end
 
+-- archive?
+local envz      = function() tagl_all(); cmd('tabfirst'); cmd('quit') end
+local newx      = function() cmd('tabnew ') end
+local shori     = function(filename) cmd('split ' .. filename) end
 
 
 M.a = function()
@@ -103,7 +103,7 @@ M.a = function()
   svrt(paa)
   tnew(pab)
   svrt(pab)
-  envzx()
+  envb()
   --zen_mdx()
 end
 
@@ -114,7 +114,7 @@ M.pb = function()
   svrt(pax)
   tnew(pay)
   svrt(pay)
-  envzx()
+  envb()
   --zen_mdx()
 end
 
@@ -124,8 +124,8 @@ M.ma = function()
   tnew(m_jmb)
   svrt(m_jma)
   tnew(m_bb)
-  svrt(msu)
-  envzx()
+  svrt(m_msux)
+  envb()
   --cmd('TagbarClose')
   zen_mdx()
   --zen_zen()
@@ -135,9 +135,9 @@ M.mj = function()
   enva()
   tnew(m_jma)
   --zen_mdx()
-  tnew(msu)
+  tnew(m_msux)
   --zen_mdx()
-  envzx()
+  envb()
 end
 
 M.mb = function()
@@ -146,18 +146,18 @@ M.mb = function()
   tnew(m_ba)
   svrt(m_bb)
   svrt(m_bb)
-  tnewx()
+  tnew()
   tnew(m_qra)
   tnew(m_qra)
   tnew(m_yra)
   svrt(m_yra)
-  tnewx()
+  tnew()
   tnew(m_ba)
   svrt(m_ba)
   tnew(m_bb)
   svrt(m_bb)
-  tnewx()
-  envzx()
+  tnew()
+  envb()
 end
 
 M.m_future = function()
@@ -166,12 +166,12 @@ M.m_future = function()
   svrt(m_qra)
   tnew(m_yra)
   svrt(m_yra)
-  tnewx()
+  tnew()
   tnew(m_bb)
   svrt(m_bb)
   tnew(m_ba)
   svrt(m_ba)
-  tnewx()
+  tnew()
 end
 
 M.m_future_qr = function()
@@ -180,10 +180,10 @@ M.m_future_qr = function()
   svrt(m_qra)
   tnew(m_yra)
   svrt(m_yra)
-  tnewx()
+  tnew()
   tnew(m_aua)
   svrt(m_aua)
-  tnewx()
+  tnew()
 end
 
 
@@ -253,7 +253,7 @@ M.ob = function()
   M.oa_x()
   tnew(oc)
   svrt(od)
-  envzx()
+  envb()
 end
 
 M.ocx = function()
@@ -268,7 +268,7 @@ end
 M.oc = function()
  enva()
  M.ocx()
- envzx()
+ envb()
 end
 
 M.odx = function()
@@ -280,7 +280,7 @@ M.oda = function()
   enva()
   M.odx()
   M.oa_x()
-  envzx()
+  envb()
 end
 
 
@@ -290,14 +290,14 @@ M.ml = function()
     tnew('aa.md')
     zen_mdx()
     --cmd('NeoWarriorOpen Left')
-    
+
     tnew('ab.md')
     zen_mdx()
 
     tnew('oi.md')
     zen_mdx()
     --require('neowarrior').open_right()
-    
+
     tnew('oa.md')
     svrt('oi.md')
     zen_mdx()
@@ -312,7 +312,7 @@ M.ml = function()
   --buf('~/.local/bin/mlx/ml')
   --buf('ii.sc')
   --buf('ii.pn')
-  envzx()
+  envb()
   --zen_mdx()
 end
 
@@ -320,7 +320,7 @@ M.mlx = function()
     -- instant messaging / resources to share via whatsapp etc..
     cmd('cd' .. hm_ml)
     tnew('oy.md')
-    envzx()
+    envb()
 end
 
 return M

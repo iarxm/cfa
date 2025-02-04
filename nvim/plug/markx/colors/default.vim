@@ -1,4 +1,5 @@
-" #### MARKDOWN #############################################
+"
+" #### MARKDOWN
 " top: yaml / metadata
 hi YAMLFrontMatter   ctermfg=blue        guifg=blue
 hi yamlFrontmatter   ctermfg=blue        guifg=blue
@@ -16,7 +17,8 @@ hi mdH4a             ctermfg=blue        guifg=blue
 " headings special
 hi mdH2h             ctermfg=white       guifg=white        guibg=#49443C    ctermbg=yellow
 " normal text
-" todo....
+
+" todo
 " special text
 hi mdMailURL         ctermfg=gray        guifg=gray
 hi mdTex             ctermfg=DarkGrey    guifg=DarkGrey
@@ -33,6 +35,6 @@ hi mdS1              ctermfg=green       guifg=green
 hi mdS2              ctermfg=grey        guifg=grey
 hi mdS3              ctermbg=green       guibg=green
 hi mdSh2             guifg=grey          ctermfg=grey       ctermbg=yellow   guibg=yellow     
-" ##########################################################
+
 "#2A2A37 "#5f87af
 "https://github.com/rebelot/kanagawa.nvim/blob/f491b0fe68fffbece7030181073dfe51f45cda81/lua/kanagawa/colors.lua

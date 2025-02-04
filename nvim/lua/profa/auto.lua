@@ -1,26 +1,26 @@
-vim.api.nvim_create_augroup( 
-    'COLORS', 
+vim.api.nvim_create_augroup(
+    'COLORS',
     { clear = true }
 )
-vim.api.nvim_create_autocmd( 
+vim.api.nvim_create_autocmd(
     { "ColorScheme"},
     { pattern = "*",
         group = "COLORS",
         command = 'runtime $COLORS_BLACK'
     }
 )
-vim.api.nvim_create_autocmd( 
+vim.api.nvim_create_autocmd(
     {'VimEnter'},
     { group = "COLORS",
         command = vim.cmd.colorscheme(vim.env.COLORS_VIM)
     }
 )
-vim.api.nvim_create_augroup( 
+vim.api.nvim_create_augroup(
     'WORKING',
     { clear = true }
 )
 vim.api.nvim_create_autocmd(
-    {'VimEnter'}, 
+    {'VimEnter'},
     { group = "WORKING",
         callback = function()
             --require("mdx").hide_all() -- TASK: update to above
@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd(
     }
 )
 vim.api.nvim_create_autocmd(
-    "BufWritePost", 
+    "BufWritePost",
     { group = "WORKING",
         command = 'echom " "'
     }

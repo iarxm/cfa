@@ -4,10 +4,14 @@ hi WhichKeyNormal                          guibg=black
 
 hi AllBlack              ctermbg=black     guibg=black 	guifg=black      ctermfg=black
 hi link VertSplit AllBlack
-" #### normal ########################################################################
+
+
+" #### normal
 hi Normal                ctermbg=black     guibg=black
 hi NormalOpposite        ctermbg=black     guibg=black                                       gui=standout
-" #### ui #####################################################################
+
+
+" #### ui
 " ## background
 hi AsciContainer         ctermbg=black     guibg=black                                       gui=standout,bold
 hi StatusLine            ctermbg=black     guibg=black      guifg=black      ctermfg=black
@@ -33,7 +37,9 @@ hi PmenuSbar                               guibg=black      guifg=#5f87af       
 hi LspInfoBorder                                            guifg=#5f87af 
 "hi VertSplit                                               guifg=black      ctermfg=black
 "hi link Art NormalOpposite
-" #### FOLDING ####################################################
+
+
+" #### folding
 "hi Folded             ctermfg=white guibg=black ctermbg=black guifg=lightcyan "guifg=#c0caf5
 hi Folded              guibg=black       ctermbg=black
 hi SignColumn          guibg=black
@@ -45,13 +51,16 @@ hi TagbarType          guifg=lightyellow ctermfg=yellow
 hi TagbarScope         guifg=lightyellow ctermfg=yellow
 " ## search
 "hi Search               ctermfg=White ctermbg=Red"
-"#### TODO: #################################
+
+
+"#### tasks
 " GOAL: full fledged color scheme that's extremely minimal.
 " TODO: Can i just 'link' groups that have the same settings?
 " TODO: add cterm variants to each hi group..
 " TODO: UTILISE LINKING across repeating code
 " QUICK ACCESS
-" colors ####################################
+
+" colors
 "#c0caf5
 "meBlueDark ="#5f87af"
 "lightlight blue = "#c0caf5"
@@ -75,7 +84,6 @@ hi TagbarScope         guifg=lightyellow ctermfg=yellow
 "teal = "#1abc9c",
 "red = "#f7768e",
 "red1 = "#db4b4b",
-"####################
 "hi Folded ctermfg=Blue ctermbg=Black
 "hi Statement  ctermfg=grey
 "hi Function   ctermfg=grey
@@ -85,5 +93,4 @@ hi TagbarScope         guifg=lightyellow ctermfg=yellow
 "hi Comment ctermfg=yellow
 "hi StatusLine ctermfg=lightblue guifg=#5f87af ctermbg=black guibg=black
 "hi StatusLineNC ctermfg=lightblue guifg=#5f87af ctermbg=black guibg=black
-"#########################################################################################
 "hi StatusLine            ctermbg=grey      guibg=grey       guifg=black      ctermfg=black

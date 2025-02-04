@@ -1,4 +1,4 @@
--- # ds.analysis
+-- # ds analysis
 -- nvim preview companion
 -- update filename for specific buffer, if the file was renamed by another script outside of nvim.. Ie in nnn
 

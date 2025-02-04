@@ -15,16 +15,19 @@ return {
     { 'ray-x/aurora',                  name = 'aurora' },
     { 'ParamagicDev/vim-medic_chalk',  name = 'medicchalk' },
     { 'tpope/vim-vividchalk',          name = 'vividchalk' },
-    { 'https://gitlab.com/h3xx/vim-late_evening',  name = 'late' },
-    --
-    { 'rose-pine/neovim',              name = 'rose-pine',
+    { 'https://gitlab.com/h3xx/vim-late_evening',
+        name = 'late'
+    },
+    { 'rose-pine/neovim',
+        name = 'rose-pine',
         variant = 'auto',
         disable_background = 'true',
     },
-    { "folke/tokyonight.nvim",-- tokyonight
+    { "folke/tokyonight.nvim",
         opts = { style = "moon" },
     },
-    { "zenbones-theme/zenbones.nvim", --TODO: learn how to use lush
+    { "zenbones-theme/zenbones.nvim",
+        --TODO: learn how to use lush
         lazy = false,
         priority = 1000,
         dependencies = "rktjmp/lush.nvim",
@@ -34,23 +37,25 @@ return {
         name = 'kanagawa',
         lazy = false,
         priority = 1000,
-        config = function() 
+        config = function()
             require('kanagawa').setup({
                 compile = true,              -- enable compiling the colorscheme
-                undercurl = true,            -- enable undercurls
+                undercurl = true,
                 commentStyle = { italic = true },
                 functionStyle = {},
                 keywordStyle = { italic = true},
                 statementStyle = { bold = true },
                 typeStyle = {},
-                transparent = false,         -- do not set background color
-                dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+                transparent = false,
+                dimInactive = false,
                 terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-                colors = {                   -- add/modify theme and palette colors
+                colors = {
+                    -- add/modify theme and palette colors
                     palette = {},
                     theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
                 },
-                overrides = function(colors) -- add/modify highlights
+                overrides = function(colors)
+                    -- add/modify highlights
                     return {}
                 end,
                 theme = "dragon",              -- Load "wave" theme when 'background' option is not set
@@ -63,9 +68,9 @@ return {
     },
     { "catppuccin/nvim",
         name = "catppuccin",
-        lazy = "false",
+        lazy = false,
         priority = 1000,
-        config = function() 
+        config = function()
             require("catppuccin").setup({
             flavour = "mocha",
             color_overrides = {
