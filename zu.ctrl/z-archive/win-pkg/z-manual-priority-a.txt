@@ -1,4 +1,0 @@
-desktops
-q10
-todo-txt-cli
-writeMonkey
