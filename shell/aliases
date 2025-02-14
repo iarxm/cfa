@@ -2,13 +2,14 @@
 
 #### new
 
-alias vurls="cd $HOME/da && nvim $HOME/da/aa/a-url.md"
+alias autorandr-a="autorandr --load dock-ad"
+
 alias mosh="mosh --experimental-remote-ip=remote"
 alias s="ssh"
 alias mpd-reset="systemctl --user stop mpd.service"
 alias redshift-start="systemctl --user start redshift.service"
 alias redshift-stop="systemctl --user stop redshift.service"
-alias wifi.z="nmcli connection up z"
+alias wifi-z="nmcli connection up z"
 alias mr="mr --config $HOME/.config/mr/mrconfig"
 alias libr="libreoffice"
 alias libre="libreoffice"
@@ -362,26 +363,26 @@ alias au="vimpc"
 
 #### system
 
-alias blue.adiscon="bluetoothctl disconnect"
+alias blue-adisconnect="bluetoothctl disconnect"
 alias openu="xdg-open "$@" &"
 alias reboot="systemctl reboot"
-alias sys.sleep="systemctl suspend"
+alias sys-sleep="systemctl suspend"
 alias sle="systemctl suspend"
 alias sll="systemctl suspend"
 
 #### maintentance
 
-# TODO: add to arch linux host env file
-sys.cache.clear() {
+
+sys-cache-clear() {
     # su 
-    printf "CCACHE: Tidying up journal entries..\n"
+    printf "CCACHE: tidy journal entries...\n"
     sudo journalctl --vacuum-size=100M
     sudo journalctl --vacuum-time=3months
-    printf "CCACHE: Clearing pacman cache\n"
+    printf "CCACHE: clearing pacman cache\n"
     sudo paccache -rk1 # keep latest 1 of pacman cache
     paccache -ruk0 # rm cache of uninstalled
 }
-sys.cursorfix() {
+sys-cursorfix() {
     #sudo rmmod psmouse
     sudo modprobe -r psmouse
     sudo modprobe psmouse
@@ -391,4 +392,7 @@ sys.cursorfix() {
             ## check for useful packages first
 }
 
+# TODO: add to arch linux host env file ?
+
 #alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+

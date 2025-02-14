@@ -92,14 +92,16 @@ export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd.sock"
 # new
 export DICTIONARY="en_GB"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
-export ZK_NOTEBOOK_DIR="$HOME/daa/zk"
-export BGX_FEH="${XDG_DATA_HOME}/aaa/xbg/bg.png"
 export SAL_USE_VCLPLUGIN=gtk3
-export BROWSER="/usr/local/bin/qb win"
 #export SAL_USE_VCLPLUGIN=gtk3
 #export GTK_THEME=BreezeBlackPure
 #export GTK_THEME=BreezeBlackPure.colors
 #export GTK_THEME=Graphite-Dark-compact
+# person
+export ZK_NOTEBOOK_DIR="$HOME/daa/zk"
+export BGX_FEH="${XDG_DATA_HOME}/aaa/xbg/bg.png"
+export BROWSER="/usr/local/bin/qb win"
+export SCREENS_DIR="/dat/ui/iis"
 #### source
 . "${XDG_CONFIG_HOME}/shell/aliases"
 . "${XDG_CONFIG_HOME}/shelx/profile"
