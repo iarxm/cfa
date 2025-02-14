@@ -105,6 +105,8 @@ settings:
   content.desktop_capture:
     https://meet.google.com: true
     https://teams.microsoft.com: true
+  content.javascript.clipboard:
+    https://outlook.office365.com: access-paste
   content.javascript.enabled:
     global: true
   content.media.audio_capture:

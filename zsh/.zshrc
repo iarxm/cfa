@@ -31,12 +31,12 @@ fi
 [[ ! -f ${P10K_CFG} ]] || source ${P10K_CFG}
 
 
-# THEMEING
+# theme
 
 autoload -U colors && colors    # Load colors
 
 
-# THEMEING - WINTITLE AND PROMPT 
+# wintitle & prompt
 
  if [[ ${PROMPT_C_OFF} == "1" ]]; then
     setopt PROMPT_SUBST
@@ -63,10 +63,10 @@ autoload -U compinit
 compinit -d ${ZSH_DAT}/zcompdump-$HOST
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-_comp_options+=(globdots)        # Include hidden files.
+_comp_options+=(globdots) # include hidden files
 
 
-# HIST/AUTOCOMPLETION
+# hist / opts
 
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -80,14 +80,13 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 export KEYTIMEOUT=1
-echo -ne '\e[3 q'
-# Change cursor shape for different vi modes.
+echo -ne '\e[3 q' # change cursor shape for different vi modes
 
 zle-keymap-select () {
     case $KEYMAP in
-        vicmd) echo -ne '\e[1 q';;      # block
-        #viins|main) echo -ne '\e[5 q';; # beam
+        vicmd) echo -ne '\e[1 q';; # block
         viins|main) echo -ne '\e[3 q';; # underscore
+        #viins|main) echo -ne '\e[5 q';; # beam
     esac
 }
 

@@ -13,7 +13,7 @@ off
 output eDP-1
 crtc 2
 mode 1366x768
-pos 0x0
+pos 1920x0
 rate 60.11
 x-prop-broadcast_rgb Automatic
 x-prop-colorspace Default
@@ -23,7 +23,7 @@ x-prop-scaling_mode Full aspect
 output DP-2-2
 crtc 0
 mode 1920x1080
-pos 1366x0
+pos 0x0
 primary
 rate 60.00
 x-prop-audio auto
