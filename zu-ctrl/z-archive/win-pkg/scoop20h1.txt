@@ -1,0 +1,8 @@
+bleachbit
+cmder
+fzf
+pkg.win.scoop.y20h1.txt
+qutebrowser
+scoop
+vifm
+youtube-dl

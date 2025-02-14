@@ -1,0 +1,9 @@
+Package          Version
+---------------- -------
+pip              20.0.2 
+powerline-shell  0.7.0  
+powerline-status 2.7    
+pycairo          1.18.1 
+pygobject        3.26.1 
+ranger-fm        1.9.3  
+setuptools       41.2.0 

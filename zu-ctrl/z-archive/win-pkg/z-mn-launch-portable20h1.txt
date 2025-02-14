@@ -1,0 +1,9 @@
+7z1900.exe
+bug.n-9.0.1
+mupdf-1.14.0-windows_
+prgrm-{desktops}
+q10
+todo.txt_cli-2.11.0
+tomahawk-resolvers-master
+writeMonkey
+zz---------x--------x--------

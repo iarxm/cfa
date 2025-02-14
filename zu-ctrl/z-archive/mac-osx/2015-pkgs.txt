@@ -1,0 +1,116 @@
+# apps root directory
+
+## folders:
+00 applications
+00 applications - beta
+00 applications - dynamic -
+00 applications - web
+01 applications - to remove (gamma)
+
+
+## root apps:
+App Store.app
+Automator.app
+Calculator.app
+Calendar.app
+Chess.app
+Contacts.app
+Dashboard.app
+Dictionary.app
+DVD Player.app
+FaceTime.app
+Font Book.app
+Game Center.app
+iBooks.app
+Image Capture.app
+iTunes.app
+Launchpad.app
+Mail.app
+Maps.app
+Messages.app
+Microsoft Silverlight
+Mission Control.app
+Notes.app
+osx.app-list.txt
+oxs.app-list.txt
+Photo Booth.app
+Photos.app
+Preview.app
+QuickTime Player.app
+Reminders.app
+Safari.app
+Stickies.app
+System Preferences.app
+TextEdit.app
+Time Machine.app
+Utilities
+Xcode.app
+
+
+
+## 00 applications/
+8tracks Radio.app
+aText.app
+Bartender.app
+Bean.app
+Caffeine.app
+Chromecast.app
+Cisco
+Citrix Receiver.app
+duet.app
+Flux.app
+GitHub Desktop.app
+Google Drive.app
+LibreOffice.app
+MediaFire Desktop.app
+Nocturne.app
+Notational Velocity.app
+OmniDiskSweeper.app
+Quicksilver.app
+Simplenote.app
+Skim.app
+Skype.app
+Sophos Anti-Virus.app
+URL Manager Pro 4.4.3
+uTorrent.app
+VLC.app
+
+
+
+## apps.beta/ 
+Apple Configurator.app
+Awareness.app
+BitTorrent Sync.app
+Carbon Copy Cloner.app
+Divvy.app
+doubleTwist.app
+Ecoute.app
+Focusbar.app
+Go for Gmail.app
+GoodSync.app
+Goofy.app
+Hocus Focus.app
+Messenger.app
+mysms.app
+NetNewsWire.app
+Opera Mail.app
+Shazam.app
+Stay.app
+SuperSync.app
+Telegram.app
+Time Out.app
+TogglDesktop.app
+Unibox.app
+VOX.app
+
+
+
+## apps.dynamic 
+
+ 
+ 
+## apps.web
+Firefox.app
+Google Chrome.app
+Opera.app
+
