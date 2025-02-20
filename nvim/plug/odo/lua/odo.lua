@@ -2,8 +2,8 @@ local M        = {}
 local cmd      = vim.api.nvim_command
 -- dirs
 local hr       = "$HOME/da"
-local ha       = 'a'
-local hb       = 'aa'
+local ha       = hr .. '/a'
+local hb       = hr .. '/aa'
 local hm_ml    = hr .. '/cm/yml'
 -- ha
 local paa      = ha .. '/aa.md'
@@ -20,17 +20,17 @@ local m_aua    = hb .. '/mau.md'
 local m_cra    = hb .. '/mcr.md'
 local m_yra    = hb .. '/dxy.md'
 local m_qra    = hb .. '/dyq.md'
-local m_msux   = hb .. '/vmsux.md' --hb's
-local m_msuy   = hb .. '/vmsuy.md' --hb's
+local m_msux   = hb .. '/vmsux.md'
+local m_msuy   = hb .. '/vmsuy.md'
 -- oo
-local oa       = hb .. '/oa.md' -- o's
+local oa       = hb .. '/oa.md'
 local ob       = hb .. '/ob.md'
 local oc       = hb .. '/oc.md'
 local od       = hb .. '/od.md'
 local oi       = hb .. '/oi.md'
 local oj       = hb .. '/oj.md'
 -- notes
-local ua       = hb .. '/ua.md' -- u's
+local ua       = hb .. '/ua.md'
 local ub       = hb .. '/ub.md'
 local uc       = hb .. '/uc.md'
 local ux       = hb .. '/ux.md'
@@ -82,7 +82,8 @@ local tlist_all = function() cmd('silent tabdo Tlist') end
 local tagbarx   = function() cmd('silent tabdo Tagbar') end
 local tagl_all  = function() tagbarx() end
 
-local enva      = function() cmd('cd' .. hr) end -- X.tbn = cmd('echom tabpagenr()')
+local enva      = function() cmd('cd' .. hr) end
+-- X.tbn = cmd('echom tabpagenr()')
 local envb      = function() cmd('tabfirst'); cmd('quit') end
 local envx      = function() cmd('cd' .. hr) end -- opt.number = true -- opt.numberwidth = 9
 local buf       = function(filename) cmd('silent badd ' .. filename) end
@@ -90,7 +91,7 @@ local edit      = function(filename) cmd('edit ' .. filename) end
 local tnew      = function(filename) cmd('silent tabnew ' .. filename) end
 local svrt      = function(filename) cmd('silent vsplit ' .. filename) end
 
--- archive?
+-- archive
 local envz      = function() tagl_all(); cmd('tabfirst'); cmd('quit') end
 local newx      = function() cmd('tabnew ') end
 local shori     = function(filename) cmd('split ' .. filename) end
@@ -210,7 +211,7 @@ end
 
 -- Actionable Panels
 
-M.ox_bufs = function(buf_input)
+local ox_bufs = function(buf_input)
     for _, file in ipairs(buf_input) do
         buf(ha .. "/" .. file)
     end
@@ -222,41 +223,44 @@ local bufs_load = function(buf_input)
     end
 end
 
-M.oa_x = function() 
+local oa_x = function()
+    --bufs_load(bufs_ox)
+    --bufs_load(bufs_oa)
+
     tnew(oi)
 
     tnew(oi)
     svrt(oj)
-    
+
     tnew(oa)
     --require('neowarrior').open_right() -- currently has a bug
     tnew(uc)
-    cmd('lua require("markx").write_mode_pad_right()')
+    --cmd('lua require("markx").write_mode_pad_right()')
 end
 
 M.oa = function()
     enva()
-    bufs_load(bufs_ox)
-    bufs_load(bufs_oa)
-    M.oa_x()
+    oa_x()
+
     cmd('silent tabnext 1')
     cmd('silent quit')
-    cmd('tabdo lua require("markx").write_mode_x()')
+
+    --cmd('tabdo lua require("markx").write_mode_x()')
     --cmd('tabdo wincmd 2l')
-    cmd('silent tabnext 1')
+    --cmd('silent tabnext 1')
     --cmd('Neotree position=right')
 end
 
 
 M.ob = function()
   enva()
-  M.oa_x()
+  oa_x()
   tnew(oc)
   svrt(od)
   envb()
 end
 
-M.ocx = function()
+local ocx = function()
   tnew(oc)
   svrt(oc)
   tnew(od)
@@ -267,19 +271,19 @@ end
 
 M.oc = function()
  enva()
- M.ocx()
+ ocx()
  envb()
 end
 
-M.odx = function()
-  tnew(jm)
+local odx = function()
+  tnew(m_jma)
   tnew(ua)
 end
 
 M.oda = function()
   enva()
-  M.odx()
-  M.oa_x()
+  odx()
+  oa_x()
   envb()
 end
 
@@ -317,8 +321,14 @@ M.ml = function()
 end
 
 M.mlx = function()
-    -- instant messaging / resources to share via whatsapp etc..
+    -- instant messaging / resources to share via WA..
     cmd('cd' .. hm_ml)
+    tnew('oy.md')
+    envb()
+end
+
+M.test = function()
+    enva()
     tnew('oy.md')
     envb()
 end
@@ -327,3 +337,4 @@ return M
 
 -- [x] change filename of this script to a 3 letter name
 -- TODO: o#ox_p ox_ds oe oe_x
+

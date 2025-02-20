@@ -1,8 +1,8 @@
 return {
     "huantrinh1802/m_taskwarrior_d.nvim",
         ft = {
-            'markdown',
-            'markdownt',
+            --'markdown',
+            --'markdownt',
         },
         dependencies = { "MunifTanjim/nui.nvim" },
         task_statuses = { " ", ">", "x", "~" }, -- The order of toggling task statuses
