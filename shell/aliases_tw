@@ -1,0 +1,108 @@
+#!/bin/sh
+
+# don't use these; just use tw as it is and then reconsider which
+# aliases are truly useful. first keep to a selective group of aliases
+
+#### taskwarrior
+
+#### basic
+alias tt='taskwarrior-tui'
+alias ttu='taskwarrior-tui'
+alias vit="TASKRC=$HOME/.config/task/modules/vit-taskrc && vit && TASKRC=$HOME/.config/task/taskrc"
+#### listing through filters
+alias tl='task list'
+alias t.l='task list'
+alias tls='task ls'
+alias t.ls='task ls'
+alias tph='task priority:H'
+alias t.ph='task priority:H'
+alias tsdt='task due:TODAY'
+alias t.sdt='task due:TODAY'
+alias tsa='task status:ACTIVW'
+alias t.sa='task status:ACTIVW'
+alias tn='task next'
+alias t.n='task next'
+alias tnx='task state:nx'
+alias t.nx='task state:nx'
+alias t.na='task state:na'
+alias tb='task blocking'
+alias t.b='task blocked'
+##### builtin reports
+alias trr='task report'
+alias trc='task calendar'
+alias tro='task overdu'
+##### listting meta data
+alias t.rp="task projects rc.list.all.projects=yes 2>/dev/null | grep -E '^\w'"
+alias t.pp="task projects rc.list.all.projects=yes"
+alias t.sum='task summary'
+#### adding
+alias t='task'
+alias ta='task add'
+alias t.a='task add'
+alias t.aph='task add priority:H'
+#### Modifying and reviewing
+alias tm='task modify'
+alias tmod='task modify'
+alias te='task edit'
+alias tmm='task edit'
+alias tsd='task done'
+alias tss='task start'
+alias tsp='task stop'
+alias tsx='task delete'
+alias t.sync='task sync'
+#### context
+alias tcrm="task context none"
+alias tcrr="task context none"
+alias tc='task context'
+#### functions
+function tcvadd () { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
+function twwww () { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
+
+# personal
+
+# tw
+
+alias tats='task add +shp'
+alias tatt='task add +tk'
+alias tats='task add +srf'
+alias tctk='task context tk'
+alias tcsrf='task context srf'
+
+taskx() { task rc.bulk=0 rc.confirmation=off rc.dependency.confirmation=off rc.recurrence.confirmation=off $@; }
+
+tw-pri-l()  { taskx "$@" modify priority:L; }
+tw-pri-m()  { taskx "$@" modify priority:M; }
+tw-pri-h()  { taskx "$@" modify priority:H; }
+tw-tag-bb() { taskx "$@" modify +bb ; }
+tw-tag-nx() { taskx "$@" modify +nx ; }
+
+
+tw-dmenu() {
+    ls_f="/home/$USER/.local/share/task/tw-tagls"
+    cmd_inpt=$(\
+        dmenu -l 10 -p "task add" "$@" \
+        < $ls_f \
+        | sed 's/.*    \+//')
+    sh -c "task add $cmd_inpt"
+}
+#dmenu dev:
+#    xargs printf "task add %s"
+# TODO: replace ls1 with a file of all tags - and allow for adding multiple
+# TODO: Could use a list of task commands 
+# - that i could scroll through for quickly add tasks to different contexts..
+# - backslash below allows for adding multiple tags to one entry??
+# tw. tag ls:
+#ls_test=" \
+#+tk \
+#+bb
+#+ml
+#+srf
+#+ern
+#+uu
+#+shp
+#+grc
+#+bss
+#+trv
+#+fin
+#+mth"
+
