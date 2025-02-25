@@ -3,10 +3,10 @@ return {
     { "nvim-treesitter/playground" },
     { "nvim-treesitter/nvim-treesitter",
         event = {
-            "BufReadPost", 
-            "BufNewFile"
+            --"BufReadPost", 
+            --"BufNewFile"
         },
-        lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+        lazy = vim.fn.argc(-1) == 0, -- load TS early when opening file from cli
         init = function(plugin)
             -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
             -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
@@ -27,7 +27,7 @@ return {
         opts_extend = { "ensure_installed" },
         opts = {
             auto_install = "True",
-            highlight = { enable = true },
+            --highlight = { enable = true }, -- causing bugs as of 2025 FEB
             indent =    { enable = true },
             ensure_installed = {
                 "bash",
