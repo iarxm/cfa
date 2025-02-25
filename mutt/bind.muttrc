@@ -64,49 +64,50 @@ macro index,pager   "\CR"  "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<unta
 
 #### complex macros
 
-set my_uid           = `mlx uid` # mutt fails to recognise $UID by itself
+set my_mvw           = "mview"
+set my_uid           = `mview uid` # mutt fails to recognise $UID by itself
 
 set my_f_fifo        = "/run/user/$my_uid/mutt/fifo"
-set my_f_mime        = "/run/user/$my_uid/mutt/mlx.mime"
-set my_f_mlx         = "/run/user/$my_uid/mutt/mlx.html"
-set my_f_mly         = "/run/user/$my_uid/mutt/mly.html"
+set my_f_mime        = "/run/user/$my_uid/mutt/mviewx.mime"
+set my_f_mvwx        = "/run/user/$my_uid/mutt/mviewx.html"
+set my_f_mvwy        = "/run/user/$my_uid/mutt/mviewy.html"
 
 set my_donothing     = " "
 set my_get_html      = "<view-attachments><search>html<enter>"
 
-set my_pipe_ico      = "<pipe-entry>iconv -c --to-code=UTF8   > $my_f_mly<enter>"
-set my_pipe_mly      = "<pipe-entry>cat > $my_f_mly<enter>"
-set my_pipe_mlx      = "<pipe-entry>cat > $my_f_mlx<enter>"
+set my_pipe_ico      = "<pipe-entry>iconv -c --to-code=UTF8   > $my_f_mvwy<enter>"
+set my_pipe_mvwx     = "<pipe-entry>cat > $my_f_mvwx<enter>"
+set my_pipe_mvwy     = "<pipe-entry>cat > $my_f_mvwy<enter>"
 set my_pipe_fif      = "<pipe-entry>cat > $my_f_mime && echo y > $my_f_fifo<enter>"
 
-# brx is called by the while loop in 'mlx'. bry is the alternative destination for manual browser calls
-set my_mlx_bry       = "<shell-escape>qb my >/dev/null<enter>" # default
-set my_mlx_bfl       = "<shell-escape>mlx qb.float<enter>"
-set my_mlx_btr       = "<shell-escape>mlx term<enter>"
-set my_mlx_ini       = "<shell-escape>mlx qb.rip &<enter>"
-set my_mlx_md2ht     = "<shell-escape>mlx md2html<enter>"
-set my_bry           = "$my_get_html  $my_pipe_mly  $my_mlx_bry<exit>" #
+# brx is called by the while loop in mview. bry is alternative dest for manual calls
+set my_mvw_bry       = "<shell-escape>qb my >/dev/null<enter>" # default
+set my_mvw_bfl       = "<shell-escape>$my_mvw b-qb-float<enter>"
+set my_mvw_btr       = "<shell-escape>$my_mvw b-term<enter>"
+set my_mvw_ini       = "<shell-escape>$my_mvw b-qb-rip &<enter>"
+set my_bry           = "$my_get_html  $my_pipe_mvwy $my_mlx_bry<exit>" #
 set my_bry_i         = "$my_donothing $my_pipe_ico  $my_mlx_bry<exit>" # second
 set my_bfy           = "$my_get_html  $my_pipe_ico  $my_mlx_bfl<exit>" # float x
 set my_bfi           = "$my_donothing $my_pipe_ico  $my_mlx_bfl<exit>" # float y
 set my_btr           = "$my_get_html  $my_pipe      $my_mlx_btr<exit>" # terminal
-
-set my_stylex        = "$my_donothing $my_pipe      $my_mlx_md2ht"     # styling
 
 set my_next_on       = '<enter-command>macro index,pager j "<next-entry>    $my_pipe_fif"'
 set my_prev_on       = '<enter-command>macro index,pager k "<previous-entry>$my_pipe_fif"'
 set my_next_off      = '<enter-command>macro index,pager j "<next-entry>"'
 set my_prev_off      = '<enter-command>macro index,pager k "<previous-entry>"'
 
-macro index,pager    bu   "$my_mlx_ini   $my_next_on <enter> $my_prev_on <enter>"   # init viewer
+macro index,pager    bu   "$my_mvw_ini   $my_next_on <enter> $my_prev_on <enter>"   # init viewer
 macro index,pager    bd   "$my_donothing $my_next_off<enter> $my_prev_off<enter>"   # kill viewer
-macro index,pager    bi   "$my_mlx_ini"  # init auto pipe
+macro index,pager    bi   "$my_mvw_ini"  # init auto pipe
 macro index,pager    bb   "$my_bry"      # open in
 macro attach,compose bb   "$my_bry_i"    # open in
 macro index,pager    bfx  "$my_bfx"      # open in float
 macro attach,compose bfy  "$my_bfy"      # open in float
-macro index,pager    bt   "$my_btr"      # browser.text
+macro index,pager    bt   "$my_btr"      # browser text
 macro compose        .mm  "$my_sty"      # post processing styling
+
+set my_mlx_md2ht     = "<shell-escape>mlx md2html<enter>"
+set my_stylex        = "$my_donothing $my_pipe      $my_mlx_md2ht"     # styling
 
 
 macro index,pager \cb "<enter-command> set my_pdsave=\$pipe_decode<enter>\
