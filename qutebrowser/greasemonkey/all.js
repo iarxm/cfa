@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Background Color Changer
+// @name         blackify
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Change background color to black for elements with a defined background color

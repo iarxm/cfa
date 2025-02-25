@@ -1,71 +1,62 @@
 // ==UserScript==
-// @name       outlook.office365.com/mail
+// @name       outlook
 // @author     Iarom Madden
 // @include    *outlook.office365.com/mail**
 // @include    *outlook.office365.com**
 // @include    *outlook.office.com/mail**
+// @run-at     document-end
 // ==/UserScript==
 
-// TODO: tidyup
-// TODO: Move bars mostly onto one line. 
-// TODO: Combine bars from different wrapping elements.
-// TODO: Inbox, Select, Filter - put onto another bar to save space
-
-// TODO: convert all below into JS
 
 GM_addStyle(`
-  /* ############################################## */
-  /* SIDE APP BAR */
-  
-  #LeftRail {
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.5s ease;
-      display: none;
-  }
-  
-  #LeftRail:hover {
-      opacity: 1;
-      visibility: visible;
-      display: none;
-  }
-  
-  /* ####################################################### */
-  /* TOOLBARS */
-  
  
+    /* side bar w apps */
+ 
+    #LeftRail {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease;
+        display: none;
+    }
+ 
+    #LeftRail:hover {
+        opacity: 1;
+        visibility: visible;
+        display: none;
+    }
+ 
+    /* toolbars */
 
- .O0VOp {
+    .O0VOp {
         display: inline-flex; /* or 'flex' */
         /* padding: 0 20px 0 0; */
-  }
-   
-  #RibbonRoot {
-          display: flow; /* or 'flex' */
-          /*flex-direction: row; *//* Align children horizontally */
-          justify-content: space-between; /* Distribute space between children */
-  }
-  
-  /* Style for TopBar */
-  #topbar {
-      display: inline-flex;
-      width: auto; /* adjust the width as needed */
-      float: left; /* align to the left */
-  }
-  
-  /* Style for BottomBar */
-  #BottomBar {
-      display: inline-flex;
-      width: auto; /* Adjust the width as needed */
-      float: right; /* Align to the right */
-  }
+    }
+
+    #RibbonRoot {
+        display: flow; /* or 'flex' */
+        /*flex-direction: row; *//* align children horizontally */
+        justify-content: space-between; /* distribute space between children */
+    }
+
+    /* topBar */
+    #topbar {
+        display: inline-flex;
+        width: auto; /* adjust the width as needed */
+        float: left; /* align to the left */
+    }
  
- .root-221, .root-181, .root-176, .root-231, .root-270 {
+    /* bottom bar */
+    #BottomBar {
+        display: inline-flex;
+        width: auto; /* adjust the width as needed */
+    }
+ 
+    .root-221, .root-181, .root-176, .root-231, .root-270 {
         border: 0px;
         box-sizing: initial;
     }
 
-  .root-191, .splitButtonMenuButton-196 {
+    .root-191, .splitButtonMenuButton-196 {
         background-color: black;
     }
 
@@ -78,44 +69,46 @@ GM_addStyle(`
         margin: 0;
     }
 
-  /* Wrapper style for responsiveness */
-  @media (max-width: 600px) { /* Adjust the breakpoint as needed */
-      #TopBar, #BottomBar {
-          width: 100%;
-          float: none;
-      }
-  }
+    /* wrapper style for responsiveness */
+
+    @media (max-width: 600px) { /* Adjust the breakpoint as needed */
+        #TopBar, #BottomBar {
+            width: 100%;
+            float: none;
+        }
+    }
   
-  #x8k1J {
-      max-width: 100%;
-      width: 100%;
-  }
+    #x8k1J {
+        max-width: 100%;
+        width: 100%;
+    }
   
-  #owaChatButton_container, #owaNoteFeedButton_container, #owaTimePanelBtn_container, #owaActivityFeedButton_container, #owaTipsBtn_container {
-      display: none;
-  }
-  .o365cs-base .o365sx-button {
-      background-color: #000000;
-  }
+    #owaChatButton_container, #owaNoteFeedButton_container, #owaTimePanelBtn_container, #owaActivityFeedButton_container, #owaTipsBtn_container {
+        display: none;
+    }
+
+    .o365cs-base .o365sx-button {
+        background-color: #000000;
+    }
 
     #owaBranding_container {
         visibility: hidden;
     }
 
-  /*
-  .s8wta {
-      opacity: 0; /* The element is fully transparent (and thus invisible) by default */
-      visibility: hidden; /* Alternatively, you can use visibility */
-      transition: all 0.5s ease; /* Smooth transition for showing the element */
-  }
-  .s8wta:hover {
-      opacity: 1; /* The element becomes fully opaque (visible) on hover */
-      visibility: visible; /* Alternatively, you can use visibility */
-  }
-  */
+    /*
+    .s8wta {
+         opacity: 0; /* The element is fully transparent (and thus invisible) by default */
+         visibility: hidden; /* Alternatively, you can use visibility */
+         transition: all 0.5s ease; /* Smooth transition for showing the element */
+    }
+  
+    .s8wta:hover {
+         opacity: 1; /* The element becomes fully opaque (visible) on hover */
+         visibility: visible; /* Alternatively, you can use visibility */
+     }
 
-  /* ########################################### */
 `)
+
 
 function setRootStyles() {
     var rootElement = document.documentElement;
@@ -130,15 +123,18 @@ function setRootStyles() {
         '--storageUsageBarBorder',
         '--colorNeutralBackground1',
         '--colorNeutralBackground3Hover',
-        '--colorNeutralStrokeOnBrand'];
+        '--colorNeutralStrokeOnBrand'
+    ];
     var stylePropertiesx = [
         '--neutralLighterAlt',
         '--neutralTertiaryAlt',
-        '--neutralQuaternaryAlt'];
+        '--neutralQuaternaryAlt'
+    ];
     styleProperties.forEach(function(prop) { rootElement.style.setProperty(prop, '#000000'); });
     stylePropertiesx.forEach(function(prop) { rootElement.style.setProperty(prop, '#000000'); });
     document.body.style.backgroundColor = '#000000';
 }
+
 
 function updateElementStyles() {
     applyBackgroundColor('.o365sx-navbar', '#000000');
@@ -156,6 +152,7 @@ function updateElementStyles() {
     }
 }
 
+
 function moveElements() {
     var targetSection = document.querySelector('#Region_0');
     moveElement('#BottomBar', targetSection, 'prepend');
@@ -164,15 +161,19 @@ function moveElements() {
     moveElement('#O365_MainLink_NavMenu', targetSection, 'append');
 }
 
+
 function removeElements() {
-    var elementToRemove = document.querySelector('#leftCharmsRegion');
-    if (elementToRemove) {
-        elementToRemove.remove();
-    }
+    var elementsToRemove = [
+        document.querySelector('#leftCharmsRegion'),
+        //document.querySelector('#O365_MainLink_NavMenu'),
+        //document.querySelector('#O365_HeaderLeftRegion'),
+        //document.querySelector('#O365_HeaderRightRegion'),
+    ];
+    elementsToRemove.forEach(sel => {
+        sel.remove();
+    });
 }
 
-
-// GENERALISED FUNCTIONS #############################################
 
 function moveElement(selector, target, method) {
     var element = document.querySelector(selector);
@@ -185,6 +186,7 @@ function moveElement(selector, target, method) {
     }
 }
 
+
 function applyBackgroundColor(selector, color) {
     var elements = document.querySelectorAll(selector);
     elements.forEach(function(element) {
@@ -192,27 +194,29 @@ function applyBackgroundColor(selector, color) {
     });
 }
 
+
 function applyToAllBackgrounds() {
-    var allElements = document.querySelectorAll('*'); // Selects all elements on the page
+    var allElements = document.querySelectorAll('*');
+        // selects all elements on the page
     allElements.forEach(function(element) {
         // Check if the element has an inline style background property set
         //if (element.style.background) {
         //    element.style.background = 'black';
         //}
 
-        // Additionally, check for background-color property
+        // additionally, check for background-color property
         if (element.style.backgroundColor) {
             element.style.backgroundColor = '#000000';
         }
     });
 }
-
-
-// Attempt to display page after x seconds #######################
+ 
 
 function showContent() {
-     document.querySelector('body').style.display = '';
+    // attempt to display page after x seconds
+    document.querySelector('body').style.display = '';
 }
+
 
 function hideContent() {
     'use strict';
@@ -221,19 +225,19 @@ function hideContent() {
     style.innerHTML = 'body { display: none !important; }';
     document.head.appendChild(style);
 }
-
 //hideContent();
 //setTimeout(showContent, 7000);
 
 
-// EXEC #############################################################
+// exec 
 
-function applyStyles() { 
+function applyStyles() {
     setRootStyles();
     updateElementStyles();
     moveElements();
     removeElements();
 }
+
 
 function applyIndefinitely() {
     applyToAllBackgrounds();
@@ -251,18 +255,26 @@ function applyLoop() {
          if (intervalCount = 4) {
              showContent();
          }
-         applyStyles(); // Initial mod
+         applyStyles(); // initial mod
          intervalCount++;
      }, 1000); // milliseconds
 }
 
 
-// main ###########################################################
-
 function main() {
-     applyStyles(); // Initial mod
-     applyLoop();
-     setInterval(applyIndefinitely, 10);
+    applyStyles(); // initial mod
+    applyLoop();
+    setInterval(applyIndefinitely, 10);
+    moveElements();
 }
 
+
 main();
+
+
+// TODO: tidyup
+// TODO: Move bars mostly onto one line. 
+// TODO: Combine bars from different wrapping elements.
+// TODO: Inbox, Select, Filter - put onto another bar to save space
+// TODO: convert all below into JS
+
