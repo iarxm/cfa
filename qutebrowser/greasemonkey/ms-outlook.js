@@ -271,7 +271,6 @@ function main() {
 
 main();
 
-
 // TODO: tidyup
 // TODO: Move bars mostly onto one line. 
 // TODO: Combine bars from different wrapping elements.
