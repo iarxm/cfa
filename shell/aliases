@@ -1,189 +1,100 @@
 #!/bin/sh
-
 #### new
-
-
-
-alias s="ssh"
-alias si='sxiv'
-#alias sx='sxiv'
-alias feh.setbg='feh --no-fehbg --bg-max "${BGX_FEH}"'
-alias l='lf'
-alias r='ranger'
-
-# general
-
+alias feh-setbg='feh --no-fehbg --bg-max "${BGX_FEH}"'
+# gen
 alias tabbedx="tabbed -r 2 st -w ''"
-alias castget="castget -C ${HOME}/.config/castget/castgetrc"
-alias autorandr-a="autorandr --load dock-ad"
-alias mosh="mosh --experimental-remote-ip=remote"
-alias mpd-reset="systemctl --user stop mpd.service"
-alias redshift-start="systemctl --user start redshift.service"
-alias redshift-stop="systemctl --user stop redshift.service"
 alias mr="mr --config $HOME/.config/mr/mrconfig"
 alias libr="libreoffice"
-alias libre="libreoffice"
 alias bc="bc -ql"
 alias sc="sc-im"
-alias scim="sc-im"
-alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/isyncrc"
-alias mbsync-pull-create-mailbox="mbsync --pull --create -a"
-
-
-#### git
-
-alias sudo-git="sudo -E git" # ensure that gpg-agent-ssh with ssh keys added to the gpg-agent is functioning
-alias g="git"
-alias gst="git status"
-alias gco="git commit"
-alias gcc="git commit"
-alias gad="git add"
-alias gch="git checkout"
-alias gbr="git branch"
-alias gpl="git pull"
-alias gpull="git pull"
-alias gps="git push"
-alias gpsh="git push"
-alias gpush="git push"
-alias gcom="git commit"
-alias gcomm="git commit"
-alias gclon="git clone"
-
-#### file nav / manage
-
-## files
-
-alias rcl="rclone"
-alias rs.a="rsync -avP"
+#### files
 alias cc="cd"
 alias cp="cp -iv"
 alias mv="mv -iv"
-alias rm="rm -vI"
 alias mkd="mkdir -pv"
-alias rm='echo "NOTE: Use trash-put instead. If youre sure you want rm, \
-    use /rm to overide this shell alias"; false'
-alias rmm='echo "Using trash-put"; trash-put -v'
-alias rmmm='sudo rm'
-alias tpt="trash-put"
-alias tp="trash-put"
-alias chx="chmod +x"
 alias lns='ln -s'
-ln_del() { find -L $DIR -maxdepth 1 -type l -delete; }
-
+alias chx="chmod +x"
+alias rm="rm -vI"
+alias rm='echo "NOTE: use trash-put instead, but if youre sure \
+    use /rm to overide"; false'
+alias rmm='echo "Using trash-put"; trash-put -v'
+alias tp="trash-put"
 ## ls list
-
-alias ls="ls --color=auto"
-alias ll=ls
-alias lll='ls -l --group-directories-first'
-alias lla='ls -lA --group-directories-first'
-alias la='ls -A'
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
-
-# nnn
-
+alias ls="ls --color=auto"
+alias lsl='ls -l --group-directories-first'
+alias lsa='ls -lA --group-directories-first'
+alias lsb='ls -A'
+# nnn;nvim;editor
+alias g="git"
+alias si='sxiv' #alias sx='sxiv'
+alias l='lf'
+alias r='ranger'
 alias nnn="nnn -a"
-alias nna="nnn -ea"
-alias nn="nnn -ea"
 alias n="nnn -ea"
-alias sdn='sudo nnn'
-nnu() { 
-  i3-msg "split horizontal"
-  { sleep 0.3; xdotool key "semicolon+x"; sleep 1;  i3-msg "resize set 80ppt"; } &
-    nnn ;} #nnux() { st -e "zsh -c nnu"; } # todo
-
-# nvim
-
-alias e="$EDITOR" # alias v="$EDITOR"
-alias v="nvim"
-alias nv='nvim.aa'
-alias sdv='sudo nvim'
+alias e="$EDITOR"
+alias v="$EDITOR"
 alias vc="cud && nvim -c Ntr"
-[ -x "$(command -v nvim)" ] && \
-    alias vim="nvim" vimdiff="nvim -d"
-
+alias vimdiff="nvim -d"
+alias openu="xdg-open "$@" &"
+alias open='openu'
+alias o='openu' #alias op='
 # media
-
 alias yt="yt-dlp --add-metadata"
 alias ytx="yt -x"
 alias ytdlp="yt"
 alias yt480="yt -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
-alias yt.cook="yt --cookies-from-browser firefox -o '%(id)s.%(ext)s'"
-#alias ytl="yt"
-#alias yt="yt-dlp --add-metadata -i"
-#alias ytxa="yt -x -f bestaudio/best" # this is the default behaviour of ytdlp
-#alias youtube-dl="yt"
-alias ffmpeg="ffmpeg -hide_banner" # ffmpeg
-alias YT="youtube-viewer"
+alias yt-cook="yt --cookies-from-browser firefox -o '%(id)s.%(ext)s'"
 alias ytv="youtube-viewer"
+alias ffmpeg="ffmpeg -hide_banner" # ffmpeg
 alias mpv="mpv --config-dir=${HOME}/.config/mpx"
-
+alias castget="castget -C ${HOME}/.config/castget/castgetrc"
+alias mpd-reset="systemctl --user stop mpd.service"
+alias a="vimpc"
+#### networking
+alias blue-adisconnect="bluetoothctl disconnect"
+alias blue='bluetuith'
+alias s="ssh"
+alias mosh="mosh --experimental-remote-ip=remote"
+#### system
+alias reboot="systemctl reboot"
+alias sll="systemctl suspend"
+alias shutdownx="shutdown -h now"
+alias unmountall='udiskie-umount -a --detach'
+alias red-start="systemctl --user start redshift.service"
+alias red-stop="systemctl --user stop redshift.service"
+alias so="sudo"
+alias xrdbx="xrdb -I$HOME -merge $XDG_CONFIG_HOME/X11/xresources"
+alias autor-a="autorandr --load dock-ad"
+alias jxe='journalctl -xe'
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+for x in mount umount sv pacman updatedb su dmesg shutdown; do
+    alias $x="sudo $x"
+done
+alias sdk='sudo pkill'
+alias sdk-clamd='sudo pkill clamd'
+killc()      { i=0; while i < 10 ; do sudo pkill $1; done } # aggressive kill
 # other
-
-alias xi="sudo xbps-install"
-alias xr="sudo xbps-remove -R"
-alias xq="xbps-query"
 alias z="zathura"
-alias zs="i3-swallow zathura"
-alias mm="man"
-alias c="clear"
+alias zi="i3-swallow zathura"
+alias mn="man"
 alias cl="clear"
-alias open='openu'
-alias o='openu' #alias op='
-alias ma='make'
-alias ec='echo'
 alias q='exit'
 alias magit="nvim -c MagitOnly"
 alias ref="shortcuts >/dev/null; \
     source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; \
     source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc"
-alias weat="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
-
-## system
-
-[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
-for x in mount umount sv pacman updatedb su ; do
-    alias $x="sudo $x"
-done
-alias sd="sudo"
-alias xrc="xrdb -I$HOME -merge $XDG_CONFIG_HOME/X11/xresources"
-alias ss="systemctl suspend"
-alias dmesg='sudo dmesg' # journals
-alias jxe='journalctl -xe'
-
-# killing
-
-alias sdk='sudo pkill'
-alias sdkc='sudo pkill clamd'
-alias pk='pkill'
-alias ka="killall"
-
 ## packages/pacman/pip
-
-alias pd="sudo pacman -S"
-alias sdn="sudo shutdown -h now"
-alias p="sudo pacman"
+alias p="pacman"
 alias pacs='pacman -S'
-alias apip='pip install --user'
-
-## systemd
-
+alias pipu='pip install --user'
 alias srcp="source ~/.config/shell/profile"
 alias syt='systemctl'
-alias sytl='systemctl list-units'
-alias syts='systemctl status'
-alias syte='systemctl enable --now'
-alias sytst='systemctl stop'
-alias syte='systemctl disable --now'
-alias sytu='systemctl --user'
-alias sytue='systemctl --user enable --now'
-alias sytus='systemctl --user status'
-
-#### dotfiles cleanup
-
+#### dotfiles
 alias abook="abook \
     --config $XDG_CONFIG_HOME/abook/abookrc \
     --datafile $XDG_DATA_HOME/abook/addressbook"
@@ -194,26 +105,19 @@ alias nrss="nrss -D $XDG_CONFIG_HOME/nrss/ \
     -L $XDG_CACHE_HOME/nrss/log"
 alias esniper="esniper -c $XDG_CONFIG_HOME/esniper/conf"
 alias apvlv="apvlv -c $XDG_CONFIG_HOME/apvlv/apvlvrc"
-
-#### cyg
-alias acyg="apt-cyg install"
+alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/isyncrc"
 ##### transmission remotes
 alias tnr="transmission-remote"
-alias tnr-exit="transmission-remote"
 alias tnc="transmission-cli"
 alias tnd="transmission-daemon"
 #### mail
 alias m="neomutt -e "push '<change-folder>=ii<enter>'""
-alias nmh="notmuch"
-alias nmhs="notmuch search"
-alias nmhn="notmuch new"
+alias nmm="notmuch"
+alias mbsync-pull-create-mailbox="mbsync --pull --create -a"
 ##### news
 alias news="newsboat"
 alias ne="newsboat"
-
-
-######## browsers.quteb
-
+######## browser
 #### basic
 alias qbw='qb win'
 alias qw='qb win'
@@ -229,78 +133,33 @@ alias wa='whatsapp'
 alias calendar='qb win calendar.google.com'
 alias cala='calendar'
 alias habit='qb w.oo.win'
-alias gpt.qb='qb win chat.openai.com'
+alias gpt-qb='qb win chat.openai.com'
 ##### other
 alias sw='surfraw'
 alias sf='surfraw -browser="qb"'
 alias b="buku --suggest"
-
-
-######## calendars & contacts
-
-
 #### hleder
 alias hl='hledger'
 alias hla='hledger add'
-alias hlai='hledger +iadd'
-alias hli='hledger import'
 
 
-
-
+# - [ ] configure git shortcuts/aliases for aliasing the actual git cmds
+# - [ ] move below to other scripts and utilise autocomplete
 ##### termux / adb
-
 #alias trx.adbf="adb forward tcp:8022 tcp:8022 && ssh localhost -p 8022"
-
 # TODO:move:
 alias trx-mosh.pull="trx ip.pull && trx mosh.imp"
 alias trx-mosh="trx mosh.imp"
 alias trx-sshfs-pull="trx ip.pull && trx sshfs.imp"
 alias trx-sshfs="trx sshfs.imp"
-
 ##### backup / clean data
-
 ncdu-dt() { ncdu --exclude=".*" /data/ ; }
 ncdu-sy() { ncdu --exclude="/data/" / ;}
-
 #### audio
-
 mic_tst-a() { arecord -vvv -f dat /dev/null ; } # mic test
 mic_tst-b() { arecord -d 5 test-mic.wav ; }     # mic test
-alias a="vimpc"
-alias au="vimpc"
-#alias a="ncmpcpp"
-#alias au="ncmpcpp"
-
-#### networking
-
-
-alias blue-adisconnect="bluetoothctl disconnect"
-alias blue='bluetuith'
-
-#### system
-
-alias openu="xdg-open "$@" &"
-alias reboot="systemctl reboot"
-alias sys-sleep="systemctl suspend"
-alias sle="systemctl suspend"
-alias sll="systemctl suspend"
-alias unmountall='udiskie-umount -a --detach'
-alias sy="systemctl"
-alias syd="systemctl"
-
-#### xset
-
-alias xset-a="xset r rate 90 150"
-alias xset-b="xset r rate 100 100"
-alias xset-c="xset r rate 120 100"
-alias xset-d="xset r rate 150 90"
-alias xset-e="xset r rate 200 50"
-
 #### functions
-
 makeu()      { cd $1; exec make & }
-killc()      { i=0; while i < 10 ; do sudo pkill $1; done } # aggressive kill
 _xargs()     { xargs -0 < $sel ;}
 _xinit_dwm() { while true; do dwm 2> ~/.cache/dwm.log ; done } # Log stderror to a file 
 _finddiff()  { find "$1" "$2" "$2" -printf '%P\n' | sort | uniq -u ;}
@@ -327,34 +186,7 @@ sys-cursorfix() {
         ## uninstall and remove configs for orphan packages:
             ## check for useful packages first
 }
-
-# TODO: add to arch linux host env file ?
+# - [ ] add to arch linux host env file ?
 
 #alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
-
-#archive?
-
-_khalmod()   { [ -n "$1" ] && khal $@ -a Calendar -a Birthdays -a recur.yr || khal; }
-
-#### gcalcli
-alias gca="gcalcli"
-alias gcaw="gcalcli calw"
-alias gcam="gcalcli calm"
-#### khal
-# alias khal='khalmod'
-alias khalm='khalmod'
-alias k='khalmod'
-alias ki='ikhal'
-alias ke='k edit'
-alias kn='k new'
-alias ks='k search'
-alias kl='k list'
-alias kc='k calendar'
-#### khard
-alias kd='khard'
-alias kdl='khard list'
-alias kdlg='khard list | grep'
-
-#alias vdirsyncer="vdirsyncer sync && vdirsyncer metasync"
-alias iis="i3-swallow"
 
