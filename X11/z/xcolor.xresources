@@ -1,0 +1,10 @@
+! vim:ft=xdefaults
+!#include "X11/z/zcol.dracula.Xresources"
+!#include "X11/z/zcol.terminal.sexy.Xresources"
+! #include "X11/z/zcol.newer.Xresources"
+! #include "X11/z/zcol.sourcerer.Xresources"
+! #include "X11/z/zcol.th1.Xresources"
+! #include "X11/z/zcol.drac.Xresources"
+#include "X11/z/zcol-kanagawa.Xresources"
+#include "X11/z/zcol-nothingness.Xresources"
+! TODO: kanagawa-dragon Xreousrces variant

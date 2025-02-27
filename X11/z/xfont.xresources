@@ -1,0 +1,11 @@
+! vim:ft=xdefaults
+! fonts nerds
+*.font: JetBrainsMono Nerd Font:pixelsize=14;
+!*.font: JetBrainsMonoNL Nerd Font:pixelsize=14:hintstyle=hintfull;
+!*.font: FiraCode Nerd Font:pixelsize=14:antialias=true:autohint=true;
+! fonts normal
+!*.font: Liberation Mono:antialias=true:autohint=true;
+!*.font: Liberation Mono:pixelsize=12:antialias=true:autohint=true;
+!*.font: Liberation Mono:antialias=true:autohint=true:pixelsize=16;
+!*.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true;
+

@@ -31,22 +31,5 @@ tabbed.normbgcolor:    #000000
 *VT100.colorUL:        cyan
 *VT100.veryBoldColors: 6
 #include "urxvt/config"
-! color scheme
-#include "X11/z/zcol.kanagawa.Xresources"
-!#include "X11/z/zcol.dracula.Xresources"
-!#include "X11/z/zcol.terminal.sexy.Xresources"
-! #include "X11/z/zcol.newer.Xresources"
-! #include "X11/z/zcol.sourcerer.Xresources"
-! #include "X11/z/zcol.th1.Xresources"
-! #include "X11/z/zcol.drac.Xresources"
-! TODO: kanagawa-dragon Xreousrces variant
-#include "X11/z/zcol.nothingness.Xresources"
-! fonts nerds
-*.font: JetBrainsMono Nerd Font:pixelsize=14;
-!*.font: JetBrainsMonoNL Nerd Font:pixelsize=14:hintstyle=hintfull;
-!*.font: FiraCode Nerd Font:pixelsize=14:antialias=true:autohint=true;
-! fonts normal
-!*.font: Liberation Mono:antialias=true:autohint=true;
-!*.font: Liberation Mono:pixelsize=12:antialias=true:autohint=true;
-!*.font: Liberation Mono:antialias=true:autohint=true:pixelsize=16;
-!*.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true;
+#include "X11/z/xcolor.xresources"
+#include "X11/z/xfont.xresources"

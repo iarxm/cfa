@@ -1,10 +1,8 @@
 #!/bin/sh
-#feh --no-fehbg --bg-max "${BGX_FEH}" &
-#xset r rate 120 120 &
-xrr init
+xrr init &
 xrdb -I${HOME}/.config .config/X11/xresources &
 unclutter &
 picom &
 dunst &
 udiskie &
-# can any of these be migrated to systemd?
+# can any more of these be migrated to systemd?
