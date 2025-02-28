@@ -1,13 +1,12 @@
 #!/bin/sh
-#### new
-alias feh-setbg='feh --no-fehbg --bg-max "${BGX_FEH}"'
-# gen
+### new
+### gen
 alias tabbedx="tabbed -r 2 st -w ''"
-alias mr="mr --config $HOME/.config/mr/mrconfig"
+alias mr="mr --config ${HOME}/.config/mr/mrconfig"
 alias libr="libreoffice"
 alias bc="bc -ql"
 alias sc="sc-im"
-#### files
+### files
 alias cc="cd"
 alias cp="cp -iv"
 alias mv="mv -iv"
@@ -19,7 +18,7 @@ alias rm='echo "NOTE: use trash-put instead, but if youre sure \
     use /rm to overide"; false'
 alias rmm='echo "Using trash-put"; trash-put -v'
 alias tp="trash-put"
-## ls list
+### ls list
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 alias grep="grep --color=auto"
@@ -29,18 +28,18 @@ alias ls="ls --color=auto"
 alias lsl='ls -l --group-directories-first'
 alias lsa='ls -lA --group-directories-first'
 alias lsb='ls -A'
-# nnn;nvim;editor
+### nnn;nvim;editor
 alias g="git"
 alias si='sxiv' #alias sx='sxiv'
 alias l='lf'
 alias r='ranger'
 alias nnn="nnn -a"
 alias n="nnn -ea"
-alias e="$EDITOR"
-alias v="$EDITOR"
+alias e="${EDITOR}"
+alias v="${EDITOR}"
 alias vc="cud && nvim -c Ntr"
 alias vimdiff="nvim -d"
-alias openu="xdg-open "$@" &"
+alias openu="xdg-open "${@}" &"
 alias open='openu'
 alias o='openu' #alias op='
 # media
@@ -67,17 +66,19 @@ alias shutdownx="shutdown -h now"
 alias unmountall='udiskie-umount -a --detach'
 alias red-start="systemctl --user start redshift.service"
 alias red-stop="systemctl --user stop redshift.service"
-alias so="sudo"
-alias xrdbx="xrdb -I$HOME -merge $XDG_CONFIG_HOME/X11/xresources"
+alias feh-setbg='feh --no-fehbg --bg-max "${BGX_FEH}"'
+alias xrdbx="xrdb -I${HOME} -merge ${XDG_CONFIG_HOME}/X11/xresources"
+#alias xrdb-source="xrdb -I${XDG_CONFIG_HOME:-$HOME} .config/X11/xresources"
 alias autor-a="autorandr --load dock-ad"
 alias jxe='journalctl -xe'
-[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+[ -f "${XINITRC}" ] && alias startx="startx ${XINITRC}"
 for x in mount umount sv pacman updatedb su dmesg shutdown; do
-    alias $x="sudo $x"
+    alias ${x}="sudo ${x}"
 done
+alias so="sudo"
 alias sdk='sudo pkill'
 alias sdk-clamd='sudo pkill clamd'
-killc()      { i=0; while i < 10 ; do sudo pkill $1; done } # aggressive kill
+killc()      { i=0; while i < 10 ; do sudo pkill ${1}; done } # aggressive kill
 # other
 alias z="zathura"
 alias zi="i3-swallow zathura"
@@ -86,8 +87,8 @@ alias cl="clear"
 alias q='exit'
 alias magit="nvim -c MagitOnly"
 alias ref="shortcuts >/dev/null; \
-    source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; \
-    source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc"
+    source ${XDG_CONFIG_HOME:-${HOME}/.config}/shortcutrc ; \
+    source ${XDG_CONFIG_HOME:-${HOME}/.config}/zshnameddirrc"
 ## packages/pacman/pip
 alias p="pacman"
 alias pacs='pacman -S'
@@ -96,97 +97,40 @@ alias srcp="source ~/.config/shell/profile"
 alias syt='systemctl'
 #### dotfiles
 alias abook="abook \
-    --config $XDG_CONFIG_HOME/abook/abookrc \
-    --datafile $XDG_DATA_HOME/abook/addressbook"
-alias weechat="weechat -d $XDG_CONFIG_HOME/weechat/"
-alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-alias nrss="nrss -D $XDG_CONFIG_HOME/nrss/ \
-    -F $XDG_CACHE_HOME/nrss/feeds \
-    -L $XDG_CACHE_HOME/nrss/log"
-alias esniper="esniper -c $XDG_CONFIG_HOME/esniper/conf"
-alias apvlv="apvlv -c $XDG_CONFIG_HOME/apvlv/apvlvrc"
-alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/isyncrc"
-##### transmission remotes
+    --config ${XDG_CONFIG_HOME}/abook/abookrc \
+    --datafile ${XDG_DATA_HOME}/abook/addressbook"
+alias weechat="weechat -d ${XDG_CONFIG_HOME}/weechat/"
+alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
+alias nrss="nrss -D ${XDG_CONFIG_HOME}/nrss/ \
+    -F ${XDG_CACHE_HOME}/nrss/feeds \
+    -L ${XDG_CACHE_HOME}/nrss/log"
+alias esniper="esniper -c ${XDG_CONFIG_HOME}/esniper/conf"
+alias apvlv="apvlv -c ${XDG_CONFIG_HOME}/apvlv/apvlvrc"
+alias mbsync="mbsync -c ${XDG_CONFIG_HOME}/isync/isyncrc"
+#### transmission remotes
 alias tnr="transmission-remote"
 alias tnc="transmission-cli"
 alias tnd="transmission-daemon"
-#### mail
+### mail
 alias m="neomutt -e "push '<change-folder>=ii<enter>'""
 alias nmm="notmuch"
 alias mbsync-pull-create-mailbox="mbsync --pull --create -a"
-##### news
+#### news
 alias news="newsboat"
 alias ne="newsboat"
-######## browser
-#### basic
-alias qbw='qb win'
-alias qw='qb win'
-alias qwin='qb win'
-alias qx='qb xwin'
-alias qxw='qb xwin'
-alias qxt='qb xtab'
-alias qf='qb win.float'
-##### quteb.webapps
-alias whatsapp='firefox --new-window web.whatsapp.com'
+#### webapps
 #alias whatsapp='qb win web.whatsapp.com'
+alias whatsapp='firefox --new-window web.whatsapp.com'
 alias wa='whatsapp'
+alias gpt='qb win chat.openai.com'
 alias calendar='qb win calendar.google.com'
 alias cala='calendar'
 alias habit='qb w.oo.win'
-alias gpt-qb='qb win chat.openai.com'
-##### other
-alias sw='surfraw'
-alias sf='surfraw -browser="qb"'
 alias b="buku --suggest"
+#alias sw='surfraw'
+#alias sf='surfraw -browser="qb"'
 #### hleder
 alias hl='hledger'
 alias hla='hledger add'
-
-
-# - [ ] configure git shortcuts/aliases for aliasing the actual git cmds
-# - [ ] move below to other scripts and utilise autocomplete
-##### termux / adb
-#alias trx.adbf="adb forward tcp:8022 tcp:8022 && ssh localhost -p 8022"
-# TODO:move:
-alias trx-mosh.pull="trx ip.pull && trx mosh.imp"
-alias trx-mosh="trx mosh.imp"
-alias trx-sshfs-pull="trx ip.pull && trx sshfs.imp"
-alias trx-sshfs="trx sshfs.imp"
-##### backup / clean data
-ncdu-dt() { ncdu --exclude=".*" /data/ ; }
-ncdu-sy() { ncdu --exclude="/data/" / ;}
-#### audio
-mic_tst-a() { arecord -vvv -f dat /dev/null ; } # mic test
-mic_tst-b() { arecord -d 5 test-mic.wav ; }     # mic test
-#### functions
-makeu()      { cd $1; exec make & }
-_xargs()     { xargs -0 < $sel ;}
-_xinit_dwm() { while true; do dwm 2> ~/.cache/dwm.log ; done } # Log stderror to a file 
-_finddiff()  { find "$1" "$2" "$2" -printf '%P\n' | sort | uniq -u ;}
-
-#### maintentance
-
-# - [ ] add as autocompletions to 'sys' script with cases
-
-sys-cache-clear() {
-    # su 
-    printf "CCACHE: tidy journal entries...\n"
-    sudo journalctl --vacuum-size=100M
-    sudo journalctl --vacuum-time=3months
-    printf "CCACHE: clearing pacman cache\n"
-    sudo paccache -rk1 # keep latest 1 of pacman cache
-    paccache -ruk0 # rm cache of uninstalled
-}
-sys-cursorfix() {
-    #sudo rmmod psmouse
-    sudo modprobe -r psmouse
-    sudo modprobe psmouse
-    # another potential solution: Change the Touchpad setting in your BIOS from ADVANCED to BASIC (makes no difference with regards to functionality)
-    ## pacman -Qtdq | pacman -Rns -
-        ## uninstall and remove configs for orphan packages:
-            ## check for useful packages first
-}
-# - [ ] add to arch linux host env file ?
-
 #alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
-
+alias mrstatus="cd /dat && mr status | less"
