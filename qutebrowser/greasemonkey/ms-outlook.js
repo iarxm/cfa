@@ -169,9 +169,10 @@ function removeElements() {
         //document.querySelector('#O365_HeaderLeftRegion'),
         //document.querySelector('#O365_HeaderRightRegion'),
     ];
-    elementsToRemove.forEach(sel => {
-        sel.remove();
-    });
+
+    //elementsToRemove.forEach(sel => {
+    //    sel.remove();
+    //});
 }
 
 
@@ -246,7 +247,7 @@ function applyIndefinitely() {
 
 function applyLoop() {
      var intervalCount = 0;
-     var maxIntervals = 5;
+     var maxIntervals = 1000;
      var intervalId = setInterval(function() {
          if (intervalCount >= maxIntervals) {
              clearInterval(intervalId);
@@ -266,6 +267,8 @@ function main() {
     applyLoop();
     setInterval(applyIndefinitely, 10);
     moveElements();
+    const myDiv = document.querySelector('.C2IG3.if6B2.oTkSL.QreOD.phvtt.z6Kje');
+    myDiv.remove();
 }
 
 

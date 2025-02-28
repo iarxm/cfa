@@ -16,13 +16,6 @@ os.environ['COLORS_SOLAR_D']       = QUTE_CONFIG_HOME + "/interface/styles/solar
 os.environ['COLORS_SOLAR_L']       = QUTE_CONFIG_HOME + "/interface/styles/solarized-l/solarized-light-all-sites.css"
 os.environ['COLORS_BLACKX']        = QUTE_CONFIG_HOME + "/interface/styles/blackblack/black-all-sites.css"
 os.environ['WINDOW_ELEMENTS']      = QUTE_CONFIG_HOME + "/interface/styles/user.css"
-#filepicker                          = ["st", "-c", "filepicker", "-t", "filepicker", "-e", "lf", "-command", "set nohidden", "-selection-path={}",]
-#c.fileselect.handler                = "external"
-#c.fileselect.folder.command         = filepicker
-#c.fileselect.multiple_files.command = filepicker
-#c.fileselect.single_file.command    = filepicker
-# task: folder picker; and beautify
-#c.downloads.location.directory      = DATA + "/ui/iaa/"
 c.downloads.location.directory      = HOME + "/ai/"
 c.editor.command                    = ["st", "-c", "float", "nvim", "-O", "{}"] # i3 config 'float'
 c.spellcheck.languages              = ['en-GB']
@@ -133,8 +126,8 @@ c.url.searchengines['amn']         = 'https://www.amazon.nl/s?k={}'
 c.url.searchengines['ebay']        = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3' #ebay
 c.url.searchengines['she']         = c.url.searchengines['ebay']
 c.url.searchengines['eb']          = c.url.searchengines['ebay']
-#c.url.searchengines['she'] = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3'
-#c.url.searchengines['eb'] = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3'
+#c.url.searchengines['she']        = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3'
+#c.url.searchengines['eb']         = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3'
 c.url.searchengines['adverts']     = 'https://www.adverts.ie/for-sale/q_{}/' #adverts.donedeal
 c.url.searchengines['shadv']       = c.url.searchengines['adverts']
 c.url.searchengines['shadv']       = 'https://www.adverts.ie/for-sale/q_{}/'
@@ -158,6 +151,7 @@ c.aliases['bk']                    = 'spawn --userscript ~/.config/qutebrowser/u
 c.aliases['qbx']                   = 'spawn qb x {url}'
 c.aliases['firefox']               = 'spawn --userscript ~/.config/qutebrowser/userscripts/firefox --new-window {url}'
 c.aliases['ff']                    = 'firefox'
+c.aliases['grease-page-reload']    = 'greasemonkey-reload ;; reload'
 c.aliases['oil']                   = 'spawn st -c stf-buku1 oil-search'
 c.aliases['us_echo']               = 'spawn --userscript ~/.config/qutebrowser/userscripts/echo'
 c.aliases['colcycle']              = 'config-cycle content.user_stylesheets ' + os.getenv("COLORS_BLACKX") + '""'
@@ -196,7 +190,7 @@ config.bind(';U',                  'spawn yt-dlp {url}')
 config.bind(';a',                  'spawn yt-dlp -x {url}')
 config.bind(';o',                  'spawn -u open_download') # download
 config.bind('gd',                  'spawn -u jsdownload')
-####################### slowing config loading down:
+#### slowing config loading down
 config.bind(';t',                  'hint links spawn transmission-remote -a {hint-url}') # tors
 config.bind(';T',                  'hint -r links spawn transmission-remote -a {hint-url}')
 config.bind('gl',                  'hint links spawn -u ~/.config/qutebrowser/userscripts/doi')
@@ -205,12 +199,12 @@ config.bind('gz',                  'spawn --userscript qute-zotero')
 config.bind('gb',                  'spawn --userscript getbib')
 config.bind('gr',                  'spawn --userscript readability')
 config.bind('gc',                  'spawn --userscript gitclone')
-################## #
+####
 config.bind('<z><l>',              'spawn --userscript qute-pass')
 config.bind('<z><u>',              'spawn --userscript qute-pass --username-only')
 config.bind('<z><p>',              'spawn --userscript qute-pass --password-only')
 config.bind('<z><o>',              'spawn --userscript qute-pass --otp-only')
-###################
+####
 config.bind('<Alt-j>',             'cmd-run-with-count 15 scroll down', mode='normal')
 config.bind('<Alt-k>',             'cmd-run-with-count 15 scroll up', mode='normal')
 config.bind('<Alt-j>',             'cmd-run-with-count 10 scroll down', mode='normal')
@@ -258,3 +252,11 @@ config.bind('<Alt-Shift-k>',       'zoom-in')
 config.bind('<Alt-Shift-j>',       'zoom-out')
 config.bind(',d',                  "set-cmd-text -s :darkreader enable '{url}*'")
 config.bind(',r',                  "set-cmd-text -s :darkreader disable '{url}*'")
+#archive
+#filepicker                          = ["st", "-c", "filepicker", "-t", "filepicker", "-e", "lf", "-command", "set nohidden", "-selection-path={}",]
+#c.fileselect.handler                = "external"
+#c.fileselect.folder.command         = filepicker
+#c.fileselect.multiple_files.command = filepicker
+#c.fileselect.single_file.command    = filepicker
+# task: folder picker; and beautify
+#c.downloads.location.directory      = DATA + "/ui/iaa/"
