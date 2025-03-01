@@ -237,6 +237,7 @@ function applyStyles() {
     updateElementStyles();
     moveElements();
     removeElements();
+    applyToAllBackgrounds();
 }
 
 
@@ -247,7 +248,7 @@ function applyIndefinitely() {
 
 function applyLoop() {
      var intervalCount = 0;
-     var maxIntervals = 1000;
+     var maxIntervals = 8;
      var intervalId = setInterval(function() {
          if (intervalCount >= maxIntervals) {
              clearInterval(intervalId);
@@ -261,13 +262,25 @@ function applyLoop() {
      }, 1000); // milliseconds
 }
 
+function applyLoop2() {
+    var intervalCount = 0;
+    var maxIntervals = 100;
+    var intervalId = setInterval(function() {
+        if (intervalCount >= maxIntervals) {
+            clearInterval(intervalId);
+            return;
+        }
+    const myDiv = document.querySelector('.C2IG3.if6B2.oTkSL.QreOD.phvtt.z6Kje');
+        intervalCount++;
+     }, 1000); // milliseconds
+}
+
 
 function main() {
     applyStyles(); // initial mod
     applyLoop();
-    setInterval(applyIndefinitely, 10);
+    //setInterval(applyIndefinitely, 10);
     moveElements();
-    const myDiv = document.querySelector('.C2IG3.if6B2.oTkSL.QreOD.phvtt.z6Kje');
     myDiv.remove();
 }
 
