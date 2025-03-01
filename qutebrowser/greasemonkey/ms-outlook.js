@@ -247,30 +247,25 @@ function applyIndefinitely() {
 
 
 function applyLoop() {
-     var intervalCount = 0;
-     var maxIntervals = 8;
-     var intervalId = setInterval(function() {
-         if (intervalCount >= maxIntervals) {
-             clearInterval(intervalId);
-             return;
-         }
-         if (intervalCount = 4) {
-             showContent();
-         }
-         applyStyles(); // initial mod
-         intervalCount++;
-     }, 1000); // milliseconds
-}
-
-function applyLoop2() {
     var intervalCount = 0;
-    var maxIntervals = 100;
+    var maxIntervals = 11;
     var intervalId = setInterval(function() {
         if (intervalCount >= maxIntervals) {
             clearInterval(intervalId);
             return;
         }
-    const myDiv = document.querySelector('.C2IG3.if6B2.oTkSL.QreOD.phvtt.z6Kje');
+        if (intervalCount === 4) {
+             showContent();
+        }
+        if (intervalCount <= 8) {
+            applyStyles(); // initial mod
+        }
+        if (intervalCount === 10) {
+            document.querySelector('[title="Notes - 0 items"]').remove();
+            document.querySelector('[title="Snoozed - 0 items"]').remove();
+            document.querySelector('[title="Conversation History - 0 items"]').remove();
+            document.querySelector('[data-folder-name="go to groups"]').remove();
+        }
         intervalCount++;
      }, 1000); // milliseconds
 }
@@ -280,8 +275,7 @@ function main() {
     applyStyles(); // initial mod
     applyLoop();
     //setInterval(applyIndefinitely, 10);
-    moveElements();
-    myDiv.remove();
+    //applyLoop2();
 }
 
 

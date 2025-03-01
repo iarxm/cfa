@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         blackify
+// @name         blackx
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Change background color to black for elements with a defined background color
+// @description  change background color to black for elements with a defined background color
 // @author       iarom
 // @match        *://*/*
 // @grant        none
@@ -18,7 +18,7 @@
 
     document.querySelectorAll('*').forEach(element => { changeBgr(element); }); //  iterate
 
-    // Optional: MutationObserver to handle dynamically added elements
+    // optional: MutationObserver to handle dynamically added elements
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             if (!mutation.addedNodes) return;
