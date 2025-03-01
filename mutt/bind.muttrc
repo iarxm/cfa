@@ -1,4 +1,3 @@
-
 #### noops
 
 bind compose,attach o  noop
@@ -16,7 +15,6 @@ bind index,pager    b  noop
 bind index,pager    m  noop
 bind index,pager    V  noop
 bind index,pager    s  noop
-
 
 #### binds
 
@@ -45,75 +43,65 @@ set my_nund         =      "<next-undeleted><next-undeleted><next-undeleted>"
 set my_pund         =      "<previous-undeleted><previous-undeleted><previous-undeleted>"
 macro index,pager   "\ek"  "$my_pund$my_pund$my_pund$my_pund"
 macro index,pager   "\ej"  "$my_nund$my_nund$my_nund$my_nund"
-
-
 #### contacts
-
 macro index,pager   A       <create-alias>
 bind editor         <Tab>   complete-query
 bind editor         ^T      complete
 # macro index,pager   "a"   "<pipe-message>goobook add<return>" # goobook unmainted
-
-
 #### mods
-
 macro index,pager   .r     "<enter-command>source $my_cfg/muttrc<enter>"
 macro index,pager   mww    "<sync-mailbox>y<enter>"
 macro index,pager   "\CR"  "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"
 
+#### mview macros
 
-#### complex macros
-
-set my_mvw           = "mview"
-set my_uid           = `mview uid` # mutt fails to recognise $UID by itself
-
-set my_f_fifo        = "/run/user/$my_uid/mutt/fifo"
-set my_f_mime        = "/run/user/$my_uid/mutt/mviewx.mime"
-set my_f_mvwx        = "/run/user/$my_uid/mutt/mviewx.html"
-set my_f_mvwy        = "/run/user/$my_uid/mutt/mviewy.html"
-
+# brx interfaces with mview while loop
+# bry for manual calls
 set my_donothing     = " "
-set my_get_html      = "<view-attachments><search>html<enter>"
-
-set my_pipe_ico      = "<pipe-entry>iconv -c --to-code=UTF8   > $my_f_mvwy<enter>"
-set my_pipe_mvwx     = "<pipe-entry>cat > $my_f_mvwx<enter>"
+set my_uid           = `mview uid` # mutt fails to recognise $UID by itself
+set my_f_root        = "/run/user/$my_uid/mutt"
+set my_pipe_mvwx     = "<pipe-entry>cat > $my_f_root/mview-x.mime\
+                         && echo y > $my_f_fifo<enter>"
 set my_pipe_mvwy     = "<pipe-entry>cat > $my_f_mvwy<enter>"
-set my_pipe_fif      = "<pipe-entry>cat > $my_f_mime && echo y > $my_f_fifo<enter>"
-
-# brx is called by the while loop in mview. bry is alternative dest for manual calls
-set my_mvw_bry       = "<shell-escape>qb my >/dev/null<enter>" # default
-set my_mvw_bfl       = "<shell-escape>$my_mvw b-qb-float<enter>"
-set my_mvw_btr       = "<shell-escape>$my_mvw b-term<enter>"
-set my_mvw_ini       = "<shell-escape>$my_mvw b-qb-rip &<enter>"
-set my_bry           = "$my_get_html  $my_pipe_mvwy $my_mlx_bry<exit>" #
-set my_bry_i         = "$my_donothing $my_pipe_ico  $my_mlx_bry<exit>" # second
-set my_bfy           = "$my_get_html  $my_pipe_ico  $my_mlx_bfl<exit>" # float x
-set my_bfi           = "$my_donothing $my_pipe_ico  $my_mlx_bfl<exit>" # float y
-set my_btr           = "$my_get_html  $my_pipe      $my_mlx_btr<exit>" # terminal
-
-set my_next_on       = '<enter-command>macro index,pager j "<next-entry>    $my_pipe_fif"'
-set my_prev_on       = '<enter-command>macro index,pager k "<previous-entry>$my_pipe_fif"'
+set my_get_html      = "<view-attachments><search>html<enter>$my_f_root/mview-y.html"
+set my_mvw         = "<shell-escape>mview qb-rip &<enter>"
+set my_bry           = "$my_get_html <shell-escape>mview bry<enter><exit>" #
+set my_bfy           = "$my_get_html <shell-escape>mview bfl<enter><exit>" # float y
+set my_next_on       = '<enter-command>macro index,pager j "<next-entry>    $my_pipe_mvw"'
+set my_prev_on       = '<enter-command>macro index,pager k "<previous-entry>$my_pipe_mvw"'
 set my_next_off      = '<enter-command>macro index,pager j "<next-entry>"'
 set my_prev_off      = '<enter-command>macro index,pager k "<previous-entry>"'
+set my_mvw_down      = "$my_next_off <enter> $my_prev_off<enter>" # kill viewer
+set my_mvw_up        = "$my_next_on  <enter> $my_prev_on <enter>" # init viewer
+#macro index,pager    bd   "$my_donothing $my_next_off<enter> $my_prev_off<enter>"   # kill viewer
+#macro index,pager    bu   "$my_p_mvw     $my_next_on <enter> $my_prev_on <enter>"   # init viewer
+macro index,pager    bd   "$my_mvw_down"    
+macro index,pager    bu   "$my_mvw_up"
+macro index,pager    bi   "$my_mvw"     # init auto pipe
+macro index,pager    bb   "$my_bry"     # open in
 
-macro index,pager    bu   "$my_mvw_ini   $my_next_on <enter> $my_prev_on <enter>"   # init viewer
-macro index,pager    bd   "$my_donothing $my_next_off<enter> $my_prev_off<enter>"   # kill viewer
-macro index,pager    bi   "$my_mvw_ini"  # init auto pipe
-macro index,pager    bb   "$my_bry"      # open in
-macro attach,compose bb   "$my_bry_i"    # open in
-macro index,pager    bfx  "$my_bfx"      # open in float
-macro attach,compose bfy  "$my_bfy"      # open in float
-macro index,pager    bt   "$my_btr"      # browser text
-macro compose        .mm  "$my_sty"      # post processing styling
-
-set my_mlx_md2ht     = "<shell-escape>mlx md2html<enter>"
-set my_stylex        = "$my_donothing $my_pipe      $my_mlx_md2ht"     # styling
-
+#macro index,pager    bb   "$my_bry"      # open in
+#macro attach,compose bb   "$my_bry_i"    # open in
+#macro index,pager    bfx  "$my_bfx"      # open in float
+#macro attach,compose bfy  "$my_bfy"      # open in float
+#macro index,pager    bt   "$my_btr"      # browser text
 
 macro index,pager \cb "<enter-command> set my_pdsave=\$pipe_decode<enter>\
         <enter-command> unset pipe_decode<enter>\
         <pipe-message>  extract_url | urlscan --compact --run 'qb win {}'<enter>\
         <enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
 
+## more macros
+
+set my_mlx_md2ht     = "<shell-escape>mlx md2html<enter>"
+set my_stylex        = "$my_donothing $my_pipe      $my_mlx_md2ht"     # styling
+macro compose        .mm  "$my_sty"      # post processing styling
+
+## archive
+#set my_f_mvwx        = "$my_f_root/mview-x.html"
+#set my_pipe_mvwx     = "<pipe-entry>cat > $my_f_mvwx<enter>"
+#set my_btr           = "$my_get_html  $my_pipe      $my_mvw_btr<exit>" # terminal
+#set my_bry_i         = "              $my_pipe_ico  $my_mvw_bry<exit>" # second
+#set my_p_btr       = "<shell-escape>mview btr<enter>"
 
 ## vim:ft=muttrc syntax=neomuttrc
