@@ -114,7 +114,7 @@ alias tnd="transmission-daemon"
 ### mail
 alias m="neomutt -e "push '<change-folder>=ii<enter>'""
 alias nmm="notmuch"
-alias mbsync-pull-create-mailbox="mbsync --pull --create -a"
+alias mbsync-pull-new-mailboxs="mbsync --pull --create -a"
 #### news
 alias news="newsboat"
 alias ne="newsboat"
