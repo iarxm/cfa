@@ -1,5 +1,14 @@
 local M = {}
 
+
+M.syntax_toggle = function()
+    if vim.fn.exists('g:syntax_on') == 1 then
+        vim.cmd('syntax off')
+    else
+        vim.cmd('syntax enable')
+end
+
+
 M.filetype_test = function()
     -- exclusion ft's
     local markdown_file_types = {
