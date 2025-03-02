@@ -13,6 +13,13 @@ set $ws7                 7
 set $ws8                 8
 set $ws9                 9
 set $ws10                10
+set $ws_oo               xoo
+set $ws_ai               xai
+set $ws_ml               xml
+set $ws_mk               xmk
+set $ws_mr               xmr
+set $ws_mj               xmj
+set $ws_rd               xrd
 set $exn                 exec --no-startup-id
 set $ixx                 exec ixx
 set $isf                 exec i3s ffxr
@@ -99,6 +106,9 @@ workspace $ws7            output nonprimary
 workspace $ws8            output nonprimary
 workspace $ws9            output nonprimary
 workspace $ws10           output nonprimary
+workspace $ws_oo          output nonprimary
+workspace $ws_ml          output nonprimary
+workspace $ws_mk          output nonprimary
 mode "resize" {
         bindsym j         resize shrink height 10 px or 10 ppt
         bindsym k         resize grow height 10 px or 10 ppt
@@ -129,10 +139,10 @@ bindsym $mdb+m               $isw xml
 bindsym $mdb+Shift+m         $ixx wxml
 bindsym $mdb+n               $isw xmr  # news readers
 bindsym $mdb+Shift+n         $ixx wxmr # news readers
-bindsym $mda+o               $isw xmj
-bindsym $mda+Shift+o         $ixx wxmj
 bindsym $mdb+r               $isw xrd
 bindsym $mdb+$mda+Shift+r    $ixx wxrd
+bindsym $mda+o               $isw xmj
+bindsym $mda+Shift+o         $ixx wxmj
 # functional
 bindsym $mda+b               $isw xau
 bindsym $mda+Shift+b         $ixx wxau
