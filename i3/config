@@ -1,37 +1,38 @@
-set $mod                 mod4
-set $mod1                mod1
-set $mda                 mod4
-set $mdb                 mod1
-set $ws0                 0
-set $ws1                 1
-set $ws2                 2
-set $ws3                 3
-set $ws4                 4
-set $ws5                 5
-set $ws6                 6
-set $ws7                 7
-set $ws8                 8
-set $ws9                 9
-set $ws10                10
-set $ws_oo               xoo
-set $ws_ai               xai
-set $ws_ml               xml
-set $ws_mk               xmk
-set $ws_mr               xmr
-set $ws_mj               xmj
-set $ws_rd               xrd
-set $exn                 exec --no-startup-id
-set $ixx                 exec ixx
-set $isf                 exec i3s ffxr
-set $isw                 exec i3s wx
-set $isx                 exec i3s
-floating_modifier        $mda
-floating_maximum_size    0 x 0
-include                  ~/.config/i3/x-preview.config
-include                  ~/.config/i3/x-window.config
-include                  ~/.config/i3/x-color.config
-include                  ~/.config/i3/x-status.config
-exec --no-startup-id     i3sbar-c
+set $mod                  mod4
+set $mod1                 mod1
+set $mda                  mod4
+set $mdb                  mod1
+set $ws0                  0
+set $ws1                  1
+set $ws2                  2
+set $ws3                  3
+set $ws4                  4
+set $ws5                  5
+set $ws6                  6
+set $ws7                  7
+set $ws8                  8
+set $ws9                  9
+set $ws10                 10
+set $ws_oo                xoo
+set $ws_ai                xai
+set $ws_ml                xml
+set $ws_mk                xmk
+set $ws_mr                xmr
+set $ws_mj                xmj
+set $ws_rd                xrd
+set $ws_au                xau
+set $exn                  exec --no-startup-id
+set $ixx                  exec ixx
+set $isf                  exec i3s ffxr
+set $isw                  exec i3s wx
+set $isx                  exec i3s
+floating_modifier         $mda
+floating_maximum_size     0 x 0
+include                   ~/.config/i3/x-preview.config
+include                   ~/.config/i3/x-window.config
+include                   ~/.config/i3/x-color.config
+include                   ~/.config/i3/x-status.config
+exec --no-startup-id      i3sbar-c
 bindsym $mdb+Ctrl+k       $exn pamixer --allow-boost -i 10
 bindsym $mdb+Ctrl+j       $exn pamixer --allow-boost -d 10
 bindsym $mdb+Ctrl+p       $exn mpc toggle
@@ -72,11 +73,9 @@ bindsym $mdb+Shift+k      move up
 bindsym $mda+Shift+r      restart
 bindsym $mdb+Shift+r      reload 
 bindsym $mda+r            mode "resize"
-#bindsym $mda+$mdb         $exn i3poly-hide
 bindsym $mda+Shift+e      exec "i3-nagbar -t warning -m 'exit i3?' -B 'exit i3' 'i3-msg exit'" 
 bindsym $mda+h            $isx left
 bindsym $mda+l            $isx right
-#bindsym $mdb+$mda+n       workspace number 1
 bindsym $mdb+0            workspace number $ws0
 bindsym $mdb+1            workspace number $ws1
 bindsym $mdb+2            workspace number $ws2
@@ -109,6 +108,7 @@ workspace $ws10           output nonprimary
 workspace $ws_oo          output nonprimary
 workspace $ws_ml          output nonprimary
 workspace $ws_mk          output nonprimary
+workspace $ws_au          output nonprimary
 mode "resize" {
         bindsym j         resize shrink height 10 px or 10 ppt
         bindsym k         resize grow height 10 px or 10 ppt
@@ -122,40 +122,43 @@ mode "resize" {
         bindsym Escape    mode "default"
         bindsym $mda+r    mode "default"
 }
-bindsym $mdb+Return          exec st
-bindsym $mdb+b               exec qb
-bindsym $mdb+a               exec qb w.gpt
-bindsym $mdb+$mda+b          exec firefox
-bindsym $mda+$mdb+a          $ixx au
-bindsym $mda+$mdb+m          $ixx w.ml
-# work
-bindsym $mdb+o               $isw xai
-bindsym $mdb+Shift+o         $ixx wxai
-bindsym $mdb+p               $isw xoo
-bindsym $mdb+Shift+p         $ixx wxoo
-bindsym $mda+m               $isw xmk  # coms (beeper)
-bindsym $mda+Shift+m         $ixx wxmk # coms (beeper)
-bindsym $mdb+m               $isw xml
-bindsym $mdb+Shift+m         $ixx wxml
-bindsym $mdb+n               $isw xmr  # news readers
-bindsym $mdb+Shift+n         $ixx wxmr # news readers
-bindsym $mdb+r               $isw xrd
-bindsym $mdb+$mda+Shift+r    $ixx wxrd
-bindsym $mda+o               $isw xmj
-bindsym $mda+Shift+o         $ixx wxmj
+bindsym $mdb+Return       exec st
+bindsym $mdb+b            exec qb
+bindsym $mdb+a            exec qb w.gpt
+bindsym $mdb+$mda+b       exec firefox
+bindsym $mda+$mdb+a       $ixx au
+bindsym $mda+$mdb+m       $ixx ml
+# spaces
+bindsym $mdb+o            $isw xai
+bindsym $mdb+Shift+o      $ixx xai
+bindsym $mdb+p            $isw xoo
+bindsym $mdb+Shift+p      $ixx xoo
+bindsym $mda+o            $isw xmj
+bindsym $mda+Shift+o      $ixx xmj
+bindsym $mdb+m            $isw xml
+bindsym $mdb+Shift+m      $ixx xml
+bindsym $mda+m            $isw xmk # IM coms
+bindsym $mda+Shift+m      $ixx xmk # IM coms
+bindsym $mdb+n            $isw xmr # news readers
+bindsym $mdb+Shift+n      $ixx xmr # news readers
+bindsym $mdb+r            $isw xrd
+bindsym $mdb+$mda+Shift+r $ixx xrd
+bindsym $mda+b            $isw xau
+bindsym $mda+Shift+b      $ixx xau
+bindsym $mda+a            $isw xsx
+bindsym $mda+Shift+a      $ixx xsx
 # functional
-bindsym $mda+b               $isw xau
-bindsym $mda+Shift+b         $ixx wxau
-bindsym $mda+a               $isw xsx
-bindsym $mda+Shift+a         $ixx wxsx
-bindsym $mdb+i               $isf nnn1
-bindsym $mdb+Shift+i         $ixx nn1
-bindsym $mda+i               $isf nnn2
-bindsym $mda+Shift+i         $ixx nn2
-bindsym $mdb+Ctrl+i          $isf nnn3
-bindsym $mdb+Ctrl+Shift+i    $ixx nn3
-#bindsym $mdb+n               $isf n0
-#bindsym $mdb+Shift+n         $ixx vfua
-bindsym $mda+n               [class="^n1$"] scratchpad show
-bindsym $mda+Shift+n         $ixx vfub
+bindsym $mdb+i            $isf nnf1
+bindsym $mdb+Shift+i      $ixx nnf1
+bindsym $mda+i            $isf nnf2
+bindsym $mda+Shift+i      $ixx nnf2
+bindsym $mdb+Ctrl+i       $isf nnf3
+bindsym $mdb+Ctrl+Shift+i $ixx nnf3
+# todo: make workspace version of vfub?
+bindsym $mda+n            [class="^vfub$"] scratchpad show
+bindsym $mda+Shift+n      $ixx vfub
+#bindsym $mdb+n            $isf vfua
+#bindsym $mdb+Shift+n      $ixx vfua
+#bindsym $mdb+$mda+n       workspace number 1
+#bindsym $mda+$mdb         $exn i3poly-hide
 ## vim: set ft=i3config
