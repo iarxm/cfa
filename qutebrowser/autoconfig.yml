@@ -108,6 +108,8 @@ settings:
   content.javascript.clipboard:
     https://outlook.office365.com: access-paste
     https://portal.azure.com: access-paste
+    https://wbyyte-my.sharepoint.com: access-paste
+    https://www.google.com: access-paste
   content.javascript.enabled:
     global: true
   content.media.audio_capture:

@@ -165,14 +165,18 @@ function moveElements() {
 function removeElements() {
     var elementsToRemove = [
         document.querySelector('#leftCharmsRegion'),
+        document.querySelector('[title="Notes - 0 items"]'),
+        document.querySelector('[title="Snoozed - 0 items"]'),
+        document.querySelector('[title="Conversation History - 0 items"]'),
+        document.querySelector('[data-folder-name="go to groups"]'),
+        document.querySelector('[title="Search Folders"]'),
         //document.querySelector('#O365_MainLink_NavMenu'),
         //document.querySelector('#O365_HeaderLeftRegion'),
         //document.querySelector('#O365_HeaderRightRegion'),
     ];
-
-    //elementsToRemove.forEach(sel => {
-    //    sel.remove();
-    //});
+    elementsToRemove.forEach(sel => {
+        sel?.remove();
+    });
 }
 
 
@@ -187,6 +191,33 @@ function moveElement(selector, target, method) {
     }
 }
 
+function renameFolders() {
+    //document.querySelector('.cPn._8g73.if6B2').textContent = 'z-arc';
+    const allSpans = document.querySelectorAll('span');
+
+    for (const span of allSpans) {
+        if (span.textContent.trim() === 'Archive') {
+            span.textContent = 'z-arc';
+        }
+        if (span.textContent.trim() === 'Junk Email') {
+            span.textContent = 'iksp';
+        }
+        if (span.textContent.trim() === 'Deleted Items') {
+            span.textContent = 'yzb';
+        }
+    }
+}
+
+function sortFolders() {
+    //document.querySelector('.cPn._8g73.if6B2').textContent = 'z-arc';
+    const folderArchive = document.querySelector('[data-folder-name="archive"]');
+    const archiveParent = folderArchive.parentNode;
+    archiveParent.removeChild(folderParent);
+    console.log('item =', folderArchive);
+    if (archiveParent) {
+        console.log('parent =', archiveParent);
+    }
+}
 
 function applyBackgroundColor(selector, color) {
     var elements = document.querySelectorAll(selector);
@@ -194,7 +225,6 @@ function applyBackgroundColor(selector, color) {
         element.style.backgroundColor = color;
     });
 }
-
 
 function applyToAllBackgrounds() {
     var allElements = document.querySelectorAll('*');
@@ -248,11 +278,14 @@ function applyIndefinitely() {
 
 function applyLoop() {
     var intervalCount = 0;
-    var maxIntervals = 11;
+    var maxIntervals = 12;
     var intervalId = setInterval(function() {
         if (intervalCount >= maxIntervals) {
             clearInterval(intervalId);
             return;
+        }
+        if (intervalCount === 1) {
+            renameFolders;
         }
         if (intervalCount === 4) {
              showContent();
@@ -261,10 +294,32 @@ function applyLoop() {
             applyStyles(); // initial mod
         }
         if (intervalCount === 10) {
-            document.querySelector('[title="Notes - 0 items"]').remove();
-            document.querySelector('[title="Snoozed - 0 items"]').remove();
-            document.querySelector('[title="Conversation History - 0 items"]').remove();
-            document.querySelector('[data-folder-name="go to groups"]').remove();
+            removeElements;
+            renameFolders;
+            
+            //document.querySelector('.cPn._8g73.if6B2').textContent = 'z-arc';
+            const allSpans = document.querySelectorAll('span');
+
+            for (const span of allSpans) {
+                if (span.textContent.trim() === 'Drafts') {
+                    span.textContent = 'idr';
+                }
+                if (span.textContent.trim() === 'Junk Email') {
+                    span.textContent = 'iksp';
+                }
+                if (span.textContent.trim() === 'Archive') {
+                    span.textContent = 'ya';
+                }
+                if (span.textContent.trim() === 'Deleted Items') {
+                    span.textContent = 'yzb';
+                }
+                if (span.textContent.trim() === 'Sent Items') {
+                    span.textContent = 'ysn';
+                }
+            }
+        }
+        if (intervalCount === 11) {
+            //sortFolders();
         }
         intervalCount++;
      }, 1000); // milliseconds
