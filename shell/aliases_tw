@@ -1,17 +1,10 @@
 #!/bin/sh
-
 # don't use these; just use tw as it is and then reconsider which
 # aliases are truly useful. first keep to a selective group of aliases
 
-#### taskwarrior
-
-#### basic
-alias tt='taskwarrior-tui'
-alias ttu='taskwarrior-tui'
-alias vit="TASKRC=$HOME/.config/task/modules/vit-taskrc && vit && TASKRC=$HOME/.config/task/taskrc"
 #### listing through filters
-alias tl='task list'
-alias t.l='task list'
+alias oal='task list'
+alias to.l='task list'
 alias tls='task ls'
 alias t.ls='task ls'
 alias tph='task priority:H'
@@ -36,11 +29,10 @@ alias t.rp="task projects rc.list.all.projects=yes 2>/dev/null | grep -E '^\w'"
 alias t.pp="task projects rc.list.all.projects=yes"
 alias t.sum='task summary'
 #### adding
-alias t='task'
 alias ta='task add'
 alias t.a='task add'
 alias t.aph='task add priority:H'
-#### Modifying and reviewing
+#### modifying and reviewing
 alias tm='task modify'
 alias tmod='task modify'
 alias te='task edit'
@@ -56,7 +48,7 @@ alias tcrr="task context none"
 alias tc='task context'
 #### functions
 function tcvadd () { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
-function twwww () { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
+function twwww ()  { task add project:inc.cv."$1" +cv +inc "$2" "$3" "$4" "$5" "$6"; }
 
 # personal
 
@@ -68,7 +60,14 @@ alias tats='task add +srf'
 alias tctk='task context tk'
 alias tcsrf='task context srf'
 
-taskx() { task rc.bulk=0 rc.confirmation=off rc.dependency.confirmation=off rc.recurrence.confirmation=off $@; }
+taskx()
+{
+    task \
+        rc.bulk=0 rc.confirmation=off \
+        rc.dependency.confirmation=off \
+        rc.recurrence.confirmation=off \
+        ${@}
+}
 
 tw-pri-l()  { taskx "$@" modify priority:L; }
 tw-pri-m()  { taskx "$@" modify priority:M; }
@@ -106,3 +105,5 @@ tw-dmenu() {
 #+fin
 #+mth"
 
+
+#alias ttu='taskwarrior-tui'
