@@ -1,10 +1,10 @@
-# General Colors   -------------------------------------------------
+# General Colors
 color normal default default                            # general text
 color error color231 color212                           # error messages
 color message default default                           # messages at the bottom
 color prompt default default                            # prompt text
 color search black color10                              # search highlight
-# Statusbar Colors   ----------------------------------------------
+# Statusbar Colors   
 color status color141 default
 color status color7 color8 '([a-zA-Z0-9\.,]|\[|\])(\s)'  # bubble content 1
 color status color7 color8 '(\s)([a-zA-Z0-9\.,]|\[|\])'  # bubble content 2
@@ -19,7 +19,7 @@ color status yellow color8 ''                           # Flagged icon
 color status red color8 ''                              # Pending delete icon
 #color status black black                              # HIDE IT
 color status black black                              # HIDE IT
-# Index Colors   --------------------------------------------------------------------
+# Index Colors   
 color index color15 default '~N'                # new messages
 color index color8 default '~R'                 # read messages
 color index color8 default '~Q'                 # messages which have been replied to
@@ -39,8 +39,7 @@ color tree  color8 color8                       # thread tree lines/arrow
 color indicator default color8                  # selection indicator
 color index_date color8 default                 # date is always the same colour
 color index_label color6 default                # label is always the same colour
-
-# Sidebar Colors   ------------------------------------------------------------------
+# Sidebar Colors   
 color sidebar_indicator color14 black   # currently selected mailbox
 color sidebar_highlight white color8    # highlighted, but not open, mailbox.
 color sidebar_ordinary color8 default   # Color to give mailboxes by default
@@ -49,9 +48,9 @@ color sidebar_flagged red black         # mailboxes containing flagged mail
 color sidebar_new green black           # mailboxes containing new mail
 color sidebar_unread color7 default     # mailboxes containing unread mail
 color sidebar_unread color7 default     # mailboxes containing unread mail
-# Message Headers   -----------------------------------------------------------------
+# Message Headers   
 color hdrdefault color8 default
-# Message Body   --------------------------------------------------------------------
+# Message Body   
 # Attachments
 color attachment color8 default
 # Signature

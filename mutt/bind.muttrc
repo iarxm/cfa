@@ -1,5 +1,4 @@
 #### noops
-
 bind compose,attach o  noop
 bind index,pager    o  noop
 bind index,pager    b  noop
@@ -17,7 +16,6 @@ bind index,pager    V  noop
 bind index,pager    s  noop
 
 #### binds
-
 bind index,pager    bs      sidebar-toggle-visible
 bind index,pager    "\Cg"   sidebar-first
 bind index,pager    "\Cf"   sidebar-last
@@ -50,11 +48,11 @@ bind editor         ^T      complete
 # macro index,pager   "a"   "<pipe-message>goobook add<return>" # goobook unmainted
 #### mods
 macro index,pager   .r     "<enter-command>source $my_cfg/muttrc<enter>"
-macro index,pager   mww    "<sync-mailbox>y<enter>"
+#macro index,pager   mww    "<sync-mailbox>y<enter>"
+macro index,pager    mww    "<sync-mailbox>"
 macro index,pager   "\CR"  "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"
 
 #### mview macros
-
 # brx interfaces with mview while loop
 # bry for manual calls
 set my_donothing     = " "
@@ -64,7 +62,7 @@ set my_pipe_mvwx     = "<pipe-entry>cat > $my_f_root/mview-x.mime\
                          && echo y > $my_f_fifo<enter>"
 set my_pipe_mvwy     = "<pipe-entry>cat > $my_f_mvwy<enter>"
 set my_get_html      = "<view-attachments><search>html<enter>$my_f_root/mview-y.html"
-set my_mvw         = "<shell-escape>mview qb-rip &<enter>"
+set my_mvw           = "<shell-escape>mview qb-rip &<enter>"
 set my_bry           = "$my_get_html <shell-escape>mview bry<enter><exit>" #
 set my_bfy           = "$my_get_html <shell-escape>mview bfl<enter><exit>" # float y
 set my_next_on       = '<enter-command>macro index,pager j "<next-entry>    $my_pipe_mvw"'
@@ -92,7 +90,6 @@ macro index,pager \cb "<enter-command> set my_pdsave=\$pipe_decode<enter>\
         <enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
 
 ## more macros
-
 set my_mlx_md2ht     = "<shell-escape>mlx md2html<enter>"
 set my_stylex        = "$my_donothing $my_pipe      $my_mlx_md2ht"     # styling
 macro compose        .mm  "$my_sty"      # post processing styling
@@ -103,5 +100,4 @@ macro compose        .mm  "$my_sty"      # post processing styling
 #set my_btr           = "$my_get_html  $my_pipe      $my_mvw_btr<exit>" # terminal
 #set my_bry_i         = "              $my_pipe_ico  $my_mvw_bry<exit>" # second
 #set my_p_btr       = "<shell-escape>mview btr<enter>"
-
 ## vim:ft=muttrc syntax=neomuttrc

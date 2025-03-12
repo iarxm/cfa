@@ -1,16 +1,12 @@
 ## vim: set ft=neomuttrc
-
 ## notmuch
 set nm_default_url      = "notmuch:///home/$USER/.local/mail/"
 set nm_query_type       = "messages"
 set nm_record_tags      = "-ii,ar,snt,me"
 set nm_unread_tag       = "unread"
 set nm_exclude_tags     = "kill"
-
 folder-hook             . "rm -f /tmp/mutt/*"
-
 ## index
-
 folder-hook             . 'push "<collapse-all>"'
 set sort                = "last-date-received"
 set sort_aux            = "date"
@@ -19,9 +15,7 @@ set uncollapse_jump     = "yes"
 set uncollapse_new      = "yes"                    #  open threads when new mail
 unset help
 unset collapse_unread
-
 ## pager
-
 ignore *                                           #  ignore all headers
 unignore to: cc: from:                             #  selectively show specified
 unhdr_order *                                      #  some distros order things by default
@@ -33,7 +27,6 @@ set pager_stop          = "yes"
 set markers             = "yes"
 auto_view text/plain text/enriched
 set implicit_autoview   = "yes"
-
 ## sidebar
 #set sidebar_on_right    = "true"
 set sidebar_width       = "18"
@@ -41,14 +34,13 @@ set sidebar_sort_method = "desc"
 set sidebar_sort_method = "alpha"
 set sidebar_visible     = "yes"
 set sort_browser        = "desc"
-
 ## other
 set query_command       = "goobook query '%s'"
 set wait_key            = "no"                     #  rm confirmation msg after 'pipe-entry'
 set mark_old            = "no"
 set confirmappend       = "no"
 set mail_check_stats    = "yes"
-
+set new_mail_command    = '/usr/bin/notify-send "new mail"'
 ## compose
 set charset             = "utf-8"
 set include             = "yes"
@@ -56,24 +48,21 @@ set fast_reply          = "yes"
 set editor              = "nvim"
 set reverse_realname    = "yes"                    #  use any real name provided when replying
 set header              = "yes"
-#set reverse_name                                   #  reply as whomever it was to
-
-
 ## env
 set my_uid              = `echo $UID`
 set my_cfg              = "$XDG_CONFIG_HOME/mutt"
 set my_mb_sh            = "$XDG_CONFIG_HOME/mutt/mailboxes"
 set my_bind_a           = "$XDG_CONFIG_HOME/mutt/bind.muttrc"
 set mailcap_path        = "$XDG_CONFIG_HOME/mutt/mailcap"
-
 source "$my_bind_a"
 source "$XDG_CONFIG_HOME/mutt/color.muttrc"
 source "$XDG_CONFIG_HOME/mutt/format.muttrc"
 source "$XDG_CONFIG_HOME/mutt/gpg.muttrc"
 source "$XDG_CONFIG_HOME/muttm/muttrc"
-
 #auto_view text/plain text/enriched text/html multipart/alternative
 #set pipe_decode         = "yes"
 #set pipe_decode_weed    = "yes"
 #set query_command       = ""     # khard
 #set auto_subscribe
+#set reverse_name                #  reply as whomever it was to
+
