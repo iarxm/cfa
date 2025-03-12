@@ -1,6 +1,6 @@
 return {
     { 'felipec/notmuch-vim', cmd = 'NotMuch'},
-    -- tasks ###########################################
+    -- tasks
     {
     'blindFS/vim-taskwarrior',
         cmd = 'TW',
@@ -9,25 +9,31 @@ return {
             vim.g.task_info_vsplit = 1
         end
     },
-    -- neomake #########################################
+    -- neomake
     { 'neomake/neomake',
         cmd = 'Neomake'
     },
-    { 'folke/lazy.nvim',     version = "*" },
+    { 'folke/lazy.nvim',
+        version = "*"
+    },
     { 'sheerun/vim-polyglot'}, -- language pack
-    --
+
     { 'powerman/vim-plugin-AnsiEsc',},
-    --
+
     { 'dkarter/bullets.vim'}, -- mdx?
     -- syntax
     { 'tpope/vim-surround'}, -- func
-    { 'junegunn/vim-easy-align',    cmd = 'Easy' },
+    { 'junegunn/vim-easy-align',
+        cmd = 'Easy'
+    },
     { 'sirver/ultisnips'},   -- func
     { 'honza/vim-snippets'}, -- func
-    --
+    
     { 'tmsvg/pear-tree'},    -- func
     { 'vim-scripts/SyntaxRange'},
-    { 'rdnetto/YCM-Generator',      branch = 'stable'},
+    { 'rdnetto/YCM-Generator',
+        branch = 'stable'
+    },
     { 'tpope/vim-speeddating'},
     { 'vim-scripts/utl.vim'},   -- ?
     { 'tpope/vim-repeat', -- makes plugs dot-repeatable like leap
@@ -36,7 +42,7 @@ return {
     { 'pseewald/vim-anyfold',
         cmd = 'AnyFoldActivate',
         config = function()
-            vim.g.anyfold_fold_comments            = 1
+            vim.g.anyfold_fold_comments = 1
             -- g.anyfold_identify_comments     = 1
         end
     },
@@ -49,9 +55,13 @@ return {
          }
     },
     -- testing
-    { 'vim-test/vim-test',          cmd = 'TestNearest'},
+    { 'vim-test/vim-test',
+        cmd = 'TestNearest'
+    },
     -- compile
-    { 'manasthakur/vim-asyncmake',  cmd = 'AsyncMake'},  -- syn
+    { 'manasthakur/vim-asyncmake',
+        cmd = 'AsyncMake'
+    },  -- syn
     -- search
     { 'universal-ctags/ctags'}, -- tag
     { 'ctrlpvim/ctrlp.vim',
@@ -79,10 +89,10 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" }
     },
 }
-    -- ################################################
     -- task: switch limelight folke/twilight.nvim - based on treesitter
     -- task: analyse [astro](https://astronvim.com/Recipes/black_belt)
-    -- archive ########################################
+    --
+    -- archive
     --{ "ecthelionvi/NeoColumn.nvim",
     --     cmd = "ToggleNeoColumn",
     --     opts = {
@@ -94,14 +104,13 @@ return {
     --          fg_color = "",
     --     },
     --}, -- couldn't get this to work, and currently prefer 'deadcolumn'
-    -- ###################################################
-    -- DEBUGGING/TESTING ###################################
+    -- DEBUGGING/TESTING
     -- { 'michaelb/sniprun',},
     -- { 'arjunmahishi/flow.nvim',}, --snippets
     -- { 'nvim-neotest/neotest',},
-    -- ##################################################
+
     -- { 'bra/NrrwRgn',},
-    -- #################################################
+
     -- { 'vim-scripts/ctags.vim',}
     -- { 'ludovicchabant/vim-gutentags',
     --    config = function ()
@@ -110,13 +119,13 @@ return {
     --        -- g.gutentags_add_default_project_roots = { "$HOME/d/", ".tags" }
     --    end
     --},
-    -- ####################################################
+    --
     -- { 'junegunn/vim-github-dashboard.git',}
     -- { 'rktjmp/git-info.vim',}
-    -- ################################################
+    --
     -- { 'jremmen/vim-ripgrep',}
-    -- ################################################
-    -- ######################################################
+
+
     -- { 'Shougo/vimproc.vim', {'do' : 'make'},} -- unite taskwarrior dep.
     -- { 'shougo/unite.vim',}, "unite tw dep
     -- { 'Shougo/denite.nvim',}, "unite replacement

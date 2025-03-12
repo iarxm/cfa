@@ -1,24 +1,23 @@
--- DESCRIPTION:
--- 	- Checks if server is running at startup, and if so, will auto hook files to nvim
--- 	- The keybinding starts the nvim instance, and passes the current file.
+-- checks if server is running, and if so, will auto hook files to nvim
+-- the keybinding starts the nvim instance, and passes the current file.
+
 local socket = require("socket")
 local mp = require "mp"
 local utils = require 'mp.utils'
 package.path = mp.command_native({"expand-path", "~~/scripts/a-modules/?.lua;"})..package.path
--- load surf analysis functions 'asurf'
 local ds = require 'asurf'
-local msg = require 'mp.msg'  -- Import the msg module
+local msg = require 'mp.msg'  -- import msg module
 
--- VARS ##################################
+-- vars
 -- local switch = 0
 local serverPipePath = os.getenv("HOME") .. "/.cache/nvim/server.pipe"
 
--- CHECK ###############################
+-- check
 local function checkServer()
-	-- Use string.format to include the serverPipe in the pgrep pattern
-	local commandCheck = string.format("pgrep -f 'nvim --listen %s' > /dev/null", serverPipePath)
-    	local isServerRunning = os.execute(commandCheck)
-	return isServerRunning
+    -- Use string.format to include the serverPipe in the pgrep pattern
+    local commandCheck = string.format("pgrep -f 'nvim --listen %s' > /dev/null", serverPipePath)
+        local isServerRunning = os.execute(commandCheck)
+    return isServerRunning
 end
 
 local function startServer()
@@ -28,13 +27,13 @@ local function startServer()
         -- Use nohup to ensure the server continues to run after the terminal is closed
         -- Use & to start nvim as a background process
         local commandStart = string.format("nohup st -e nvim --listen %s &", serverPipePath)
-        	os.execute(commandStart)
-		socket.sleep(1)  -- sleep 1s to allow nvim to setup as a server, before sending it a file
+            os.execute(commandStart)
+        socket.sleep(1)  -- sleep 1s to allow nvim to setup as a server, before sending it a file
     end
 end
 
 local function previewTextFile()
-	local mediaFilePath = ds.absPath()
+    local mediaFilePath = ds.absPath()
     local mediaFileDir, mediaFileName = utils.split_path(mediaFilePath)
     local uniqueId = ds.fullMeta()
     -- Text File
@@ -59,37 +58,37 @@ local function previewTextFile()
 end
 
 local function previewSwitch()
-	local isServerRunning = checkServer()
-	if isServerRunning == 0 then
-		previewTextFile()
-	end
+    local isServerRunning = checkServer()
+    if isServerRunning == 0 then
+        previewTextFile()
+    end
 end
 
 local function main()
-	-- switch = 1
-	previewTextFile()
+    -- switch = 1
+    previewTextFile()
 end
 
--- BIND CALL ###########################################
+-- BIND CALL 
 mp.add_key_binding("E", "trigger_nvim", function()
-	-- Define the keybinding and executions
-	main()
+    -- Define the keybinding and executions
+    main()
 end)
 
--- STARTUP CALL ######################################
+-- STARTUP CALL 
 mp.register_event("file-loaded", previewSwitch)
 
 
--- ############################
--- DEV: #####################
+-- 
+-- DEV: 
 -- xTODO: case: nvim server isn't running, then start it up
 -- TODO: case: uniqueCode returns incorrect name: then return error
 -- TODO: case: 'file-loaded' vs 'on_load'
 
 -- Please note that the 'checkServer' function now assumes that the server is always started with the --listen option followed by the pipe name, with no other options or arguments in between. If the server could be started with additional options or arguments, you might need a more complex method to check if the server is running. For example, you could use a regular expression to allow for additional options or arguments, or use a script to parse the output of the ps command.
 
---#########################
---ARCHIVING ###############
+--
+--ARCHIVING 
 --DEBUG:
 --msg.error("previewTextFile() called")
 -- IMPORT DATA
