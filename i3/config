@@ -26,6 +26,8 @@ set $ixx                  exec ixx
 set $isf                  exec i3s ffxr
 set $isw                  exec i3s wx
 set $isx                  exec i3s
+set $dmo                  -b -l 25
+set $dmc                  -nb 'black' -nf '#efef8f' -sb 'black' -sf 'white'
 floating_modifier         $mda
 floating_maximum_size     0 x 0
 include                   ~/.config/i3/x-preview.config
@@ -33,20 +35,20 @@ include                   ~/.config/i3/x-window.config
 include                   ~/.config/i3/x-color.config
 include                   ~/.config/i3/x-status.config
 exec --no-startup-id      i3sbar-c
-bindsym $mdb+Ctrl+k       $exn pamixer --allow-boost -i 10
-bindsym $mdb+Ctrl+j       $exn pamixer --allow-boost -d 10
-bindsym $mdb+Ctrl+p       $exn mpc toggle
+bindsym Ctrl+$mdb+k       $exn pamixer --allow-boost -i 10
+bindsym Ctrl+$mdb+j       $exn pamixer --allow-boost -d 10
+bindsym Ctrl+$mdb+l       $exn mpc toggle
 bindsym $mda+$mdb+Ctrl+m  exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mda+s            $exn flameshot gui
 bindsym Print             $exn maimx screen
 bindsym $mda+Print        $exn maimx win
 bindsym Shift+Print       $exn maimx sel
-bindsym $mda+p            $exn passmenu -b -nb black -l 10
+bindsym $mda+p            $exn passmenu -b -l 20 $dmc
+bindsym Ctrl+$mda+p       $exn dmenu-bluetooth -b -l 20 $dmc
 bindsym $mda+$mdb+p       $exn networkmanager_dmenu
-bindsym Ctrl+$mda+p       $exn dmenu-bluetooth -b -nb black -l 10
 bindsym $mda+w            $exn dmenu-wins
-bindsym $mdb+d            $exn dmenu-runx
-bindsym $mda+d            $exn i3-dmenu-desktop --dmenu='dmenu -b -nb #000000'
+bindsym $mdb+p            $exn dmenu-runx
+bindsym Ctrl+$mdb+p            $exn i3-dmenu-desktop --dmenu='dmenu -b $dmc'
 bindsym $mda+Control+s    exec "systemctl suspend"
 bindsym $mdb+q            kill
 bindsym $mda+Space        focus mdae_toggle
@@ -129,10 +131,8 @@ bindsym $mdb+$mda+b       exec firefox
 bindsym $mda+$mdb+a       $ixx au
 bindsym $mda+$mdb+m       $ixx ml
 # spaces
-bindsym $mdb+o            $isw xai
-bindsym $mdb+Shift+o      $ixx xai
-bindsym $mdb+p            $isw xoo
-bindsym $mdb+Shift+p      $ixx xoo
+bindsym $mdb+o            $isw xoo
+bindsym $mdb+Shift+o      $ixx xoo
 bindsym $mda+o            $isw xmj
 bindsym $mda+Shift+o      $ixx xmj
 bindsym $mdb+m            $isw xml
@@ -161,4 +161,6 @@ bindsym $mda+Shift+n      $ixx vfub
 #bindsym $mdb+Shift+n      $ixx vfua
 #bindsym $mdb+$mda+n       workspace number 1
 #bindsym $mda+$mdb         $exn i3poly-hide
+#bindsym $mdb+o            $isw xai
+#bindsym $mdb+Shift+o      $ixx xai
 ## vim: set ft=i3config
