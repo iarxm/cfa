@@ -47,8 +47,8 @@ bindsym $mda+p            $exn passmenu -b -l 20 $dmc
 bindsym Ctrl+$mda+p       $exn dmenu-bluetooth -b -l 20 $dmc
 bindsym $mda+$mdb+p       $exn networkmanager_dmenu
 bindsym $mda+w            $exn dmenu-wins
-bindsym $mdb+p            $exn dmenu-runx
-bindsym Ctrl+$mdb+p            $exn i3-dmenu-desktop --dmenu='dmenu -b $dmc'
+bindsym $mdb+p            $exn i3-dmenu-desktop --dmenu='dmenu -b $dmc'
+bindsym Ctrl+$mdb+p       $exn dmenu-runx
 bindsym $mda+Control+s    exec "systemctl suspend"
 bindsym $mdb+q            kill
 bindsym $mda+Space        focus mdae_toggle
