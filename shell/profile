@@ -105,5 +105,5 @@ export SAL_USE_VCLPLUGIN=gtk3
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd.sock"
 [[ ! -n $(which systemctl | grep "not found") ]] && systemctl --user import-environment GNUPGHOME XAUTHORITY
-[ "$(tty)" = '/dev/tty1' ] && startx -- -keeptty >~/.local/share/xorg/zxorg.log 2>&1 # goes last
+[ "$(tty)" = '/dev/tty1' ] && exec startx -- -keeptty >~/.local/share/xorg/zxorg.log 2>&1 # goes last
 #export PATH="$PATH:$HOME/.local/usr/bin:$HOME/.local/bin"
