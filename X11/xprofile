@@ -1,5 +1,5 @@
 #!/bin/sh
-xrr init &
+#xrr init &
 xrdb -I${HOME}/.config .config/X11/xresources &
 unclutter &
 picom &

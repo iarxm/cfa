@@ -1,5 +1,5 @@
-# CYGWIN
-# point to this file by ~/.startxwinrc with source .config/X11/startxwinrc
+# cygwin
+# point to this file via ~/.startxwinrc with source .config/X11/startxwinrc
 xrdb -load -I$HOME $HOME/.config/X11/xresources &
 xrdb &
 urxvt &
