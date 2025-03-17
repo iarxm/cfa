@@ -1,11 +1,12 @@
 # iarom madden mail@iarom.org
 import os
 import glob
-DATA                                = '/dat'
-HOME                                = os.getenv("HOME")
-QUTE_CONFIG_HOME                    = HOME + "/.config/qutebrowser"
-QUTE_BLOCKED                        = QUTE_CONFIG_HOME + "/blocked-hosts"
-QUTE_BLOCKED_ETC                    = "/etc/qutebrowser/blocked-hosts"
+DATA                               = '/dat'
+HOME                               = os.getenv("HOME")
+QUTE_CONFIG_HOME                   = HOME + "/.config/qutebrowser"
+QUTE_BLOCKED                       = QUTE_CONFIG_HOME + "/blocked-hosts"
+QUTE_BLOCKED_ETC                   = "/etc/qutebrowser/blocked-hosts"
+SESSION_DIR                        = HOME + "/.local/share/qutebrowser/sessions/a-tabmanager/"
 os.environ['QUTE_CONFIG_HOME']     = HOME + "/.config/qutebrowser"
 os.environ['QT_QPA_PLATFORMTHEME'] = "qt6ct" # req to load qt6 cfgs
 os.environ['QUTE_POST_CLONE']      = 'notify-send "cloned!" "${QUTE_URL}"'
@@ -153,6 +154,7 @@ c.aliases['firefox']               = 'spawn --userscript ~/.config/qutebrowser/u
 c.aliases['ff']                    = 'firefox'
 c.aliases['grease-page-reload']    = 'greasemonkey-reload ;; reload'
 c.aliases['oil']                   = 'spawn st -c flst-buku1 oil-search'
+c.aliases['buku']                  = c.aliases['oil']
 c.aliases['us_echo']               = 'spawn --userscript ~/.config/qutebrowser/userscripts/echo'
 c.aliases['colcycle']              = 'config-cycle content.user_stylesheets ' + os.getenv("COLORS_BLACKX") + '""'
 c.aliases['colblack']              = 'set content.user_stylesheets ' + os.getenv("COLORS_BLACKX")
@@ -166,6 +168,34 @@ c.aliases['ytdl']                  = 'spawn yt-dlp {url}' # youtube-dl
 c.aliases['ytdlx']                 = 'spawn yt-dlp -x {url}'
 c.aliases['doi.sci']               = 'hint links userscript ~/.config/qutebrowser/userscripts/doi'
 c.aliases['doi.unp']               = 'spawn --userscript unpaywall' # doi unpwaywal
+c.aliases['ses-go']                = 'cmd-set-text -s :spawn --userscript tab-manager.py ' + SESSION_DIR
+#open one or more sessions as HTML, or open index
+c.aliases['ses-o']                 = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' open -f '
+c.aliases['ses-r']                 = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' restore -f '
+#restore but close all open first
+c.aliases['ses-R']                 = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' restore -c -f  '
+# save all and overwrite specified session (update session, don't append):
+c.aliases['ses-sv-all-o']          = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' save-all -o -f '
+# append current focused tab to specified session
+c.aliases['ses-sv-tab']            = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' save -f '
+c.aliases['sas-rm']                = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' delete -f '
+c.aliases['ses-ls']                = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' help '
+
+#c.aliases['ses-o']                 = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' open -f '
+#c.aliases['ses-r']                 = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' restore -f '
+#c.aliases['ses-R']                 = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' restore -c -f  '
+#c.aliases['ses-sv-all-o']          = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' save-all -o -f '
+#c.aliases['ses-sv-tab']            = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' save -f '
+#c.aliases['sas-rm']                = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' delete -f '
+#c.aliases['ses-ls']                = 'spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' help '
+#convert below to session-.. binds
+#zo
+#zr
+#zR
+#za
+#zs
+#zD
+#zh
 c.aliases.update({ # for daemon mode script
     'recycle':  'quit --save _recycle',
     'restart':  'quit --save _restart',
@@ -250,8 +280,8 @@ config.bind('sr',                  ':cmd-set-text -s :session-delete', mode='nor
 config.bind(';r',                  'reload')
 config.bind('<Alt-Shift-k>',       'zoom-in')
 config.bind('<Alt-Shift-j>',       'zoom-out')
-config.bind(',d',                  "set-cmd-text -s :darkreader enable '{url}*'")
-config.bind(',r',                  "set-cmd-text -s :darkreader disable '{url}*'")
+config.bind(',d',                  "cmd-set-text -s :darkreader enable '{url}*'")
+config.bind(',r',                  "cmd-set-text -s :darkreader disable '{url}*'")
 #archive
 #filepicker                          = ["st", "-c", "filepicker", "-t", "filepicker", "-e", "lf", "-command", "set nohidden", "-selection-path={}",]
 #c.fileselect.handler                = "external"
