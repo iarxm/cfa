@@ -87,6 +87,7 @@ export TMSU_DB="${XDG_CONFIG_HOME}/tmsu/defaultdb"
 export ZK_NOTEBOOK_DIR="${HOME}/daa/zk"
 export BGX_FEH="${XDG_DATA_HOME}/aaa/xbg/bg.png"
 export BHQ_DIR="${XDG_CONFIG_HOME}/bhq"
+export BHQC="${XDG_CONFIG_HOME}/bhq/bhq"
 export BROWSER="/usr/local/bin/qb win"
 export SCREENS_DIR="/dat/ui/iis"
 #### source
