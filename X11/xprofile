@@ -1,8 +1,26 @@
 #!/bin/sh
-#xrr init &
+
+xset r rate 120 120 &
 xrdb -I${HOME}/.config .config/X11/xresources &
-unclutter &
-picom &
-dunst &
-udiskie &
-# can any more of these be migrated to systemd?
+feh --no-fehbg --bg-max "${BGX_FEH}" &
+
+notify-send -i display \
+    "x setup:" "autorandr: $(pr_autor) \nxrandr:\n $(pr_active)" &
+
+if [[ ! -n $(which systemctl | grep "not found") ]]
+then
+    systemctl --user import-environment DISPLAY GNUPGHOME XAUTHORITY PATH
+    #systemctl --user start graphical-session.target
+    #systemctl --user start picom.service
+    systemctl --user start unclutter.service
+    systemctl --user start xbar.service
+else
+    picom &
+    unclutter &
+    dunst &
+fi
+
+# non-xorg
+#udiskie &
+
+#systemctl --user start dunst.service  #apparently it's auto built into dbus user systemd or something of that nature
