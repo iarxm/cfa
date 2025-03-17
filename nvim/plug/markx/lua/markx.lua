@@ -1,13 +1,12 @@
 local M = {}
 
-
 M.syntax_toggle = function()
     if vim.fn.exists('g:syntax_on') == 1 then
         vim.cmd('syntax off')
     else
         vim.cmd('syntax enable')
+    end
 end
-
 
 M.filetype_test = function()
     -- exclusion ft's
@@ -89,13 +88,11 @@ end
 
 
 M.equal_width = function()
-
     local tab_cur = vim.fn.tabpagenr()
     vim.cmd.tabdo("set noequalalways equalalways")
     vim.cmd("wall")
     vim.cmd("tabnext " .. tab_cur)
     --wa - above to trigger bufwrite autocommands relating to reformatting
-
 end
 
 
@@ -191,7 +188,6 @@ end
 
 M.write_mode_clean = function() vim.cmd('only') end
 
-
 --function! mdx#ToggleWrite()
 --
 --    if !exists("t:write_mode")
@@ -247,7 +243,6 @@ M.write_mode_clean = function() vim.cmd('only') end
 -- ucmd("command! -nargs=* Ob call o#ob()")
 -- ucmd("command! -nargs=* Ods call o#ox_ds()")
 -- vim.cmd("command! -nargs=* Ods call o#ox_p('dsao/')")
-
 --"     - :hi VertSplit ctermfg=bg ctermbg=bg guifg=bg guibg=bg
 --"     - alternative to 'fillchars' to hide window boundaries
 
