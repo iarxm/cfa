@@ -98,13 +98,7 @@ for a in ${XDG_CONFIG_HOME}/shelx/alias*; do . "${a}"; done
 export DICTIONARY="en_GB"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME}"/java
 export SAL_USE_VCLPLUGIN=gtk3
-#export SAL_USE_VCLPLUGIN=gtk3
-#export GTK_THEME=BreezeBlackPure
-#export GTK_THEME=BreezeBlackPure.colors
-#export GTK_THEME=Graphite-Dark-compact
 # runtime / system
 export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority"
 export RXVT_SOCKET="${XDG_RUNTIME_DIR}/urxvtd.sock"
-[[ ! -n $(which systemctl | grep "not found") ]] && systemctl --user import-environment GNUPGHOME XAUTHORITY
-[ "$(tty)" = '/dev/tty1' ] && exec xstart -- -keeptty >${XDG_DATA_HOME}/xorg/zxorg.log 2>&1 # goes last
-#export PATH="$PATH:$HOME/.local/usr/bin:$HOME/.local/bin"
+#[ "$(tty)" = '/dev/tty1' ] && exec xstart -- -keeptty >${XDG_DATA_HOME}/xorg/zxorg.log 2>&1 # goes last

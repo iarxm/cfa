@@ -126,12 +126,10 @@ vit() {
     TASKRC=${HOME}/.config/task/taskrc
 }
 #### webapps
-alias whatsapp='qb win web.whatsapp.com'
-alias wa='whatsapp'
+alias wa='qb win web.whatsapp.com'
 alias gpt='qb win chat.openai.com'
-alias chrome-gpt='google-chrome-stable --app=https://chatgpt.com/'
-alias calendar='qb win calendar.google.com'
-alias cala='calendar'
+alias gpt-chrome='google-chrome-stable --app=https://chatgpt.com/'
+alias calx='qb win calendar.google.com'
 alias habit='qb w.oo.win'
 alias b="buku --suggest"
 #### new
@@ -139,11 +137,3 @@ alias b="buku --suggest"
 #alias whatsapp='firefox --new-window web.whatsapp.com'
 #export mpvx="mpx"
 alias brw-inx="qb"
-#archive
-# task: make autocomple to replace aliases with args
-#alias brw-wna="qb win"
-#alias brw-wnf="qb win.float"
-#alias brw-wxa="qb x"
-#alias brw-wxf="qb x.win"
-
-
