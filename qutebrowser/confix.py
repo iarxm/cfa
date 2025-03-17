@@ -42,7 +42,7 @@ c.qt.chromium.low_end_device_mode   = "auto"
 c.qt.chromium.process_model         = "process-per-site-instance"
 #c.qt.chromium.experimental_web_platform_features = "always"
 c.qt.workarounds.disable_accelerated_2d_canvas = "always"
-c.qt.args                           = [ \
+c.qt.args = [ \
     'ignore-gpu-blacklist', \
     'enable-gpu-rasterisation', \
     'enable-native-gpu-memory-buffers', \
@@ -52,7 +52,8 @@ c.qt.args                           = [ \
     'enable-features=WebGPU',\
     'use-gl=desktop',\
     'enable-oop-rasterization',\
-    'enable-raw-draw' ]
+    'enable-raw-draw'
+    ]
 config.set('content.headers.user_agent', \
     'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) Chrome/110.0.0.0 Safari/{webkit_version} Edg/110.0.1587.57', \
     '*://www.bing.com/*') # setting user agent per domain pattern - bing: for accessing new chatgpt feature via edge browser usage
@@ -67,12 +68,14 @@ c.content.blocking.adblock.lists = [ \
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt", \
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt", \
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt", \
-    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt" ]
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt"
+    ]
 c.content.blocking.hosts.lists = [ \
     QUTE_BLOCKED, \
     QUTE_BLOCKED_ETC, \
     'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', \
-    'https://raw.githubusercontent.com/blocklistproject/Lists/master/youtube.txt' ]
+    'https://raw.githubusercontent.com/blocklistproject/Lists/master/youtube.txt'
+    ]
 c.content.blocking.whitelist       = ['*://example.com/*', '*://surfline.com/*', '*://calendar.google.com/*']
 #c.content.blocking.enabled        = ['*://surfline.com*'] #['*://example.com/*']
 c.content.cookies.accept           = 'all'
@@ -85,14 +88,14 @@ c.hints.min_chars                  = 1
 c.keyhint.blacklist                = ["*"]
 c.completion.open_categories       = ["quickmarks", "bookmarks", "history"]
 c.scrolling.smooth                 = True # can make scrolling slow with mouse, but improves key scrolling
-c.url.searchengines['gpt']         = 'https://chat.openai.com/search?q={}' #academic.bib
-c.url.searchengines['gs']          = 'http://scholar.google.ch/scholar?hl=en&q={}' #academic.bib
-c.url.searchengines['scihub']      = "https://sci-hub.se/{}" #academic.get
-c.url.searchengines['sci']         = c.url.searchengines['scihub'] #academic.get
-c.url.searchengines['#sci']        = c.url.searchengines['scihub'] #academic.get
-c.url.searchengines['s']           = c.url.searchengines['scihub'] #academic.get
-c.url.searchengines['sc']          = c.url.searchengines['scihub'] #academic.get
-c.url.searchengines['bing']        = 'https://www.bing.com/search?q={}' #search
+c.url.searchengines['gpt']         = 'https://chat.openai.com/search?q={}'
+c.url.searchengines['gs']          = 'http://scholar.google.ch/scholar?hl=en&q={}'
+c.url.searchengines['scihub']      = "https://sci-hub.se/{}"
+c.url.searchengines['sci']         = c.url.searchengines['scihub']
+c.url.searchengines['#sci']        = c.url.searchengines['scihub']
+c.url.searchengines['s']           = c.url.searchengines['scihub']
+c.url.searchengines['sc']          = c.url.searchengines['scihub']
+c.url.searchengines['bing']        = 'https://www.bing.com/search?q={}' #searc
 c.url.searchengines['bb']          = c.url.searchengines['bing']
 c.url.searchengines['google']      = 'http://www.google.com/search?hl=en&q={}'
 c.url.searchengines['g']           = c.url.searchengines['google']
@@ -103,20 +106,20 @@ c.url.searchengines['yt']          = c.url.searchengines['youtube']
 c.url.searchengines['yy']          = c.url.searchengines['youtube']
 c.url.searchengines['y']           = c.url.searchengines['youtube']
 c.url.searchengines['ww']          = 'https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Special%%3ASearch&search={}'
-c.url.searchengines['DEFAULT']     = c.url.searchengines['gpt'] # define
-c.url.searchengines['gh']          = 'https://github.com/search?q={}&type=Code' #csci
+c.url.searchengines['DEFAULT']     = c.url.searchengines['gpt']
+c.url.searchengines['gh']          = 'https://github.com/search?q={}&type=Code'
 c.url.searchengines['aw']          = 'https://wiki.archlinux.org/?search={}'
 c.url.searchengines['ap']          = 'https://www.archlinux.org/packages/?sort=&q={}'
 c.url.searchengines['ar']          = 'https://www.archlinux.org/packages/?sort=&q={}'
 c.url.searchengines['ar']          = 'https://www.archlinux.org/packages/?sort=&q={}'
 c.url.searchengines['aur']         = 'https://aur.archlinux.org/packages/?O=0&K={}'
 c.url.searchengines['au']          = 'https://aur.archlinux.org/packages/?O=0&K={}'
-c.url.searchengines['gm']          = 'https://www.google.com/maps/search/?api=1&query={}' #navigation.maps
+c.url.searchengines['gm']          = 'https://www.google.com/maps/search/?api=1&query={}'
 c.url.searchengines['maps']        = 'https://www.google.com/maps/search/?api=1&query={}'
-c.url.searchengines['gt']          = 'https://translate.google.com/?sl=auto&tl=en&text={}&op=translate' #translate
-c.url.searchengines['rar']         = 'https://rargb.to/search/?search={}' #torrennts
+c.url.searchengines['gt']          = 'https://translate.google.com/?sl=auto&tl=en&text={}&op=translate'
+c.url.searchengines['rar']         = 'https://rargb.to/search/?search={}'
 c.url.searchengines['tpb']         = 'https://ukpiratebay.org/search.php?q={}'
-c.url.searchengines['amazon']      = 'https://www.amazon.co.uk/s?k={}' #amazon
+c.url.searchengines['amazon']      = 'https://www.amazon.co.uk/s?k={}'
 c.url.searchengines['sh.amu']      = c.url.searchengines['amazon']
 c.url.searchengines['am']          = c.url.searchengines['amazon']
 c.url.searchengines['amu']         = c.url.searchengines['amazon']
@@ -124,12 +127,12 @@ c.url.searchengines['shamd']       = 'https://www.amazon.de/s?k={}'
 c.url.searchengines['amd']         = 'https://www.amazon.de/s?k={}'
 c.url.searchengines['shamn']       = 'https://www.amazon.nl/s?k={}'
 c.url.searchengines['amn']         = 'https://www.amazon.nl/s?k={}'
-c.url.searchengines['ebay']        = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3' #ebay
+c.url.searchengines['ebay']        = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3'
 c.url.searchengines['she']         = c.url.searchengines['ebay']
 c.url.searchengines['eb']          = c.url.searchengines['ebay']
 #c.url.searchengines['she']        = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3'
 #c.url.searchengines['eb']         = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3'
-c.url.searchengines['adverts']     = 'https://www.adverts.ie/for-sale/q_{}/' #adverts.donedeal
+c.url.searchengines['adverts']     = 'https://www.adverts.ie/for-sale/q_{}/' # adverts / donedeal
 c.url.searchengines['shadv']       = c.url.searchengines['adverts']
 c.url.searchengines['shadv']       = 'https://www.adverts.ie/for-sale/q_{}/'
 c.url.searchengines['sha']         = 'https://www.adverts.ie/for-sale/q_{}/'
@@ -138,9 +141,9 @@ c.url.searchengines['donedeal']    = 'https://www.donedeal.ie/all?words={}'
 c.url.searchengines['shdon']       = 'https://www.donedeal.ie/all?words={}'
 c.url.searchengines['shd']         = 'https://www.donedeal.ie/all?words={}'
 c.url.searchengines['don']         = 'https://www.donedeal.ie/all?words={}'
-c.url.searchengines['shali']       = 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220502145726&isPremium=y&SearchText={}&spm=a2g0o.productlist.1000002.0' #aliexpress
+c.url.searchengines['shali']       = 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220502145726&isPremium=y&SearchText={}&spm=a2g0o.productlist.1000002.0'
 c.url.searchengines['ali']         = 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220502145726&isPremium=y&SearchText={}&spm=a2g0o.productlist.1000002.0'
-c.url.searchengines['fbmarket']    = 'https://www.facebook.com/marketplace/104038149633202/search/?query={}' #facebook.marketplace
+c.url.searchengines['fbmarket']    = 'https://www.facebook.com/marketplace/104038149633202/search/?query={}'
 c.aliases['ge']                    = 'open -t https://wiki.archlinux.org/index.php/Forum_Etiquette'
 c.aliases['gf']                    = 'open -t http://flickr.com/jasonwryan '
 c.aliases['gj']                    = 'open -t http://jasonwryan.com'
@@ -180,7 +183,6 @@ c.aliases['ses-sv-all-o']          = 'spawn --userscript tab-manager.py ' + SESS
 c.aliases['ses-sv-tab']            = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' save -f '
 c.aliases['sas-rm']                = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' delete -f '
 c.aliases['ses-ls']                = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' help '
-
 #c.aliases['ses-o']                 = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' open -f '
 #c.aliases['ses-r']                 = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' restore -f '
 #c.aliases['ses-R']                 = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' restore -c -f  '
@@ -196,10 +198,12 @@ c.aliases['ses-ls']                = 'spawn --userscript tab-manager.py ' + SESS
 #zs
 #zD
 #zh
-c.aliases.update({ # for daemon mode script
+c.aliases.update({
+    # for daemon mode script
     'recycle':  'quit --save _recycle',
     'restart':  'quit --save _restart',
-    'shutdown': 'quit --save _shutdown',})
+    'shutdown': 'quit --save _shutdown',
+    })
 config.unbind('gb',                mode='normal')
 config.unbind('b',                 mode='normal')
 config.unbind('m',                 mode='normal')

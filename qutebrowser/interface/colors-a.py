@@ -1,7 +1,4 @@
-# temp fix for statusbar bug:?
-
 import os
-# [ ] task - is it less resources to just import 'getenv' from the 'os' lib?
 c.content.user_stylesheets = [ os.getenv('WINDOW_ELEMENTS'), os.getenv('COLORS_BLACKX') ]
 c.url.default_page         =   os.getenv('QUTE_UIX_BGX')
 c.url.start_pages          =   os.getenv('QUTE_UIX_BGX')
@@ -67,13 +64,4 @@ c.colors.webpage.darkmode.enabled                = True
 c.colors.webpage.darkmode.policy.images          = "never"
 c.colors.webpage.preferred_color_scheme          = "dark"
 c.colors.webpage.darkmode.contrast
-# #222222
-#"#DDDDDD"
-#c.colors.statusbar.insert.bg = "#222222"
-#c.colors.webpage.darkmode.policy.page
-#c.colors.webpage.darkmode.threshold.background
-#c.colors.webpage.darkmode.threshold.text
-#c.colors.webpage.darkmode.algorithm
-#c.colors.webpage.darkmode.grayscale.all
-#c.colors.webpage.darkmode.grayscale.images
 

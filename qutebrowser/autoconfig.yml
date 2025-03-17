@@ -106,6 +106,7 @@ settings:
     https://meet.google.com: true
     https://teams.microsoft.com: true
   content.javascript.clipboard:
+    https://aur.archlinux.org: access-paste
     https://outlook.office365.com: access-paste
     https://portal.azure.com: access-paste
     https://wbyyte-my.sharepoint.com: access-paste

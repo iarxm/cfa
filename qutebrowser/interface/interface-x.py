@@ -11,7 +11,6 @@ c.tabs.show_switching_delay         = 2000
 c.hints.border                     = "3px solid #CCCCCC"
 c.fonts.statusbar                  = "1pt Sourc Sans Pro"
 c.statusbar.padding                = { "bottom": 0, "left": 0, "right": 0, "top": 0 }
-#c.statusbar.show                   = "in-mode"
 c.statusbar.show                   = "never"
 c.statusbar.widgets                = [] # ["url", "progress", "scroll"]
 c.window.hide_decoration           = True
@@ -28,9 +27,3 @@ c.fonts.messages.info              = "12pt Noto Sans Mono"
 c.fonts.keyhint                    = c.fonts.messages.info
 c.fonts.messages.warning           = c.fonts.messages.info
 c.fonts.messages.error             = c.fonts.messages.info
-#c.fonts.default_family            = ["Source Sans Pro",
-#                                      "Noto Sans Mono",
-#                                      "DejaVu Sans Mono",
-#                                      "Liberation Mono"]
-#c.fonts.statusbar                  = "10pt Sourc Sans Pro"
-#c.fonts.tabs.selected             = "10pt Source Sans Pro"
