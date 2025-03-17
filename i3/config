@@ -34,7 +34,7 @@ include                   ~/.config/i3/x-preview.config
 include                   ~/.config/i3/x-window.config
 include                   ~/.config/i3/x-color.config
 include                   ~/.config/i3/x-status.config
-exec --no-startup-id      i3sbar-c
+#exec --no-startup-id      i3sbar-c
 bindsym Ctrl+$mdb+k       $exn pamixer --allow-boost -i 10
 bindsym Ctrl+$mdb+j       $exn pamixer --allow-boost -d 10
 bindsym Ctrl+$mdb+l       $exn mpc toggle
