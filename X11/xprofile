@@ -10,10 +10,10 @@ notify-send -i display \
 if [[ ! -n $(which systemctl | grep "not found") ]]
 then
     systemctl --user import-environment DISPLAY GNUPGHOME XAUTHORITY PATH
-    #systemctl --user start graphical-session.target
-    #systemctl --user start picom.service
+    systemctl --user start graphical.target
     systemctl --user start unclutter.service
     systemctl --user start xbar.service
+    #systemctl --user start picom.service
 else
     picom &
     unclutter &
@@ -22,5 +22,3 @@ fi
 
 # non-xorg
 #udiskie &
-
-#systemctl --user start dunst.service  #apparently it's auto built into dbus user systemd or something of that nature
