@@ -1,10 +1,10 @@
 #!/bin/sh
 ### new
+alias we='weechat'
 ### dotfiles
 alias abook="abook \
     --config ${XDG_CONFIG_HOME}/abook/abookrc \
     --datafile ${XDG_DATA_HOME}/abook/addressbook"
-alias weechat="weechat -d ${XDG_CONFIG_HOME}/weechat/"
 alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
 alias nrss="nrss -D ${XDG_CONFIG_HOME}/nrss/ \
     -F ${XDG_CACHE_HOME}/nrss/feeds \
@@ -137,3 +137,4 @@ alias b="buku --suggest"
 #alias whatsapp='firefox --new-window web.whatsapp.com'
 #export mpvx="mpx"
 alias brw-inx="qb"
+#alias weechat="weechat -d ${XDG_CONFIG_HOME}/weechat/" # weechat now abides by default
