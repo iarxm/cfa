@@ -152,7 +152,7 @@ settings:
   statusbar.position:
     global: bottom
   statusbar.show:
-    global: never
+    global: always
   statusbar.widgets:
     global:
     - keypress
