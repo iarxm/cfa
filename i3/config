@@ -34,7 +34,7 @@ include                   ~/.config/i3/x-preview.config
 include                   ~/.config/i3/x-window.config
 include                   ~/.config/i3/x-color.config
 include                   ~/.config/i3/x-status.config
-#exec --no-startup-id      i3sbar-c
+exec --no-startup-id      systemctl --user import-environment XAUTHORITY
 bindsym Ctrl+$mdb+k       $exn pamixer --allow-boost -i 10
 bindsym Ctrl+$mdb+j       $exn pamixer --allow-boost -d 10
 bindsym Ctrl+$mdb+l       $exn mpc toggle
@@ -51,7 +51,7 @@ bindsym $mdb+p            $exn i3-dmenu-desktop --dmenu='dmenu -b $dmc'
 bindsym Ctrl+$mdb+p       $exn dmenu-runx
 bindsym $mda+Control+s    exec "systemctl suspend"
 bindsym $mdb+q            kill
-bindsym $mda+Space        focus mdae_toggle
+#bindsym $mda+Space        focus mdae_toggle
 bindsym $mda+Ctrl+k       focus parent
 bindsym $mda+Ctrl+j       focus child
 bindsym $mdb+x            split h
@@ -163,4 +163,5 @@ bindsym $mda+Shift+n      $ixx vfub
 #bindsym $mda+$mdb         $exn i3poly-hide
 #bindsym $mdb+o            $isw xai
 #bindsym $mdb+Shift+o      $ixx xai
+#exec --no-startup-id      i3sbar-c
 ## vim: set ft=i3config
