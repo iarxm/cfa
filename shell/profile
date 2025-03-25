@@ -106,4 +106,3 @@ export SAL_USE_VCLPLUGIN=gtk3
 # runtime / system
 export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority"
 export RXVT_SOCKET="${XDG_RUNTIME_DIR}/urxvtd.sock"
-#[ "$(tty)" = '/dev/tty1' ] && exec xstart -- -keeptty >${XDG_DATA_HOME}/xorg/zxorg.log 2>&1 # goes last

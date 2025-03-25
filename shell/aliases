@@ -1,7 +1,9 @@
 #!/bin/sh
 ### new
-alias we='weechat'
+alias we="weechat"
+alias xini="exec xini"
 ### dotfiles
+alias irssi="irssi --home=${XDG_CONFIG_HOME}/irssi"
 alias abook="abook \
     --config ${XDG_CONFIG_HOME}/abook/abookrc \
     --datafile ${XDG_DATA_HOME}/abook/addressbook"
@@ -70,28 +72,32 @@ alias mpd-reset="systemctl --user stop mpd.service"
 alias a="vimpc"
 #alias ytv="youtube-viewer"
 #### system
+alias sm="systemctl"
+alias smu="systemctl --user"
 alias reboot="systemctl reboot"
-alias sll="systemctl suspend"
+alias sms="systemctl suspend"
 alias shutdownx="shutdown -h now"
 alias unmountall='udiskie-umount -a --detach'
 alias red-start="systemctl --user start redshift.service"
 alias red-stop="systemctl --user stop redshift.service"
 alias feh-setbg='feh --no-fehbg --bg-max "${BGX_FEH}"'
+alias aut="autorandr --load"
 alias autor-a="autorandr --load dock-ad"
 alias jxe='journalctl -xe'
 [ -f "${XINITRC}" ] && alias startx="startx ${XINITRC}"
 for x in mount umount sv pacman updatedb su dmesg shutdown; do
     alias ${x}="sudo ${x}"
 done
+alias ma="make"
 alias so="sudo"
-alias sdk='sudo pkill'
-alias sdk-clamd='sudo pkill clamd'
+alias sdk="sudo pkill"
 killc()      { i=0; while i < 10 ; do sudo pkill ${1}; done } # aggressive kill
 alias p="pacman"
 alias pacs='pacman -S'
 alias pipu='pip install --user'
-alias srcp="source ~/.config/shell/profile"
-alias syt='systemctl'
+#alias srcp="source ~/.config/shell/profile"
+#alias sdk-clamd='sudo pkill clamd'
+#alias syt='systemctl'
 #### networking
 alias nm-restart="systemctl restart NetworkManager.service"
 alias blue-adisconnect="bluetoothctl disconnect"
