@@ -1,15 +1,19 @@
 #!/bin/sh
 
 xset r rate 120 120 &
-xrdb -I${HOME}/.config .config/X11/xresources &
+xrdb -I${HOME}/.config .config/X11/xresources 2>/dev/null &
 feh --no-fehbg --bg-max "${BGX_FEH}" &
 
-notify-send -i display \
-    "x setup:" "autorandr: $(pr_autor) \nxrandr:\n $(pr_active)" &
+{ 
+    sleep 2
+    notify-send -i display \
+        "x setup:" \
+        "autorandr: $(autorandr --current) \nxrandr: \n$(xrandr --listactivemonitors)"
+} &
 
-if [[ ! -n $(which systemctl | grep "not found") ]]
+if ! $(which systemctl | grep "not found")
 then
-    systemctl --user import-environment DISPLAY GNUPGHOME XAUTHORITY PATH
+    systemctl --user import-environment DISPLAY GNUPGHOME PATH
     systemctl --user start graphical.target
     systemctl --user start unclutter.service
     systemctl --user start xbar.service

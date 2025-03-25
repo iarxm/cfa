@@ -9,4 +9,3 @@ case ${1:-i3} in
     awesome ) exec awesome;;
     *) exec ${1};;
 esac
-
