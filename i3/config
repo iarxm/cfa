@@ -75,7 +75,7 @@ bindsym $mdb+Shift+k      move up
 bindsym $mda+Shift+r      restart
 bindsym $mdb+Shift+r      reload 
 bindsym $mda+r            mode "resize"
-bindsym $mda+Shift+e      exec "i3-nagbar -t warning -m 'exit i3?' -B 'exit i3' 'i3-msg exit'" 
+bindsym $mda+Shift+e      exec --no-startup-id "i3-nagbar -t warning -m 'exit i3?' -B 'exit i3' 'i3-msg exit >/dev/null'" 
 bindsym $mda+h            $isx left
 bindsym $mda+l            $isx right
 bindsym $mdb+0            workspace number $ws0
@@ -127,7 +127,7 @@ mode "resize" {
 bindsym $mdb+Return       exec st
 bindsym $mdb+b            exec qb
 bindsym $mdb+a            exec qb w.gpt
-bindsym $mdb+$mda+b       exec firefox
+bindsym $mdb+$mda+b       exec google-chrome-stable
 bindsym $mda+$mdb+a       $ixx au
 bindsym $mda+$mdb+m       $ixx ml
 # spaces

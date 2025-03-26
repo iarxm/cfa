@@ -5,7 +5,7 @@ xrdb -I${HOME}/.config .config/X11/xresources 2>/dev/null &
 feh --no-fehbg --bg-max "${BGX_FEH}" &
 
 { 
-    sleep 2
+    sleep 4
     notify-send -i display \
         "x setup:" \
         "autorandr: $(autorandr --current) \nxrandr: \n$(xrandr --listactivemonitors)"
@@ -13,15 +13,22 @@ feh --no-fehbg --bg-max "${BGX_FEH}" &
 
 if ! $(which systemctl | grep "not found")
 then
-    systemctl --user import-environment DISPLAY GNUPGHOME PATH
-    systemctl --user start graphical.target
-    systemctl --user start unclutter.service
-    systemctl --user start xbar.service
-    #systemctl --user start picom.service
+    systemctl --user import-environment XAUTHORITY DISPLAY GNUPGHOME PATH
+    #systemctl --user start graphix.target # now called by individal wm targets
+    
+    if [ ${wm} -eq "i3" ]
+    then
+        systemctl --user start i3.target
+    elif [ ${wm} -eq "dwm" ]
+    then
+        systemctl --user start dwm.target
+    fi
+
 else
-    picom &
+    slstatus &
     unclutter &
     dunst &
+    #picom &
 fi
 
 # non-xorg

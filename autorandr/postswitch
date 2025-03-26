@@ -1,4 +1,4 @@
 #!/bin/env bash
-I3SOCK="$(i3 --get-socketpath)" #i3sock can become incorrectly registerred by systemd if the sock changes address at some time
+#I3SOCK="$(i3 --get-socketpath)" #i3sock can become incorrectly registerred by systemd if the sock changes address at some time
+    # - [ ] integrate above with systemd?
 xrr reload &
-

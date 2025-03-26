@@ -1,11 +1,21 @@
 #!/bin/sh
 
-. "${XDG_CONFIG_HOME:-"${HOME}/.config"}/X11/xprofile" \
-    || . "${HOME}/.xprofile" 2>/dev/null
+#if [ ${1} ];
+#then
+#    wm=${1}
+#else
+#    wm=dwm
+#fi
 
-case ${1:-i3} in
+wm=${1:-dwm}
+
+. "${XDG_CONFIG_HOME:-"${HOME}/.config"}/X11/xprofile" ${wm} \
+    || . "${HOME}/.xprofile" ${wm} 2>/dev/null
+
+case ${wm} in
     i3|i3wm) exec i3;;
-    dwm) exec xinit_dwm;;
+    dwm) exec dwm;;
+    dwm-x) exec xinit_dwm;;
     awesome ) exec awesome;;
     *) exec ${1};;
 esac
