@@ -11,4 +11,3 @@ vim.cmd('runtime syntax/markdown.vim')
 if vim.fn.getline(1) == "---" then
             vim.cmd('1,/^---$/fold')
 end
-
