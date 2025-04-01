@@ -1,7 +1,15 @@
 #!/bin/sh
 ### new
+alias dmu_j4x="j4-dmenu-desktop --dmenu 'dmenu \
+    -b \
+    -nb \"black\" \
+    -nf \"#efef8f\" \
+    -sb \"black\" \
+    -sf \"white\"'"
+alias pa="pass"
 alias we="weechat"
-alias xini="exec xini"
+#alias xi="exec xini"
+#alias xini="xini"
 ### dotfiles
 alias irssi="irssi --home=${XDG_CONFIG_HOME}/irssi"
 alias abook="abook \
@@ -112,9 +120,10 @@ alias cl="clear"
 alias q='exit'
 alias magit="nvim -c MagitOnly"
 #### tor;mail;news;act
-alias tnr="transmission-remote"
-alias tnc="transmission-cli"
-alias tnd="transmission-daemon"
+alias tran="transmission-daemon"
+alias tranq="transmission-remote --exit"
+alias tranr="transmission-remote"
+alias tranc="transmission-cli"
 alias m="neomutt -e "push '<change-folder>=ii<enter>'""
 alias nmm="notmuch"
 alias mbsync-pull-new-mailboxs="mbsync --pull --create -a"

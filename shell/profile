@@ -32,6 +32,7 @@ export BLENDER_USER_DATAFILES="${XDG_DATA_HOME}/blender"
 export BLENDER_USER_SCRIPTS="${XDG_BIN_HOME}/blender"
 export MATES_DIR="${XDG_DATA_HOME}/vdirsyncer/contacts"
 export MATES_INDEX="${XDG_DATA_HOME}/mates/mates_index"
+export NO_AT_BRIDGE=1
 # tex
 export MANPATH="/usr/local/texlive/2024/texmf-dist/doc/man:${MANPATH}"
 export INFOPATH="/usr/local/texlive/2024/texmf-dist/doc/info:${INFOPATH}"
