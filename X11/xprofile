@@ -1,35 +1,25 @@
 #!/bin/sh
 
-xset r rate 120 120 &
-xrdb -I${HOME}/.config .config/X11/xresources 2>/dev/null &
-feh --no-fehbg --bg-max "${BGX_FEH}" &
-
-{ 
-    sleep 4
-    notify-send -i display \
-        "x setup:" \
-        "autorandr: $(autorandr --current) \nxrandr: \n$(xrandr --listactivemonitors)"
-} &
+{
+    # - [ ] integrate into a systemd script
+    xset r rate 120 120 &
+    xrdb -I${HOME}/.config .config/X11/xresources 2>/dev/null &
+    feh --no-fehbg --bg-max "${BGX_FEH}" &
+    autorandr --change
+}
 
 if ! $(which systemctl | grep "not found")
 then
-    systemctl --user import-environment XAUTHORITY DISPLAY GNUPGHOME PATH
-    #systemctl --user start graphix.target # now called by individal wm targets
+    systemctl --user import-environment XAUTHORITY DISPLAY GNUPGHOME PATH # How to integrate to systemd?
     
-    if [ ${wm} -eq "i3" ]
-    then
-        systemctl --user start i3.target
-    elif [ ${wm} -eq "dwm" ]
-    then
-        systemctl --user start dwm.target
-    fi
+    case ${wm} in
+        i3)  systemctl --user start i3.target ;;
+        dwm) systemctl --user start dwm.target ;;
+        *)   systemctl --user start graphix.target ;;
+    esac
 
 else
     slstatus &
     unclutter &
     dunst &
-    #picom &
 fi
-
-# non-xorg
-#udiskie &

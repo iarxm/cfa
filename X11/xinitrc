@@ -1,12 +1,5 @@
 #!/bin/sh
 
-#if [ ${1} ];
-#then
-#    wm=${1}
-#else
-#    wm=dwm
-#fi
-
 wm=${1:-dwm}
 
 . "${XDG_CONFIG_HOME:-"${HOME}/.config"}/X11/xprofile" ${wm} \
@@ -15,7 +8,15 @@ wm=${1:-dwm}
 case ${wm} in
     i3|i3wm) exec i3;;
     dwm) exec dwm;;
-    dwm-x) exec xinit_dwm;;
+    dwml)
+        #useful for testing
+        while true; do
+            # Log stderror to a file 
+            dwm 2> ~/.dwm.log
+            # No error logging
+            #dwm >/dev/null 2>&1
+        done
+        ;;
     awesome ) exec awesome;;
-    *) exec ${1};;
+    *) exec ${wm};;
 esac

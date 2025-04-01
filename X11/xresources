@@ -30,6 +30,6 @@ tabbed.normbgcolor:    #000000
 *VT100.colorULMode:    true
 *VT100.colorUL:        cyan
 *VT100.veryBoldColors: 6
-#include "urxvt/config"
+! #include "urxvt/config"
 #include "X11/z/xcolor.xresources"
 #include "X11/z/xfont.xresources"
