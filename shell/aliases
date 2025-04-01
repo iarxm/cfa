@@ -8,7 +8,9 @@ alias dmu_j4x="j4-dmenu-desktop --dmenu 'dmenu \
     -sf \"white\"'"
 alias pa="pass"
 alias we="weechat"
-#alias xi="exec xini"
+alias xi="exec xini"
+alias qbd="systemctl --user start qb.service"
+alias god="systemctl --user start chrome.service"
 #alias xini="xini"
 ### dotfiles
 alias irssi="irssi --home=${XDG_CONFIG_HOME}/irssi"
@@ -108,6 +110,8 @@ alias pipu='pip install --user'
 #alias syt='systemctl'
 #### networking
 alias nm-restart="systemctl restart NetworkManager.service"
+alias blues="systemctl start bluetooth.service"
+alias blue-stop="systemctl stop bluetooth.service"
 alias blue-adisconnect="bluetoothctl disconnect"
 alias blue='bluetuith'
 alias s="ssh"
