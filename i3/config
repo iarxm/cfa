@@ -13,14 +13,6 @@ set $ws7                  7
 set $ws8                  8
 set $ws9                  9
 set $ws10                 10
-set $ws_oo                xoo
-set $ws_ai                xai
-set $ws_ml                xml
-set $ws_mk                xmk
-set $ws_mr                xmr
-set $ws_mj                xmj
-set $ws_rd                xrd
-set $ws_au                xau
 set $exn                  exec --no-startup-id
 set $ixx                  exec ixx
 set $isf                  exec i3s ffxr
@@ -41,17 +33,17 @@ bindsym Ctrl+$mdb+l       $exn mpc toggle
 bindsym $mda+$mdb+Ctrl+m  exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mda+s            $exn flameshot gui
 bindsym Print             $exn maimx screen
-bindsym $mda+Print        $exn maimx win
-bindsym Shift+Print       $exn maimx sel
+#bindsym $mda+Print        $exn maimx win 
+#bindsym Shift+Print       $exn maimx sel
+    # - [ ] simplify by unifying to one call to select various screen shot methods
 bindsym $mda+p            $exn passmenu -b -l 20 $dmc
 bindsym Ctrl+$mda+p       $exn dmenu-bluetooth -b -l 20 $dmc
 bindsym $mda+$mdb+p       $exn networkmanager_dmenu
 bindsym $mda+w            $exn dmenu-wins
 bindsym $mdb+p            $exn i3-dmenu-desktop --dmenu='dmenu -b $dmc'
 bindsym Ctrl+$mdb+p       $exn dmenu-runx
-bindsym $mda+Control+s    exec "systemctl suspend"
 bindsym $mdb+q            kill
-#bindsym $mda+Space        focus mdae_toggle
+bindsym $mda+Space        focus mode_toggle
 bindsym $mda+Ctrl+k       focus parent
 bindsym $mda+Ctrl+j       focus child
 bindsym $mdb+x            split h
@@ -124,10 +116,11 @@ mode "resize" {
         bindsym Escape    mode "default"
         bindsym $mda+r    mode "default"
 }
+# app launch
 bindsym $mdb+Return       exec st
 bindsym $mdb+b            exec qb
-bindsym $mdb+a            exec qb w.gpt
 bindsym $mdb+$mda+b       exec google-chrome-stable
+bindsym $mdb+a            exec qb w.gpt
 bindsym $mda+$mdb+a       $ixx au
 bindsym $mda+$mdb+m       $ixx ml
 # spaces
@@ -137,17 +130,11 @@ bindsym $mda+o            $isw xmj
 bindsym $mda+Shift+o      $ixx xmj
 bindsym $mdb+m            $isw xml
 bindsym $mdb+Shift+m      $ixx xml
-bindsym $mda+m            $isw xmk # IM coms
-bindsym $mda+Shift+m      $ixx xmk # IM coms
-bindsym $mdb+n            $isw xmr # news readers
-bindsym $mdb+Shift+n      $ixx xmr # news readers
 bindsym $mdb+r            $isw xrd
 bindsym $mdb+$mda+Shift+r $ixx xrd
 bindsym $mda+b            $isw xau
 bindsym $mda+Shift+b      $ixx xau
-bindsym $mda+a            $isw xsx
-bindsym $mda+Shift+a      $ixx xsx
-# functional
+# float screens
 bindsym $mdb+i            $isf nnf1
 bindsym $mdb+Shift+i      $ixx nnf1
 bindsym $mda+i            $isf nnf2
@@ -157,11 +144,5 @@ bindsym $mdb+Ctrl+Shift+i $ixx nnf3
 # todo: make workspace version of vfub?
 bindsym $mda+n            [class="^vfub$"] scratchpad show
 bindsym $mda+Shift+n      $ixx vfub
-#bindsym $mdb+n            $isf vfua
-#bindsym $mdb+Shift+n      $ixx vfua
-#bindsym $mdb+$mda+n       workspace number 1
-#bindsym $mda+$mdb         $exn i3poly-hide
-#bindsym $mdb+o            $isw xai
-#bindsym $mdb+Shift+o      $ixx xai
-#exec --no-startup-id      i3sbar-c
+
 ## vim: set ft=i3config
