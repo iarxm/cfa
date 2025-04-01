@@ -30,7 +30,7 @@ c.messages.timeout                  = 2000
 c.tabs.background                   = True
 c.tabs.new_position.related         = "last"
 c.session.default_name              = "default_restore"
-c.auto_save.session                 = True
+#c.auto_save.session                 = True
 c.content.webgl                     = True
 c.content.autoplay                  = False
 c.content.geolocation               = True
@@ -155,6 +155,8 @@ c.aliases['bk']                    = 'spawn --userscript ~/.config/qutebrowser/u
 c.aliases['qbx']                   = 'spawn qb x {url}'
 c.aliases['firefox']               = 'spawn --userscript ~/.config/qutebrowser/userscripts/firefox --new-window {url}'
 c.aliases['ff']                    = 'firefox'
+c.aliases['chrome']                = 'spawn --userscript ~/.config/qutebrowser/userscripts/chrome --new-window {url}'
+c.aliases['gc']                    = 'spawn --userscript ~/.config/qutebrowser/userscripts/chrome --new-window {url}'
 c.aliases['grease-page-reload']    = 'greasemonkey-reload ;; reload'
 c.aliases['oil']                   = 'spawn st -c flst-buku1 oil-search'
 c.aliases['buku']                  = c.aliases['oil']
@@ -210,6 +212,7 @@ config.unbind('m',                 mode='normal')
 config.unbind('q',                 mode='normal')
 config.unbind('<Ctrl-B>',          mode='normal')
 config.bind(';f',                  'firefox')
+config.bind(';c',                  'chrome')
 config.bind(';x',                  'qbx')
 config.bind(';r',                  'reload')
 config.bind(';c',                  'config-source')
