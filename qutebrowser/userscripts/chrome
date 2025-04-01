@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+google-chrome-stable --new-window "${QUTE_URL}"
+
+echo "tab-close" > ${QUTE_FIFO}
