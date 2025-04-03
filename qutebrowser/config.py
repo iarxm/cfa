@@ -1,4 +1,3 @@
-# vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=python:
-# iarom madden
-config.load_autoconfig() # req for site specifics
+# iarom madden mail@iarom.org
+config.load_autoconfig()
 config.source('profile-a.py')

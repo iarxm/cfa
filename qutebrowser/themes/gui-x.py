@@ -1,4 +1,3 @@
-
 c.zoom.default                      = "80%"
 c.downloads.position                = "bottom"
 c.prompt.radius                     = 0

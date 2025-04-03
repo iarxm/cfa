@@ -1,24 +1,13 @@
 # iarom madden mail@iarom.org
 import os
-import glob
-DATA                               = '/dat'
-HOME                               = os.getenv("HOME")
-QUTE_CONFIG_HOME                   = HOME + "/.config/qutebrowser"
-QUTE_BLOCKED                       = QUTE_CONFIG_HOME + "/blocked-hosts"
-QUTE_BLOCKED_ETC                   = "/etc/qutebrowser/blocked-hosts"
-SESSION_DIR                        = HOME + "/.local/share/qutebrowser/sessions/a-tabmanager/"
-os.environ['QUTE_CONFIG_HOME']     = HOME + "/.config/qutebrowser"
-os.environ['QT_QPA_PLATFORMTHEME'] = "qt6ct" # req to load qt6 cfgs
-os.environ['QUTE_POST_CLONE']      = 'notify-send "cloned!" "${QUTE_URL}"'
-os.environ['QUTE_BIB_FILEPATH']    = "${HOME}/jf/iic/bib/qute.bib"
-os.environ['QUTE_UIX_BLK']         = "file://" + QUTE_CONFIG_HOME + "/interface/index-blank.html"
-os.environ['QUTE_UIX_BGX']         = "file://" + QUTE_CONFIG_HOME + "/interface/index-background.html"
-os.environ['COLORS_SOLAR_D']       = QUTE_CONFIG_HOME + "/interface/styles/solarized-d/solarized-dark-all-sites.css"
-os.environ['COLORS_SOLAR_L']       = QUTE_CONFIG_HOME + "/interface/styles/solarized-l/solarized-light-all-sites.css"
-os.environ['COLORS_BLACKX']        = QUTE_CONFIG_HOME + "/interface/styles/blackblack/black-all-sites.css"
-os.environ['WINDOW_ELEMENTS']      = QUTE_CONFIG_HOME + "/interface/styles/user.css"
-c.downloads.location.directory      = HOME + "/ai/"
-c.editor.command                    = ["st", "-c", "float", "nvim", "-O", "{}"] # i3 config 'float'
+HOME                                = os.getenv("HOME")
+SESSION_DIR                         = HOME + "/.local/share/qutebrowser/sessions/a-tabmanager/"
+COLORS_BLACKX                       = HOME + "/.config/qutebrowser/styles/blackblack/black-all-sites.css"
+os.environ['COLORS_BLACKX']         = COLORS_BLACKX
+os.environ['WINDOW_ELEMENTS']       = HOME + "/.config/qutebrowser/styles/user.css"
+c.downloads.location.directory      = "~/ai/"
+c.changelog_after_upgrade           = "minor"
+c.editor.command                    = ["st", "-c", "float", "nvim", "-O", "{}"] # float class applied
 c.spellcheck.languages              = ['en-GB']
 c.prompt.filebrowser                = True
 c.new_instance_open_target          = "tab-bg"
@@ -71,13 +60,12 @@ c.content.blocking.adblock.lists = [ \
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt"
     ]
 c.content.blocking.hosts.lists = [ \
-    QUTE_BLOCKED, \
-    QUTE_BLOCKED_ETC, \
+    HOME + "/.config/qutebrowser/blocked-hosts"
+    "/etc/qutebrowser/blocked-hosts", \
     'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', \
     'https://raw.githubusercontent.com/blocklistproject/Lists/master/youtube.txt'
     ]
 c.content.blocking.whitelist       = ['*://example.com/*', '*://surfline.com/*', '*://calendar.google.com/*']
-#c.content.blocking.enabled        = ['*://surfline.com*'] #['*://example.com/*']
 c.content.cookies.accept           = 'all'
 c.content.blocking.method          = 'both'
 c.content.blocking.enabled         = True
@@ -89,64 +77,30 @@ c.keyhint.blacklist                = ["*"]
 c.completion.open_categories       = ["quickmarks", "bookmarks", "history"]
 c.scrolling.smooth                 = True # can make scrolling slow with mouse, but improves key scrolling
 c.url.searchengines['gpt']         = 'https://chat.openai.com/search?q={}'
+c.url.searchengines['gp']          = 'https://chat.openai.com/search?q={}'
 c.url.searchengines['gs']          = 'http://scholar.google.ch/scholar?hl=en&q={}'
-c.url.searchengines['scihub']      = "https://sci-hub.se/{}"
-c.url.searchengines['sci']         = c.url.searchengines['scihub']
-c.url.searchengines['#sci']        = c.url.searchengines['scihub']
-c.url.searchengines['s']           = c.url.searchengines['scihub']
-c.url.searchengines['sc']          = c.url.searchengines['scihub']
-c.url.searchengines['bing']        = 'https://www.bing.com/search?q={}' #searc
-c.url.searchengines['bb']          = c.url.searchengines['bing']
-c.url.searchengines['google']      = 'http://www.google.com/search?hl=en&q={}'
-c.url.searchengines['g']           = c.url.searchengines['google']
-c.url.searchengines['gg']          = c.url.searchengines['google']
+c.url.searchengines['s']           = "https://sci-hub.se/{}"
+c.url.searchengines['g']           = 'http://www.google.com/search?hl=en&q={}'
+c.url.searchengines['gt']          = 'https://translate.google.com/?sl=auto&tl=en&text={}&op=translate'
+c.url.searchengines['y']           = 'https://www.youtube.com/results?search_query={}'
 c.url.searchengines['dd']          = 'https://duckduckgo.com/?q={}'
-c.url.searchengines['youtube']     = 'https://www.youtube.com/results?search_query={}'
-c.url.searchengines['yt']          = c.url.searchengines['youtube']
-c.url.searchengines['yy']          = c.url.searchengines['youtube']
-c.url.searchengines['y']           = c.url.searchengines['youtube']
-c.url.searchengines['ww']          = 'https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Special%%3ASearch&search={}'
-c.url.searchengines['DEFAULT']     = c.url.searchengines['gpt']
+c.url.searchengines['bb']          = 'https://www.bing.com/search?q={}' #searc
 c.url.searchengines['gh']          = 'https://github.com/search?q={}&type=Code'
 c.url.searchengines['aw']          = 'https://wiki.archlinux.org/?search={}'
 c.url.searchengines['ap']          = 'https://www.archlinux.org/packages/?sort=&q={}'
-c.url.searchengines['ar']          = 'https://www.archlinux.org/packages/?sort=&q={}'
-c.url.searchengines['ar']          = 'https://www.archlinux.org/packages/?sort=&q={}'
-c.url.searchengines['aur']         = 'https://aur.archlinux.org/packages/?O=0&K={}'
-c.url.searchengines['au']          = 'https://aur.archlinux.org/packages/?O=0&K={}'
 c.url.searchengines['gm']          = 'https://www.google.com/maps/search/?api=1&query={}'
-c.url.searchengines['maps']        = 'https://www.google.com/maps/search/?api=1&query={}'
-c.url.searchengines['gt']          = 'https://translate.google.com/?sl=auto&tl=en&text={}&op=translate'
+c.url.searchengines['m']           = 'https://www.google.com/maps/search/?api=1&query={}'
 c.url.searchengines['rar']         = 'https://rargb.to/search/?search={}'
 c.url.searchengines['tpb']         = 'https://ukpiratebay.org/search.php?q={}'
-c.url.searchengines['amazon']      = 'https://www.amazon.co.uk/s?k={}'
-c.url.searchengines['sh.amu']      = c.url.searchengines['amazon']
-c.url.searchengines['am']          = c.url.searchengines['amazon']
-c.url.searchengines['amu']         = c.url.searchengines['amazon']
-c.url.searchengines['shamd']       = 'https://www.amazon.de/s?k={}'
-c.url.searchengines['amd']         = 'https://www.amazon.de/s?k={}'
-c.url.searchengines['shamn']       = 'https://www.amazon.nl/s?k={}'
-c.url.searchengines['amn']         = 'https://www.amazon.nl/s?k={}'
-c.url.searchengines['ebay']        = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3'
-c.url.searchengines['she']         = c.url.searchengines['ebay']
-c.url.searchengines['eb']          = c.url.searchengines['ebay']
-#c.url.searchengines['she']        = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3'
-#c.url.searchengines['eb']         = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3'
+c.url.searchengines['amuk']        = 'https://www.amazon.co.uk/s?k={}'
+c.url.searchengines['amde']        = 'https://www.amazon.de/s?k={}'
+c.url.searchengines['amnl']        = 'https://www.amazon.nl/s?k={}'
+c.url.searchengines['eb']          = 'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3'
 c.url.searchengines['adverts']     = 'https://www.adverts.ie/for-sale/q_{}/' # adverts / donedeal
-c.url.searchengines['shadv']       = c.url.searchengines['adverts']
-c.url.searchengines['shadv']       = 'https://www.adverts.ie/for-sale/q_{}/'
-c.url.searchengines['sha']         = 'https://www.adverts.ie/for-sale/q_{}/'
-c.url.searchengines['adv']         = 'https://www.adverts.ie/for-sale/q_{}/'
 c.url.searchengines['donedeal']    = 'https://www.donedeal.ie/all?words={}'
-c.url.searchengines['shdon']       = 'https://www.donedeal.ie/all?words={}'
-c.url.searchengines['shd']         = 'https://www.donedeal.ie/all?words={}'
-c.url.searchengines['don']         = 'https://www.donedeal.ie/all?words={}'
-c.url.searchengines['shali']       = 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220502145726&isPremium=y&SearchText={}&spm=a2g0o.productlist.1000002.0'
 c.url.searchengines['ali']         = 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220502145726&isPremium=y&SearchText={}&spm=a2g0o.productlist.1000002.0'
 c.url.searchengines['fbmarket']    = 'https://www.facebook.com/marketplace/104038149633202/search/?query={}'
-c.aliases['ge']                    = 'open -t https://wiki.archlinux.org/index.php/Forum_Etiquette'
-c.aliases['gf']                    = 'open -t http://flickr.com/jasonwryan '
-c.aliases['gj']                    = 'open -t http://jasonwryan.com'
+c.url.searchengines['DEFAULT']     = c.url.searchengines['gpt']
 c.aliases['gp']                    = 'open -t http://127.0.0.1:4000'
 c.aliases['gr']                    = 'open -t https://feedbin.com/'
 c.aliases['pdf']                   = 'print --pdf'
@@ -161,8 +115,8 @@ c.aliases['grease-page-reload']    = 'greasemonkey-reload ;; reload'
 c.aliases['oil']                   = 'spawn st -c flst-buku1 oil-search'
 c.aliases['buku']                  = c.aliases['oil']
 c.aliases['us_echo']               = 'spawn --userscript ~/.config/qutebrowser/userscripts/echo'
-c.aliases['colcycle']              = 'config-cycle content.user_stylesheets ' + os.getenv("COLORS_BLACKX") + '""'
-c.aliases['colblack']              = 'set content.user_stylesheets ' + os.getenv("COLORS_BLACKX")
+c.aliases['colcycle']              = 'config-cycle content.user_stylesheets ' + COLORS_BLACKX + '""'
+c.aliases['colblack']              = 'set content.user_stylesheets ' + COLORS_BLACKX
 c.aliases['dread-enable']          = 'spawn --userscript darkreader.py enable domain'
 c.aliases['dread-disable']         = 'spawn --userscript darkreader.py disable domain'
 c.aliases['darkreader']            = 'spawn --userscript darkreader.py'
@@ -173,39 +127,42 @@ c.aliases['ytdl']                  = 'spawn yt-dlp {url}' # youtube-dl
 c.aliases['ytdlx']                 = 'spawn yt-dlp -x {url}'
 c.aliases['doi.sci']               = 'hint links userscript ~/.config/qutebrowser/userscripts/doi'
 c.aliases['doi.unp']               = 'spawn --userscript unpaywall' # doi unpwaywal
-c.aliases['ses-go']                = 'cmd-set-text -s :spawn --userscript tab-manager.py ' + SESSION_DIR
-#open one or more sessions as HTML, or open index
-c.aliases['ses-o']                 = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' open -f '
-c.aliases['ses-r']                 = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' restore -f '
-#restore but close all open first
-c.aliases['ses-R']                 = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' restore -c -f  '
-# save all and overwrite specified session (update session, don't append):
-c.aliases['ses-sv-all-o']          = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' save-all -o -f '
-# append current focused tab to specified session
-c.aliases['ses-sv-tab']            = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' save -f '
-c.aliases['sas-rm']                = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' delete -f '
-c.aliases['ses-ls']                = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' help '
-#c.aliases['ses-o']                 = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' open -f '
-#c.aliases['ses-r']                 = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' restore -f '
-#c.aliases['ses-R']                 = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' restore -c -f  '
-#c.aliases['ses-sv-all-o']          = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' save-all -o -f '
-#c.aliases['ses-sv-tab']            = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' save -f '
-#c.aliases['sas-rm']                = 'cmd-set-text -s :spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' delete -f '
-#c.aliases['ses-ls']                = 'spawn --userscript path/to/tab-manager.py ' + SESSION_DIR + ' help '
-#convert below to session-.. binds
-#zo
-#zr
-#zR
-#za
-#zs
-#zD
-#zh
+c.aliases['session-go']            = 'cmd-set-text -s :spawn --userscript tab-manager.py ' + SESSION_DIR
+c.aliases['session-open']          = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' open -f '
+c.aliases['session-restore']       = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' restore -f '
+c.aliases['session-Restore']       = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' restore -c -f  '
+c.aliases['session-save']          = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' save-all -o -f '
+c.aliases['session-savet']         = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' save -f '
+c.aliases['session-delete']        = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' delete -f '
+c.aliases['session-ls']            = 'spawn --userscript tab-manager.py ' + SESSION_DIR + ' help '
+c.aliases['sg']                    = 'ses-go'
+c.aliases['so']                    = 'ses-open'
+c.aliases['sr']                    = 'ses-restore'
+c.aliases['sR']                    = 'ses-restore'
+c.aliases['ss']                    = 'ses-save'
+c.aliases['st']                    = 'ses-savet'
+c.aliases['sd']                    = 'ses-delete'
+c.aliases['sl']                    = 'ses-ls'
 c.aliases.update({
     # for daemon mode script
     'recycle':  'quit --save _recycle',
     'restart':  'quit --save _restart',
     'shutdown': 'quit --save _shutdown',
     })
+#config.bind(';c',                  'config-source') #convert to short alias?
+#config.bind(';g',                  'greasemonkey-reload') #convert to short alias?
+#config.bind('gr',                  'spawn --userscript readability') #make alias
+#config.bind('gc',                  'spawn --userscript gitclone') #make alias
+#config.bind('gd',                  'spawn -u jsdownload') #make alias
+#config.bind(';o',                  'spawn -u open_download') # download #make alias
+#config.bind(';y',                   'hint links spawn yt-dlp {hint-url}') #make alias
+#config.bind(';yy',                  'spawn yt-dlp {url}') # make alias
+#config.bind(',d',                  "cmd-set-text -s :darkreader enable '{url}*'") #make alias
+#config.bind(',r',                  "cmd-set-text -s :darkreader disable '{url}*'") #make alias
+#config.bind('xx',                  'config-cycle statusbar.show always in-mode ;; config-cycle tabs.show always switching') #visualmods #make alias
+#config.bind('xb',                  'config-cycle statusbar.show always in-mode') #make alias
+#config.bind('xt',                  'config-cycle tabs.show always switching') #make alias
+#### slowing config loading down
 config.unbind('gb',                mode='normal')
 config.unbind('b',                 mode='normal')
 config.unbind('m',                 mode='normal')
@@ -215,48 +172,27 @@ config.bind(';f',                  'firefox')
 config.bind(';c',                  'chrome')
 config.bind(';x',                  'qbx')
 config.bind(';r',                  'reload')
-config.bind(';c',                  'config-source')
-config.bind(';g',                  'greasemonkey-reload')
-config.bind(';s',                  'colblack')
-config.bind(';d',                  'colcycle')
-config.bind('qq',                  'mpvq') # mpv
-config.bind(';ml',                 'mpvh')
-config.bind(';mm',                 'mpv')
-config.bind(';u',                  'hint links spawn yt-dlp {hint-url}')
-config.bind(';U',                  'spawn yt-dlp {url}')
-config.bind(';a',                  'spawn yt-dlp -x {url}')
-config.bind(';o',                  'spawn -u open_download') # download
-config.bind('gd',                  'spawn -u jsdownload')
-#### slowing config loading down
+config.bind(';yx',                  'spawn yt-dlp -x {url}') # make alias
 config.bind(';t',                  'hint links spawn transmission-remote -a {hint-url}') # tors
 config.bind(';T',                  'hint -r links spawn transmission-remote -a {hint-url}')
-config.bind('gl',                  'hint links spawn -u ~/.config/qutebrowser/userscripts/doi')
+config.bind('gd',                  'hint links spawn -u ~/.config/qutebrowser/userscripts/doi')
 config.bind('gu',                  'spawn --userscript unpaywall')
 config.bind('gz',                  'spawn --userscript qute-zotero')
 config.bind('gb',                  'spawn --userscript getbib')
-config.bind('gr',                  'spawn --userscript readability')
-config.bind('gc',                  'spawn --userscript gitclone')
-####
-config.bind('<z><l>',              'spawn --userscript qute-pass')
+config.bind('<z><i>',              'spawn --userscript qute-pass')
 config.bind('<z><u>',              'spawn --userscript qute-pass --username-only')
 config.bind('<z><p>',              'spawn --userscript qute-pass --password-only')
 config.bind('<z><o>',              'spawn --userscript qute-pass --otp-only')
 ####
-config.bind('<Alt-j>',             'cmd-run-with-count 15 scroll down', mode='normal')
-config.bind('<Alt-k>',             'cmd-run-with-count 15 scroll up', mode='normal')
-config.bind('<Alt-j>',             'cmd-run-with-count 10 scroll down', mode='normal')
-config.bind('<Ctrl-r>',            'restart',    mode='normal')
-config.bind('<Ctrl-Right>',        'tab-next',   mode='normal')
-config.bind('<Ctrl-Left>',         'tab-prev',   mode='normal')
-config.bind('<Ctrl-Shift-Right>',  'tab-move +', mode='normal')
-config.bind('<Ctrl-Shift-Left>',   'tab-move -', mode='normal')
+config.bind('<Ctrl-k>',            'tab-move +', mode='normal')
+config.bind('<Ctrl-j>',            'tab-move -', mode='normal')
 config.bind('P',                   'back',       mode='normal')
+config.bind('V',                   'set statusbar.show always;; mode-enter caret ;; selection-toggle --line', mode='normal')
 config.bind('o',                   'set statusbar.show always;; clear-messages;; cmd-set-text -s :open')
 config.bind('O',                   'set statusbar.show always;; clear-messages;; cmd-set-text -s :open -t')
 config.bind('t',                   'set statusbar.show always;; clear-messages;; cmd-set-text -s :open -t')
 config.bind(':',                   'set statusbar.show always;; clear-messages;; cmd-set-text :')
 config.bind('/',                   'set statusbar.show always;; clear-messages;; cmd-set-text /')
-config.bind('V',                   'set statusbar.show always;; mode-enter caret ;; selection-toggle --line', mode='normal')
 config.bind('v',                   'set statusbar.show always;; mode-enter caret',       mode='normal')
 config.bind('i',                   'set statusbar.show always;; mode-enter insert',      mode='normal')
 config.bind('f',                   'set statusbar.show always;; hint',                   mode='normal')
@@ -270,30 +206,31 @@ config.bind('<Escape>',            'mode-leave;;        set statusbar.show never
 config.bind('<Escape>',            'mode-leave;;        set statusbar.show never',         mode='hint')
 config.bind('<Escape>',            'mode-leave;;        set statusbar.show never',         mode='command')
 config.bind('<Return>',            'command-accept;;    set statusbar.show never',         mode='command')
-#config.bind('<Escape>',            'mode-enter normal', mode='command')
-#config.bind('<Return>',            'command-accept',    mode='command')
-config.bind('xx',                  'config-cycle statusbar.show always in-mode ;; config-cycle tabs.show always switching') #visualmods
-config.bind('xb',                  'config-cycle statusbar.show always in-mode')
-config.bind('xt',                  'config-cycle tabs.show always switching')
 config.bind('<Ctrl-m>',            'cmd-set-text -s :quickmark-save', mode='normal')
-config.bind('<Shift-m>',           'cmd-set-text -s :quickmark-save', mode='normal')
 config.bind('B',                   'oil',                  mode='normal')
 config.bind('b',                   'cmd-set-text -s :bk',  mode='normal')
-config.bind('p',                   'cmd-set-text -s :pdf', mode='normal')
 config.bind('se',                  ':cmd-set-text -s :session-load', mode='normal')
-config.bind('sl',                  ':cmd-set-text -s :session-load', mode='normal')
 config.bind('sw',                  ':cmd-set-text -s :session-save', mode='normal')
 config.bind('sr',                  ':cmd-set-text -s :session-delete', mode='normal')
 config.bind(';r',                  'reload')
 config.bind('<Alt-Shift-k>',       'zoom-in')
 config.bind('<Alt-Shift-j>',       'zoom-out')
-config.bind(',d',                  "cmd-set-text -s :darkreader enable '{url}*'")
-config.bind(',r',                  "cmd-set-text -s :darkreader disable '{url}*'")
-#archive
-#filepicker                          = ["st", "-c", "filepicker", "-t", "filepicker", "-e", "lf", "-command", "set nohidden", "-selection-path={}",]
-#c.fileselect.handler                = "external"
-#c.fileselect.folder.command         = filepicker
-#c.fileselect.multiple_files.command = filepicker
-#c.fileselect.single_file.command    = filepicker
-# task: folder picker; and beautify
-#c.downloads.location.directory      = DATA + "/ui/iaa/"
+# vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=python:
+#config.bind('p',                   'cmd-set-text -s :pdf', mode='normal')
+#config.bind('<Shift-m>',           'cmd-set-text -s :quickmark-save', mode='normal')
+#config.bind('<Escape>',            'mode-enter normal', mode='command')
+#config.bind('<Return>',            'command-accept',    mode='command')
+#config.bind('<Alt-j>',             'cmd-run-with-count 15 scroll down', mode='normal')
+#config.bind('<Alt-k>',             'cmd-run-with-count 15 scroll up', mode='normal')
+#config.bind('<Alt-j>',             'cmd-run-with-count 10 scroll down', mode='normal')
+#config.bind('<Ctrl-r>',            'restart',    mode='normal')
+#config.bind('<Ctrl-Right>',        'tab-next',   mode='normal')
+#config.bind('<Ctrl-Left>',         'tab-prev',   mode='normal')
+#os.environ['QT_QPA_PLATFORMTHEME']  = "qt6ct" # req to load qt6 cfgs # already set in profile shell
+#os.environ['QUTE_POST_CLONE']      = 'notify-send "cloned!" "${QUTE_URL}"'
+#os.environ['QUTE_BIB_FILEPATH']    = "${HOME}/jf/iic/bib/qute.bib"
+#COLORS_SOLAR_D                     = QUTE_CONFIG_HOME + "/styles/solarized-d/solarized-dark-all-sites.css"
+#COLORS_SOLAR_L                     = QUTE_CONFIG_HOME + "/styles/solarized-l/solarized-light-all-sites.css"
+#DATA                               = '/dat'
+#SESSION_DIR                        = "~/.local/share/qutebrowser/sessions/a-tabmanager/"
+#import glob
