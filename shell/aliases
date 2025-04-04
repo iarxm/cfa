@@ -90,7 +90,8 @@ alias shutdownx="shutdown -h now"
 alias unmountall='udiskie-umount -a --detach'
 alias red-start="systemctl --user start redshift.service"
 alias red-stop="systemctl --user stop redshift.service"
-alias feh-setbg='feh --no-fehbg --bg-max "${BGX_FEH}"'
+#alias feh-setbg='feh --no-fehbg --bg-max "${BGX_FEH}"'
+alias feh-setbg='feh --no-fehbg --bg-fill "${BGX_FEH}"'
 alias aut="autorandr --load"
 alias autor-a="autorandr --load dock-ad"
 alias jxe='journalctl -xe'
@@ -128,7 +129,8 @@ alias tran="transmission-daemon"
 alias tranq="transmission-remote --exit"
 alias tranr="transmission-remote"
 alias tranc="transmission-cli"
-alias m="neomutt -e "push '<change-folder>=ii<enter>'""
+#alias m="neomutt -e \"push '<change-folder>=ii<enter>'\""
+alias m="neomutt -e 'push <change-folder>=ii<enter>'"
 alias nmm="notmuch"
 alias mbsync-pull-new-mailboxs="mbsync --pull --create -a"
 alias news="newsboat"
