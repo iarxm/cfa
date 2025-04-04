@@ -1,7 +1,8 @@
 import os
 HOME                       = os.getenv("HOME")
 c.content.user_stylesheets = [ os.getenv('WINDOW_ELEMENTS'), os.getenv('COLORS_BLACKX') ]
-c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-blank.html"
+#c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-blank.html"
+c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-background.html"
 c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-background.html"
 c.colors.webpage.darkmode.enabled                = True
 c.colors.webpage.darkmode.policy.images          = "never"
