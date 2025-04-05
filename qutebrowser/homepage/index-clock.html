@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>-</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: black; display: flex; align-items: center; justify-content: center; }
+    canvas { background: transparent; }
+  </style>
+</head>
+<body>
+  <canvas id="clock" width="200" height="200"></canvas>
+  <script>
+    const canvas = document.getElementById('clock');
+    const ctx = canvas.getContext('2d');
+    const radius = canvas.height / 1.5;
+    ctx.translate(radius, radius);
+    
+    function drawClock() {
+      drawFace(ctx, radius);
+      drawHands(ctx, radius);
+    }
+    
+    function drawFace(ctx, radius) {
+      ctx.beginPath();
+      //ctx.arc(0, 0, radius * 0.95, 0, Math.PI * 2); //for the circle itself
+      ctx.fillStyle = 'black';
+      ctx.fill();
+      
+      ctx.lineWidth = radius * 0.01;
+      ctx.strokeStyle = 'grey';
+      ctx.stroke();
+    }
+    
+    function drawHands(ctx, radius) {
+      const now = new Date();
+      const hour = now.getHours() % 12;
+      const minute = now.getMinutes();
+      const second = now.getSeconds();
+      
+      // Hour hand
+      drawHand(ctx, (hour * Math.PI / 6) + (minute * Math.PI / (6 * 60)), radius * 0.4, radius * 0.02, "grey");
+      // Minute hand
+      drawHand(ctx, (minute * Math.PI / 30) + (second * Math.PI / (30 * 60)), radius * 0.7, radius * 0.02, "grey");
+      // Second hand
+      drawHand(ctx, second * Math.PI / 30, radius * 0.95, radius * 0.01, "grey");
+    }
+    
+    function drawHand(ctx, pos, length, width, color = 'white') {
+      ctx.beginPath();
+      ctx.lineWidth = width;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = color;
+      ctx.moveTo(0, 0);
+      ctx.rotate(pos);
+      ctx.lineTo(0, -length);
+      ctx.stroke();
+      ctx.rotate(-pos);
+    }
+    
+    setInterval(() => {
+      ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+      drawClock();
+    }, 1000);
+    
+    drawClock();
+  </script>
+</body>
+</html>
