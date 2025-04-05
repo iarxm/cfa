@@ -60,7 +60,7 @@
       const day = String(now.getDate()).padStart(2, '0');
       const month = String(now.getMonth() + 1).padStart(2, '0');
       const year = now.getFullYear();
-      const dateStr = `${year}/${month}/${day}`;
+      const dateStr = `${month}/${day}`;
 
       // Format time in 24h format HH:MM:SS
       const hours = String(now.getHours()).padStart(2, '0');
@@ -69,7 +69,7 @@
       const timeStr = `${hours}:${minutes}:${seconds}`;
 
       // Update the clock element
-      document.getElementById('clock').innerText = `${dateStr} ${timeStr}`;
+      document.getElementById('clock').innerText = `${dateStr} \n${timeStr}`;
     }
 
     // Initial update and then every second
