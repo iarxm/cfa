@@ -8,10 +8,29 @@ alias dmu_j4x="j4-dmenu-desktop --dmenu 'dmenu \
     -sf \"white\"'"
 alias pa="pass"
 alias we="weechat"
-alias xi="exec xini"
-alias qbd="systemctl --user start qb.service"
-alias god="systemctl --user start chrome.service"
-#alias xini="xini"
+#### systemctl func
+systemctl_toggle_service()
+{
+    local service="${1}"
+    if [ -n "${2}" ]; then
+        local ${user_hand}="--user"
+    else
+        local ${user_hand}=""
+    fi
+
+    if systemctl ${user_hand} is-active --quiet "${service}"; then
+        systemctl stop "${service}"
+        echo "stopped ${service}"
+    else
+        systemctl ${user_hand} start "${service}"
+        echo "started ${service}"
+    fi
+}
+systemctl_toggle_service()
+{
+    systemctl_toggle_service_user ${1}
+}
+
 ### dotfiles
 alias irssi="irssi --home=${XDG_CONFIG_HOME}/irssi"
 alias abook="abook \
@@ -81,40 +100,43 @@ alias ffmpeg="ffmpeg -hide_banner" # ffmpeg
 alias mpd-reset="systemctl --user stop mpd.service"
 alias a="vimpc"
 #alias ytv="youtube-viewer"
-#### system
-alias sm="systemctl"
+#### systemctl user
 alias smu="systemctl --user"
+alias red="systemctl_toggle_service_user redshift.service"
+alias qbd="systemctl_toggle_service_user qb.service"
+alias chromed="systemctl_toggle_service_user chrome.service"
+#### systemctl system
+alias sm="systemctl"
 alias reboot="systemctl reboot"
 alias sms="systemctl suspend"
+alias nm-restart="systemctl restart NetworkManager.service"
+alias blue="systemctl_toggle_service bluetooth.service"
+alias jelly="systemctl_toggle_service jellyfin.service"
+alias paperless="systemctl_toggle_service paperless.target"
+alias clamd-sys="systemctl_toogle_service clamav-daemon.service"
+#alias sdk-clamd='sudo pkill clamd'
+    # convert to systemctl switch
+#### system
 alias shutdownx="shutdown -h now"
 alias unmountall='udiskie-umount -a --detach'
-alias red-start="systemctl --user start redshift.service"
-alias red-stop="systemctl --user stop redshift.service"
-#alias feh-setbg='feh --no-fehbg --bg-max "${BGX_FEH}"'
 alias feh-setbg='feh --no-fehbg --bg-fill "${BGX_FEH}"'
 alias aut="autorandr --load"
 alias autor-a="autorandr --load dock-ad"
 alias jxe='journalctl -xe'
-[ -f "${XINITRC}" ] && alias startx="startx ${XINITRC}"
+alias xi="exec xini"
+#[ -f "${XINITRC}" ] && alias startx="startx ${XINITRC}"
 for x in mount umount sv pacman updatedb su dmesg shutdown; do
     alias ${x}="sudo ${x}"
 done
-alias ma="make"
 alias so="sudo"
 alias sdk="sudo pkill"
-killc()      { i=0; while i < 10 ; do sudo pkill ${1}; done } # aggressive kill
+#killc() { i=0; while i < 10 ; do sudo pkill ${1}; done } # aggressive kill
 alias p="pacman"
 alias pacs='pacman -S'
 alias pipu='pip install --user'
-#alias srcp="source ~/.config/shell/profile"
-#alias sdk-clamd='sudo pkill clamd'
-#alias syt='systemctl'
+alias ma="make"
 #### networking
-alias nm-restart="systemctl restart NetworkManager.service"
-alias blues="systemctl start bluetooth.service"
-alias blue-stop="systemctl stop bluetooth.service"
 alias blue-adisconnect="bluetoothctl disconnect"
-alias blue='bluetuith'
 alias s="ssh"
 alias mosh="mosh --experimental-remote-ip=remote"
 # other
@@ -141,11 +163,7 @@ alias hla='hledger add'
 alias tt='taskwarrior-tui'
 alias j='task'
 alias jj='task'
-vit() {
-    TASKRC=${HOME}/.config/task/modules/vit-taskrc && \
-    vit && \
-    TASKRC=${HOME}/.config/task/taskrc
-}
+alias vit="TASKRC_ORIG=${TASKRC}; TASKRC=${VITRC}; /usr/bin/vit; TASKRC=${TASKRC_ORIG}"
 #### webapps
 alias wa='qb win web.whatsapp.com'
 alias gpt='qb win chat.openai.com'
@@ -154,8 +172,16 @@ alias calx='qb win calendar.google.com'
 alias habit='qb w.oo.win'
 alias b="buku --suggest"
 #### new
+alias brw-inx="qb"
 #alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 #alias whatsapp='firefox --new-window web.whatsapp.com'
 #export mpvx="mpx"
-alias brw-inx="qb"
 #alias weechat="weechat -d ${XDG_CONFIG_HOME}/weechat/" # weechat now abides by default
+#archive
+#alias red-start="systemctl --user start redshift.service"
+#alias red-stop="systemctl --user stop redshift.service"
+#alias feh-setbg='feh --no-fehbg --bg-max "${BGX_FEH}"'
+#alias blue='bluetuith'
+#alias blue-stop="systemctl stop bluetooth.service"
+#alias xini="xini"
+#alias srcp="source ~/.config/shell/profile"
