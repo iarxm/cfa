@@ -6,6 +6,54 @@
 
 config_version: 2
 settings:
+  bindings.commands:
+    global:
+      caret:
+        <Escape>: mode-leave;;        set statusbar.show never
+        c: mode-enter normal;; set statusbar.show never
+      command:
+        <Escape>: mode-leave;;        set statusbar.show never
+        <Return>: command-accept;;    set statusbar.show never
+      hint:
+        <Escape>: mode-leave;;        set statusbar.show never
+      insert:
+        <Escape>: mode-leave;;        set statusbar.show never
+      normal:
+        '''': set statusbar.show always;; mode-enter jump_mark
+        /: set statusbar.show always;; clear-messages;; cmd-set-text /
+        ':': 'set statusbar.show always;; clear-messages;; cmd-set-text :'
+        ;T: hint -r links spawn transmission-remote -a {hint-url}
+        ;c: chrome
+        ;f: firefox
+        ;r: reload
+        ;t: hint links spawn transmission-remote -a {hint-url}
+        ;x: qbx
+        ;yx: spawn yt-dlp -x {url}
+        <Alt+Shift+j>: zoom-out
+        <Alt+Shift+k>: zoom-in
+        <Ctrl+j>: tab-move -
+        <Ctrl+k>: tab-move +
+        <Ctrl+m>: cmd-set-text -s :quickmark-save
+        <Ctrl+v>: set statusbar.show always;; mode-enter passthrough
+        B: oil
+        O: set statusbar.show always;; clear-messages;; cmd-set-text -s :open -t
+        P: back
+        V: set statusbar.show always;; mode-enter caret ;; selection-toggle --line
+        '`': set statusbar.show always;; mode-enter set_mark
+        b: cmd-set-text -s :bk
+        f: set statusbar.show always;; hint
+        gd: hint links spawn -u ~/.config/qutebrowser/userscripts/doi
+        gu: spawn --userscript unpaywall
+        gz: spawn --userscript qute-zotero
+        i: set statusbar.show always;; mode-enter insert
+        o: set statusbar.show always;; clear-messages;; cmd-set-text -s :open
+        se: :cmd-set-text -s :session-load
+        sr: :cmd-set-text -s :session-delete
+        sw: :cmd-set-text -s :session-save
+        t: set statusbar.show always;; clear-messages;; cmd-set-text -s :open -t
+        v: set statusbar.show always;; mode-enter caret
+      passthrough:
+        <Escape>: mode-leave;;        set statusbar.show never
   content.desktop_capture:
     https://meet.google.com: true
     https://teams.microsoft.com: true
@@ -38,4 +86,4 @@ settings:
     https://outlook.office.com?mailtouri=%25s: false
     https://outlook.office365.com?mailtouri=%25s: false
   statusbar.show:
-    global: never
+    global: always

@@ -1,18 +1,7 @@
-import os
-HOME                       = os.getenv("HOME")
-c.content.user_stylesheets = [ os.getenv('WINDOW_ELEMENTS'), os.getenv('COLORS_BLACKX') ]
-#c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-blank.html"
-#c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-blank.html"
-#c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-background.html"
-#c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-background.html"
-#c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-clock.html"
-#c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-clock.html"
-c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
-c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
 c.colors.webpage.darkmode.enabled                = True
 c.colors.webpage.darkmode.policy.images          = "never"
 c.colors.webpage.preferred_color_scheme          = "dark"
-c.colors.webpage.darkmode.contrast
+c.colors.webpage.darkmode.contrast               = 0.0
 c.colors.completion.category.bg                  = "black"
 c.colors.completion.even.bg                      = "black"
 c.colors.completion.odd.bg                       = "black"
@@ -80,3 +69,14 @@ c.colors.prompts.fg                              = "white" #"#333333"
 c.colors.keyhint.fg                              = "#FFFFFF"
 c.colors.keyhint.suffix.fg                       = "#FFFF00"
 c.colors.keyhint.bg                              = "rgba(0, 0, 0, 80%)"#black?
+import os
+HOME                       = os.getenv("HOME")
+c.content.user_stylesheets = [ os.getenv('WINDOW_ELEMENTS'), os.getenv('COLORS_BLACKX') ]
+c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
+c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
+#c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-blank.html"
+#c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-blank.html"
+#c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-background.html"
+#c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-background.html"
+#c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-clock.html"
+#c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-clock.html"

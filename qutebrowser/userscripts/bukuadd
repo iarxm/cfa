@@ -1,5 +1,3 @@
 #!/bin/sh
-buku --debug --add "$QUTE_URL" $@
-#echo "message-info 'buku input: $@'" >> "$QUTE_FIFO"
-echo "message-info 'buku: tag: $@  || url:$QUTE_URL'" >> "$QUTE_FIFO"
-
+buku --debug --add "${QUTE_URL}" ${@}
+echo "message-info 'buku ${@}   ${QUTE_URL}'" >> "${QUTE_FIFO}"
