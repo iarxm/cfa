@@ -1,10 +1,6 @@
-# IAROM MADDEN mail@iarom.org
+# iarom mail@iarom.org
 
-# init code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-
-# - [ ] experiment with below gist
-# https://gist.github.com/romkatv/8b318a610dc302bdbe1487bb1847ad99
+# init code that may require console input must go above this block
 
 PROMPT_C_ON="1"
 P10K_ON="0"
@@ -32,23 +28,17 @@ fi
 
 [[ ! -f ${P10K_CFG} ]] || source ${P10K_CFG}
 
-# theme
-
 autoload -U colors && colors
 
 if [[ ${PROMPT_C_ON} == "1" ]]; then
     autoload -Uz vcs_info
-    #zstyle ':vcs_info:git:*' formats '%b%f%m%u%c %a'
-    #
-    zstyle ':vcs_info:git*' formats "%{$fg[grey]%}%{$fg[blue]%}%b%{$reset_color%}%m%u%c%{$reset_color%} %h "
+    zstyle ':vcs_info:git*' formats "%{$fg[blue]%}%{$fg[blue]%}%b%{$reset_color%}%m%u%c%{$reset_color%} %h "
     zstyle ':vcs_info:git*' actionformats "%S %b %m%u%c "
     zstyle ':vcs_info:*' max-exports 5
     zstyle ':vcs_info:*' enable git
     zstyle ':vcs_info:*' check-for-changes true
-    #zstyle ':vcs_info:*' stagedstr ' +'
     zstyle ':vcs_info:*' unstagedstr '%F{red}!'
     zstyle ':vcs_info:*' stagedstr ' %F{green}✚%f'
-    #zstyle ':vcs_info:*' unstagedstr ' %F{red}●%f'
 
     precmd()
     {
@@ -70,9 +60,6 @@ fi
 
 setopt autocd
 setopt interactive_comments
-
-# compl
-
 ZSH_DAT="${HOME}/.local/share/zsh"
 mkdir -p ${ZSH_DAT}
 autoload -U compinit
@@ -80,7 +67,6 @@ compinit -d ${ZSH_DAT}/zcompdump-${HOST}
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 _comp_options+=(globdots) # include hidden files
-
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=${HISTFILE}
@@ -92,7 +78,7 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 export KEYTIMEOUT=1
-echo -ne '\e[3 q' # change cursor shape for different vi modes
+echo -ne '\e[3 q' # cursor shapes vi modes
 
 zle-keymap-select ()
 {
@@ -105,7 +91,6 @@ zle-keymap-select ()
 
 lfcd ()
 {
-    # switch dir and launch lf
     tmp="$(mktemp)"
     lf -last-dir-path="${TMP_LF}" "${@}"
     if [ -f "${TMP_LF}" ]; then
@@ -126,7 +111,6 @@ autoload edit-command-line
 zle -N zle-line-init
 zle -N zle-keymap-select
 zle -N edit-command-line
-
 bindkey -v
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -140,9 +124,17 @@ bindkey '^e' edit-command-line # edit line in vim w c-e
 bindkey -s '^n' 'nnn\n'
 bindkey -s '^b' 'nnn -n\n'
 bindkey -s '^v' 'nvim\n'
-
+bindkey -s '^l' 'l\n'
+bindkey -s '^k' 'clear\n'
 SYNTAX="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 [[ -f ${SYNTAX} ]] && source ${SYNTAX} # keep last
 [[ -f ${PROFILEI} ]] && source ${PROFILEI}
-
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[arg0]=fg=yellow
+# - [ ] experiment with below gist
+# https://gist.github.com/romkatv/8b318a610dc302bdbe1487bb1847ad99
+#zstyle ':vcs_info:git:*' formats '%b%f%m%u%c %a'
+#zstyle ':vcs_info:*' stagedstr ' +'
+#zstyle ':vcs_info:*' unstagedstr ' %F{red}●%f'
 #zstyle ':vcs_info:*' disable bzr cdv darcs fossil hg mtn p4 svk tla
