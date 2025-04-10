@@ -7,7 +7,6 @@ vim.wo.foldcolumn      = "0"
 vim.wo.signcolumn      = "yes:4"
 --vim.cmd('silent! TableModeEnable')
 vim.cmd('runtime syntax/markdown.vim')
-
 if vim.fn.getline(1) == "---" then
             vim.cmd('1,/^---$/fold')
 end

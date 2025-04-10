@@ -1,5 +1,4 @@
-"
-" #### MARKDOWN
+" ## MARKDOWN
 " top: yaml / metadata
 hi YAMLFrontMatter   ctermfg=blue        guifg=blue
 hi yamlFrontmatter   ctermfg=blue        guifg=blue
@@ -35,6 +34,5 @@ hi mdS1              ctermfg=green       guifg=green
 hi mdS2              ctermfg=grey        guifg=grey
 hi mdS3              ctermbg=green       guibg=green
 hi mdSh2             guifg=grey          ctermfg=grey       ctermbg=yellow   guibg=yellow     
-
 "#2A2A37 "#5f87af
 "https://github.com/rebelot/kanagawa.nvim/blob/f491b0fe68fffbece7030181073dfe51f45cda81/lua/kanagawa/colors.lua

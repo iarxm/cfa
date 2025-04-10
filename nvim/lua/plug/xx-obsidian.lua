@@ -21,31 +21,40 @@ return {
         "epwalsh/pomo.nvim",
     },
     opts = {
-      workspaces = {
-        {
-          name = "all",
-          path = "~/da",
+        -- see gh page for full list of options 👇
+        workspaces = {
+            {
+                name = "all",
+                path = "~/da",
+            },
+            {
+                name = "dev notes",
+                path = "~/ud/deva/adev",
+            },
         },
-        {
-          name = "dev notes",
-          path = "~/ud/deva/adev",
-        },
-      },
-      -- see below for full list of options 👇
-    },
-    ui = {
-        checkboxes = {
-          -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
-            --[" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-            [" "] = { char = "☐", hl_group = "ObsidianTodo" },
-            ["x"] = { char = "", hl_group = "ObsidianDone" },
-            [">"] = { char = "", hl_group = "ObsidianRightArrow" },
-            ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
-            ["!"] = { char = "", hl_group = "ObsidianImportant" },
-          -- Replace the above with this if you don't have a patched font:
-          -- [" "] = { char = "☐", hl_group = "ObsidianTodo" },
-          -- ["x"] = { char = "✔", hl_group = "ObsidianDone" },
-        -- You can also add more custom ones...
+        follow_url_func = function(url)
+            -- vim.fn.jobstart({"xdg-open", url})  -- linux
+            vim.ui.open(url) -- need Neovim 0.10.0+
+        end,
+        --
+        ui = {
+            checkboxes = {
+              -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
+                --[" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+                [" "] = { char = "☐", hl_group = "ObsidianTodo" },
+                ["x"] = { char = "", hl_group = "ObsidianDone" },
+                [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+                ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+                ["!"] = { char = "", hl_group = "ObsidianImportant" },
+              -- Replace the above with this if you don't have a patched font:
+              -- [" "] = { char = "☐", hl_group = "ObsidianTodo" },
+              -- ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+            -- You can also add more custom ones...
+            },
+            hl_groups = {
+                ObsidianRefText =     { underline = false, fg = "grey" },
+                ObsidianExtLinkIcon = { fg = "grey" },
+            },
         },
     },
 }

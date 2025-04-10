@@ -1,3 +1,4 @@
+--vim.env.COLORS_VIM       = "kanagawabones"
 vim.env.COLORS_VIM       = "kanagawa-wave"
 --vim.env.COLORS_VIM       = "kanagawa"
 --vim.env.COLORS_VIM       = "rosebones"
