@@ -1,10 +1,8 @@
 #!/bin/sh
 
 {
-    # - [ ] integrate into a systemd script
-    xset r rate 120 120 &
+    xset r rate 90 160 &
     xrdb -I${HOME}/.config .config/X11/xresources 2>/dev/null &
-    #feh --no-fehbg --bg-max "${BGX_FEH}" &
     feh --no-fehbg --bg-fill "${BGX_FEH}" &
     autorandr --change
 }
