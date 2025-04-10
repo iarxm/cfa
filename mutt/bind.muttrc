@@ -86,7 +86,7 @@ macro index,pager    bb   "$my_bry"     # open in
 
 macro index,pager \cb "<enter-command> set my_pdsave=\$pipe_decode<enter>\
         <enter-command> unset pipe_decode<enter>\
-        <pipe-message>  extract_url | urlscan --compact --run 'qb win {}'<enter>\
+        <pipe-message>  extract_url | urlscan --compact --run 'qb {}'<enter>\
         <enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
 
 ## more macros
