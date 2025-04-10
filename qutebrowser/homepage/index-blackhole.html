@@ -49,30 +49,30 @@
     <circle cx="200" cy="200" r="70" fill="url(#blackHoleGradient)" />
   </svg>
 
-  <!-- Clock element -->
   <div id="clock"></div>
 
   <script>
-    // Function to update the clock
+    
     function updateClock() {
       const now = new Date();
-      // Format date as DD/MM/YYYY
+      
       const day = String(now.getDate()).padStart(2, '0');
       const month = String(now.getMonth() + 1).padStart(2, '0');
       const year = now.getFullYear();
       const dateStr = `${month}/${day}`;
 
-      // Format time in 24h format HH:MM:SS
       const hours = String(now.getHours()).padStart(2, '0');
       const minutes = String(now.getMinutes()).padStart(2, '0');
       const seconds = String(now.getSeconds()).padStart(2, '0');
       const timeStr = `${hours}:${minutes}:${seconds}`;
 
-      // Update the clock element
-      document.getElementById('clock').innerText = `${dateStr} \n${timeStr}`;
+      // update clock
+      //document.getElementById('clock').innerText = `${dateStr} \n${timeStr}`;
+      document.getElementById('clock').innerText = `${dateStr}`;
+
     }
 
-    // Initial update and then every second
+    // initial update; then every second
     updateClock();
     setInterval(updateClock, 1000);
   </script>

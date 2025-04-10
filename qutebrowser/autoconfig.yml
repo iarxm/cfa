@@ -86,4 +86,4 @@ settings:
     https://outlook.office.com?mailtouri=%25s: false
     https://outlook.office365.com?mailtouri=%25s: false
   statusbar.show:
-    global: always
+    global: never
