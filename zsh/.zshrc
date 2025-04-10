@@ -32,7 +32,7 @@ autoload -U colors && colors
 
 if [[ ${PROMPT_C_ON} == "1" ]]; then
     autoload -Uz vcs_info
-    zstyle ':vcs_info:git*' formats "%{$fg[blue]%}%{$fg[blue]%}%b%{$reset_color%}%m%u%c%{$reset_color%} %h "
+    zstyle ':vcs_info:git*' formats "%{$fg[blue]%}%{$fg[yellow]%}%b%{$reset_color%}%m%u%c%{$reset_color%} %h "
     zstyle ':vcs_info:git*' actionformats "%S %b %m%u%c "
     zstyle ':vcs_info:*' max-exports 5
     zstyle ':vcs_info:*' enable git
