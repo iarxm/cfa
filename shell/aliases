@@ -40,7 +40,8 @@ alias mbsync="mbsync -c ${XDG_CONFIG_HOME}/isync/isyncrc"
 alias mr="mr --config ${HOME}/.config/mr/mrconfig"
 alias castget="castget -C ${HOME}/.config/castget/castgetrc"
 alias mpv="mpv --config-dir=${HOME}/.config/mpx"
-alias xrdbx="xrdb -I${HOME} -merge ${XDG_CONFIG_HOME}/X11/xresources"
+#alias xrdbx="xrdb -I${HOME} -merge ${XDG_CONFIG_HOME}/X11/xresources"
+alias xrdbx="xrdb -I${XDG_CONFIG_HOME} -merge ${XDG_CONFIG_HOME}/X11/xresources"
 alias ref="shortcuts >/dev/null; \
     source ${XDG_CONFIG_HOME:-${HOME}/.config}/shortcutrc ; \
     source ${XDG_CONFIG_HOME:-${HOME}/.config}/zshnameddirrc"
@@ -50,6 +51,7 @@ alias libr="libreoffice"
 alias bc="bc -ql"
 alias sc="sc-im"
 ### files
+alias c="cd"
 alias cc="cd"
 alias cp="cp -iv"
 alias mv="mv -iv"
