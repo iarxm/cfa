@@ -36,12 +36,11 @@ return {
             -- vim.fn.jobstart({"xdg-open", url})  -- linux
             vim.ui.open(url) -- need Neovim 0.10.0+
         end,
-        --
---󰄰 
         ui = {
             checkboxes = {
               -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
-                [" "] = { char = "☐", hl_group = "ObsidianTodo" },
+                --󰄰 
+                [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
                 ["x"] = { char = "", hl_group = "ObsidianDone" },
                 [">"] = { char = "", hl_group = "ObsidianRightArrow" },
                 ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
@@ -52,6 +51,8 @@ return {
             -- You can also add more custom ones...
             },
             hl_groups = {
+                ObsidianTodo =        { fg = "grey" },
+                ObsidianDone =        { fg = "grey" },
                 ObsidianRefText =     { underline = false, fg = "grey" },
                 ObsidianExtLinkIcon = { fg = "grey" },
             },
