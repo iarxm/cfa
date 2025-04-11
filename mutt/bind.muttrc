@@ -14,7 +14,6 @@ bind index,pager    b  noop
 bind index,pager    m  noop
 bind index,pager    V  noop
 bind index,pager    s  noop
-
 #### binds
 bind index,pager    bs      sidebar-toggle-visible
 bind index,pager    "\Cg"   sidebar-first
@@ -51,7 +50,6 @@ macro index,pager   .r     "<enter-command>source $my_cfg/muttrc<enter>"
 #macro index,pager   mww    "<sync-mailbox>y<enter>"
 macro index,pager    mww    "<sync-mailbox>"
 macro index,pager   "\CR"  "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"
-
 #### mview macros
 # brx interfaces with mview while loop
 # bry for manual calls
@@ -77,23 +75,18 @@ macro index,pager    bd   "$my_mvw_down"
 macro index,pager    bu   "$my_mvw_up"
 macro index,pager    bi   "$my_mvw"     # init auto pipe
 macro index,pager    bb   "$my_bry"     # open in
-
 #macro index,pager    bb   "$my_bry"      # open in
 #macro attach,compose bb   "$my_bry_i"    # open in
 #macro index,pager    bfx  "$my_bfx"      # open in float
 #macro attach,compose bfy  "$my_bfy"      # open in float
 #macro index,pager    bt   "$my_btr"      # browser text
-
 macro index,pager \cb "<enter-command> set my_pdsave=\$pipe_decode<enter>\
         <enter-command> unset pipe_decode<enter>\
         <pipe-message>  extract_url | urlscan --compact --run 'qb {}'<enter>\
         <enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
-
-## more macros
 set my_mlx_md2ht     = "<shell-escape>mlx md2html<enter>"
 set my_stylex        = "$my_donothing $my_pipe      $my_mlx_md2ht"     # styling
 macro compose        .mm  "$my_sty"      # post processing styling
-
 ## archive
 #set my_f_mvwx        = "$my_f_root/mview-x.html"
 #set my_pipe_mvwx     = "<pipe-entry>cat > $my_f_mvwx<enter>"

@@ -1,8 +1,20 @@
 #!/bin/sh
 
-case $1 in
+case ${1} in
 
-    a|aa|all)
+    aa)
+        echo "mailboxes $(\
+            find "$2" \
+                -maxdepth 1 -mindepth 1 -type d \
+                \( -name "ii.*" \
+                    -o -name "j.*" \
+                    -o -name "ii" \
+                    -o -name "idr" \
+                    -o -name "iksp" \
+                    -o -name "idr" \) \
+                -printf "+'%f' ")"
+        ;;
+    all)
         echo "mailboxes $(\
             find "$2" \
                 -maxdepth 1 -mindepth 1 -type d \
@@ -22,6 +34,4 @@ case $1 in
                 ! -name "x.*" \
                 -printf "+'%f' ")"
         ;;
-
 esac
-
