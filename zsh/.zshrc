@@ -124,17 +124,10 @@ bindkey '^e' edit-command-line # edit line in vim w c-e
 bindkey -s '^n' 'nnn\n'
 bindkey -s '^b' 'nnn -n\n'
 bindkey -s '^v' 'nvim\n'
-bindkey -s '^l' 'l\n'
-bindkey -s '^k' 'clear\n'
+bindkey -s '^k' 'ls\n'
 SYNTAX="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 [[ -f ${SYNTAX} ]] && source ${SYNTAX} # keep last
 [[ -f ${PROFILEI} ]] && source ${PROFILEI}
 ZSH_HIGHLIGHT_STYLES[precommand]=fg=yellow
 ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=yellow
 ZSH_HIGHLIGHT_STYLES[arg0]=fg=yellow
-# - [ ] experiment with below gist
-# https://gist.github.com/romkatv/8b318a610dc302bdbe1487bb1847ad99
-#zstyle ':vcs_info:git:*' formats '%b%f%m%u%c %a'
-#zstyle ':vcs_info:*' stagedstr ' +'
-#zstyle ':vcs_info:*' unstagedstr ' %F{red}●%f'
-#zstyle ':vcs_info:*' disable bzr cdv darcs fossil hg mtn p4 svk tla
