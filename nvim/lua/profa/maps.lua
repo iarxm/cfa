@@ -1,5 +1,5 @@
 local map             = vim.api.nvim_set_keymap
-local o_done          = "$HOME/da/aa/ozzd.md"
+local o_done          = "$HOME/da/ae/aoa/zzd.md"
 vim.g.mapleader       = ' '
 vim.g.maplocalleader  = '.'
 map('n', '<leader>t',   ':w<CR>:! sh %<CR>',                            { noremap = true })
