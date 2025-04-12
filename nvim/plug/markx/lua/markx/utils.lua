@@ -1,5 +1,3 @@
-
---
 --function! utilx#FormatListpat()
 --	" FORMATLIST #######################################
 --	set formatlistpat=^>\\s*                     " Optional leading whitespace
@@ -48,7 +46,7 @@
 --  endif
 --  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 --endfunc
---
+
 --function! utilx#MinimalFoldText() abort
 --    let fs = v:foldstart
 --    while getline(fs) !~ '\w'
@@ -68,5 +66,3 @@
 --    let expansionString = repeat(" ", w - strwidth(foldSizeStr.line.foldLevelStr))
 --    return line . expansionString . foldSizeStr . foldLevelStr
 --endfunction
---
---

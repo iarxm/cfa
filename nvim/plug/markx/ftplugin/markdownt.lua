@@ -1,9 +1,7 @@
 -- vimscript to lua conversion in progress
-
 --vim.opt.concellevel = "2"
 --vim.opt.foldlevel   = "0"
 --vim.cmd.runtime "syntax/markdown.vim"
-
 
 function CustomFormat(line)
 
@@ -22,10 +20,7 @@ function CustomFormat(line)
     end
 end
 
-
 function PadSeps()
     --vim.cmd([['silent! %s/\(.*::::.*\)/\=CustomFormat(submatch(0))/']])
     vim.cmd([[silent! %s/\(.*::::.*\)/\=luaeval('CustomFormat(_A)', submatch(0))/]])
 end
-
-

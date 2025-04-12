@@ -56,7 +56,6 @@ M.filetype_test = function()
     end
 end
 
-
 --" markdown functions
 --  
 --function! OpenMarkdownPreview() abort
@@ -203,7 +202,6 @@ M.write_mode_clean = function() vim.cmd('only') end
 
 --endfunction
 
---" #################################################################
 --" TASKS
 --" - [e] put in util?
 --

@@ -1,4 +1,3 @@
-
 runtime syntax/markdown.vim
 "set conceallevel=2
 "set foldlevel=0
@@ -44,4 +43,3 @@ endfunction
 
 au BufWritePre <buffer> call PadAll()
 "au WinResized * call PadSepsOnly()
-
