@@ -15,4 +15,22 @@
 
     --tridactyl-cmdl-bg:          var(--nothing-black);
     --tridactyl-cmdl-fg:          var(--nothing-white);
+
+    border-top: unset;
+}
+
+#cmdline_iframe {
+    position: fixed !important;
+    bottom: unset;
+    top: 25% !important;
+    left: 10% !important;
+    z-index: 2147483647 !important;
+    width: 80% !important;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 20px !important;
+}
+
+#command-line-holder {
+    order: 1;
+    border: 0px solid var(--nothing-black);
+    color: var(--nothing-black);
 }
