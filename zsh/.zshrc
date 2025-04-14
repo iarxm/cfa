@@ -55,7 +55,6 @@ if [[ ${PROMPT_C_ON} == "1" ]]; then
     function xtitle () { builtin print -n -- "\e]0;${@}\a" }
     function preexec () {xtitle "\e${cmd}"}
     function preexec () {xtitle "\[${PWD/#$HOME/~}\] ${1[(w)1]}"}
-
 fi
 
 setopt autocd
@@ -121,10 +120,12 @@ bindkey -s '^o' 'lfcd\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey '^[[P' delete-char
 bindkey '^e' edit-command-line # edit line in vim w c-e
-bindkey -s '^n' 'nnn\n'
-bindkey -s '^b' 'nnn -n\n'
+bindkey -s '^n' 'nnn -na\n'
+bindkey -s '^b' 'nnn\n'
 bindkey -s '^v' 'nvim\n'
 bindkey -s '^k' 'ls\n'
+bindkey -s '^d' 'tmux\n'
+bindkey -s '^x' 'tmux kill-session\n'
 SYNTAX="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 [[ -f ${SYNTAX} ]] && source ${SYNTAX} # keep last
 [[ -f ${PROFILEI} ]] && source ${PROFILEI}
