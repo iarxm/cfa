@@ -22,13 +22,6 @@ local m_yra    = hb .. '/dxy.md'
 local m_qra    = hb .. '/dyq.md'
 local m_msux   = hb .. '/vmsux.md'
 local m_msuy   = hb .. '/vmsuy.md'
--- oo
-local oa       = hb .. '/oa.md'
-local ob       = hb .. '/ob.md'
-local oc       = hb .. '/oc.md'
-local od       = hb .. '/od.md'
-local oi       = hb .. '/oi.md'
-local oj       = hb .. '/oj.md'
 -- notes
 local ua       = hb .. '/ua.md'
 local ub       = hb .. '/ub.md'
@@ -36,6 +29,13 @@ local uc       = hb .. '/uc.md'
 local ux       = hb .. '/ux.md'
 local uy       = hb .. '/uy.md'
 local uo       = hb .. '/uo.md'
+-- oo
+local oa       = hb .. '/oa.md'
+local ob       = hb .. '/ob.md'
+local oc       = hb .. '/oc.md'
+local od       = hb .. '/od.md'
+local oi       = hb .. '/oi.md'
+local oj       = hb .. '/oj.md'
 
 local bufs_oa = {
     oi,
@@ -47,21 +47,29 @@ local bufs_oa = {
 }
 
 local bufs_ox = {
-    'oxpb.md',
-    'oxtk.md',
-    'oxeng.md',
-    'oxds.md',
-    'oxds-a.md',
-    'oxds-dev.md',
-    'oxds-asf.md',
-    'oxdm.md',
-    'oxdw.md',
-    'oxdn.md',
-    'oxuu.md',
-    'oxmm.md',
+    -- metas
     'oxbb.md',
-    'oxbfn.md',
-    'oxcm.md',
+    'oxbf.md',
+    'cm/yml/oxii.md',
+    -- academ
+    'aj/aax/aoxi.md',
+    'xx/mua/aoxuu.md',
+    -- tk
+    'xx/tpb/aoxi.md',
+    'xx/tka/aoxi.md',
+    'xx/tng/aoxi.md',
+    -- dx/dn/ds
+    'ds/aoa/oix.md',
+    'ds/aoa/oax.md'
+    'ds/aoa/ox-asf.md'
+    'ds/aoa/ox-dev.md'
+    'dx/d-aax/aoix.md',
+}
+
+local bufs_oy = {
+    -- used rarely
+    'xx/dmm/aoix.md',
+    'dx/swi/oix.md',
 }
 
 local bufs_ds = {
@@ -69,15 +77,27 @@ local bufs_ds = {
     -- file path collector ^
 }
 
-local zen_mdx      = function() cmd('lua require("markx").write_mode_x()') end
-local zen_zen      = function() cmd('silent ZenMode') end
+local ox_bufs = function(buf_input)
+    for _, file in ipairs(buf_input) do
+        buf(ha .. "/" .. file)
+    end
+end
+
+local bufs_load = function(buf_input)
+    for _, file in ipairs(buf_input) do
+        buf(file)
+    end
+end
+
+local zen_mdx   = function() cmd('lua require("markx").write_mode_x()') end
+local zen_zen   = function() cmd('silent ZenMode') end
 --local zen_tru      = function() cmd('silent echom ""') end
 --local zen_tru      = function() cmd('silent TZMinimalist') end
 --local zen_tru      = function() cmd('TZNarrow') end
-local zen_mut      = function() cmd('silent MuttonToggle') end
-local zen_dfm      = function() cmd('silent LiteDFMToggle') end
-local zen_goy      = function() cmd('silent Goyo') end
-local zen_neo      = function() cmd('Neotree') end
+local zen_mut   = function() cmd('silent MuttonToggle') end
+local zen_dfm   = function() cmd('silent LiteDFMToggle') end
+local zen_goy   = function() cmd('silent Goyo') end
+local zen_neo   = function() cmd('Neotree') end
 local tlist_all = function() cmd('silent tabdo Tlist') end
 local tagbarx   = function() cmd('silent tabdo Tagbar') end
 local tagl_all  = function() tagbarx() end
@@ -95,7 +115,6 @@ local svrt      = function(filename) cmd('silent vsplit ' .. filename) end
 local envz      = function() tagl_all(); cmd('tabfirst'); cmd('quit') end
 local newx      = function() cmd('tabnew ') end
 local shori     = function(filename) cmd('split ' .. filename) end
-
 
 M.a = function()
   envx()
@@ -188,7 +207,7 @@ M.m_future_qr = function()
 end
 
 
--- Note Taking (o#na)
+-- notes o#na
 
 M.ua = function() 
   enva()
@@ -206,21 +225,6 @@ M.uc = function()
   enva()
   edit(uc)
   --tagl_all()
-end
-
-
--- Actionable Panels
-
-local ox_bufs = function(buf_input)
-    for _, file in ipairs(buf_input) do
-        buf(ha .. "/" .. file)
-    end
-end
-
-local bufs_load = function(buf_input)
-    for _, file in ipairs(buf_input) do
-        buf(file)
-    end
 end
 
 local oa_x = function()
@@ -334,7 +338,4 @@ M.test = function()
 end
 
 return M
-
--- [x] change filename of this script to a 3 letter name
 -- TODO: o#ox_p ox_ds oe oe_x
-

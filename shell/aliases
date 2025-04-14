@@ -3,6 +3,7 @@
 alias si="sxiv"
 alias pa="pass"
 alias we="weechat"
+#alias tm="tmux"
 #### systemctl func
 systemctl_toggle_service()
 {
