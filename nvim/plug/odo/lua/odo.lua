@@ -60,9 +60,9 @@ local bufs_ox = {
     'xx/tng/aoxi.md',
     -- dx/dn/ds
     'ds/aoa/oix.md',
-    'ds/aoa/oax.md'
-    'ds/aoa/ox-asf.md'
-    'ds/aoa/ox-dev.md'
+    'ds/aoa/oax.md',
+    'ds/aoa/ox-asf.md',
+    'ds/aoa/ox-dev.md',
     'dx/d-aax/aoix.md',
 }
 
