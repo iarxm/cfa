@@ -1,9 +1,9 @@
 #!/bin/sh
-### new
 alias si="sxiv"
 alias pa="pass"
 alias we="weechat"
-#alias tm="tmux"
+alias tm="tmux"
+alias bl="bluetoothctl"
 #### systemctl func
 systemctl_toggle_service()
 {
@@ -25,7 +25,6 @@ systemctl_toggle_service_user()
     [ -n ${1} ] || { echo "no input"; return }
     systemctl_toggle_service ${1} user
 }
-
 ### dotfiles
 alias irssi="irssi --home=${XDG_CONFIG_HOME}/irssi"
 alias abook="abook \
@@ -105,7 +104,9 @@ alias chromed="systemctl_toggle_service_user chrome.service"
 #### systemctl system
 alias sm="systemctl"
 alias reboot="systemctl reboot"
-alias sms="systemctl suspend"
+alias smsl="systemctl suspend"
+alias sms="systemctl status"
+alias smst="systemctl start"
 alias nm-restart="systemctl restart NetworkManager.service"
 alias blue="systemctl_toggle_service bluetooth.service"
 alias jelly="systemctl_toggle_service jellyfin.service"
@@ -158,10 +159,12 @@ alias ne="newsboat"
 alias hl='hledger'
 alias hla='hledger add'
 #### task
-alias tt='taskwarrior-tui'
 alias j='task'
 alias jj='task'
 alias vit="TASKRC_ORIG=${TASKRC}; TASKRC=${VITRC}; /usr/bin/vit; TASKRC=${TASKRC_ORIG}"
+alias tt="taskwarrior-tui"
+alias jv="vit"
+alias jt="tt"
 #### webapps
 alias wa='qb win web.whatsapp.com'
 alias gpt='qb win chat.openai.com'

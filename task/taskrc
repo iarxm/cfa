@@ -4,3 +4,4 @@ include $HOME/.config/task/modules/taskwarrior-tui
 #include $HOME/.config/task/modules/taskpom
 #include $HOME/.local/pkg/pomodoro-warriors/taskwarrior/taskrc #TODO
 #include $HOME/ds/zz/pomodoro-warriors/taskwarrior/taskrc #TODO
+sync.gcp.bucket=futuresurf-tasks
