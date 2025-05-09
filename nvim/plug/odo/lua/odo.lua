@@ -77,154 +77,148 @@ local bufs_ds = {
     -- file path collector ^
 }
 
+local buff      = function(filename) cmd('silent badd ' .. filename) end
+local edit      = function(filename) cmd('edit ' .. filename) end
+local tnew      = function(filename) cmd('silent tabnew ' .. filename) end
+local svrt      = function(filename) cmd('silent vsplit ' .. filename) end
+
+local enva      = function() cmd('cd' .. hr) end
+local envb      = function() cmd('tabfirst'); cmd('quit') end
+local envx      = function() cmd('cd' .. hr) end
+
+local z_mdx   = function() cmd('lua require("markx").write_mode_x()') end
+local z_zen   = function() cmd('silent ZenMode') end
+--local z_tru      = function() cmd('silent echom ""') end
+--local z_tru      = function() cmd('silent TZMinimalist') end
+--local z_tru      = function() cmd('TZNarrow') end
+local z_mut   = function() cmd('silent MuttonToggle') end
+local z_dfm   = function() cmd('silent LiteDFMToggle') end
+local z_goy   = function() cmd('silent Goyo') end
+local z_neo   = function() cmd('Neotree') end
+
+local t_tlist_all  = function() cmd('silent tabdo Tlist') end
+local t_tagbar_all = function() cmd('silent tabdo Tagbar') end
+local t_x_all      = function() t_tagbar_all() end
+
 local ox_bufs = function(buf_input)
     for _, file in ipairs(buf_input) do
-        buf(ha .. "/" .. file)
+        buff(ha .. "/" .. file)
     end
 end
 
 local bufs_load = function(buf_input)
     for _, file in ipairs(buf_input) do
-        buf(file)
+        buff(file)
     end
 end
 
-local zen_mdx   = function() cmd('lua require("markx").write_mode_x()') end
-local zen_zen   = function() cmd('silent ZenMode') end
---local zen_tru      = function() cmd('silent echom ""') end
---local zen_tru      = function() cmd('silent TZMinimalist') end
---local zen_tru      = function() cmd('TZNarrow') end
-local zen_mut   = function() cmd('silent MuttonToggle') end
-local zen_dfm   = function() cmd('silent LiteDFMToggle') end
-local zen_goy   = function() cmd('silent Goyo') end
-local zen_neo   = function() cmd('Neotree') end
-local tlist_all = function() cmd('silent tabdo Tlist') end
-local tagbarx   = function() cmd('silent tabdo Tagbar') end
-local tagl_all  = function() tagbarx() end
-
-local enva      = function() cmd('cd' .. hr) end
--- X.tbn = cmd('echom tabpagenr()')
-local envb      = function() cmd('tabfirst'); cmd('quit') end
-local envx      = function() cmd('cd' .. hr) end -- opt.number = true -- opt.numberwidth = 9
-local buf       = function(filename) cmd('silent badd ' .. filename) end
-local edit      = function(filename) cmd('edit ' .. filename) end
-local tnew      = function(filename) cmd('silent tabnew ' .. filename) end
-local svrt      = function(filename) cmd('silent vsplit ' .. filename) end
-
--- archive
-local envz      = function() tagl_all(); cmd('tabfirst'); cmd('quit') end
-local newx      = function() cmd('tabnew ') end
-local shori     = function(filename) cmd('split ' .. filename) end
-
 M.a = function()
-  envx()
-  tnew(paa)
-  tnew(pab)
-  svrt(paa)
-  tnew(pab)
-  svrt(pab)
-  envb()
-  --zen_mdx()
+    envx()
+    tnew(paa)
+    tnew(pab)
+    svrt(paa)
+    tnew(pab)
+    svrt(pab)
+    envb()
+    --z_mdx()
 end
 
 M.pb = function()
-  envx()
-  tnew(pax)
-  tnew(pay)
-  svrt(pax)
-  tnew(pay)
-  svrt(pay)
-  envb()
-  --zen_mdx()
+    envx()
+    tnew(pax)
+    tnew(pay)
+    svrt(pax)
+    tnew(pay)
+    svrt(pay)
+    envb()
+    --z_mdx()
 end
 
 M.ma = function()
-  envx()
-  tnew(m_jma)
-  tnew(m_jmb)
-  svrt(m_jma)
-  tnew(m_bb)
-  svrt(m_msux)
-  envb()
-  --cmd('TagbarClose')
-  zen_mdx()
-  --zen_zen()
+    envx()
+    tnew(m_jma)
+    tnew(m_jmb)
+    svrt(m_jma)
+    tnew(m_bb)
+    svrt(m_msux)
+    envb()
+    --cmd('TagbarClose')
+    z_mdx()
+    --z_zen()
 end
 
 M.mj = function()
-  enva()
-  tnew(m_jma)
-  --zen_mdx()
-  tnew(m_msux)
-  --zen_mdx()
-  envb()
+    enva()
+    tnew(m_jma)
+    --z_mdx()
+    tnew(m_msux)
+    --z_mdx()
+    envb()
 end
 
 M.mb = function()
-  enva()
-  svrt(m_aua)
-  tnew(m_ba)
-  svrt(m_bb)
-  svrt(m_bb)
-  tnew()
-  tnew(m_qra)
-  tnew(m_qra)
-  tnew(m_yra)
-  svrt(m_yra)
-  tnew()
-  tnew(m_ba)
-  svrt(m_ba)
-  tnew(m_bb)
-  svrt(m_bb)
-  tnew()
-  envb()
+    enva()
+    svrt(m_aua)
+    tnew(m_ba)
+    svrt(m_bb)
+    svrt(m_bb)
+    tnew()
+    tnew(m_qra)
+    tnew(m_qra)
+    tnew(m_yra)
+    svrt(m_yra)
+    tnew()
+    tnew(m_ba)
+    svrt(m_ba)
+    tnew(m_bb)
+    svrt(m_bb)
+    tnew()
+    envb()
 end
 
 M.m_future = function()
-  enva()
-  tnew(m_qra)
-  svrt(m_qra)
-  tnew(m_yra)
-  svrt(m_yra)
-  tnew()
-  tnew(m_bb)
-  svrt(m_bb)
-  tnew(m_ba)
-  svrt(m_ba)
-  tnew()
+    enva()
+    tnew(m_qra)
+    svrt(m_qra)
+    tnew(m_yra)
+    svrt(m_yra)
+    tnew()
+    tnew(m_bb)
+    svrt(m_bb)
+    tnew(m_ba)
+    svrt(m_ba)
+    tnew()
 end
 
 M.m_future_qr = function()
-  enva()
-  tnew(m_qra)
-  svrt(m_qra)
-  tnew(m_yra)
-  svrt(m_yra)
-  tnew()
-  tnew(m_aua)
-  svrt(m_aua)
-  tnew()
+    enva()
+    tnew(m_qra)
+    svrt(m_qra)
+    tnew(m_yra)
+    svrt(m_yra)
+    tnew()
+    tnew(m_aua)
+    svrt(m_aua)
+    tnew()
 end
 
-
--- notes o#na
-
 M.ua = function() 
-  enva()
-  edit(ua)
-  --tagl_all()
+    -- universal notes buffer
+    enva()
+    edit(ua)
+    --t_x_all()
 end
 
 M.ub = function()
-  enva()
-  edit(ub)
-  --tagl_all()
+    enva()
+    edit(ub)
+    --t_x_all()
 end
 
 M.uc = function()
-  enva()
-  edit(uc)
-  --tagl_all()
+    enva()
+    edit(uc)
+    --t_x_all()
 end
 
 local oa_x = function()
@@ -255,77 +249,75 @@ M.oa = function()
     --cmd('Neotree position=right')
 end
 
-
 M.ob = function()
-  enva()
-  oa_x()
-  tnew(oc)
-  svrt(od)
-  envb()
+    enva()
+    oa_x()
+    tnew(oc)
+    svrt(od)
+    envb()
 end
 
-local ocx = function()
-  tnew(oc)
-  svrt(oc)
-  tnew(od)
-  svrt(od)
-  tnew(oi)
-  svrt(oi)
+local o_cx = function()
+    tnew(oc)
+    svrt(oc)
+    tnew(od)
+    svrt(od)
+    tnew(oi)
+    svrt(oi)
 end
 
 M.oc = function()
- enva()
- ocx()
- envb()
+   enva()
+   oc_x()
+   envb()
 end
 
-local odx = function()
-  tnew(m_jma)
-  tnew(ua)
+local od_x = function()
+    tnew(m_jma)
+    tnew(ua)
 end
 
 M.oda = function()
-  enva()
-  odx()
-  oa_x()
-  envb()
+    enva()
+    od_x()
+    oa_x()
+    envb()
 end
-
 
 M.ml = function()
     cmd('cd' .. hm_ml)
 
     tnew('aa.md')
-    zen_mdx()
+    z_mdx()
     --cmd('NeoWarriorOpen Left')
 
     tnew('ab.md')
-    zen_mdx()
+    z_mdx()
 
     tnew('oi.md')
-    zen_mdx()
+    z_mdx()
     --require('neowarrior').open_right()
 
     tnew('oa.md')
     svrt('oi.md')
-    zen_mdx()
+    z_mdx()
 
-    buf('oxtk.md')
-    buf('ob.md')
-    buf('README.md') -- ConfigGS
-    buf('~/.config/mutt/muttrc')
-    buf('~/.config/mutt/bind.muttrc')
-    buf('~/.config/muttm/bind.mx.muttrc')
-  --buf('~/.config/sieve/Open-Xchange')
-  --buf('~/.local/bin/mlx/ml')
-  --buf('ii.sc')
-  --buf('ii.pn')
-  envb()
-  --zen_mdx()
+    buff('oxtk.md')
+    buff('ob.md')
+    buff('README.md')
+    buff('~/.config/mutt/muttrc')
+    buff('~/.config/mutt/bind.muttrc')
+    buff('~/.config/muttm/bind.mx.muttrc')
+    --buff('~/.config/sieve/Open-Xchange')
+    --buff('~/.local/bin/mlx/ml')
+    --buff('ii.sc')
+    --buff('ii.pn')
+    envb()
+    --z_mdx()
 end
 
 M.mlx = function()
-    -- instant messaging / resources to share via WA..
+    -- instant messaging / resources to share via WA
     cmd('cd' .. hm_ml)
     tnew('oy.md')
     envb()
@@ -338,4 +330,10 @@ M.test = function()
 end
 
 return M
+-- archive
+local env_z      = function() t_x_all(); cmd('tabfirst'); cmd('quit') end
+local newx      = function() cmd('tabnew ') end
+local shori     = function(filename) cmd('split ' .. filename) end
 -- TODO: o#ox_p ox_ds oe oe_x
+-- opt.number = true -- opt.numberwidth = 9
+-- X.tbn = cmd('echom tabpagenr()')
