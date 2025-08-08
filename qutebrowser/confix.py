@@ -49,10 +49,10 @@ c.qt.args = [ \
     "enable-accelerated-video-decode",\
     "enable-features=VaapiVideoDecoder",\
     "enable-features=WebGPU",\
-    "use-gl=desktop",\
+    #"use-gl=desktop",\ #caused crash 2025-MAY
     "enable-oop-rasterization",\
     "enable-raw-draw",\
-    "stylesheet=~/.config/qutebrowser/qsettings/fix-tooltip.qss"
+    "stylesheet=" + HOME + "/.config/qutebrowser/qsettings/fix-tooltip.qss"
 ]
 config.set( \
     'content.headers.user_agent', \

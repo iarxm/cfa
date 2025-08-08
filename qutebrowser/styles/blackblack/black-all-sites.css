@@ -1,6 +1,6 @@
 # picking space
 
-/* all  ################################ */
+/* all */
 
 root: {
     --htmlbk:                #000000;
@@ -48,7 +48,7 @@ blockquote {
      border-color:     #000000 !important;
 }
 
-/* chat.openai.com ####################### */
+/* chat.openai.com */
 
 .dark { 
      --sidebar-surface-primary: #000000 !important;

@@ -48,22 +48,22 @@ local bufs_oa = {
 
 local bufs_ox = {
     -- metas
-    'oxbb.md',
-    'oxbf.md',
+    'aa/oxbb.md',
+    'aa/oxbf.md',
     'cm/yml/oxii.md',
-    -- academ
     'aj/aax/aoxi.md',
-    'xx/mua/aoxuu.md',
-    -- tk
-    'xx/tpb/aoxi.md',
-    'xx/tka/aoxi.md',
-    'xx/tng/aoxi.md',
     -- dx/dn/ds
     'ds/aoa/oix.md',
     'ds/aoa/oax.md',
     'ds/aoa/ox-asf.md',
     'ds/aoa/ox-dev.md',
     'dx/d-aax/aoix.md',
+    -- academ
+    'xx/mua/aoxuu.md',
+    -- tk
+    'xx/tpb/aoxi.md',
+    'xx/tka/aoxi.md',
+    'xx/tng/aoxi.md',
 }
 
 local bufs_oy = {
@@ -73,7 +73,7 @@ local bufs_oy = {
 }
 
 local bufs_ds = {
--- https://chatgpt.com/c/6798fbd9-19b8-8006-abf6-43aae9e184ce
+    -- https://chatgpt.com/c/6798fbd9-19b8-8006-abf6-43aae9e184ce
     -- file path collector ^
 }
 
@@ -86,29 +86,29 @@ local enva      = function() cmd('cd' .. hr) end
 local envb      = function() cmd('tabfirst'); cmd('quit') end
 local envx      = function() cmd('cd' .. hr) end
 
-local z_mdx   = function() cmd('lua require("markx").write_mode_x()') end
-local z_zen   = function() cmd('silent ZenMode') end
+local z_mdx     = function() cmd('lua require("markx").write_mode_x()') end
+local z_zen     = function() cmd('silent ZenMode') end
 --local z_tru      = function() cmd('silent echom ""') end
 --local z_tru      = function() cmd('silent TZMinimalist') end
 --local z_tru      = function() cmd('TZNarrow') end
-local z_mut   = function() cmd('silent MuttonToggle') end
-local z_dfm   = function() cmd('silent LiteDFMToggle') end
-local z_goy   = function() cmd('silent Goyo') end
-local z_neo   = function() cmd('Neotree') end
+local z_mut     = function() cmd('silent MuttonToggle') end
+local z_dfm     = function() cmd('silent LiteDFMToggle') end
+local z_goy     = function() cmd('silent Goyo') end
+local z_neo     = function() cmd('Neotree') end
 
 local t_tlist_all  = function() cmd('silent tabdo Tlist') end
 local t_tagbar_all = function() cmd('silent tabdo Tagbar') end
 local t_x_all      = function() t_tagbar_all() end
 
-local ox_bufs = function(buf_input)
+local bufs_load_y = function(buf_input)
     for _, file in ipairs(buf_input) do
-        buff(ha .. "/" .. file)
+        buff(file)
     end
 end
 
-local bufs_load = function(buf_input)
+local bufs_load_x = function(buf_input)
     for _, file in ipairs(buf_input) do
-        buff(file)
+        buff(hr .. "/" .. file)
     end
 end
 
@@ -222,14 +222,11 @@ M.uc = function()
 end
 
 local oa_x = function()
-    --bufs_load(bufs_ox)
-    --bufs_load(bufs_oa)
-
+    bufs_load_y(bufs_oa)
+    bufs_load_y(bufs_ox)
     tnew(oi)
-
     tnew(oi)
     svrt(oj)
-
     tnew(oa)
     --require('neowarrior').open_right() -- currently has a bug
     tnew(uc)
@@ -239,10 +236,8 @@ end
 M.oa = function()
     enva()
     oa_x()
-
     cmd('silent tabnext 1')
     cmd('silent quit')
-
     --cmd('tabdo lua require("markx").write_mode_x()')
     --cmd('tabdo wincmd 2l')
     --cmd('silent tabnext 1')
@@ -331,9 +326,9 @@ end
 
 return M
 -- archive
-local env_z      = function() t_x_all(); cmd('tabfirst'); cmd('quit') end
-local newx      = function() cmd('tabnew ') end
-local shori     = function(filename) cmd('split ' .. filename) end
+--local env_z      = function() t_x_all(); cmd('tabfirst'); cmd('quit') end
+--local newx      = function() cmd('tabnew ') end
+--local shori     = function(filename) cmd('split ' .. filename) end
 -- TODO: o#ox_p ox_ds oe oe_x
 -- opt.number = true -- opt.numberwidth = 9
 -- X.tbn = cmd('echom tabpagenr()')
