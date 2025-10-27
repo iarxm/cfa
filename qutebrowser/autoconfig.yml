@@ -58,6 +58,7 @@ settings:
     https://meet.google.com: true
     https://teams.microsoft.com: true
   content.javascript.clipboard:
+    https://annas-archive.org: access-paste
     https://aur.archlinux.org: access-paste
     https://chatgpt.com: access-paste
     https://github.com: access-paste
