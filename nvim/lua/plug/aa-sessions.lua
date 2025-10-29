@@ -1,6 +1,10 @@
 return { -- session management
-    { 'tpope/vim-obsession', cmd = 'Obsession'},-- Session Management
-    { 'folke/persistence.nvim',
+    { 
+        'tpope/vim-obsession', 
+            cmd = 'Obsession'
+    },
+    { 
+        'folke/persistence.nvim',
         -- event = "BufReadPre",
         opts = {
             options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp" }

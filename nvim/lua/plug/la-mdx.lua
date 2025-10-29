@@ -1,10 +1,8 @@
 --language specific: markdown / tex / document related
 return {
-    { 'vim-pandoc/vim-criticmarkup'},                     -- syn
-    -- preview / present
+    { 'vim-pandoc/vim-criticmarkup'},
     { 'sotte/presenting.vim',               cmd = 'MdxPresentingStart'},
     { 'JamshedVesuna/vim-markdown-preview', cmd = 'MdxPreview'},
-    --
     { 'dhruvasagar/vim-table-mode',
         ft = {
             'markdown',
@@ -53,8 +51,6 @@ return {
     { 'jalvesaq/Nvim-R',            ft = 'rmarkdown'},    -- syn
     { 'vim-pandoc/vim-rmarkdown',   ft = 'rmarkdown'},    -- syn
 }
-
-
 -- latex / tex
     -- { 'xuhdev/vim-latex-live-preview', { 'for': 'tex' },},
     -- { 'newton/vim-latex-preview',},
@@ -69,4 +65,3 @@ return {
     -- },
     -- { 'mgor/vim-markdown-grip',},
     -- g.markdown_folding = 4
-

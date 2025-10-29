@@ -1,5 +1,8 @@
 return {
-    { 'felipec/notmuch-vim', cmd = 'NotMuch'},
+    { 
+        'felipec/notmuch-vim', 
+            cmd = 'NotMuch'
+    },
     -- tasks
     {
     'blindFS/vim-taskwarrior',
@@ -10,32 +13,85 @@ return {
         end
     },
     -- neomake
-    { 'neomake/neomake',
-        cmd = 'Neomake'
+    { 
+        'neomake/neomake',
+            cmd = 'Neomake',
     },
-    { 'folke/lazy.nvim',
-        version = "*"
+    {
+        'stevearc/overseer.nvim',
+            opts = {},
+            config = function()
+                local overseer = require("overseer")
+            
+                vim.api.nvim_create_user_command("Make", function(params)
+                    -- Insert args at the '$*' in the makeprg
+                    local cmd, num_subs = vim.o.makeprg:gsub("%$%*", params.args)
+                    if num_subs == 0 then
+                        cmd = cmd .. " " .. params.args
+                    end
+                    local task = require("overseer").new_task({
+                    cmd = vim.fn.expandcmd(cmd),
+                    components = {
+                    {
+                        "on_output_quickfix", 
+                        open = not params.bang, open_height = 8
+                    },
+                    "default",
+                    },
+                    })
+                    task:start()
+                    end, {
+                    desc = "Run your makeprg as an Overseer task",
+                    nargs = "*",
+                    bang = true,
+                }
+            )
+        end
     },
-    { 'sheerun/vim-polyglot'}, -- language pack
+    {
+        'folke/lazy.nvim',
+            version = "*"
+    },
+    {
+        'sheerun/vim-polyglot'
+    }, -- language pack
 
-    { 'powerman/vim-plugin-AnsiEsc',},
-
-    { 'dkarter/bullets.vim'}, -- mdx?
+    { 
+        'powerman/vim-plugin-AnsiEsc',
+    },
+    { 
+        'dkarter/bullets.vim' --mdx?
+    },
     -- syntax
-    { 'tpope/vim-surround'}, -- func
-    { 'junegunn/vim-easy-align',
-        cmd = 'Easy'
+    {
+        'tpope/vim-surround'
     },
-    { 'sirver/ultisnips'},   -- func
-    { 'honza/vim-snippets'}, -- func
-    
-    { 'tmsvg/pear-tree'},    -- func
-    { 'vim-scripts/SyntaxRange'},
-    { 'rdnetto/YCM-Generator',
-        branch = 'stable'
+    { 
+        'junegunn/vim-easy-align',
+            cmd = 'Easy'
     },
-    { 'tpope/vim-speeddating'},
-    { 'vim-scripts/utl.vim'},   -- ?
+    { 
+        'sirver/ultisnips'
+    },
+    { 
+        'honza/vim-snippets'
+    },
+    { 
+        'tmsvg/pear-tree'
+    },
+    { 
+        'vim-scripts/SyntaxRange'
+    },
+    { 
+        'rdnetto/YCM-Generator',
+            branch = 'stable'
+    },
+    { 
+        'tpope/vim-speeddating'
+    },
+    { 
+        'vim-scripts/utl.vim'
+    },   -- ?
     { 'tpope/vim-repeat', -- makes plugs dot-repeatable like leap
         --event = "VeryLazy" 
     },
@@ -46,24 +102,24 @@ return {
             -- g.anyfold_identify_comments     = 1
         end
     },
-    { 'Konfekt/FastFold'},
-    { 'Bekaboo/deadcolumn.nvim',
+    { 
+        'Konfekt/FastFold'
+    },
+    { 
+        'Bekaboo/deadcolumn.nvim',
          ft = {
              "sh",
              "bash",
              "lua",
          }
     },
-    -- testing
-    { 'vim-test/vim-test',
-        cmd = 'TestNearest'
+    { 
+        'vim-test/vim-test',
+            cmd = 'TestNearest'
     },
-    -- compile
-    { 'manasthakur/vim-asyncmake',
-        cmd = 'AsyncMake'
-    },  -- syn
-    -- search
-    { 'universal-ctags/ctags'}, -- tag
+    { 
+        'universal-ctags/ctags'
+    },
     { 'ctrlpvim/ctrlp.vim',
         config = function()
             vim.g.ctrlp_map = "<c-p>"
@@ -132,3 +188,12 @@ return {
     -- { 'blakesweeney/unite-taskwarrior',}, -- archived / abandoned
     -- { 'yegappan/asyncmake', --vimscript
         -- }, -- perhaps this is outdated, stick to basic nvim functiions or a nvim plug
+--     -- compile
+    --{
+    --    'manasthakur/vim-asyncmake',
+    --        cmd = 'AsyncMake'
+    --},  -- syn   -- compile
+    --{
+    --    'manasthakur/vim-asyncmake',
+    --        cmd = 'AsyncMake'
+    --},  -- syn

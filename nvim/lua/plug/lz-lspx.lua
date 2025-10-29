@@ -72,10 +72,10 @@ return {
     { 'mfussenegger/nvim-dap', -- diagnositics
         event = 'VeryLazy'
     },
-    -- completion ####################################
+    -- completion
     { 'neoclide/coc.nvim' },
     { "hrsh7th/nvim-cmp"},
-    -- VERSIONING ###################################
+    -- VERSIONING
     {"kdheepak/lazygit.nvim",
         event = 'VeryLazy',
         dependencies =  {
@@ -86,5 +86,4 @@ return {
             require("telescope").load_extension("lazygit")
         end,},
 }
--- ############################################### 
     --{'roxma/nvim-yarp'}, -- yet another remote plugin..

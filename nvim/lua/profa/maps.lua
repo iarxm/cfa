@@ -54,10 +54,10 @@ map('n', '<leader>nc', ':NnnPicker %:p:h<CR>',                          { norema
 map('n', '<S-h>',      ':lua require("markx").toggle_hidden_all()<CR>', { noremap = true })
 map('n', ';h',         ':lua require("markx").toggle_write()<CR>',      { noremap = true })
 map('n', '.n',         ':lua require("markx").wide_margin()<CR>',       { noremap = true })
-map('n', '<leader>st', ':CtrlPTag<CR>',                                 { noremap = true }) -- tags
---map('n', ';m',         ':!makeu "$PWD" <CR>',                         { noremap = true }) -- make scripts
+map('n', '<leader>st', ':CtrlPTag<CR>',                                 { noremap = true })
+--map('n', ';m',         ':!makeu "$PWD" <CR>',                         { noremap = true })
 map('n', ';M',         ':make &<CR><CR>',                               { noremap = true })
-map('n', ';c',         ':silent !xelatex "%s" &<CR>:redraw!<CR>',       { noremap = true }) -- scripts
+map('n', ';c',         ':silent !xelatex "%s" &<CR>:redraw!<CR>',       { noremap = true })
 --map('n', '<leader>m', ':call jobstart("make", {"on_exit": {-> execute("copen")}})<CR>', { silent = false }) -- async make
 map('n', '<leader>m',  ':call jobstart("make")<CR>',                    { silent = false }) -- async make
 map('n', ';p',         ':!pda "%"<CR>',                                 { noremap = true })

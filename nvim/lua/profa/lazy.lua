@@ -46,4 +46,3 @@ local M = {
 }
 
 require("lazy").setup(M)
-
