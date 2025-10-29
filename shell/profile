@@ -94,7 +94,7 @@ export BGX_FEH="${XDG_DATA_HOME}/aaa/xbg/bg-aa.png"
 export BHQ_DIR="${XDG_CONFIG_HOME}/bhq"
 export BHQC="${XDG_CONFIG_HOME}/bhq/bhq"
 export BROWSER="/usr/local/bin/qb win"
-export SCREENS_DIR="/dat/ui/iis"
+export SCREENS_DIR="/dat/ui/wrk/iis"
 export TRX_CFG="${XDG_CONFIG_HOME}/trx"
 #### source
 . "${XDG_CONFIG_HOME}/shell/aliases"
