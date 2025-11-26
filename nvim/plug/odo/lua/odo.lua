@@ -78,6 +78,7 @@ local bufs_ds = {
 }
 
 local buff      = function(filename) cmd('silent badd ' .. filename) end
+local bufo      = function(filename) cmd('silent buffer ' .. filename) end
 local edit      = function(filename) cmd('edit ' .. filename) end
 local tnew      = function(filename) cmd('silent tabnew ' .. filename) end
 local svrt      = function(filename) cmd('silent vsplit ' .. filename) end
@@ -202,7 +203,7 @@ M.m_future_qr = function()
     tnew()
 end
 
-M.ua = function() 
+M.ua = function()
     -- universal notes buffer
     enva()
     edit(ua)
@@ -231,6 +232,13 @@ local oa_x = function()
     --require('neowarrior').open_right() -- currently has a bug
     tnew(uc)
     --cmd('lua require("markx").write_mode_pad_right()')
+end
+
+M.ox = function()
+    enva()
+    bufs_load_y(bufs_oa)
+    bufs_load_y(bufs_ox)
+    edit(oi)
 end
 
 M.oa = function()
