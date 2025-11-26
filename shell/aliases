@@ -74,7 +74,7 @@ alias lsl='ls -l --group-directories-first'
 alias lsa='ls -lA --group-directories-first'
 alias lsb='ls -A'
 alias g="git"
-alias mrstatus="cd /dat && mr status | less"
+alias mrstat="cd /dat && mr status | less"
 alias si='sxiv' #alias sx='sxiv'
 alias r='ranger'
 alias nnn="nnn -a"
