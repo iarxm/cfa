@@ -1,4 +1,3 @@
-    
     --yt-spec-base-background: #000000;
     --yt-spec-raised-background: #000000;
     --yt-spec-menu-background: #282828;
@@ -102,4 +101,3 @@
     --yt-spec-paper-tab-ink: rgba(255,255,255,0.3);
     --yt-spec-filled-button-text: #030303;
     --yt-spec-selected-nav-text: #fff;
-

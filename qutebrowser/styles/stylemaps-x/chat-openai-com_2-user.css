@@ -49,17 +49,20 @@ min-height: 10px;
 }
 
 /* Remove prompt suggestions */
-.md\:overflow-visible {
+/*.md\:overflow-visible {
     display: none;
 }
+*/
 
 /* Move regenerate button under the prompt input */
+/*
 .md\:items-end {
     align-items: flex-end;
     position: absolute;
     left: 0;
     bottom: -45px;
 }
+*/
 
 /* Add red bg color to regenerate button*/
 button.btn.relative.btn-neutral.whitespace-nowrap.-z-0.border-0.md\:border {
