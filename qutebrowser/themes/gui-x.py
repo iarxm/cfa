@@ -7,7 +7,7 @@ c.tabs.favicons.show                = "never"
 c.tabs.title.format                 = "{current_title}"
 c.tabs.show                         = "switching"
 c.tabs.show_switching_delay         = 2000
-c.hints.border                     = "3px solid #CCCCCC"
+c.hints.border                     = "1px solid #000000" #CCCCCC #FFFFFF
 c.fonts.statusbar                  = "1pt Sourc Sans Pro"
 c.statusbar.padding                = { "bottom": 0, "left": 0, "right": 0, "top": 0 }
 c.statusbar.show                   = "never"
@@ -16,7 +16,7 @@ c.window.hide_decoration           = True
 c.fonts.default_family             = "JetBrainsMonoNL Nerd Font"
 c.fonts.tabs.selected              = "10pt JetBrainsMonoNL Nerd Font"
 c.fonts.tabs.unselected            = c.fonts.tabs.selected
-c.fonts.hints                      = "16pt DejaVu Sans Mono"
+c.fonts.hints                      = "14pt DejaVu Sans Mono"
 c.fonts.statusbar                  = "9pt JetBrainsMonoNL Nerd Font"
 c.fonts.downloads                  = c.fonts.statusbar 
 c.fonts.prompts                    = c.fonts.statusbar
@@ -26,3 +26,11 @@ c.fonts.messages.info              = "12pt Noto Sans Mono"
 c.fonts.keyhint                    = c.fonts.messages.info
 c.fonts.messages.warning           = c.fonts.messages.info
 c.fonts.messages.error             = c.fonts.messages.info
+#c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
+#c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
+#index-blank.html"
+#index-blank.html"
+#index-background.html"
+#index-background.html"
+#index-clock.html"
+#index-clock.html"

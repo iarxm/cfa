@@ -1,7 +1,6 @@
-# picking space
+/*# picking space */
 
 /* all */
-
 root: {
     --htmlbk:                #000000;
     --htmlbk2:               #000000;
@@ -25,7 +24,6 @@ root: {
     /*background-color:        #000000 !important;  */
     /*background:              #000000 !important; */
 }
-
 root:   {
     --brdcol:                #545250;
     --secbrdcol:             #484644;
@@ -34,7 +32,6 @@ root:   {
     --secbrdcole1:           #3b3a39;
     --secbrdcole5:           #3b3a39;
 }
-
 #b_header, #b_content,
 html, body, article, section, canvas,
 input,
@@ -43,35 +40,25 @@ blockquote {
      /*background:       #000000 !important; */
 }
 /* a, p, was blacking out some text area's */
-
 *, body {
      border-color:     #000000 !important;
 }
-
 /* chat.openai.com */
-
 .dark { 
      --sidebar-surface-primary: #000000 !important;
      --main-surface-primary:    #000000 !important;
 }
-
 /* redditt ############################### */
-
 root: {
      background-color: #000000 !important;
 }
-
 /* bing ################################## */
-
-
 #b_header #id_h, #b_footer, #b_header  .b_logoArea { 
      visibility: hidden; }
-
 #b_results>li {
      background-color: #000000 !important; 
      background:       #000000 !important;
 }
-
 * {
     --cib-color-background-surface-solid-primary:    #000000; !important;
     --cib-color-background-surface-app-primary:      #000000; !important;
@@ -91,10 +78,8 @@ root: {
     --cib-color-background-serp-primary:             #000000; !important;
     --cib-color-background-serp-neutral:             #000000; !important;
 }
-
 /* yt #################################### */
 /*#scrim.tp-yt-app-drawer  */
-
 root:, html[dark], [dark], html, ytd-app, canvas, ytd-mini-guide-renderer {
      background-color: #000000 !important; 
      /*background:       #000000 !important; */
@@ -122,30 +107,21 @@ root:, html[dark], [dark], html, ytd-app, canvas, ytd-mini-guide-renderer {
     --yt-spec-general-background-b:                           #000000; !important;
     --yt-spec-general-background-c:                           #000000; !important;
 }
-
-
 /* google ############################# */
-
 #gb, .RNNXgb, .c93Gbe {
      background-color: #000000 !important; 
      background:       #000000 !important;
 }
-
 .YB4h9 {
      background-color: #111111 !important; 
      background:       #111111 !important;
 }
-
-
 /* arch linuux ######################### */
-
 #archnavbar, .anb-packages {
      background-color: #000000 !important; 
      background:       #000000 !important;
 }
-
 /* github ############################## */
-
 /*textarea, - applying a background style to this on gh would paint over the text witin the code block
 */
 

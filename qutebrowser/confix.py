@@ -4,7 +4,7 @@ HOME                                = os.getenv("HOME")
 SESSION_DIR                         = HOME + "/.local/share/qutebrowser/sessions/a-tabmanager/"
 COLORS_BLACKX                       = HOME + "/.config/qutebrowser/styles/blackblack/black-all-sites.css"
 os.environ['COLORS_BLACKX']         = COLORS_BLACKX
-os.environ['WINDOW_ELEMENTS']       = HOME + "/.config/qutebrowser/styles/user.css"
+os.environ['WINDOW_ELEMENTS']       = HOME + "/.config/qutebrowser/styles/window-user-styles.css"
 c.downloads.location.directory      = "~/ai/"
 c.changelog_after_upgrade           = "minor"
 c.editor.command                    = ["st", "-c", "float", "nvim", "-O", "{}"] # float class applied
@@ -60,6 +60,8 @@ config.set( \
         '*://www.bing.com/*' # bing: for accessing gpt feature via edge browser usage
     # setting user agent per domain pattern
 ) 
+c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
+c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
 c.content.blocking.adblock.lists = [ \
     "https://easylist.to/easylist/easylist.txt", \
     "https://easylist.to/easylist/easyprivacy.txt", \
@@ -85,31 +87,30 @@ c.content.blocking.whitelist = [ \
     '*://calendar.google.com/*'
 ]
 c.url.searchengines = {
-    'gp':          'https://chat.openai.com/search?q={}',
+    'DEFAULT':     'http://www.google.com/search?hl=en&q={}',
     'gs':          'http://scholar.google.ch/scholar?hl=en&q={}',
     's':           "https://sci-hub.se/{}",
     'g':           'http://www.google.com/search?hl=en&q={}',
     'gt':          'https://translate.google.com/?sl=auto&tl=en&text={}&op=translate',
     'y':           'https://www.youtube.com/results?search_query={}',
-    'dd':          'https://duckduckgo.com/?q={}',
-    'bb':          'https://www.bing.com/search?q={}', #searc
     'gh':          'https://github.com/search?q={}&type=Code',
     'aw':          'https://wiki.archlinux.org/?search={}',
     'ap':          'https://www.archlinux.org/packages/?sort=&q={}',
     'au':          'https://aur.archlinux.org/packages/?O=0&K={}',
     'gm':          'https://www.google.com/maps/search/?api=1&query={}',
-    'm':           'https://www.google.com/maps/search/?api=1&query={}',
     'rar':         'https://rargb.to/search/?search={}',
     'tpb':         'https://ukpiratebay.org/search.php?q={}',
     'amuk':        'https://www.amazon.co.uk/s?k={}',
     'amde':        'https://www.amazon.de/s?k={}',
     'amnl':        'https://www.amazon.nl/s?k={}',
     'eb':          'https://www.ebay.ie/sch/i.html?_from=R40&_nkw={}&_sacat=0&LH_TitleDesc=0&rt=nc&LH_PrefLoc=3',
-    'adverts':     'https://www.adverts.ie/for-sale/q_{}/', # adverts / donedeal
-    'donedeal':    'https://www.donedeal.ie/all?words={}',
-    'ali':         'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220502145726&isPremium=y&SearchText={}&spm=a2g0o.productlist.1000002.0',
-    'fbmarket':    'https://www.facebook.com/marketplace/104038149633202/search/?query={}',
-    'DEFAULT':     'https://chat.openai.com/search?q={}',
+    #'adverts':     'https://www.adverts.ie/for-sale/q_{}/', # adverts / donedeal
+    #'donedeal':    'https://www.donedeal.ie/all?words={}',
+    #'ali':         'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220502145726&isPremium=y&SearchText={}&spm=a2g0o.productlist.1000002.0',
+    #'bb':          'https://www.bing.com/search?q={}',
+    #'fbmarket':    'https://www.facebook.com/marketplace/104038149633202/search/?query={}',
+    #'gp':          'https://chat.openai.com/search?q={}',
+    #'dd':          'https://duckduckgo.com/?q={}',
 }
 c.aliases = {
     'gp':                   'open -t http://127.0.0.1:4000',
