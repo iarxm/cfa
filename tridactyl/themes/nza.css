@@ -1,0 +1,32 @@
+:root.TridactylOwnNamespace code {
+    background-color: var(--nothing-white);
+    border-top: 1px solid var(--nothing-white) !important;
+}
+
+#cmdline_iframe {
+    border-top: 0px !important;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px !important;
+}
+
+#command-line-holder {
+    border: 0px solid var(--nothing-black);
+    color: var(--nothing-black);
+}
+
+/*
+#cmdline_iframe {
+    position: fixed !important;
+    bottom: unset;
+    top: 25% !important;
+    left: 10% !important;
+    z-index: 2147483647 !important;
+    width: 80% !important;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 20px !important;
+}
+
+#command-line-holder {
+    order: 1;
+    border: 0px solid var(--nothing-black);
+    color: var(--nothing-black);
+}
+*/
