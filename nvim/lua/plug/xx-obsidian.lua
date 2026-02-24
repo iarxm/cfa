@@ -29,7 +29,7 @@ return {
             },
             {
                 name = "dev notes",
-                path = "~/ud/deva/adev",
+                path = "~/ud/dva/adev",
             },
         },
         follow_url_func = function(url)
