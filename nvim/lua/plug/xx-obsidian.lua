@@ -5,6 +5,7 @@ return {
     ft = {
         "markdown",
         "text",
+        "txt",
         "markdownt",
         "mdx"
     },
