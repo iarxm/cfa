@@ -4,7 +4,6 @@ alias pa="pass"
 alias we="weechat"
 alias tm="tmux"
 alias bl="bluetoothctl"
-#### systemctl func
 systemctl_toggle_service()
 {
     local service="${1}"
@@ -25,7 +24,7 @@ systemctl_toggle_service_user()
     [ -n ${1} ] || { echo "no input"; return }
     systemctl_toggle_service ${1} user
 }
-### dotfiles
+# dotfiles
 alias irssi="irssi --home=${XDG_CONFIG_HOME}/irssi"
 alias abook="abook \
     --config ${XDG_CONFIG_HOME}/abook/abookrc \
@@ -45,12 +44,12 @@ alias xrdbx="xrdb -I${XDG_CONFIG_HOME} -merge ${XDG_CONFIG_HOME}/X11/xresources"
 alias ref="shortcuts >/dev/null; \
     source ${XDG_CONFIG_HOME:-${HOME}/.config}/shortcutrc ; \
     source ${XDG_CONFIG_HOME:-${HOME}/.config}/zshnameddirrc"
-### gen
+# gen
 alias tabbedx="tabbed -r 2 st -w ''"
 alias libr="libreoffice"
 alias bc="bc -ql"
 alias sc="sc-im"
-### files
+# files
 alias c="cd"
 alias cc="cd"
 alias cp="cp -iv"
@@ -96,12 +95,12 @@ alias ffmpeg="ffmpeg -hide_banner" # ffmpeg
 alias mpd-reset="systemctl --user stop mpd.service"
 alias a="vimpc"
 #alias ytv="youtube-viewer"
-#### systemctl user
+# systemctl user
 alias smu="systemctl --user"
 alias red="systemctl_toggle_service_user redshift.service"
 alias qbd="systemctl_toggle_service_user qb.service"
 alias chromed="systemctl_toggle_service_user chrome.service"
-#### systemctl system
+# systemctl system
 alias sm="systemctl"
 alias reboot="systemctl reboot"
 alias smsl="systemctl suspend"
@@ -115,7 +114,7 @@ alias paperless="systemctl_toggle_service paperless.target"
 alias clamd-sys="systemctl_toogle_service clamav-daemon.service"
 #alias sdk-clamd='sudo pkill clamd'
     # convert to systemctl switch
-#### system
+# system
 alias shutdownx="shutdown -h now"
 alias unmountall='udiskie-umount -a --detach'
 alias feh-setbg='feh --no-fehbg --bg-fill "${BGX_FEH}"'
@@ -134,7 +133,7 @@ alias p="pacman"
 alias pacs='pacman -S'
 alias pipu='pip install --user'
 alias ma="make"
-#### networking
+# networking
 alias blue-adisconnect="bluetoothctl disconnect"
 alias s="ssh"
 alias mosh="mosh --experimental-remote-ip=remote"
@@ -145,7 +144,7 @@ alias mn="man"
 alias cl="clear"
 alias q='exit'
 alias magit="nvim -c MagitOnly"
-#### tor;mail;news;act
+# tor;mail;news;act
 alias tran="transmission-daemon"
 alias tranq="transmission-remote --exit"
 alias tranr="transmission-remote"
@@ -158,22 +157,47 @@ alias news="newsboat"
 alias ne="newsboat"
 alias hl='hledger'
 alias hla='hledger add'
-#### task
+# task
 alias j='task'
 alias jj='task'
 alias vit="TASKRC_ORIG=${TASKRC}; TASKRC=${VITRC}; /usr/bin/vit; TASKRC=${TASKRC_ORIG}"
 alias tt="taskwarrior-tui"
 alias jv="vit"
 alias jt="tt"
-#### webapps
+# webapps
 alias wa='qb win web.whatsapp.com'
 alias gpt='qb win chat.openai.com'
-alias gpt-chrome='google-chrome-stable --app=https://chatgpt.com/'
+#alias gpt-chrome='google-chrome-stable --app=https://chatgpt.com/'
 alias calx='qb win calendar.google.com'
 alias habit='qb w.oo.win'
 alias b="buku --suggest"
-#### new
+# browsers
+alias edge="microsoft-edge-stable"
 alias brw-inx="qb"
+# browsers
+# more direct method now implemented via fla config filles fed to wrappers
+# for eg .local/share/bin/bix/brave as a wrapper
+# wrapper copied and modified from /usr/bin
+#alias _brave="/usr/bin/brave \
+#    --user-data-dir=${HOME}/.local/share/BraveSoftware/Brave-Browser \
+#    ${CHROMIUM_FLAGS}" # NOTE TESTED
+#alias _microsoft-edge-stable="/usr/bin/microsoft-edge-stable \
+#    --user-data-dir=${HOME}/.local/share/microsoft-edge \
+#    ${CHROMIUM_FLAGS}"
+#alias _microsoft-edge-dev="/usr/bin/microsoft-edge-dev \
+#    --user-data-dir=${HOME}/.local/share/microsoft-edge-dev \
+#    ${CHROMIUM_FLAGS}" # NOTE TESTED
+#alias _chromium="/usr/bin/chromium \
+#    --user-data-dir=${HOME}/.local/share/chromium \
+#    ${CHROMIUM_FLAGS}"
+#alias _google-chrome="/usr/bin/google-chrome \
+#    --user-data-dir=${HOME}/.local/share/google-chrome \
+#    ${CHROMIUM_FLAGS}" # NOTE TESTED
+#alias _google-chrome-canary="/usr/bin/google-chrome-canary \
+#    --user-data-dir=${HOME}/.local/share/google-chrome-canary \
+#    ${CHROMIUM_FLAGS}"
+
+# new
 #alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 #alias whatsapp='firefox --new-window web.whatsapp.com'
 #export mpvx="mpx"

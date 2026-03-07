@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-#====================
-# my notes
-# change the -l option in  pdftotext to adjust preview page numbers
+# variant notes
+# change the -l option in pdftotext to adjust preview page numbers
 
-# ==================
 set -o noclobber -o noglob -o nounset -o pipefail
 IFS=$'\n'
 

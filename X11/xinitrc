@@ -8,12 +8,9 @@ wm=${1:-dwm}
 case ${wm} in
     i3|i3wm) exec i3;;
     dwm) exec dwm;;
-    dwml)
-        #useful for testing
+    dwmlog)
         while true; do
-            # Log stderror to a file 
             dwm 2> ~/.dwm.log
-            # No error logging
             #dwm >/dev/null 2>&1
         done
         ;;

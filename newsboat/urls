@@ -1,5 +1,4 @@
-
-# physics / mathematics ##################################################################
+# physics / mathematics
 
 https://phys.org/rss-feed/science-news/mathematics/                     "~porg.math"                   mth
 https://api.quantamagazine.org/mathematics/feed/                        "~quan"                        mth
@@ -42,7 +41,7 @@ https://www.astronomy.com/tags/sky-this-week/feed/                      "~astr.t
 https://www.astronomy.com/tags/sky-this-month/feed/                     "~astr.this-month" mph mth
 
 
-# science general #########################################################################
+# science general
 
 https://www.nature.com/nature.rss                                       "~nature"       sci mph
 https://www.newscientist.com/feed/home/                                 "~nsci"         sci
@@ -61,7 +60,7 @@ https://phys.org/rss-feed/breaking/physics-news/plasma/                 "~porg.p
 https://phys.org/rss-feed/breaking/physics-news/soft-matter/            "~porg.softmat" sci
 
 
-# technology ##########################################################
+# technology
 
 https://cdn.technologyreview.com/topnews.rss                            "~mit.tkrv"  tk
 https://cdn.technologyreview.com/c/computing/rss/                       "~mit.tkrv"  tk
@@ -69,32 +68,31 @@ https://artixlinux.org/feed.php                                         "~artili
 https://www.archlinux.org/feeds/news/                                   "~archlinux" tk
 
 
-# mainstream ##########################################################
+# mainstream
 
 https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml               "~nyt.pol"   pol
 
 
-# careers ##############################################################
+# careers
 
 https://www.science.org/digital-feed/careers-articles                   "~science.jobs" job
 
 
-# podcasts #############################################################
+# podcasts
 
 https://feeds.megaphone.fm/RSV2347142881                                "~bari"  pod pol
 https://rss.samharris.org/feed/92dccb84-cc25-446a-adf0-20ec79253160     "~sam"   pod aa
 
-# pod.science
+# pod science
 
 https://feeds.megaphone.fm/AAAS8717073854
 
 
-# luke smith ############################################################
+# luke smith
 
 https://lukesmith.xyz/rss.xml                                          "~luke"
 https://notrelated.xyz/rss                                             "~luke.notrelated"
 https://landchad.net/rss.xml                                           "~luke.landchad"
 https://based.cooking/rss.xml                                          "~luke.cooking"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~luke.(YouTube)"
-
 

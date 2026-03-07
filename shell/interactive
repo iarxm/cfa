@@ -1,8 +1,7 @@
 #!/bin/sh
 # universal interactive shell
 # relating solely to interactive shells
-
-## - [ ] add git opts to zsh?
+# - [ ] add git opts to zsh?
 export GIT_PS1_SHOWDIRTYSTATE="1"        # + for staged, * if unstaged.
 export GIT_PS1_SHOWSTASHSTATE="1"
 export GIT_PS1_SHOWUNTRACKEDFILES="1"    # % if untracked files.
@@ -10,9 +9,7 @@ export GIT_PS1_SHOWUPSTREAM="1"          # <, >, <> behind, ahead, diverged from
 export GIT_PS1_STATESEPARATOR="1"        # sep between branch name and state symbols
 export GIT_PS1_DESCRIBE_STYLE="1"        # show commit relative to tag/branch, detached HEAD
 export GIT_PS1_SHOWCOLORHINTS="1"        # display in color
-
 export PIXELFONTSIZE=18 # font
-
 if [ ! -n $(which tput | grep "not found") ]; then
     export BLACK="$(tput setaf 0)"
     export RED="$(tput setaf 1)"

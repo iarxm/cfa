@@ -1,0 +1,9 @@
+picom
+picom is useful for stabilising mismatches between frame rates of media players/screens and multi monitors.
+scrolling can create visual artifacts. picom corrects this
+picom appears to load the cpu dependent on the resolution size or pixel demand of the secondary displays.
+The larger the resolution of a secondary display, the more cpu demand
+specialised mpv settings can be used to circumvent this as well as downgrading to a smaller resolution or monitor
+Ideally, a machine with a dedicated gpu, and a sufficient cpu would solve these minor inefficiencies.
+A more robust machine would put the current cpu usage of say 30% for background tasks (eg picom, background media video, background bufferring, daemons etc)
+to maybe 10% or less. And a dedicated gpu would make this improvement more noticeable, in so far as cpu and gpu tasks would be segmented and non-interferring

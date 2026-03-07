@@ -14,7 +14,6 @@ output DP-2-3
 off
 output eDP-1
 crtc 0
-gamma 0.769:0.588:0.435
 mode 1366x768
 pos 0x0
 primary

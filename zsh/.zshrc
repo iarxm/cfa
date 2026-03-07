@@ -7,9 +7,9 @@ P10K_ON="0"
 
 if [[ ${P10K_ON} = "1" ]]; then
     P10K_INSTANT="${HOME}/.cache/p10k-instant-prompt-${(%):-%n}.zsh"
-    P10K_CFG="${HOME}/.config/zsh/p10k/p10k.zsh"
+    P10K_CFG="${HOME}/.config/zsh/p10k.zsh"
     P10K_THEME_X="/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
-    P10K_THEME_Y="${HOME}/.local/pkg/powerlevel10k/powerlevel10k.zsh-theme"
+    P10K_THEME_Y="${HOME}/.local/lib/powerlevel10k/powerlevel10k.zsh-theme"
 fi
 
 if [[ -r "${P10K_INSTANT}" ]]; then

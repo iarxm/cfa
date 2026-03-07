@@ -63,6 +63,7 @@ settings:
     https://chatgpt.com: access-paste
     https://github.com: access-paste
     https://outlook.office365.com: access-paste
+    https://platform.claude.com: access-paste
     https://portal.azure.com: access-paste
     https://wbyyte-my.sharepoint.com: access-paste
     https://www.google.com: access-paste
@@ -86,6 +87,7 @@ settings:
     https://teams.microsoft.com: true
   content.register_protocol_handler:
     https://calendar.google.com?cid=%25s: true
+    https://outlook.cloud.microsoft?mailtouri=%25s: true
     https://outlook.office.com?mailtouri=%25s: false
     https://outlook.office365.com?mailtouri=%25s: false
   statusbar.show:
