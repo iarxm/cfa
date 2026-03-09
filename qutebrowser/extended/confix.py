@@ -2,9 +2,9 @@
 import os
 HOME                                = os.getenv("HOME")
 SESSION_DIR                         = HOME + "/.local/share/qutebrowser/sessions/a-tabmanager/"
-COLORS_BLACKX                       = HOME + "/.config/qutebrowser/styles/blackblack/black-all-sites.css"
+COLORS_BLACKX                       = HOME + "/.config/qutebrowser/extended/styles/blackblack/black-all-sites.css"
 os.environ['COLORS_BLACKX']         = COLORS_BLACKX
-os.environ['WINDOW_ELEMENTS']       = HOME + "/.config/qutebrowser/styles/window-user-styles.css"
+os.environ['WINDOW_ELEMENTS']       = HOME + "/.config/qutebrowser/extended/styles/window-user-styles.css"
 c.downloads.location.directory      = "~/ai/"
 c.changelog_after_upgrade           = "minor"
 c.editor.command                    = ["st", "-c", "float", "nvim", "-O", "{}"] # float class applied
@@ -60,8 +60,8 @@ config.set( \
         '*://www.bing.com/*' # bing: for accessing gpt feature via edge browser usage
     # setting user agent per domain pattern
 ) 
-c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
-c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
+c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/extended/homepage/index-blackhole.html"
+c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/extended/homepage/index-blackhole.html"
 c.content.blocking.adblock.lists = [ \
     "https://easylist.to/easylist/easylist.txt", \
     "https://easylist.to/easylist/easyprivacy.txt", \
