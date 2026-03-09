@@ -1,0 +1,4 @@
+return { 
+   'dpayne/CodeGPT.nvim',
+    cmd = 'Copilot',
+}

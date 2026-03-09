@@ -1,6 +1,5 @@
 vim.g.mapleader      = ' '
 vim.g.maplocalleader = '.'
-
 local lazypath       = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 vim.opt.rtp:prepend(lazypath)
@@ -15,7 +14,7 @@ end
 local M = {
     spec     = { import = "plug", }, -- add LazyVim and import its plugins
     defaults = { lazy = true, },
-    dev      = { path = "~/dsa", },
+    dev      = { path = "~/dv", },
     lockfile = vim.fn.stdpath("state") .. "/lazy-lock.json",
     change_detection = { -- listen for config changes
         enabled = true,

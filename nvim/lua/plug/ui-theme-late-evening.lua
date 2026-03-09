@@ -1,4 +1,4 @@
 return {
-  'https://gitlab.com/h3xx/vim-late_evening',
+  'h3xx/vim-late_evening',
   name = 'late',
 }
