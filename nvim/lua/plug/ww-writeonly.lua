@@ -1,0 +1,3 @@
+return {
+  'Dotrar/nvim-writeonly',
+}
