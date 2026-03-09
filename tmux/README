@@ -1,0 +1,32 @@
+tmux
+
+Plugins are installed in .local/share/tmux/..
+.local/share is a disposable directory
+
+USAGE NOTES
+
+GPT suggests the following type usage
+
+Session = project or genuinely separate mental world.
+Window = task branch, Codex run, shell role, log tail, build loop, notes, REPL.
+Pane = tightly coupled simultaneous views inside one task.
+Server = invisible substrate; do not architect around it unless you have daemon-like requirements.
+
+Furthermore, systemd integration might be effective to achieve persistence independent of graphical session.
+
+
+TASKS / PROJECTS
+
+Experiment with tmux-notify to indicate when agentic workflows need input or have completed
+Change pane border colors. Just one partial border looks out of place
+Implement tmux as a systemd user service pre graphical
+
+
+TO EXPERIMENT
+
+tmux-sessionx
+tmux-fzf
+tmux-yank
+tmux-tea
+
+A list of tmux plugins can be found here https://github.com/tmux-plugins/list

@@ -1,5 +1,5 @@
 return {
-    { 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
+   'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
         lazy = 'false',
         config = function() require('rainbow-delimiters.setup').setup {
             strategy = {
@@ -25,7 +25,6 @@ return {
             }
         }
         end
-    }
 }
 
 
