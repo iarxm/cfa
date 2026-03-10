@@ -1,0 +1,66 @@
+# qutebrowser modular config refactor plan
+
+## Goal
+
+Refactor the current qutebrowser configuration from a nested `config.source(...)` chain into a single-entrypoint Python modular system.
+
+The new system should:
+
+- remove fragile relative/absolute path handling issues
+- stop profile files from sourcing other config files recursively
+- preserve multiple profiles for different use cases
+- separate shared settings, themes, and profile-specific overrides
+- allow runtime profile selection via launcher scripts or environment variables
+- keep the system easy to extend later
+
+## Current problem
+
+The current structure appears to work roughly like this:
+
+- one profile file sources another file
+- that file sources `config.py`
+- `config.py` sources `confix.py`
+- profile/theme files may source more files again
+
+This creates several problems:
+
+- path resolution becomes fragile, especially when relative paths are interpreted from different locations
+- config composition becomes implicit and hard to reason about
+- profiles become dependent on source order rather than an explicit composition model
+- state/cache/data separation gets mixed together with semantic configuration
+- adding new profiles increases complexity nonlinearly
+
+## Design target
+
+Move to a design with:
+
+- exactly one qutebrowser `config.py` entrypoint per config directory
+- ordinary Python modules for shared settings, themes, and profiles
+- top-level explicit composition in `config.py`
+- profile selection performed externally via environment variable or launcher
+- storage/runtime isolation handled by launch scripts, not by config module chaining
+
+## Target architecture
+
+Suggested file tree:
+
+```text
+~/.config/qutebrowser/
+  config.py
+  extended/
+    __init__.py
+    shared.py
+    paths.py
+    utils.py
+    prof_default.py
+    prof_iso_black.py
+    prof_iso_white.py
+    prof_mail.py
+    prof_research.py
+    themes/
+      __init__.py
+      black.py
+      white.py
+    local/
+      __init__.py
+      machine.py

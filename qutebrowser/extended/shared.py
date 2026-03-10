@@ -1,4 +1,4 @@
-# iarom madden mail@iarom.org
+# iarom mail@iarom.org
 import os
 HOME                                = os.getenv("HOME")
 SESSION_DIR                         = HOME + "/.local/share/qutebrowser/sessions/a-tabmanager/"
@@ -26,6 +26,7 @@ c.content.geolocation               = True
 c.content.prefers_reduced_motion    = True
 c.content.plugins                   = False # ?
 c.content.xss_auditing              = True
+c.content.cache.appcache            = True
 c.content.cache.size                = 2147483647
 c.content.blocking.method           = "both"
 c.content.blocking.enabled          = True
@@ -57,7 +58,8 @@ c.qt.args = [ \
 config.set( \
     'content.headers.user_agent', \
         'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) Chrome/110.0.0.0 Safari/{webkit_version} Edg/110.0.1587.57', \
-        '*://www.bing.com/*' # bing: for accessing gpt feature via edge browser usage
+        '*://www.bing.com/*'
+           # bing: for accessing gpt feature via edge browser usage
     # setting user agent per domain pattern
 ) 
 c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/extended/homepage/index-blackhole.html"

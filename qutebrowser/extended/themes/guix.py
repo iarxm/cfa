@@ -15,22 +15,18 @@ c.statusbar.widgets                = [] # ["url", "progress", "scroll"]
 c.window.hide_decoration           = True
 c.fonts.default_family             = "JetBrainsMonoNL Nerd Font"
 c.fonts.tabs.selected              = "10pt JetBrainsMonoNL Nerd Font"
-c.fonts.tabs.unselected            = c.fonts.tabs.selected
 c.fonts.hints                      = "14pt DejaVu Sans Mono"
 c.fonts.statusbar                  = "9pt JetBrainsMonoNL Nerd Font"
+c.fonts.messages.info              = "12pt Noto Sans Mono"
+c.fonts.tabs.unselected            = c.fonts.tabs.selected
 c.fonts.downloads                  = c.fonts.statusbar 
 c.fonts.prompts                    = c.fonts.statusbar
 c.fonts.completion.entry           = c.fonts.statusbar
 c.fonts.completion.category        = c.fonts.statusbar
-c.fonts.messages.info              = "12pt Noto Sans Mono"
 c.fonts.keyhint                    = c.fonts.messages.info
 c.fonts.messages.warning           = c.fonts.messages.info
 c.fonts.messages.error             = c.fonts.messages.info
 #c.url.default_page         = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
 #c.url.start_pages          = "file://" + HOME + "/.config/qutebrowser/homepage/index-blackhole.html"
-#index-blank.html"
-#index-blank.html"
-#index-background.html"
-#index-background.html"
-#index-clock.html"
-#index-clock.html"
+#index-blank.html"#index-blank.html"#index-background.html"
+#index-background.html"#index-clock.html"#index-clock.html"
