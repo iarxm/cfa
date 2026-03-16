@@ -5,7 +5,7 @@ HISTSIZE=10000000 #HISTFILE=${HISTFILE}
 SAVEHIST=10000000
 KEYTIMEOUT=1 #export KEYTIMEOUT=1
 DIRSTACKSIZE='50'
-DIRSTACKFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/dirs"
+export DIRSTACKFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/dirs"
 fpath=("${ZDOTDIR}/lib" "${fpath[@]}")
 autoload -U colors; colors
 echo -ne '\e[3 q' # cursor shapes vi modes
