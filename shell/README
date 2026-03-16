@@ -1,0 +1,13 @@
+ali: simple aliases
+lib: library of functions
+nnx: nnn shell configs
+int: interactive sh loader
+-
+env: global shell environment
+pro: login sh loader, calls eg env
+-
+int also calls shelx/int
+pro also calls shelx/env
+-
+zsh/.zprofile calls pro
+zsh/.zshenv calls int

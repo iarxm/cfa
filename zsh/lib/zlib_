@@ -1,0 +1,8 @@
+syn() {
+{
+    SYNTAX="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    [[ -f ${SYNTAX} ]] && source ${SYNTAX}
+    ZSH_HIGHLIGHT_STYLES[precommand]=fg=yellow
+    ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=yellow
+    ZSH_HIGHLIGHT_STYLES[arg0]=fg=yellow
+}

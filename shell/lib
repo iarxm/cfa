@@ -1,0 +1,45 @@
+# TASK migrate to autoloading functions such as these
+# or switch to a systems script with autocompletions
+colors_print()
+{
+    for i in {0..255}
+    do 
+        printf "\x1b[38;5;${i}mcolor${i} - ██████████\n"
+    done
+
+}
+systemctl_toggle_service()
+{
+    local service="${1}"
+    if [ -n "${2}" ]; then
+        local user_hand="--user"
+    fi
+
+    if systemctl ${user_hand} is-active --quiet "${service}"; then
+        systemctl ${user_hand} stop "${service}"
+        echo "stopped ${service}"
+    else
+        systemctl ${user_hand} start "${service}"
+        echo "started ${service}"
+    fi
+}
+systemctl_toggle_service_user()
+{
+    [ -n ${1} ] || { echo "no input"; return }
+    systemctl_toggle_service ${1} user
+}
+lfcd ()
+{
+    tmp="$(mktemp)"
+    lf -last-dir-path="${TMP_LF}" "${@}"
+    if [ -f "${TMP_LF}" ]; then
+        DIR_LF="$(cat "${TMP_LF}")"
+        rm -f "${TMP_LF}" >/dev/null
+        [ -d "${DIR_LF}" ] && [ "${DIR_LF}" != "$(pwd)" ] && cd "${DIR_LF}"
+    fi
+}
+ls_col ()
+{
+    ls -1pd --color --group-directories-first .* $@
+    ls -1p --color --group-directories-first $@
+}

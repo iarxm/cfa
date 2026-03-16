@@ -1,0 +1,18 @@
+zsh configs
+
+lib: library of user functions / autoloaders
+pro: zdotdir profiles
+
+.zshenv: loads on new interactive shell
+.zshrc: loads on new i shell
+
+.zprofile: loads on login
+
+
+IMPLEMENTING
+
+zoxide
+    first see if builtins suffice
+    cdr and dirs
+remember to intermittently rehash 'rehash'
+calendar builtin

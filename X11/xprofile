@@ -1,22 +1,18 @@
 #!/bin/sh
-
 {
     xset r rate 90 160 &
     xrdb -I${HOME}/.config .config/X11/xresources 2>/dev/null &
     feh --no-fehbg --bg-fill "${BGX_FEH}" &
-    autorandr --change
+    autorandr --change >/dev/null 2>&1
 }
-
 if ! $(which systemctl | grep "not found")
 then
-    systemctl --user import-environment XAUTHORITY DISPLAY GNUPGHOME PATH # How to integrate to systemd?
-    
+    systemctl --user import-environment XAUTHORITY DISPLAY GNUPGHOME PATH # more native systemd int?
     case ${wm} in
-        i3)  systemctl --user start i3.target ;;
-        dwm) systemctl --user start dwm.target ;;
-        *)   systemctl --user start graphix.target ;;
+    i3)  systemctl --user start i3.target ;;
+    dwm) systemctl --user start dwm.target ;;
+    *)   systemctl --user start graphix.target ;;
     esac
-
 else
     slstatus &
     unclutter &

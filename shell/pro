@@ -1,0 +1,3 @@
+#!/bin/sh
+. "${HOME}/.config/shell/env"
+. "${HOME}/.config/shelx/env"

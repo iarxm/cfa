@@ -1,0 +1,12 @@
+setopt PROMPT_SUBST
+zstyle ':vcs_info:git*' formats "%{$fg[blue]%}%{$fg[yellow]%}%b%{$reset_color%}%m%u%c%{$reset_color%} %h "
+zstyle ':vcs_info:git*' actionformats "%S %b %m%u%c "
+zstyle ':vcs_info:*' max-exports 5
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '%F{red}!'
+zstyle ':vcs_info:*' stagedstr ' %F{green}✚%f'
+precmd() { vcs_info }
+#RPROMPT='%{$fg[red]%}%c$(__git_ps1 "(%s)")'
+RPROMPT='${vcs_info_msg_0_}$( [ -n "${SSH_CONNECTION}" ] && echo " ssh ")${PWD/#${HOME}/~}${1[(w)1]}'
+PS1='%{$fg[yellow]%}>%b '

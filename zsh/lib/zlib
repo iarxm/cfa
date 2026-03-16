@@ -1,0 +1,33 @@
+zle-keymap-select ()
+{
+    case ${KEYMAP} in
+        vicmd) echo -ne '\e[1 q';; # block
+        viins|main) echo -ne '\e[3 q';; # underscore
+        #viins|main) echo -ne '\e[5 q';; # beam
+    esac
+}
+zle-line-init()
+{
+    # init `vi insert` as keymap (can be removed if `bindkey -V` is set)
+    zle -K viins 
+    echo -ne "\e[5 q"
+}
+cdUndoKey()
+{
+  popd
+  zle       reset-prompt
+  ls
+  zle       reset-prompt
+}
+cdParentKey()
+{
+  pushd ..
+  zle      reset-prompt
+  ls
+  zle      reset-prompt
+}
+ncmpcppShow()
+{
+  ncmpcpp <$TTY
+  zle redisplay
+}

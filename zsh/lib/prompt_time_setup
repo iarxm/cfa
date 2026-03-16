@@ -1,0 +1,86 @@
+prompt_time_help ()
+{
+cat <<EOH
+prompt time [<text-color> [<parentheses-color>]]
+EOH
+}
+
+previous()
+{
+RPROMPT=\
+'%15>_>${vcs_info_msg_0_}%<<'\
+'$( [ -n "${SSH_CONNECTION}" ] && echo " ssh ")'\
+' %15>_>%2~%<<'\
+'${1[(w)1]}'\
+' %D{%f}'
+RPROMPT=\
+'${vcs_info_msg_0_}'\
+'$( [ -n "${SSH_CONNECTION}" ] && echo " ssh ")'\
+'${PWD/#${HOME}/~}'\
+'${1[(w)1]}'
+PS1=\
+'%K{white}'\
+'%F{red}'\
+'%(?..(%?%))'\
+'%K{black}'\
+'%F{white}'\
+'%B%(2L.+.)'\
+'%(1j.[%j].)'\
+'%F{yellow}'\
+'%(t.Ding!.%*)'\
+'%f%k%b '
+}
+
+prompt_time_setup()
+{
+setopt PROMPT_SUBST
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:git*' formats "\
+%{$fg[blue]%}\
+%{$fg[yellow]%}\
+%b\
+%{$reset_color%}\
+%m\
+%u\
+%c\
+%{$reset_color%}\
+ %H"
+
+zstyle ':vcs_info:git*' actionformats "\
+%S %b %m%u%c "
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' max-exports 10
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '%F{red}!'
+zstyle ':vcs_info:*' stagedstr ' %F{green}✚%f'
+
+zstyle ':vcs_info:git+post-backend:*' hooks git-post-backend-updown
++vi-git-post-backend-updown() {
+    git rev-parse @{upstream} >/dev/null 2>&1 || return
+    local -a x; x=( $(git rev-list --left-right --count HEAD...@{upstream} ) )
+    hook_com[branch]+="%f" # end coloring
+    (( x[2] )) && hook_com[branch]+="↓"
+    (( x[1] )) && hook_com[branch]+="↑"
+    return 0
+}
+
+precmd() { vcs_info }
+
+RPROMPT=\
+'%15>_>${vcs_info_msg_0_}%<<'\
+'$( [ -n "${SSH_CONNECTION}" ] && echo " ssh ")'\
+' %15>_>%2~%<<'\
+'${1[(w)1]}'
+
+PS1=\
+'%K{black}'\
+'%F{white}'\
+'%(1j.[%j].)'\
+'%F{yellow}'\
+'%(t.Ding!.%D{%M%S})'\
+'%f%k%b '
+
+}
+
+prompt_time_setup "$@"

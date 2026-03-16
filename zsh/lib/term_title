@@ -1,0 +1,8 @@
+# TASK add host info when ssh active
+#autoload -Uz promptinit; promptinit #prompt pws
+#. "${ZDOTDIR}/lib/prompt_p10ki.zsh"
+. "${ZDOTDIR}/lib/prompt_time_setup" # this is undoing previous cmds
+# dynamic window title
+function xtitle  () { builtin print -n -- "\e]0;${@}\a" }
+function preexec () { xtitle "\e${cmd}" }
+function preexec () { xtitle "\[${PWD/#$HOME/~}\] ${1[(w)1]}" }

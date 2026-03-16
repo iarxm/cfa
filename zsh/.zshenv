@@ -1,1 +1,1 @@
-. ~/.config/shell/profile 2>/dev/null
+. ${HOME}/.config/shell/int 2>/dev/null

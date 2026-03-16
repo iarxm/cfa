@@ -1,5 +1,0 @@
-#!/bin/sh
-. "${XDG_CONFIG_HOME}/shell/export"
-. "${XDG_CONFIG_HOME}/shell/aliases"
-. "${XDG_CONFIG_HOME}/shell/nnx"
-. "${XDG_CONFIG_HOME}/shelx/profile"

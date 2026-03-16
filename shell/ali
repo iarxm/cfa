@@ -1,29 +1,12 @@
 #!/bin/sh
+alias co="codex"
+alias tremc="tremc -X"
+# aliases
 alias si="sxiv"
 alias pa="pass"
 alias we="weechat"
 alias tm="tmux"
 alias bl="bluetoothctl"
-systemctl_toggle_service()
-{
-    local service="${1}"
-    if [ -n "${2}" ]; then
-        local user_hand="--user"
-    fi
-
-    if systemctl ${user_hand} is-active --quiet "${service}"; then
-        systemctl ${user_hand} stop "${service}"
-        echo "stopped ${service}"
-    else
-        systemctl ${user_hand} start "${service}"
-        echo "started ${service}"
-    fi
-}
-systemctl_toggle_service_user()
-{
-    [ -n ${1} ] || { echo "no input"; return }
-    systemctl_toggle_service ${1} user
-}
 # dotfiles
 alias irssi="irssi --home=${XDG_CONFIG_HOME}/irssi"
 alias abook="abook \
@@ -38,7 +21,7 @@ alias apvlv="apvlv -c ${XDG_CONFIG_HOME}/apvlv/apvlvrc"
 alias mbsync="mbsync -c ${XDG_CONFIG_HOME}/isync/isyncrc"
 alias mr="mr --config ${HOME}/.config/mr/mrconfig"
 alias castget="castget -C ${HOME}/.config/castget/castgetrc"
-alias mpv="mpv --config-dir=${HOME}/.config/mpx"
+alias mpv="mpv --config-dir=${MPV_CONFIG}"
 #alias xrdbx="xrdb -I${HOME} -merge ${XDG_CONFIG_HOME}/X11/xresources"
 alias xrdbx="xrdb -I${XDG_CONFIG_HOME} -merge ${XDG_CONFIG_HOME}/X11/xresources"
 alias ref="shortcuts >/dev/null; \
@@ -62,16 +45,21 @@ alias rm='echo "NOTE: use trash-put instead, but if youre sure \
     use /rm to overide"; false'
 alias rmm='echo "Using trash-put"; trash-put -v'
 alias tp="trash-put"
+if [ -x /usr/bin/dircolors ]; then
+test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 alias ls="ls --color=auto"
+fi
 alias l="ls"
 alias lsl='ls -l --group-directories-first'
 alias lsa='ls -lA --group-directories-first'
 alias lsb='ls -A'
+alias la='ls_col $@'
+alias lp='ls -1p --color --group-directories-first'
 alias g="git"
 alias mrstat="cd /dat && mr status | less"
 alias si='sxiv' #alias sx='sxiv'
@@ -196,7 +184,6 @@ alias brw-inx="qb"
 #alias _google-chrome-canary="/usr/bin/google-chrome-canary \
 #    --user-data-dir=${HOME}/.local/share/google-chrome-canary \
 #    ${CHROMIUM_FLAGS}"
-
 # new
 #alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 #alias whatsapp='firefox --new-window web.whatsapp.com'

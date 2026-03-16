@@ -1,19 +1,12 @@
 #!/bin/sh
-
 wm=${1:-dwm}
-
 . "${XDG_CONFIG_HOME:-"${HOME}/.config"}/X11/xprofile" ${wm} \
     || . "${HOME}/.xprofile" ${wm} 2>/dev/null
-
 case ${wm} in
+    awesome) exec awesome;;
     i3|i3wm) exec i3;;
-    dwm) exec dwm;;
-    dwmlog)
-        while true; do
-            dwm 2> ~/.dwm.log
-            #dwm >/dev/null 2>&1
-        done
-        ;;
-    awesome ) exec awesome;;
-    *) exec ${wm};;
+    dwmlog)  while :; do dwm 2> ${XDG_DATA_HOME}/xorg/dwm.log; done;;
+    dwmx)    exec bash -c "while true; do . ${HOME}/.zprofile; dwm >/dev/null 2>&1; done";;
+    dwm)     exec dwm >/dev/null 2>&1;;
+    *)       exec ${wm};;
 esac
