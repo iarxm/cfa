@@ -1,66 +1,336 @@
-# qutebrowser modular config refactor plan
+# qutebrowser config refactor plan
 
-## Goal
+## Objective
 
-Refactor the current qutebrowser configuration from a nested `config.source(...)` chain into a single-entrypoint Python modular system.
+Refactor the current qutebrowser config from nested `config.source(...)` calls into a single-entrypoint Python composition model.
 
-The new system should:
+The result should:
 
-- remove fragile relative/absolute path handling issues
-- stop profile files from sourcing other config files recursively
-- preserve multiple profiles for different use cases
-- separate shared settings, themes, and profile-specific overrides
-- allow runtime profile selection via launcher scripts or environment variables
-- keep the system easy to extend later
+- keep one qutebrowser `config.py` entrypoint
+- remove nested sourcing between profiles, themes, and shared config
+- preserve multiple profiles and make profile selection explicit
+- use normal Python imports and functions instead of qutebrowser config chaining
+- let the wrapper script select the active profile via environment variable
+- keep runtime/data isolation in the wrapper script via `--basedir` and related launch behavior
 
-## Current problem
+## Current state in this repo
 
-The current structure appears to work roughly like this:
+The actual load graph today is simpler than the earlier plan assumed:
 
-- one profile file sources another file
-- that file sources `config.py`
-- `config.py` sources `confix.py`
-- profile/theme files may source more files again
+- `config.py` loads autoconfig and sources `extended/profile_a.py`
+- `extended/profile_a.py` loads autoconfig again, then sources `extended/shared.py` and `extended/themes/theme_black.py`
+- `extended/profile_m.py` and `extended/profile_x.py` also call `config.load_autoconfig()` and then source other config fragments
+- `extended/themes/theme_black.py` and `extended/themes/theme_normal.py` source more theme fragments
 
-This creates several problems:
+This creates four concrete problems:
 
-- path resolution becomes fragile, especially when relative paths are interpreted from different locations
-- config composition becomes implicit and hard to reason about
-- profiles become dependent on source order rather than an explicit composition model
-- state/cache/data separation gets mixed together with semantic configuration
-- adding new profiles increases complexity nonlinearly
+- configuration order is implicit and spread across multiple files
+- relative path behavior depends on how `config.source(...)` resolves each file
+- `config.load_autoconfig()` runs in multiple places, which makes override order harder to reason about
+- some stateful values, such as session paths, are mixed into shared config instead of being profile-aware or wrapper-provided
 
-## Design target
+## Refactor constraints
 
-Move to a design with:
+These rules define the target system:
 
-- exactly one qutebrowser `config.py` entrypoint per config directory
-- ordinary Python modules for shared settings, themes, and profiles
-- top-level explicit composition in `config.py`
-- profile selection performed externally via environment variable or launcher
-- storage/runtime isolation handled by launch scripts, not by config module chaining
+1. `config.py` is the only file executed directly by qutebrowser.
+2. `config.load_autoconfig()` is called exactly once, in `config.py`.
+3. No imported module may call `config.source(...)`.
+4. Imported modules must not rely on qutebrowser magically injecting globals into module scope.
+5. Profile selection comes from the wrapper script through an environment variable, specifically `QUTE_PROF`.
+6. Runtime isolation such as `--basedir` remains the responsibility of the wrapper script, not the Python config layout.
 
-## Target architecture
+## Proposed target design
 
-Suggested file tree:
+Use plain Python modules with explicit apply functions.
+
+Suggested shape:
 
 ```text
 ~/.config/qutebrowser/
   config.py
   extended/
     __init__.py
+    context.py
     shared.py
-    paths.py
-    utils.py
-    prof_default.py
-    prof_iso_black.py
-    prof_iso_white.py
-    prof_mail.py
-    prof_research.py
+    proa.py
+    prom.py
+    prox.py
+    proy.py
     themes/
       __init__.py
-      black.py
-      white.py
-    local/
-      __init__.py
-      machine.py
+      chrome_black.py
+      page_dark.py
+      page_light.py
+      layout_guix.py
+      preset_black.py
+      preset_normal.py
+```
+
+Each module should expose one function:
+
+```python
+def apply(c, config, ctx) -> None:
+    ...
+```
+
+Where `ctx` is a small context object or dict containing resolved paths and the selected profile.
+
+Example responsibilities:
+
+- `extended/context.py`: resolve `HOME`, config-root-relative paths, profile name, and any profile-specific paths
+- `extended/shared.py`: apply baseline settings, aliases, bindings, search engines, generic defaults
+- `extended/themes/*.py`: apply one well-scoped visual layer at a time
+- `extended/pro*.py`: apply profile-specific overrides and choose a theme preset
+
+## Wrapper-script contract
+
+The wrapper script should remain the outer control plane.
+
+It should:
+
+- set `QUTE_PROF=<name>` before launching qutebrowser
+- continue setting `--basedir` for runtime isolation
+- continue choosing the config file explicitly if that is already part of your launch model
+
+Minimal contract:
+
+```sh
+QUTE_PROF=mail qutebrowser --basedir "$base_dir" --config-py "$config_py"
+```
+
+The Python config should assume:
+
+- `QUTE_PROF` controls semantic configuration
+- `--basedir` controls storage/runtime separation
+
+This keeps profile meaning separate from filesystem/process isolation.
+
+## Theme model
+
+The current `themes/` directory is conceptually mixing three different concerns:
+
+- browser chrome styling such as tabs, completion, statusbar, hints
+- webpage rendering policy such as darkmode and `content.user_stylesheets`
+- layout/GUI ergonomics such as fonts, tabs position, window decoration, zoom
+
+That split is useful, but the current names are too ambiguous. In particular:
+
+- `colors_black_ui.py` is a browser chrome palette
+- `colors_black_web.py` is a webpage rendering preset
+- `guix.py` is not really a theme palette, it is a layout/UI behavior preset
+- `theme_black.py` is an orchestration layer, not a leaf theme file
+
+The cleanest model going forward is:
+
+- leaf modules apply one concern only
+- orchestration modules compose leaf modules into a named preset
+- profiles choose presets, but themes remain reusable and not tied to a single profile
+
+Recommended theme taxonomy:
+
+- `themes/chrome_black.py`
+  applies qutebrowser chrome colors only
+- `themes/page_dark.py`
+  applies webpage darkmode policy and user stylesheet list
+- `themes/page_light.py`
+  applies webpage light/no-darkmode policy
+- `themes/layout_guix.py`
+  applies fonts, tab layout, statusbar visibility, window decoration, zoom
+- `themes/preset_black.py`
+  composes `chrome_black`, `page_dark`, and `layout_guix`
+- `themes/preset_normal.py`
+  composes a normal/light chrome module, `page_light`, and `layout_guix`
+
+This keeps the category split you already have, but makes the naming and intent explicit.
+
+## Module API and composition order
+
+`config.py` should own all ordering.
+
+Target order:
+
+1. import modules and build context
+2. call `config.load_autoconfig()`
+3. apply shared baseline
+4. apply selected profile
+5. let the profile apply its theme and profile-specific overrides explicitly
+
+Example skeleton:
+
+```python
+import os
+
+from extended.context import build_context
+from extended.shared import apply as apply_shared
+from extended import proa, prom, prox, proy
+
+PROFILE_REGISTRY = {
+    "default": proa.apply,
+    "mail": prom.apply,
+    "x": prox.apply,
+    "y": proy.apply,
+}
+
+profile = os.getenv("QUTE_PROF") or "default"
+ctx = build_context(profile)
+
+config.load_autoconfig()
+apply_shared(c, config, ctx)
+PROFILE_REGISTRY.get(profile, proa.apply)(c, config, ctx)
+```
+
+Inside a profile module:
+
+```python
+from extended.themes.preset_black import apply as apply_theme_black
+
+def apply(c, config, ctx) -> None:
+    apply_theme_black(c, config, ctx)
+    c.content.local_content_can_access_remote_urls = True
+```
+
+This removes all nested qutebrowser sourcing while preserving explicit composition.
+
+## Concrete migration mapping
+
+Map the current files into the new structure like this:
+
+- current `extended/shared.py`
+  becomes `extended/shared.py` with `apply(c, config, ctx)`
+- current `extended/themes/theme_black.py`
+  becomes `extended/themes/preset_black.py`
+- current `extended/themes/theme_normal.py`
+  becomes `extended/themes/preset_normal.py`
+- current `extended/themes/colors_black_ui.py`
+  becomes `extended/themes/chrome_black.py`
+- current `extended/themes/colors_black_web.py`
+  becomes `extended/themes/page_dark.py`
+- current `extended/themes/guix.py`
+  becomes `extended/themes/layout_guix.py`
+- current `extended/profile_a.py`
+  becomes `extended/proa.py`
+- current `extended/profile_m.py`
+  becomes `extended/prom.py`
+- current `extended/profile_x.py`
+  becomes `extended/prox.py`
+- current `extended/profile_y.py`
+  becomes `extended/proy.py` or is dropped if it is only a placeholder
+
+## Data to move into context
+
+These values should stop being hardcoded ad hoc inside shared config and instead be resolved in one place:
+
+- config root path
+- `HOME`
+- stylesheet paths such as `extended/styles/blackblack/black-all-sites.css`
+- `WINDOW_ELEMENTS` stylesheet path
+- homepage file paths
+- session directory path currently tied to `a-tabmanager`
+
+If a path depends on the selected profile, compute it in `build_context(profile)`.
+
+Example:
+
+- `ctx["session_dir"]`
+- `ctx["stylesheets"]["window_elements"]`
+- `ctx["stylesheets"]["black_web"]`
+
+Avoid mutating `os.environ` in feature modules unless a userscript or subprocess truly requires it. Prefer passing resolved values directly into qutebrowser settings and aliases from `ctx`.
+
+## Profile model
+
+Keep profiles thin.
+
+A profile module should only do three things:
+
+- choose a theme preset
+- define profile-specific overrides
+- define profile-specific stateful paths if needed through `ctx`
+
+It should not:
+
+- call `config.load_autoconfig()`
+- source other files
+- duplicate the entire shared baseline
+
+Recommended profile names for the first pass:
+
+- `default`
+- `mail`
+- `x`
+- `y`
+
+These can be renamed later once the composition model is stable.
+
+## Phased implementation plan
+
+### Phase 1: introduce the new module API without changing behavior
+
+- add `extended/__init__.py`
+- add `extended/context.py`
+- create `apply(c, config, ctx)` functions for shared, theme, and profile modules
+- keep settings values as close to the current ones as possible
+- change `config.py` to import and dispatch by `QUTE_PROF`
+
+Acceptance criteria:
+
+- qutebrowser starts from `config.py` with no `config.source(...)` calls
+- current default behavior matches today’s `profile_a.py` path
+- `QUTE_PROF=mail` and `QUTE_PROF=x` select different profile modules
+
+### Phase 2: normalize paths and remove environment leakage
+
+- move path computation into `build_context(profile)`
+- replace ad hoc `HOME + ...` concatenation with path helpers
+- remove `os.environ[...] = ...` usage where not required
+- make session path profile-aware if that is intended
+
+Acceptance criteria:
+
+- no profile or theme module hardcodes config-root-relative paths inline
+- session aliases and stylesheet paths resolve from `ctx`
+
+### Phase 3: clean separation of shared vs profile-specific state
+
+- review settings in current `shared.py` and move profile-only values out
+- keep shared aliases/binds only if they truly apply to all profiles
+- decide whether mail/x/y require separate session namespaces, homepage defaults, or userscript behavior
+
+Acceptance criteria:
+
+- shared module contains only cross-profile behavior
+- profile modules contain the meaningful differences
+
+### Phase 4: retire obsolete compatibility files
+
+- remove old `extended/profile_*.py` source-based files
+- remove `theme_black.py` and `theme_normal.py` wrappers if replaced by import-based modules
+- update wrapper scripts or docs to use `QUTE_PROF`
+
+Acceptance criteria:
+
+- there is no remaining nested config loader chain
+- the active configuration path is obvious from `config.py`
+
+## Open decisions to confirm during implementation
+
+These do not block the refactor, but should be resolved as part of review:
+
+- whether `autoconfig.yml` should remain lower or higher precedence than profile overrides
+- whether the session directory should vary by `QUTE_PROF`, `--basedir`, or both
+- whether theme selection belongs inside each profile module or in a profile registry table
+- whether placeholder profile `y` is still needed
+
+## Recommended first implementation target
+
+For the first pass, optimize for mechanical safety rather than cleanup.
+
+That means:
+
+- preserve current setting values
+- preserve the current default theme/profile behavior
+- only change the loading model and path resolution structure
+- defer aggressive renaming or settings cleanup until after behavior is stable
+
+This keeps the refactor reviewable and makes regressions easier to isolate.

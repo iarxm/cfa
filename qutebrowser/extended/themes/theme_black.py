@@ -1,3 +1,7 @@
-config.source('themes/colors_black_ui.py')
-config.source('themes/colors_black_web.py')
-config.source('themes/guix.py')
+import os
+
+from extended.context import build_context
+from extended.themes.preset_black import apply
+
+
+apply(c, config, build_context(os.getenv("QUTE_PROF") or "default"))
