@@ -24,6 +24,7 @@ export EDITOR="nvim"
 export COLORTERM="truecolor"
 export PAGER="less -R --use-color"
 export LESS='-R --use-color -Dd+r$Du+b$'
+export COLUMNS="150"
 export DICTIONARY="en_GB"
 # security
 export GPG_TTY=$(tty)

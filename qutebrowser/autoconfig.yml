@@ -62,6 +62,7 @@ settings:
     https://aur.archlinux.org: access-paste
     https://chatgpt.com: access-paste
     https://github.com: access-paste
+    https://outlook.cloud.microsoft: access-paste
     https://outlook.office365.com: access-paste
     https://platform.claude.com: access-paste
     https://portal.azure.com: access-paste
@@ -91,4 +92,4 @@ settings:
     https://outlook.office.com?mailtouri=%25s: false
     https://outlook.office365.com?mailtouri=%25s: false
   statusbar.show:
-    global: never
+    global: always
