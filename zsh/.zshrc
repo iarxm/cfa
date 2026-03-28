@@ -46,5 +46,4 @@ bindkey -s '^d' 'tmux\n'
 bindkey -s '^x' 'tmux kill-session\n'
 setopt AUTOCD AUTOPUSHD PUSHD_SILENT PUSHD_TO_HOME PUSHD_MINUS CDABLE_VARS INTERACTIVE_COMMENTS APPEND_HISTORY SHARE_HISTORY INC_APPEND_HISTORY HIST_IGNORE_ALL_DUPS HIST_SAVE_NO_DUPS HIST_IGNORE_DUPS HIST_FIND_NO_DUPS
 . ${ZDOTDIR}/lib/cding
-
 [ -f ${SYN_HIGH:="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"} ] && . ${SYN_HIGH}

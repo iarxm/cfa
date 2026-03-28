@@ -1,3 +1,0 @@
-#!/bin/sh
-buku --debug --add "${QUTE_URL}" ${@}
-echo "message-info 'buku ${@}   ${QUTE_URL}'" >> "${QUTE_FIFO}"

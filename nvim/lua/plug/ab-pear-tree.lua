@@ -1,3 +1,0 @@
-return {
-  'tmsvg/pear-tree',
-}

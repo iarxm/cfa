@@ -1,5 +1,0 @@
--- write
-return {
-    'bilalq/lite-dfm',
-        cmd = 'LiteDFMToggle',   -- focus/write
-}

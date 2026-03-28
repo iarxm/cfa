@@ -1,4 +1,0 @@
-return { 
-   'Bryley/neoai.nvim',
-    cmd = 'Copilot',
-}

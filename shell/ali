@@ -65,7 +65,7 @@ alias mrstat="cd /dat && mr status | less"
 alias si='sxiv' #alias sx='sxiv'
 alias r='ranger'
 alias nnn="nnn -a"
-alias n="nnn -ea"
+alias n="nnn -nea"
 alias e="${EDITOR}"
 alias v="vi"
 alias vc="cud && nvim -c Ntr"

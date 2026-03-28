@@ -1,8 +1,0 @@
-#!/bin/bash
-
-#~/test << echo $QUTE_URL
-
-echo "message-info $QUTE_URL" >> $QUTE_FIFO
-echo "message-info $QUTE_TITLE" >> "$QUTE_FIFO"
-echo "message-info $QUTE_COUNT" >> "$QUTE_FIFO"
-echo 'search asdf' >> "$QUTE_FIFO"
