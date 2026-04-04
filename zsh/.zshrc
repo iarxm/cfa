@@ -38,8 +38,8 @@ bindkey '^e'    edit-command-line # edit line in vim w c-e
 bindkey -v '^?' backward-delete-char
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey -s '^o' 'lfcd\n'
-bindkey -s '^n' 'nnn -na\n'
-bindkey -s '^b' 'nnn\n'
+bindkey -s '^b' 'nnn -na\n'
+bindkey -s '^n' 'nnn\n'
 bindkey -s '^v' 'nvim\n'
 bindkey -s '^k' 'ls\n'
 bindkey -s '^d' 'tmux\n'

@@ -4,6 +4,7 @@
     xrdb -I${HOME}/.config .config/X11/xresources 2>/dev/null &
     feh --no-fehbg --bg-fill "${BGX_FEH}" &
     autorandr --change >/dev/null 2>&1
+    [ ! -f ${XAUTHORITY} ] && touch ${XAUTHORITY}
 }
 if ! $(which systemctl | grep "not found")
 then

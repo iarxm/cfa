@@ -35,8 +35,8 @@ alias sc="sc-im"
 # files
 alias c="cd"
 alias cc="cd"
-alias cp="cp -iv"
-alias mv="mv -iv"
+alias cp="echo 'consider 'acp''; cp -iv"
+alias mv="echo 'consider amv'; mv -iv"
 alias mkd="mkdir -pv"
 alias lns='ln -s'
 alias chx="chmod +x"
@@ -45,27 +45,56 @@ alias rm='echo "NOTE: use trash-put instead, but if youre sure \
     use /rm to overide"; false'
 alias rmm='echo "Using trash-put"; trash-put -v'
 alias tp="trash-put"
-if [ -x /usr/bin/dircolors ]; then
 test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
-alias ls="ls --color=auto"
+if [ -x /usr/bin/exa ]; then
+ exa_defs="--group-directories-first -F"
+ exl_defs="\
+     ${exa_defs} \
+     --long \
+     --modified \
+     --time-style='+%Y %m %d %H%M
+     %m %d %H%M' \
+     --smart-group \
+     --mounts \
+     --almost-all \
+     --git \
+     --git-repos \
+     "
+ exl_deta="\
+     ${exl_defs} \
+     --header \
+     --inode \
+     --binary \
+     --time-style='long-iso' \
+     " #--accessed --changed --created
+ alias exa="exa ${exa_defs}"
+ alias l="exa"
+ alias lt="exa -T"
+ alias la="exa ${exl_defs}" # long form default
+ alias lw="exa ${exl_deta}" # super detailed
+ alias ls="echo '(CONSIDER USING exa)'; ls"
+else
+ ls_defs="--color=auto --group-directories-first"
+ ll_defs="-l ${ls_defs}"
+ alias ls="ls ${ls_defs}"
+ alias l="ls"
+ alias lsl="ls ${ll_defs}"
+ alias lsa="ls ${ll_defs} -A"
+ alias la="ls_col $@"
+ alias l1="ls ${ls_defs} -1p"
 fi
-alias l="ls"
-alias lsl='ls -l --group-directories-first'
-alias lsa='ls -lA --group-directories-first'
-alias lsb='ls -A'
-alias la='ls_col $@'
-alias lp='ls -1p --color --group-directories-first'
+alias nnn="nnn -aErx"
+alias n="nnn"
+alias nn="nnn -nea"
 alias g="git"
 alias mrstat="cd /dat && mr status | less"
 alias si='sxiv' #alias sx='sxiv'
 alias r='ranger'
-alias nnn="nnn -a"
-alias n="nnn -nea"
 alias e="${EDITOR}"
 alias v="vi"
 alias vc="cud && nvim -c Ntr"
